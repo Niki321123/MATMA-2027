@@ -1,60 +1,62 @@
-// app.js — główna logika aplikacji (tryby: Generator + Matura)
+// app.js — główna logika aplikacji
 (() => {
   'use strict';
 
-  const G = window.Generators;
+  const G  = window.Generators;
   const KR = window.KatexRenderer;
   const PT = window.ProgressTracker;
   const MT = window.MaturaTasks;
 
   // === Stan ===
-  let currentTask = null;
-  let hintsUsed = 0;
-  let taskAnswered = false;
-  let currentMode = 'generator';
+  let currentTask   = null;
+  let hintsUsed     = 0;
+  let taskAnswered  = false;
+  let currentMode   = 'generator';
+  let firstTaskShown = false;
 
-  // === Stan arkusza (symulacja) ===
-  let examTasks = [];
-  let examIndex = 0;
-  let examResults = []; // 'correct' | 'wrong' | 'skip' | null
+  // === Stan arkusza ===
+  let examTasks   = [];
+  let examIndex   = 0;
+  let examResults = [];
 
   // === DOM ===
   const $ = id => document.getElementById(id);
-  const elCatSelect = $('select-category');
-  const elBtnGenerate = $('btn-generate');
-  const elYearSelect = $('select-year');
+  const elCatSelect        = $('select-category');
+  const elBtnGenerate      = $('btn-generate');
+  const elYearSelect       = $('select-year');
   const elMaturaTaskSelect = $('select-matura-task');
-  const elBtnLoadMatura = $('btn-load-matura');
-  const elBtnRandomMatura = $('btn-random-matura');
-  const elPanelGen = $('control-panel-generator');
-  const elPanelMatura = $('control-panel-matura');
-  const elPanelExam = $('control-panel-symulacja');
-  const elExamNav = $('exam-nav');
-  const elExamNavPills = $('exam-nav-pills');
-  const elExamNavScore = $('exam-nav-score');
-  const elBtnStartExam = $('btn-start-exam');
-  const elModeTabs = $('mode-tabs');
-
-  const elTaskCard = $('task-card');
-  const elTaskStatement = $('task-statement');
-  const elTaskBadge = $('task-badge');
-  const elTaskPoints = $('task-points');
-  const elTaskSource = $('task-source');
-  const elBtnHint = $('btn-hint');
-  const elHintsList = $('hints-list');
-  const elSolutionPanel = $('solution-panel');
-  const elSolutionSteps = $('solution-steps');
-  const elAnswerDisplay = $('answer-display');
-  const elBtnSelfCorrect = $('btn-self-correct');
-  const elBtnSelfWrong = $('btn-self-wrong');
-  const elBtnShowSolution = $('btn-show-solution');
-  const elBtnNext = $('btn-next');
-  const elProgressSidebar = $('progress-sidebar');
-  const elToast = $('toast');
-  const elModalProgress = $('modal-progress');
-  const elBtnProgressOpen = $('btn-progress-open');
+  const elBtnLoadMatura    = $('btn-load-matura');
+  const elBtnRandomMatura  = $('btn-random-matura');
+  const elPanelGen         = $('control-panel-generator');
+  const elPanelMatura      = $('control-panel-matura');
+  const elPanelExam        = $('control-panel-symulacja');
+  const elExamNav          = $('exam-nav');
+  const elExamNavPills     = $('exam-nav-pills');
+  const elExamNavScore     = $('exam-nav-score');
+  const elBtnStartExam     = $('btn-start-exam');
+  const elModeTabs         = $('mode-tabs');
+  const elTaskCard         = $('task-card');
+  const elTaskStatement    = $('task-statement');
+  const elTaskBadge        = $('task-badge');
+  const elTaskPoints       = $('task-points');
+  const elTaskSource       = $('task-source');
+  const elBtnHint          = $('btn-hint');
+  const elHintsList        = $('hints-list');
+  const elSolutionPanel    = $('solution-panel');
+  const elSolutionSteps    = $('solution-steps');
+  const elAnswerDisplay    = $('answer-display');
+  const elBtnSelfCorrect   = $('btn-self-correct');
+  const elBtnSelfWrong     = $('btn-self-wrong');
+  const elBtnShowSolution  = $('btn-show-solution');
+  const elBtnNext          = $('btn-next');
+  const elProgressSidebar  = $('progress-sidebar');
+  const elToast            = $('toast');
+  const elModalProgress    = $('modal-progress');
+  const elBtnProgressOpen  = $('btn-progress-open');
   const elBtnProgressClose = $('btn-progress-close');
-  const elModalBody = $('modal-body');
+  const elModalBody        = $('modal-body');
+  const elLandingCard      = $('landing-card');
+  const elLimitBadge       = $('limit-badge');
 
   // === Inicjalizacja dropdownów ===
   function initCategorySelect() {
@@ -91,29 +93,51 @@
     });
   }
 
+  // === Limit badge ===
+  function updateLimitBadge() {
+    if (!elLimitBadge) return;
+    const SA = window.SupabaseAuth;
+    if (!SA?.isLoggedIn()) { elLimitBadge.classList.add('hidden'); return; }
+
+    const plan      = SA.getPlan();
+    const remaining = SA.getTasksRemaining();
+    const planLabels = { free: 'Free', pro: 'Pro', max: 'Max' };
+
+    let text = `${planLabels[plan] || 'Free'}`;
+    if (remaining !== Infinity) {
+      const cls = remaining <= 1 ? 'limit-low' : '';
+      text += ` · <span class="${cls}">${remaining} zad. dziś</span>`;
+    } else {
+      text += ' · ∞';
+    }
+
+    elLimitBadge.innerHTML = text;
+    elLimitBadge.className = `limit-badge plan-${plan}`;
+  }
+
   // === Tryby ===
   function switchMode(mode) {
     currentMode = mode;
-    elModeTabs.querySelectorAll('.mode-tab').forEach(b => {
-      b.classList.toggle('active', b.dataset.mode === mode);
-    });
-    elPanelGen.classList.toggle('hidden', mode !== 'generator');
-    elPanelMatura.classList.toggle('hidden', mode !== 'matura');
-    elPanelExam?.classList.toggle('hidden', mode !== 'symulacja');
-    elExamNav?.classList.toggle('hidden', mode !== 'symulacja' || examTasks.length === 0);
-    // Reset karty
+    elModeTabs.querySelectorAll('.mode-tab').forEach(b =>
+      b.classList.toggle('active', b.dataset.mode === mode)
+    );
+    elPanelGen.classList.toggle('hidden',    mode !== 'generator');
+    elPanelMatura?.classList.toggle('hidden', mode !== 'matura');
+    elPanelExam?.classList.toggle('hidden',  mode !== 'symulacja');
+    elExamNav?.classList.toggle('hidden',    mode !== 'symulacja' || examTasks.length === 0);
     elTaskCard.classList.add('hidden');
     elSolutionPanel.classList.add('hidden');
-    document.getElementById('exam-summary')?.remove();
+    $('exam-summary')?.remove();
     currentTask = null;
-    if (mode !== 'symulacja') {
-      examTasks = [];
-      examResults = [];
-    }
+    if (mode !== 'symulacja') { examTasks = []; examResults = []; }
   }
 
   // === Generowanie ===
-  function generateTask() {
+  async function generateTask() {
+    const SA = window.SupabaseAuth;
+    if (!SA?.isLoggedIn()) { openAuthModal(); return; }
+    if (!SA.canGenerateTask()) { openPricingModal('task-limit'); return; }
+
     const catVal = elCatSelect.value;
     try {
       currentTask = catVal === '0' ? G.generateRandom() : G.generate(parseInt(catVal));
@@ -122,43 +146,51 @@
       showToast('Błąd generowania zadania.', 'error');
       return;
     }
+    SA.trackTaskGenerated();
+    updateLimitBadge();
     displayTask(currentTask, false);
   }
 
-  function loadMaturaTask(id) {
+  async function loadMaturaTask(id) {
     if (!MT) return;
+    const SA = window.SupabaseAuth;
+    if (!SA?.isLoggedIn()) { openAuthModal(); return; }
+    if (!SA.canGenerateTask()) { openPricingModal('task-limit'); return; }
+
     const raw = id ? MT.getById(id) : MT.random();
-    if (!raw) {
-      showToast('Wybierz zadanie z listy.', 'warning');
-      return;
-    }
+    if (!raw) { showToast('Wybierz zadanie z listy.', 'warning'); return; }
     currentTask = MT.asTask(raw);
+    SA.trackTaskGenerated();
+    updateLimitBadge();
     displayTask(currentTask, true);
   }
 
-  function loadRandomMatura() {
+  async function loadRandomMatura() {
     if (!MT) return;
+    const SA = window.SupabaseAuth;
+    if (!SA?.isLoggedIn()) { openAuthModal(); return; }
+    if (!SA.canGenerateTask()) { openPricingModal('task-limit'); return; }
+
     const year = parseInt(elYearSelect.value);
-    const raw = year ? MT.randomByYear(year) : MT.random();
+    const raw  = year ? MT.randomByYear(year) : MT.random();
     if (!raw) return;
     currentTask = MT.asTask(raw);
+    SA.trackTaskGenerated();
+    updateLimitBadge();
     displayTask(currentTask, true);
   }
 
   function displayTask(task, isMatura) {
-    hintsUsed = 0;
+    hintsUsed    = 0;
     taskAnswered = false;
+    firstTaskShown = true;
 
-    // Badge kategorii
+    hideLanding();
+
     const meta = G.getMeta(task.category);
-    if (elTaskBadge && meta) {
-      elTaskBadge.textContent = `${meta.icon} ${meta.name}`;
-    } else if (elTaskBadge) {
-      elTaskBadge.textContent = task.categoryName || `Kat. ${task.category}`;
-    }
+    if (elTaskBadge) elTaskBadge.textContent = meta ? `${meta.icon} ${meta.name}` : (task.categoryName || `Kat. ${task.category}`);
     if (elTaskPoints) elTaskPoints.textContent = `${task.points} pkt`;
 
-    // Source badge (only for matura)
     if (elTaskSource) {
       if (isMatura) {
         elTaskSource.textContent = `📜 Matura ${task.year} z.${task.number}`;
@@ -168,10 +200,8 @@
       }
     }
 
-    // Statement
     if (elTaskStatement) KR.render(task.statement, elTaskStatement);
 
-    // Reset UI
     elTaskCard.classList.remove('hidden');
     elTaskCard.style.animation = 'none';
     requestAnimationFrame(() => { elTaskCard.style.animation = ''; });
@@ -183,6 +213,17 @@
     elBtnSelfWrong?.classList.add('hidden');
     elBtnShowSolution?.classList.remove('hidden');
     elBtnNext?.classList.add('hidden');
+  }
+
+  // === Landing (niezalogowany) ===
+  function showLanding() {
+    elLandingCard?.classList.remove('hidden');
+    elTaskCard?.classList.add('hidden');
+    elSolutionPanel?.classList.add('hidden');
+  }
+
+  function hideLanding() {
+    elLandingCard?.classList.add('hidden');
   }
 
   // === Wskazówki ===
@@ -203,9 +244,8 @@
     if (!currentTask) return;
     elSolutionPanel.classList.remove('hidden');
 
-    // Format odpowiedzi
     if (elAnswerDisplay) {
-      const ans = currentTask.answer;
+      const ans  = currentTask.answer;
       const desc = ans.description || ans.display;
       KR.render(`**Odpowiedź:** ${desc.includes('$') ? desc : `$${ans.display}$`}`, elAnswerDisplay);
     }
@@ -235,26 +275,17 @@
   function updateSidebar() {
     if (!elProgressSidebar) return;
     const today = PT.getTodayStats();
-    const cats = G.getAll();
+    const cats  = G.getAll();
     const accuracyPct = today.attempted > 0 ? Math.round(100 * today.correct / today.attempted) : 0;
 
     let html = `
       <div class="sb-header">
         <div class="sb-stat-row">
-          <div class="sb-stat">
-            <span class="sb-stat-val">${today.correct}</span>
-            <span class="sb-stat-lbl">Poprawnych</span>
-          </div>
+          <div class="sb-stat"><span class="sb-stat-val">${today.correct}</span><span class="sb-stat-lbl">Poprawnych</span></div>
           <div class="sb-stat-divider"></div>
-          <div class="sb-stat">
-            <span class="sb-stat-val">${today.attempted}</span>
-            <span class="sb-stat-lbl">Łącznie dziś</span>
-          </div>
+          <div class="sb-stat"><span class="sb-stat-val">${today.attempted}</span><span class="sb-stat-lbl">Łącznie dziś</span></div>
           <div class="sb-stat-divider"></div>
-          <div class="sb-stat">
-            <span class="sb-stat-val sb-stat-streak">🔥 ${today.streak}</span>
-            <span class="sb-stat-lbl">Dni z rzędu</span>
-          </div>
+          <div class="sb-stat"><span class="sb-stat-val sb-stat-streak">🔥 ${today.streak}</span><span class="sb-stat-lbl">Dni z rzędu</span></div>
         </div>
         ${today.attempted > 0 ? `
         <div class="sb-accuracy-bar-wrap">
@@ -268,11 +299,9 @@
     `;
 
     cats.forEach(cat => {
-      const pct = PT.getCategoryPercent(cat.id);
+      const pct  = PT.getCategoryPercent(cat.id);
       const fill = pct !== null ? pct : 0;
-      const pctStr = pct !== null ? `${pct}%` : '—';
-      const cs = PT.getCategoryStats ? PT.getCategoryStats(cat.id) : null;
-      const attempted = cs?.attempted || 0;
+      const cs   = PT.getCategoryStats ? PT.getCategoryStats(cat.id) : null;
       html += `
         <div class="sb-cat">
           <div class="sb-cat-left">
@@ -280,15 +309,12 @@
             <span class="sb-cat-name">${cat.name.length > 20 ? cat.name.substring(0,20)+'…' : cat.name}</span>
           </div>
           <div class="sb-cat-right">
-            <div class="sb-bar-track">
-              <div class="sb-bar-fill" style="width:${fill}%; background:${cat.color}"></div>
-            </div>
-            <span class="sb-cat-pct" style="color:${pct !== null && pct > 0 ? cat.color : 'var(--text-muted)'}">${pctStr}</span>
+            <div class="sb-bar-track"><div class="sb-bar-fill" style="width:${fill}%; background:${cat.color}"></div></div>
+            <span class="sb-cat-pct" style="color:${pct !== null && pct > 0 ? cat.color : 'var(--text-muted)'}">${pct !== null ? pct+'%' : '—'}</span>
           </div>
         </div>
       `;
     });
-
     html += '</div>';
     elProgressSidebar.innerHTML = html;
   }
@@ -296,26 +322,26 @@
   // === Modal statystyk ===
   function openProgressModal() {
     if (!elModalProgress) return;
-    const cats = G.getAll();
+    const cats  = G.getAll();
     const stats = PT.getStats();
     let html = `
       <div class="modal-stats-grid">
-        <div class="modal-stat-card"><div class="stat-num">${stats.totalAttempted || 0}</div><div class="stat-label">Zadań</div></div>
-        <div class="modal-stat-card"><div class="stat-num">${stats.totalCorrect || 0}</div><div class="stat-label">Poprawnych</div></div>
-        <div class="modal-stat-card"><div class="stat-num">${stats.streak || 0}</div><div class="stat-label">Dni z rzędu</div></div>
+        <div class="modal-stat-card"><div class="stat-num">${stats.totalAttempted||0}</div><div class="stat-label">Zadań</div></div>
+        <div class="modal-stat-card"><div class="stat-num">${stats.totalCorrect||0}</div><div class="stat-label">Poprawnych</div></div>
+        <div class="modal-stat-card"><div class="stat-num">${stats.streak||0}</div><div class="stat-label">Dni z rzędu</div></div>
         <div class="modal-stat-card"><div class="stat-num">${stats.totalAttempted ? Math.round(100*stats.totalCorrect/stats.totalAttempted) : 0}%</div><div class="stat-label">Skuteczność</div></div>
       </div>
       <h3 style="margin:1.5rem 0 1rem; color:var(--text-secondary)">Postęp per kategoria</h3>
     `;
     cats.forEach(cat => {
-      const pct = PT.getCategoryPercent(cat.id);
+      const pct  = PT.getCategoryPercent(cat.id);
       const fill = pct !== null ? pct : 0;
-      const cs = PT.getCategoryStats(cat.id);
+      const cs   = PT.getCategoryStats(cat.id);
       html += `
         <div class="modal-cat-row">
           <div class="modal-cat-info"><span style="color:${cat.color}">${cat.icon}</span> ${cat.id}. ${cat.name}</div>
           <div class="modal-cat-bar"><div class="modal-cat-fill" style="width:${fill}%; background:${cat.color}"></div></div>
-          <div class="modal-cat-pct">${pct !== null ? pct + '%' : '—'} <small>(${cs?.attempted || 0})</small></div>
+          <div class="modal-cat-pct">${pct !== null ? pct+'%' : '—'} <small>(${cs?.attempted||0})</small></div>
         </div>
       `;
     });
@@ -323,32 +349,146 @@
     elModalProgress.classList.remove('hidden');
   }
 
+  // === Pricing modal ===
+  const PLAN_INFO = {
+    free: {
+      label: 'Free',
+      price: '0 zł',
+      period: 'na zawsze',
+      features: ['3 zadania dziennie', 'Statystyki podstawowe'],
+      missing:  ['Symulacja matury', 'Synchronizacja w chmurze'],
+      color: 'var(--text-muted)',
+    },
+    pro: {
+      label: 'Pro',
+      price: '5 zł',
+      period: '/ miesiąc',
+      features: ['10 zadań dziennie', '1 symulacja matury dziennie', 'Statystyki per kategoria', 'Sync w chmurze'],
+      missing:  [],
+      color: 'var(--accent-blue)',
+      featured: true,
+    },
+    max: {
+      label: 'Max',
+      price: '10 zł',
+      period: '/ miesiąc',
+      features: ['Nieograniczone zadania', 'Nieograniczone matury', 'Wszystkie funkcje Pro'],
+      missing:  [],
+      color: 'var(--accent-purple)',
+    },
+  };
+
+  function openPricingModal(reason) {
+    const SA     = window.SupabaseAuth;
+    const modal  = $('modal-pricing');
+    const cards  = $('pricing-cards');
+    const msgEl  = $('pricing-limit-msg');
+    if (!modal || !cards) return;
+
+    const currentPlan = SA?.isLoggedIn() ? SA.getPlan() : 'none';
+
+    if (msgEl) {
+      if (reason === 'task-limit') {
+        const plan = SA?.getPlan() || 'free';
+        const limit = plan === 'free' ? 3 : 10;
+        msgEl.textContent = `Osiągnąłeś dzienny limit ${limit} zadań dla planu ${PLAN_INFO[plan]?.label}. Przejdź na wyższy plan, aby kontynuować.`;
+        msgEl.classList.remove('hidden');
+      } else if (reason === 'matura-limit') {
+        msgEl.textContent = 'Symulacja matury jest dostępna od planu Pro.';
+        msgEl.classList.remove('hidden');
+      } else {
+        msgEl.classList.add('hidden');
+      }
+    }
+
+    cards.innerHTML = Object.entries(PLAN_INFO).map(([planId, info]) => {
+      const isCurrent  = currentPlan === planId;
+      const isDowngrade = planId === 'free' && currentPlan !== 'none' && currentPlan !== 'free';
+      const featuresHtml = info.features.map(f => `<li class="pc-feat pc-feat--yes">✓ ${f}</li>`).join('');
+      const missingHtml  = info.missing.map(f =>  `<li class="pc-feat pc-feat--no">✗ ${f}</li>`).join('');
+
+      let btnHtml;
+      if (isCurrent) {
+        btnHtml = `<button class="btn btn-ghost btn-full pc-btn" disabled>Obecny plan</button>`;
+      } else if (isDowngrade) {
+        btnHtml = `<button class="btn btn-ghost btn-full pc-btn" disabled>Dostępny po anulowaniu</button>`;
+      } else if (planId === 'free') {
+        btnHtml = `<button class="btn btn-ghost btn-full pc-btn" id="btn-plan-free">Zaloguj się za darmo</button>`;
+      } else {
+        btnHtml = `<button class="btn btn-primary btn-full pc-btn" data-plan="${planId}" id="btn-plan-${planId}">Wybierz ${info.label}</button>`;
+      }
+
+      return `
+        <div class="pricing-card ${info.featured ? 'pricing-card--featured' : ''}">
+          ${info.featured ? '<div class="pc-popular">Najpopularniejszy</div>' : ''}
+          ${isCurrent    ? '<div class="pc-current-tag">Twój plan</div>' : ''}
+          <div class="pc-name" style="color:${info.color}">${info.label}</div>
+          <div class="pc-price-row">
+            <span class="pc-amount">${info.price}</span>
+            <span class="pc-period">${info.period}</span>
+          </div>
+          <ul class="pc-features">${featuresHtml}${missingHtml}</ul>
+          ${btnHtml}
+        </div>
+      `;
+    }).join('');
+
+    // Bind buttons
+    $('btn-plan-free')?.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      openAuthModal();
+    });
+    ['pro', 'max'].forEach(planId => {
+      $(`btn-plan-${planId}`)?.addEventListener('click', () => handleUpgrade(planId));
+    });
+
+    modal.classList.remove('hidden');
+  }
+
+  async function handleUpgrade(plan) {
+    const SA = window.SupabaseAuth;
+    if (!SA?.isLoggedIn()) { openAuthModal(); return; }
+
+    const btn = $(`btn-plan-${plan}`);
+    if (btn) { btn.textContent = 'Przekierowuję…'; btn.disabled = true; }
+
+    try {
+      const url = await SA.createCheckoutSession(plan);
+      window.location.href = url;
+    } catch (err) {
+      showToast(err.message || 'Błąd płatności.', 'error');
+      if (btn) { btn.textContent = `Wybierz ${PLAN_INFO[plan]?.label}`; btn.disabled = false; }
+    }
+  }
+
   function showToast(msg, type = 'info') {
     if (!elToast) return;
     elToast.textContent = msg;
     elToast.className = `toast toast-${type} show`;
-    setTimeout(() => { elToast.className = 'toast'; }, 3000);
+    setTimeout(() => { elToast.className = 'toast'; }, 3500);
   }
 
   // === Symulacja matury ===
-
   const EXAM_CATS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
-  function generateExam() {
-    examTasks = [];
+  async function generateExam() {
+    const SA = window.SupabaseAuth;
+    if (!SA?.isLoggedIn()) { openAuthModal(); return; }
+    if (!SA.canStartMatura()) { openPricingModal('matura-limit'); return; }
+
+    examTasks   = [];
     examResults = [];
-    const cats = [...EXAM_CATS].sort(() => Math.random() - 0.5).slice(0, 12);
+    const cats  = [...EXAM_CATS].sort(() => Math.random() - 0.5).slice(0, 12);
     cats.forEach(catId => {
       try {
-        const task = G.generate(catId);
-        examTasks.push(task);
+        examTasks.push(G.generate(catId));
         examResults.push(null);
-      } catch (e) { /* skip if generator fails */ }
+      } catch (e) { /* skip */ }
     });
-    if (examTasks.length === 0) {
-      showToast('Błąd generowania arkusza.', 'error');
-      return;
-    }
+    if (examTasks.length === 0) { showToast('Błąd generowania arkusza.', 'error'); return; }
+
+    SA.trackMaturaStarted();
+    updateLimitBadge();
     examIndex = 0;
     elExamNav?.classList.remove('hidden');
     renderExamNav();
@@ -356,10 +496,9 @@
   }
 
   function loadExamTask(idx) {
-    examIndex = idx;
+    examIndex   = idx;
     currentTask = examTasks[idx];
     displayTask(currentTask, false);
-    // Override badge to show task number
     if (elTaskBadge) elTaskBadge.textContent = `Zad. ${idx + 1}/${examTasks.length}`;
     if (elTaskSource) {
       elTaskSource.textContent = `🎓 Arkusz — ${currentTask.categoryName}`;
@@ -377,7 +516,7 @@
       pill.className = 'exam-pill';
       pill.textContent = i + 1;
       pill.title = `${i + 1}. ${t.categoryName} (${t.points} pkt)`;
-      if (i === examIndex) pill.classList.add('active');
+      if (i === examIndex)            pill.classList.add('active');
       else if (examResults[i] === 'correct') pill.classList.add('correct');
       else if (examResults[i] === 'wrong')   pill.classList.add('wrong');
       else if (examResults[i] === 'skip')    pill.classList.add('skipped');
@@ -389,9 +528,8 @@
       });
       elExamNavPills.appendChild(pill);
     });
-    // Score
     const answered = examResults.filter(r => r !== null).length;
-    const pts = examResults.reduce((sum, r, i) => sum + (r === 'correct' ? examTasks[i].points : 0), 0);
+    const pts    = examResults.reduce((s, r, i) => s + (r === 'correct' ? examTasks[i].points : 0), 0);
     const maxPts = examTasks.reduce((s, t) => s + t.points, 0);
     if (elExamNavScore) {
       elExamNavScore.textContent = answered < examTasks.length
@@ -409,63 +547,45 @@
     showToast(correct ? 'Dobrze! ✓' : 'Zaznaczono jako błędne.', correct ? 'success' : 'warning');
     elBtnSelfCorrect?.classList.add('hidden');
     elBtnSelfWrong?.classList.add('hidden');
-    // Check if more tasks remain
     const remaining = examResults.findIndex(r => r === null);
     if (remaining !== -1) {
-      const nextIdx = examResults.findIndex((r, i) => r === null && i > examIndex);
+      const nextIdx  = examResults.findIndex((r, i) => r === null && i > examIndex);
       const labelIdx = nextIdx !== -1 ? nextIdx : remaining;
-      if (elBtnNext) {
-        elBtnNext.textContent = `→ Zadanie ${labelIdx + 1}`;
-        elBtnNext.classList.remove('hidden');
-      }
+      if (elBtnNext) { elBtnNext.textContent = `→ Zadanie ${labelIdx + 1}`; elBtnNext.classList.remove('hidden'); }
     } else {
-      if (elBtnNext) {
-        elBtnNext.textContent = '📊 Pokaż wyniki';
-        elBtnNext.classList.remove('hidden');
-      }
+      if (elBtnNext) { elBtnNext.textContent = '📊 Pokaż wyniki'; elBtnNext.classList.remove('hidden'); }
     }
     updateSidebar();
   }
 
   function advanceExam() {
-    const allAnswered = examResults.every(r => r !== null);
-    if (allAnswered) {
-      showExamSummary();
-      return;
-    }
-    // Go to next unanswered, wrapping around from current position
+    if (examResults.every(r => r !== null)) { showExamSummary(); return; }
     let next = -1;
-    for (let i = examIndex + 1; i < examTasks.length; i++) {
-      if (examResults[i] === null) { next = i; break; }
-    }
-    if (next === -1) {
-      for (let i = 0; i < examIndex; i++) {
-        if (examResults[i] === null) { next = i; break; }
-      }
-    }
+    for (let i = examIndex + 1; i < examTasks.length; i++) { if (examResults[i] === null) { next = i; break; } }
+    if (next === -1) { for (let i = 0; i < examIndex; i++) { if (examResults[i] === null) { next = i; break; } } }
     if (next !== -1) loadExamTask(next);
     else showExamSummary();
   }
 
   function showExamSummary() {
-    const pts = examResults.reduce((sum, r, i) => sum + (r === 'correct' ? examTasks[i].points : 0), 0);
+    const pts    = examResults.reduce((s, r, i) => s + (r === 'correct' ? examTasks[i].points : 0), 0);
     const maxPts = examTasks.reduce((s, t) => s + t.points, 0);
-    const pct = Math.round(100 * pts / maxPts);
-    const pass = pct >= 30; // próg zdawalności
+    const pct    = Math.round(100 * pts / maxPts);
+    const pass   = pct >= 30;
+
     const breakdownHtml = examTasks.map((t, i) => {
-      const r = examResults[i];
+      const r   = examResults[i];
       const cls = r === 'correct' ? 'correct-row' : r === 'wrong' ? 'wrong-row' : 'skip-row';
       const icon = r === 'correct' ? '✓' : r === 'wrong' ? '✗' : '—';
-      return `<div class="exam-breakdown-row ${cls}">
-        <span class="task-num">${icon} Zad. ${i + 1}</span> (${t.points} pkt)
-        <div class="cat-name">${t.categoryName}</div>
-      </div>`;
+      return `<div class="exam-breakdown-row ${cls}"><span class="task-num">${icon} Zad. ${i+1}</span> (${t.points} pkt)<div class="cat-name">${t.categoryName}</div></div>`;
     }).join('');
 
     elTaskCard.classList.add('hidden');
     elSolutionPanel.classList.add('hidden');
+    $('exam-summary')?.remove();
 
     const summaryEl = document.createElement('div');
+    summaryEl.id = 'exam-summary';
     summaryEl.className = 'exam-summary-card';
     summaryEl.innerHTML = `
       <h2>Wyniki arkusza</h2>
@@ -474,30 +594,17 @@
       <div class="exam-breakdown">${breakdownHtml}</div>
       <button class="btn btn-primary" id="btn-new-exam">🎓 Nowy arkusz</button>
     `;
-    const section = document.querySelector('.task-section');
-    // Remove old summary if exists
-    const old = document.getElementById('exam-summary');
-    if (old) old.remove();
-    summaryEl.id = 'exam-summary';
-    section.appendChild(summaryEl);
+    document.querySelector('.task-section').appendChild(summaryEl);
     summaryEl.scrollIntoView({ behavior: 'smooth' });
-
-    document.getElementById('btn-new-exam')?.addEventListener('click', () => {
-      summaryEl.remove();
-      generateExam();
-    });
-    if (elExamNavScore) {
-      const answered = examResults.filter(r => r !== null).length;
-      elExamNavScore.textContent = `${pts}/${maxPts} pkt (${pct}%)`;
-    }
+    $('btn-new-exam')?.addEventListener('click', () => { summaryEl.remove(); generateExam(); });
+    if (elExamNavScore) elExamNavScore.textContent = `${pts}/${maxPts} pkt (${pct}%)`;
   }
 
-  // === Event listeners ===
+  // === Events ===
   function initEvents() {
     elBtnGenerate?.addEventListener('click', () => {
       if (currentMode === 'matura') {
-        const id = elMaturaTaskSelect?.value;
-        id ? loadMaturaTask(id) : loadRandomMatura();
+        elMaturaTaskSelect?.value ? loadMaturaTask(elMaturaTaskSelect.value) : loadRandomMatura();
       } else if (currentMode === 'symulacja') {
         generateExam();
       } else {
@@ -522,11 +629,17 @@
       else if (currentMode === 'matura') loadRandomMatura();
       else generateTask();
     });
+
     elBtnProgressOpen?.addEventListener('click', openProgressModal);
     elBtnProgressClose?.addEventListener('click', () => elModalProgress?.classList.add('hidden'));
-    elModalProgress?.addEventListener('click', e => {
-      if (e.target === elModalProgress) elModalProgress.classList.add('hidden');
-    });
+    elModalProgress?.addEventListener('click', e => { if (e.target === elModalProgress) elModalProgress.classList.add('hidden'); });
+
+    $('btn-pricing-close')?.addEventListener('click', () => $('modal-pricing')?.classList.add('hidden'));
+    $('modal-pricing')?.addEventListener('click', e => { if (e.target === $('modal-pricing')) $('modal-pricing').classList.add('hidden'); });
+
+    $('btn-landing-login')?.addEventListener('click', openAuthModal);
+    $('btn-landing-plans')?.addEventListener('click', () => openPricingModal());
+    $('btn-open-pricing')?.addEventListener('click', () => openPricingModal());
 
     document.addEventListener('keydown', e => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
@@ -542,41 +655,60 @@
 
   // === AUTH ===
   const SA = window.SupabaseAuth;
-  const elBtnAuthOpen   = $('btn-auth-open');
-  const elBtnUserMenu   = $('btn-user-menu');
-  const elModalAuth     = $('modal-auth');
-  const elBtnAuthClose  = $('btn-auth-close');
-  const elModalUser     = $('modal-user');
-  const elBtnUserClose  = $('btn-user-close');
-  const elBtnLogout     = $('btn-logout');
-  const elAuthForm      = $('auth-form');
-  const elAuthEmail     = $('auth-email');
-  const elAuthPassword  = $('auth-password');
-  const elAuthSubmit    = $('auth-submit');
-  const elAuthError     = $('auth-error');
-  const elAuthTabs      = document.querySelectorAll('.auth-tab');
-  let authMode = 'login'; // 'login' | 'register'
+
+  const elBtnAuthOpen  = $('btn-auth-open');
+  const elBtnUserMenu  = $('btn-user-menu');
+  const elModalAuth    = $('modal-auth');
+  const elBtnAuthClose = $('btn-auth-close');
+  const elModalUser    = $('modal-user');
+  const elBtnUserClose = $('btn-user-close');
+  const elBtnLogout    = $('btn-logout');
+  const elAuthForm     = $('auth-form');
+  const elAuthEmail    = $('auth-email');
+  const elAuthPassword = $('auth-password');
+  const elAuthSubmit   = $('auth-submit');
+  const elAuthError    = $('auth-error');
+  const elAuthTabs     = document.querySelectorAll('.auth-tab');
+  let authMode = 'login';
+
+  function openAuthModal() {
+    elModalAuth?.classList.remove('hidden');
+    elAuthEmail?.focus();
+  }
 
   function onAuthChange(user) {
-    const elAvatar    = $('user-avatar');
+    const elAvatar     = $('user-avatar');
     const elEmailShort = $('user-email-short');
-    const elUmAvatar  = $('um-avatar');
-    const elUmEmail   = $('um-email');
+    const elUmAvatar   = $('um-avatar');
+    const elUmEmail    = $('um-email');
+    const elUmPlan     = $('um-plan');
 
     if (user) {
       const letter = (user.email || user.user_metadata?.name || '?')[0].toUpperCase();
       const short  = (user.email || '').replace(/@.*/, '');
       elBtnAuthOpen?.classList.add('hidden');
       elBtnUserMenu?.classList.remove('hidden');
-      if (elAvatar) elAvatar.textContent = letter;
+      if (elAvatar)     elAvatar.textContent     = letter;
       if (elEmailShort) elEmailShort.textContent = short;
-      if (elUmAvatar) elUmAvatar.textContent = letter;
-      if (elUmEmail) elUmEmail.textContent = user.email || '';
-      // Załaduj postęp z chmury
-      syncProgressFromCloud();
+      if (elUmAvatar)   elUmAvatar.textContent   = letter;
+      if (elUmEmail)    elUmEmail.textContent     = user.email || '';
+
+      const plan = SA?.getPlan() || 'free';
+      const planLabels = { free: 'Free', pro: 'Pro 🚀', max: 'Max ✨' };
+      if (elUmPlan) {
+        elUmPlan.textContent  = `Plan: ${planLabels[plan] || plan}`;
+        elUmPlan.className    = `user-modal-plan plan-${plan}`;
+      }
+
+      updateLimitBadge();
+
+      if (!firstTaskShown) generateTask();
+      else syncProgressFromCloud();
     } else {
       elBtnAuthOpen?.classList.remove('hidden');
       elBtnUserMenu?.classList.add('hidden');
+      elLimitBadge?.classList.add('hidden');
+      showLanding();
     }
     updateSidebar();
   }
@@ -584,8 +716,8 @@
   async function syncProgressFromCloud() {
     if (!SA?.isLoggedIn()) return;
     const [progress, daily] = await Promise.all([SA.fetchProgress(), SA.fetchDailyStats()]);
-    if (progress) PT.loadFromCloud(progress);
-    if (daily)    PT.loadDailyFromCloud(daily);
+    if (progress) PT.loadFromCloud?.(progress);
+    if (daily)    PT.loadDailyFromCloud?.(daily);
     updateSidebar();
   }
 
@@ -604,16 +736,18 @@
   }
 
   function initAuthEvents() {
-    elBtnAuthOpen?.addEventListener('click', () => {
-      elModalAuth?.classList.remove('hidden');
-      elAuthEmail?.focus();
-    });
+    elBtnAuthOpen?.addEventListener('click', openAuthModal);
     elBtnAuthClose?.addEventListener('click', () => elModalAuth?.classList.add('hidden'));
     elModalAuth?.addEventListener('click', e => { if (e.target === elModalAuth) elModalAuth.classList.add('hidden'); });
 
     elBtnUserMenu?.addEventListener('click', () => elModalUser?.classList.remove('hidden'));
     elBtnUserClose?.addEventListener('click', () => elModalUser?.classList.add('hidden'));
     elModalUser?.addEventListener('click', e => { if (e.target === elModalUser) elModalUser.classList.add('hidden'); });
+
+    $('btn-um-upgrade')?.addEventListener('click', () => {
+      elModalUser?.classList.add('hidden');
+      openPricingModal();
+    });
 
     elAuthTabs.forEach(t => t.addEventListener('click', () => setAuthTab(t.dataset.tab)));
 
@@ -634,9 +768,9 @@
         }
         elModalAuth?.classList.add('hidden');
       } catch (err) {
-        const msg = err.message?.includes('Invalid login') ? 'Błędny email lub hasło.'
-          : err.message?.includes('already registered') ? 'Ten email jest już zarejestrowany.'
-          : err.message?.includes('Password should') ? 'Hasło musi mieć min. 6 znaków.'
+        const msg = err.message?.includes('Invalid login')       ? 'Błędny email lub hasło.'
+          : err.message?.includes('already registered')          ? 'Ten email jest już zarejestrowany.'
+          : err.message?.includes('Password should')             ? 'Hasło musi mieć min. 6 znaków.'
           : err.message || 'Coś poszło nie tak.';
         showAuthError(msg);
       } finally {
@@ -648,19 +782,33 @@
     elBtnLogout?.addEventListener('click', async () => {
       await SA?.signOut();
       elModalUser?.classList.add('hidden');
+      firstTaskShown = false;
       showToast('Wylogowano.', 'info');
     });
   }
 
   // === Init ===
   function init() {
+    // Obsłuż powrót po płatności
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('payment') === 'success') {
+      showToast('Płatność zakończona! Plan zostanie aktywowany za chwilę.', 'success');
+      history.replaceState({}, '', window.location.pathname);
+    } else if (params.get('payment') === 'cancel') {
+      showToast('Płatność anulowana.', 'warning');
+      history.replaceState({}, '', window.location.pathname);
+    }
+
     initCategorySelect();
     initYearSelect();
     initEvents();
     initAuthEvents();
+
+    // Pokaż landing dopóki nie znamy stanu auth
+    showLanding();
+
     SA?.init(onAuthChange);
     updateSidebar();
-    generateTask();
   }
 
   if (document.readyState === 'loading') {
