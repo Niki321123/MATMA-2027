@@ -6,25 +6,20 @@ window.cat01 = (() => {
   const M = window.MathUtils;
 
   // === SCHEMAT A: wzrost populacji N(t) = N₀ · kᵗ ===
-  function growthModel(diff) {
+  function growthModel() {
     const contexts = [
       { what: 'populacja bakterii', unit: '', verb: 'Liczebność', symbol: 'N' },
       { what: 'liczba komórek', unit: '', verb: 'Liczba komórek', symbol: 'N' },
       { what: 'wartość inwestycji (w tys. zł)', unit: ' tys. zł', verb: 'Wartość', symbol: 'V' },
+      { what: 'masa próbki', unit: ' mg', verb: 'Masa', symbol: 'M' },
     ];
     const ctx = M.choose(contexts);
 
-    // N₀ i k takie żeby N(T) / N₀ = kᵗ było ładne
-    const T = diff === 'easy' ? M.choose([1, 2]) : M.choose([2, 3, 4]);
-    // Dobieramy k jako ładny ułamek: k = (p/q)
-    const bases = diff === 'easy'
-      ? [{p:5,q:4},{p:3,q:2},{p:2,q:1},{p:4,q:3}]
-      : [{p:5,q:4},{p:3,q:2},{p:7,q:4},{p:5,q:3},{p:4,q:3}];
+    const T = M.choose([2, 3, 4, 5]);
+    const bases = [{p:5,q:4},{p:3,q:2},{p:7,q:4},{p:5,q:3},{p:4,q:3},{p:6,q:5}];
     const base = M.choose(bases);
 
-    // N₀ powinno być ładne, N(T) = N₀ · (p/q)^T też
-    // Dobieramy N₀ = q^T · m dla jakiegoś małego m
-    const m0_mult = M.choose(diff === 'easy' ? [100,200,500,1000] : [50,100,200,400,800]);
+    const m0_mult = M.choose([50,100,200,400,800,1000]);
     const N0 = Math.pow(base.q, T) * m0_mult;
     const NT = Math.pow(base.p, T) * m0_mult;
 
@@ -38,7 +33,6 @@ window.cat01 = (() => {
       category: 1,
       categoryName: 'Funkcja wykładnicza w praktyce',
       type: 'growth_model',
-      difficulty: diff,
       points: 2,
       params: { N0, NT, T, base, growthPct },
       statement:
@@ -80,23 +74,18 @@ window.cat01 = (() => {
   }
 
   // === SCHEMAT B: ochładzanie / zanik T(t) = T₀ · k^(-t) + Tenv ===
-  function decayModel(diff) {
+  function decayModel() {
     const contexts = [
       { obj: 'gorąca kawa', T0: 80, Tenv: 20, unit: '°C', verb: 'Temperatura' },
       { obj: 'gorąca herbata', T0: 90, Tenv: 20, unit: '°C', verb: 'Temperatura' },
-      { obj: 'substancja radioaktywna', T0: null, Tenv: 0, unit: ' g', verb: 'Masa' },
+      { obj: 'zupa', T0: 95, Tenv: 22, unit: '°C', verb: 'Temperatura' },
     ];
-    const ctx = M.choose(contexts.slice(0, 2)); // tylko ochładzanie
+    const ctx = M.choose(contexts);
 
-    // T(t) = (T0 - Tenv) · k^(-t) + Tenv
-    // Po t1 minutach: T1 znane
     const T0 = ctx.T0, Tenv = ctx.Tenv;
-    const t1 = diff === 'easy' ? M.choose([5, 10]) : M.choose([10, 15, 20]);
+    const t1 = M.choose([10, 15, 20, 30]);
 
-    // Dobieramy k tak żeby k^(-t1) był ładny
-    const fracs = diff === 'easy'
-      ? [{p:1,q:2},{p:3,q:4},{p:2,q:3}]
-      : [{p:3,q:4},{p:4,q:5},{p:5,q:6},{p:2,q:3}];
+    const fracs = [{p:3,q:4},{p:4,q:5},{p:5,q:6},{p:2,q:3},{p:7,q:8}];
     const frac = M.choose(fracs);
 
     // T(t1) = (T0-Tenv)·(p/q) + Tenv
@@ -104,7 +93,7 @@ window.cat01 = (() => {
     const T1 = diff_T * frac.p / frac.q + Tenv;
 
     // Pytanie: oblicz temperaturę po t2 minutach
-    const t2 = t1 + M.choose(diff === 'easy' ? [5] : [5, 10]);
+    const t2 = t1 + M.choose([5, 10, 15]);
     // k^(1/t1) = (p/q)^(1/t1) → T(t2) = (T0-Tenv)·(p/q)^(t2/t1) + Tenv
     const ratio = frac.p / frac.q;
     const T2 = diff_T * Math.pow(ratio, t2 / t1) + Tenv;
@@ -115,7 +104,6 @@ window.cat01 = (() => {
       category: 1,
       categoryName: 'Funkcja wykładnicza w praktyce',
       type: 'decay_model',
-      difficulty: diff,
       points: 2,
       params: { T0, Tenv, t1, T1: Math.round(T1), t2, T2_round, frac },
       statement:
@@ -153,18 +141,14 @@ window.cat01 = (() => {
   }
 
   // === SCHEMAT C: rozpad substancji m(t) = m₀ · q^t ===
-  function substanceDecay(diff) {
-    const pcts = diff === 'easy'
-      ? [{lose: 50, q: {p:1,q:2}}]
-      : [{lose: 25, q:{p:3,q:4}}, {lose: 20, q:{p:4,q:5}}, {lose: 10, q:{p:9,q:10}}];
+  function substanceDecay() {
+    const pcts = [{lose: 25, q:{p:3,q:4}}, {lose: 20, q:{p:4,q:5}}, {lose: 10, q:{p:9,q:10}}, {lose: 30, q:{p:7,q:10}}];
     const chosen = M.choose(pcts);
-    const m0 = M.choose(diff === 'easy' ? [4,8,16,32] : [4,8,10,16,20,25,32]);
+    const m0 = M.choose([4,8,10,16,20,25,32,50]);
     const losePercent = chosen.lose;
     const q = chosen.q;
-    // m(t) = m0 · (p/q)^t
-    const target = diff === 'easy' ? m0 / 2 : m0 * q.p * q.p / (q.q * q.q); // po 2 dobach
-    // Oblicz po ilu dobach < target2
-    const threshold = diff === 'easy' ? m0 / 4 : m0 / 8;
+    const target = m0 * q.p * q.p / (q.q * q.q);
+    const threshold = m0 / 8;
     // m0 · (p/q)^t < threshold  → t > log(threshold/m0) / log(p/q)
     const tMin = Math.ceil(Math.log(threshold / m0) / Math.log(q.p / q.q));
 
@@ -173,7 +157,6 @@ window.cat01 = (() => {
       category: 1,
       categoryName: 'Funkcja wykładnicza w praktyce',
       type: 'substance_decay',
-      difficulty: diff,
       points: 2,
       params: { m0, losePercent, q, threshold, tMin },
       statement:
@@ -212,10 +195,9 @@ window.cat01 = (() => {
     };
   }
 
-  function generate(diff = 'medium') {
-    const gen = M.choose([growthModel, decayModel, substanceDecay]);
-    return gen(diff);
+  function generate() {
+    return M.choose([growthModel, decayModel, substanceDecay])();
   }
 
-  return { generate, easy: () => generate('easy'), medium: () => generate('medium'), hard: () => generate('hard') };
+  return { generate };
 })();

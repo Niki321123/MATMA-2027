@@ -132,12 +132,10 @@ window.cat08 = (() => {
   ];
 
   // Generator parametryczny: trójkąt prostokątny z ładnymi liczbami
-  function rightTriangle(diff) {
-    const triples = M.pythagoreanTriple ? M.pythagoreanTriple() : null;
-    // Fallback jeśli MathUtils nie ma pythagoreanTriple
-    const TRIPLES = [[3,4,5],[5,12,13],[8,15,17],[7,24,25],[6,8,10],[9,12,15],[5,10,13]];
+  function rightTriangle() {
+    const TRIPLES = [[3,4,5],[5,12,13],[8,15,17],[7,24,25],[9,40,41],[6,8,10],[9,12,15]];
     const [a, b, c] = M.choose(TRIPLES);
-    const scale = M.choose(diff === 'easy' ? [1,2] : [1,2,3]);
+    const scale = M.choose([1,2,3]);
     const A = a * scale, B = b * scale, C = c * scale;
     const area = A * B / 2;
     const h = 2 * area / C;
@@ -148,7 +146,6 @@ window.cat08 = (() => {
       category: 8,
       categoryName: 'Planimetria',
       type: 'right_triangle',
-      difficulty: diff,
       points: 3,
       params: { A, B, C, area, h },
       statement:
@@ -174,21 +171,16 @@ window.cat08 = (() => {
     };
   }
 
-  function generate(diff = 'medium') {
-    const pool = TASKS.filter(t => t.difficulty === diff);
-    const chosen = pool.length > 0 ? M.choose(pool) : M.choose(TASKS);
-
-    if (diff === 'easy' && Math.random() < 0.5) {
-      return rightTriangle(diff);
-    }
+  function generate() {
+    const pool = TASKS.filter(t => t.difficulty === 'medium' || t.difficulty === 'hard');
+    const chosen = M.choose(pool.length > 0 ? pool : TASKS);
 
     return {
       id: M.makeId('cat08'),
       category: 8,
       categoryName: 'Planimetria',
       type: 'geometry_proof',
-      difficulty: diff,
-      points: diff === 'easy' ? 3 : 4,
+      points: 4,
       params: {},
       statement: chosen.statement,
       answer: {
@@ -201,5 +193,5 @@ window.cat08 = (() => {
     };
   }
 
-  return { generate, easy: () => generate('easy'), medium: () => generate('medium'), hard: () => generate('hard') };
+  return { generate };
 })();

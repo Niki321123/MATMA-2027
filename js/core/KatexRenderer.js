@@ -127,7 +127,10 @@ const KatexRenderer = (() => {
 
       const mathEl = document.createElement('div');
       mathEl.className = 'step-math';
-      render(step.content || '', mathEl);
+      const rawContent = step.content || '';
+      // Jeśli brak delimitatorów $, renderuj jako blok LaTeX
+      const wrappedContent = rawContent.includes('$') ? rawContent : `$$${rawContent}$$`;
+      render(wrappedContent, mathEl);
       contentEl.appendChild(mathEl);
 
       if (step.explanation) {

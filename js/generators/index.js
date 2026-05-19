@@ -26,17 +26,17 @@ window.Generators = (() => {
     return CATEGORIES;
   }
 
-  function generate(categoryId, difficulty = 'medium') {
+  function generate(categoryId) {
     const meta = getMeta(categoryId);
     if (!meta) throw new Error(`Nieznana kategoria: ${categoryId}`);
     const gen = meta.gen();
     if (!gen) throw new Error(`Generator kategorii ${categoryId} nie jest załadowany`);
-    return gen.generate(difficulty);
+    return gen.generate();
   }
 
-  function generateRandom(difficulty = 'medium') {
+  function generateRandom() {
     const meta = CATEGORIES[Math.floor(Math.random() * CATEGORIES.length)];
-    return generate(meta.id, difficulty);
+    return generate(meta.id);
   }
 
   return { getMeta, getAll, generate, generateRandom };

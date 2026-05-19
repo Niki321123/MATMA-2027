@@ -6,10 +6,10 @@ window.cat11 = (() => {
   const M = window.MathUtils;
 
   // === Okrąg i prosta styczna ===
-  function circleTangent(diff) {
-    const cx = M.choose(diff === 'easy' ? [-2,-1,0,1,2] : [-4,-3,-2,-1,0,1,2,3,4]);
-    const cy = M.choose(diff === 'easy' ? [-2,-1,0,1,2] : [-4,-3,-2,-1,0,1,2,3,4]);
-    const r = M.choose(diff === 'easy' ? [2,3,4,5] : [1,2,3,4,5,6]);
+  function circleTangent() {
+    const cx = M.choose([-4,-3,-2,-1,0,1,2,3,4]);
+    const cy = M.choose([-4,-3,-2,-1,0,1,2,3,4]);
+    const r = M.choose([2,3,4,5,6,7]);
 
     // Punkt na okręgu - wybieramy tak, żeby styczna miała ładne równanie
     // Punkt P = (cx + r, cy) - prawa część okręgu
@@ -53,7 +53,6 @@ window.cat11 = (() => {
       category: 11,
       categoryName: 'Geometria analityczna',
       type: 'circle_tangent',
-      difficulty: diff,
       points: 4,
       params: { cx, cy, r, px, py },
       statement:
@@ -79,11 +78,11 @@ window.cat11 = (() => {
   }
 
   // === Prosta przez dwa punkty ===
-  function lineThrough(diff) {
-    const x1 = M.choose(diff === 'easy' ? [-2,-1,0,1,2] : [-4,-3,-2,-1,0,1,2,3,4]);
-    const y1 = M.choose(diff === 'easy' ? [-2,-1,0,1,2] : [-4,-3,-2,-1,0,1,2,3,4]);
-    const x2 = x1 + M.choose(diff === 'easy' ? [1,2,3] : [-3,-2,-1,1,2,3,4]);
-    const y2 = y1 + M.choose(diff === 'easy' ? [1,2,3] : [-4,-3,-2,-1,1,2,3,4]);
+  function lineThrough() {
+    const x1 = M.choose([-5,-4,-3,-2,-1,0,1,2,3,4,5]);
+    const y1 = M.choose([-5,-4,-3,-2,-1,0,1,2,3,4,5]);
+    const x2 = x1 + M.choose([-4,-3,-2,-1,1,2,3,4,5]);
+    const y2 = y1 + M.choose([-5,-4,-3,-2,-1,1,2,3,4,5]);
 
     if (x1 === x2) return lineThrough(diff); // unikaj pionowych
 
@@ -109,7 +108,6 @@ window.cat11 = (() => {
       category: 11,
       categoryName: 'Geometria analityczna',
       type: 'line_equation',
-      difficulty: diff,
       points: 3,
       params: { x1, y1, x2, y2 },
       statement:
@@ -134,12 +132,11 @@ window.cat11 = (() => {
   }
 
   // === Odległość punktu od prostej ===
-  function pointLineDistance(diff) {
-    // y = ax + b → ax - y + b = 0
-    const a = M.choose(diff === 'easy' ? [1,-1,2,-2] : [1,-1,2,-2,3,-3]);
-    const b = M.choose(diff === 'easy' ? [-3,-2,-1,0,1,2,3] : [-5,-4,-3,-2,-1,0,1,2,3,4,5]);
-    const px = M.choose(diff === 'easy' ? [0,1,2,3] : [-3,-2,-1,0,1,2,3,4]);
-    const py = M.choose(diff === 'easy' ? [0,1,2,3] : [-3,-2,-1,0,1,2,3,4]);
+  function pointLineDistance() {
+    const a = M.choose([1,-1,2,-2,3,-3,4,-4]);
+    const b = M.choose([-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6]);
+    const px = M.choose([-4,-3,-2,-1,0,1,2,3,4,5]);
+    const py = M.choose([-4,-3,-2,-1,0,1,2,3,4,5]);
 
     // d = |a·px - py + b| / sqrt(a²+1)
     const num = Math.abs(a * px - py + b);
@@ -154,7 +151,6 @@ window.cat11 = (() => {
       category: 11,
       categoryName: 'Geometria analityczna',
       type: 'point_line_distance',
-      difficulty: diff,
       points: 3,
       params: { a, b, px, py, num, den_sq },
       statement:
@@ -179,10 +175,10 @@ window.cat11 = (() => {
   }
 
   // === Okrąg: środek i promień z równania ===
-  function circleFromEquation(diff) {
-    const cx = M.choose(diff === 'easy' ? [-2,-1,0,1,2] : [-4,-3,-2,-1,0,1,2,3,4]);
-    const cy = M.choose(diff === 'easy' ? [-2,-1,0,1,2] : [-4,-3,-2,-1,0,1,2,3,4]);
-    const r = M.choose(diff === 'easy' ? [2,3,4,5] : [1,2,3,4,5,6]);
+  function circleFromEquation() {
+    const cx = M.choose([-5,-4,-3,-2,-1,0,1,2,3,4,5]);
+    const cy = M.choose([-5,-4,-3,-2,-1,0,1,2,3,4,5]);
+    const r = M.choose([2,3,4,5,6,7,8]);
 
     // Postać ogólna: x² + y² - 2cx·x - 2cy·y + (cx²+cy²-r²) = 0
     const D = -2 * cx, E = -2 * cy, F = cx*cx + cy*cy - r*r;
@@ -195,7 +191,6 @@ window.cat11 = (() => {
       category: 11,
       categoryName: 'Geometria analityczna',
       type: 'circle_equation',
-      difficulty: diff,
       points: 3,
       params: { cx, cy, r, D, E, F },
       statement:
@@ -219,12 +214,9 @@ window.cat11 = (() => {
     };
   }
 
-  function generate(diff = 'medium') {
-    const gens = diff === 'easy'
-      ? [lineThrough, circleFromEquation, pointLineDistance]
-      : [circleTangent, lineThrough, pointLineDistance, circleFromEquation];
-    return M.choose(gens)(diff);
+  function generate() {
+    return M.choose([circleTangent, lineThrough, pointLineDistance, circleFromEquation])();
   }
 
-  return { generate, easy: () => generate('easy'), medium: () => generate('medium'), hard: () => generate('hard') };
+  return { generate };
 })();

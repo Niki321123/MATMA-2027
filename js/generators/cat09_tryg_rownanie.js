@@ -142,7 +142,6 @@ window.cat09 = (() => {
       category: 9,
       categoryName: 'Równania trygonometryczne',
       type: 'simple_trig',
-      difficulty: diff,
       points: 3,
       params: { func, num: chosen.num },
       statement: `Rozwiąż równanie\n$$\\${func} x = ${chosen.num}$$\ndla $x \\in [0, 2\\pi)$. Zapisz obliczenia.`,
@@ -163,37 +162,26 @@ window.cat09 = (() => {
     };
   }
 
-  function generate(diff = 'medium') {
-    if (diff === 'easy') {
-      return Math.random() < 0.5 ? simpleTrigo(diff) : (() => {
-        const t = M.choose(TASKS.filter(x => x.difficulty === 'easy'));
-        return wrapTask(t, diff);
-      })();
-    }
-    const pool = TASKS.filter(t => t.difficulty === diff);
-    const chosen = pool.length > 0 ? M.choose(pool) : M.choose(TASKS);
-    return wrapTask(chosen, diff);
-  }
-
-  function wrapTask(task, diff) {
+  function generate() {
+    const pool = TASKS.filter(t => t.difficulty === 'medium' || t.difficulty === 'hard');
+    const chosen = M.choose(pool.length > 0 ? pool : TASKS);
     return {
       id: M.makeId('cat09'),
       category: 9,
       categoryName: 'Równania trygonometryczne',
       type: 'trig_equation',
-      difficulty: diff,
-      points: diff === 'easy' ? 3 : 4,
+      points: 4,
       params: {},
-      statement: task.statement,
+      statement: chosen.statement,
       answer: {
         type: 'set',
-        display: task.solution_set,
-        description: `$${task.solution_set}$`
+        display: chosen.solution_set,
+        description: `$${chosen.solution_set}$`
       },
-      hints: task.hints,
-      solution: task.solution
+      hints: chosen.hints,
+      solution: chosen.solution
     };
   }
 
-  return { generate, easy: () => generate('easy'), medium: () => generate('medium'), hard: () => generate('hard') };
+  return { generate };
 })();

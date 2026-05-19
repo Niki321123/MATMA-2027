@@ -6,10 +6,10 @@ window.cat15 = (() => {
   const M = window.MathUtils;
 
   // === Zadanie optymalizacyjne: prostokąt wpisany w trójkąt ===
-  function rectInTriangle(diff) {
+  function rectInTriangle() {
     // Trójkąt prostokątny z ramionami a, b; prostokąt wpisany w trójkąt
-    const a = M.choose(diff === 'easy' ? [4,6,8,10] : [4,6,8,10,12,15]);
-    const b = M.choose(diff === 'easy' ? [4,6,8,10] : [4,6,8,10,12,15]);
+    const a = M.choose([4,6,8,10,12,15]);
+    const b = M.choose([4,6,8,10,12,15]);
     // Prostokąt o bokach x i y wpisany: x/a + y/b = 1 → y = b(1-x/a)
     // Pole P(x) = x·b(1-x/a) = bx - bx²/a
     // P'(x) = b - 2bx/a = 0 → x = a/2
@@ -22,7 +22,6 @@ window.cat15 = (() => {
       category: 15,
       categoryName: 'Optymalizacja',
       type: 'rect_in_triangle',
-      difficulty: diff,
       points: 6,
       params: { a, b, x_opt, P_max },
       statement:
@@ -54,9 +53,9 @@ window.cat15 = (() => {
   }
 
   // === Optymalizacja: ogrodzenie ===
-  function fencing(diff) {
+  function fencing() {
     // Prostokąt z jedną ścianą = ściana budynku, trzy strony ogrodzenia = L metrów
-    const L = M.choose(diff === 'easy' ? [40,60,80,100] : [50,60,80,100,120,150]);
+    const L = M.choose([50,60,80,100,120,150]);
     // P = x·y, 2x+y = L → y = L-2x, x∈(0,L/2)
     // P(x) = x(L-2x) = Lx - 2x², P'= L-4x=0 → x=L/4
     const x_opt = L / 4;
@@ -68,7 +67,6 @@ window.cat15 = (() => {
       category: 15,
       categoryName: 'Optymalizacja',
       type: 'fencing',
-      difficulty: diff,
       points: 6,
       params: { L, x_opt, y_opt, P_max },
       statement:
@@ -98,11 +96,11 @@ window.cat15 = (() => {
   }
 
   // === Monotoniczność i ekstrema funkcji wielomianowej ===
-  function polynomialExtreme(diff) {
+  function polynomialExtreme() {
     // f(x) = ax³ + bx² + cx + d
-    const x1 = M.choose(diff === 'easy' ? [-2,-1,0,1,2] : [-3,-2,-1,0,1,2,3]);
-    const x2 = x1 + M.choose(diff === 'easy' ? [2,3] : [1,2,3,4]);
-    const a = M.choose(diff === 'easy' ? [1,-1] : [1,-1,2,-2]);
+    const x1 = M.choose([-3,-2,-1,0,1,2,3]);
+    const x2 = x1 + M.choose([1,2,3,4]);
+    const a = M.choose([1,-1,2,-2]);
     // f'(x) = 3a(x-x1)(x-x2) → f'(x) = 3a·(x²-(x1+x2)x+x1·x2)
     // f(x) = a·(x³ - 3/2(x1+x2)x² + 3x1x2·x) + const
     const fp_a = a;
@@ -118,7 +116,7 @@ window.cat15 = (() => {
     // Better: just define f directly:
     const p = -3 * (x1 + x2) / 2;
     const q = 3 * x1 * x2;
-    if (!Number.isInteger(p)) return polynomialExtreme(diff); // retry for nice p
+    if (!Number.isInteger(p)) return polynomialExtreme(); // retry for nice p
 
     const f = (x) => x*x*x + p*x*x + q*x;
     const f_x1 = f(x1);
@@ -135,7 +133,6 @@ window.cat15 = (() => {
       category: 15,
       categoryName: 'Optymalizacja',
       type: 'polynomial_extreme',
-      difficulty: diff,
       points: 4,
       params: { p, q, x1, x2, f_x1, f_x2 },
       statement:
@@ -168,12 +165,9 @@ window.cat15 = (() => {
     };
   }
 
-  function generate(diff = 'medium') {
-    const gens = diff === 'easy'
-      ? [rectInTriangle, fencing, polynomialExtreme]
-      : [rectInTriangle, fencing, polynomialExtreme];
-    return M.choose(gens)(diff);
+  function generate() {
+    return M.choose([rectInTriangle, fencing, polynomialExtreme])();
   }
 
-  return { generate, easy: () => generate('easy'), medium: () => generate('medium'), hard: () => generate('hard') };
+  return { generate };
 })();

@@ -129,10 +129,43 @@ const ProgressTracker = (() => {
 
   function getCatName(id) { return CAT_NAMES[id] || `Kategoria ${id}`; }
 
+  // Nadpisz lokalne statystyki danymi z Supabase (po zalogowaniu)
+  function loadFromCloud(rows) {
+    const data = load();
+    rows.forEach(row => {
+      const cat = data.categories[row.category_id];
+      if (!cat) return;
+      // Bierz max z lokalnych i chmurowych
+      cat.attempted = Math.max(cat.attempted, row.attempted || 0);
+      cat.correct   = Math.max(cat.correct,   row.correct   || 0);
+    });
+    const totalAttempted = Object.values(data.categories).reduce((s, c) => s + c.attempted, 0);
+    const totalCorrect   = Object.values(data.categories).reduce((s, c) => s + c.correct,   0);
+    data.stats.totalAttempted = totalAttempted;
+    data.stats.totalCorrect   = totalCorrect;
+    save(data);
+  }
+
+  function loadDailyFromCloud({ today, streak }) {
+    const data = load();
+    const todayStr = getToday();
+    // Uzupełnij historię dzisiejszą jeśli jest różnica
+    const localToday = data.history.filter(h => h.date === todayStr);
+    if (today.attempted > localToday.length) {
+      const diff = today.attempted - localToday.length;
+      for (let i = 0; i < diff; i++) {
+        data.history.unshift({ cat: 0, correct: i < today.correct - localToday.filter(h=>h.correct).length, date: todayStr });
+      }
+    }
+    // Streak z chmury jeśli większy
+    if (streak > data.stats.streak) data.stats.streak = streak;
+    save(data);
+  }
+
   return {
     record, getAll, getTodayStats, getStats,
     getCategoryStats, getCategoryPercent,
-    reset, getCatName,
+    reset, getCatName, loadFromCloud, loadDailyFromCloud,
     CAT_NAMES
   };
 })();

@@ -118,15 +118,14 @@ window.cat05 = (() => {
     }
   ];
 
-  function generate(diff = 'medium') {
-    const pool = PROOFS.filter(p => p.difficulty === diff);
+  function generate() {
+    const pool = PROOFS.filter(p => p.difficulty === 'medium' || p.difficulty === 'hard');
     const task = M.choose(pool.length > 0 ? pool : PROOFS);
     return {
       id: M.makeId('cat05_proof'),
       category: 5,
       categoryName: 'Dowód nierówności',
       type: 'algebraic_proof',
-      difficulty: diff,
       points: 3,
       params: {},
       statement: task.statement,
@@ -140,5 +139,5 @@ window.cat05 = (() => {
     };
   }
 
-  return { generate, easy: () => generate('easy'), medium: () => generate('medium'), hard: () => generate('hard') };
+  return { generate };
 })();

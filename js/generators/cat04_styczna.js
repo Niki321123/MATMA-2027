@@ -7,13 +7,13 @@ window.cat04 = (() => {
 
   // === SCHEMAT A: wielomian lub wielomian/liniowa ===
   // f(x) = wielomian, dany punkt P=(x₀, f(x₀)), oblicz równanie stycznej
-  function polyTangent(diff) {
+  function polyTangent() {
     const templates = [
       // f(x) = x³ + bx + c, P=(x₀, f(x₀))
       () => {
-        const b = M.choose(diff === 'easy' ? [-3, -2, -1, 1, 2] : [-5,-4,-3,-2,-1,1,2,3]);
-        const c = M.choose(diff === 'easy' ? [0,1,2] : [-2,-1,0,1,2,3]);
-        const x0 = M.choose(diff === 'easy' ? [1,2] : [1,2,-1,-2,3]);
+        const b = M.choose([-5,-4,-3,-2,-1,1,2,3,4]);
+        const c = M.choose([-4,-3,-2,-1,0,1,2,3,4]);
+        const x0 = M.choose([1,2,-1,-2,3,-3]);
         const f_x0 = Math.pow(x0, 3) + b * x0 + c;
         const fp_x0 = 3 * Math.pow(x0, 2) + b;
         const a_tangent = fp_x0;
@@ -25,10 +25,10 @@ window.cat04 = (() => {
       },
       // f(x) = ax² + bx + c
       () => {
-        const a = M.choose(diff === 'easy' ? [1,2] : [1,2,-1,-2,3]);
+        const a = M.choose([1,2,-1,-2,3,-3]);
         const b = M.choose([-4,-3,-2,-1,0,1,2,3,4]);
-        const c = M.choose([-3,-2,-1,0,1,2,3]);
-        const x0 = M.choose(diff === 'easy' ? [1,2,3] : [-2,-1,0,1,2,3,4]);
+        const c = M.choose([-4,-3,-2,-1,0,1,2,3,4]);
+        const x0 = M.choose([-3,-2,-1,0,1,2,3,4]);
         const f_x0 = a * x0 * x0 + b * x0 + c;
         const fp_x0 = 2 * a * x0 + b;
         const a_tangent = fp_x0;
@@ -56,7 +56,6 @@ window.cat04 = (() => {
       category: 4,
       categoryName: 'Styczna do wykresu',
       type: 'poly_tangent',
-      difficulty: diff,
       points: 3,
       params: { x0, f_x0, fp_x0, a, b_tangent },
       statement:
@@ -101,15 +100,11 @@ window.cat04 = (() => {
   }
 
   // === SCHEMAT B: funkcja wymierna, dany punkt przez f(x₀)=y₀ ===
-  function rationalTangent(diff) {
-    // f(x) = (x³ + ax + b) / (cx + d), punkt P = (x₀, f(x₀))
-    // Prostsze: f(x) = (ax² + bx + c) / x
-    const a = M.choose(diff === 'easy' ? [1, 2, 3] : [1, 2, 3, -1, -2]);
-    const b = M.choose([-3, -2, -1, 0, 1, 2, 3]);
-    const c = M.choose([-4, -3, -2, -1, 1, 2, 3, 4]);
-    // f(x) = ax² + bx + c/x = ax + b + c/x
-    // f'(x) = a - c/x²
-    const x0 = M.choose(diff === 'easy' ? [1, 2] : [1, 2, -1, -2, 3]);
+  function rationalTangent() {
+    const a = M.choose([1, 2, 3, -1, -2, -3]);
+    const b = M.choose([-4, -3, -2, -1, 0, 1, 2, 3, 4]);
+    const c = M.choose([-6, -4, -3, -2, -1, 1, 2, 3, 4, 6]);
+    const x0 = M.choose([1, 2, -1, -2, 3, -3]);
     if (x0 === 0) return rationalTangent(diff); // unikaj dzielenia przez 0
 
     const f_x0 = a * x0 * x0 + b * x0 + c; // f(x₀) = ax₀² + bx₀ + c gdy f(x)=(ax²+bx+c)/x·x
@@ -131,7 +126,6 @@ window.cat04 = (() => {
       category: 4,
       categoryName: 'Styczna do wykresu',
       type: 'rational_tangent',
-      difficulty: diff,
       points: 3,
       params: { a, b, c, x0, f_x0, fp_x0, tangent_b },
       statement:
@@ -171,9 +165,9 @@ window.cat04 = (() => {
     };
   }
 
-  function generate(diff = 'medium') {
-    return M.choose(diff === 'easy' ? [polyTangent] : [polyTangent, rationalTangent])(diff);
+  function generate() {
+    return M.choose([polyTangent, rationalTangent])();
   }
 
-  return { generate, easy: () => generate('easy'), medium: () => generate('medium'), hard: () => generate('hard') };
+  return { generate };
 })();

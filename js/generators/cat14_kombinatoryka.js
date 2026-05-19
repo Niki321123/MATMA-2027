@@ -138,10 +138,10 @@ window.cat14 = (() => {
   ];
 
   // Generator parametryczny: kombinacje/permutacje z prostymi liczbami
-  function simpleCount(diff) {
-    const n = M.choose(diff === 'easy' ? [4,5,6] : [6,7,8,9,10]);
-    const k = M.choose(diff === 'easy' ? [2,3] : [2,3,4]);
-    if (k >= n) return simpleCount(diff);
+  function simpleCount() {
+    const n = M.choose([6,7,8,9,10]);
+    const k = M.choose([2,3,4]);
+    if (k >= n) return simpleCount();
 
     const type = M.choose(['combinations', 'permutations']);
     const ans = type === 'combinations' ? M.combinations(n, k) : M.permutations(n, k);
@@ -154,8 +154,7 @@ window.cat14 = (() => {
       category: 14,
       categoryName: 'Kombinatoryka',
       type: type,
-      difficulty: diff,
-      points: 3,
+      points: 4,
       params: { n, k, ans },
       statement: type === 'combinations'
         ? `Ze zbioru $${n}$-elementowego wybieramy $${k}$-elementowe podzbiory.\n\n**Ile jest takich podzbiorów?** Zapisz obliczenia.`
@@ -180,17 +179,16 @@ window.cat14 = (() => {
     };
   }
 
-  function generate(diff = 'medium') {
-    if (Math.random() < 0.4) return simpleCount(diff);
-    const pool = TASKS.filter(t => t.difficulty === diff);
+  function generate() {
+    if (Math.random() < 0.4) return simpleCount();
+    const pool = TASKS.filter(t => t.difficulty === 'medium' || t.difficulty === 'hard');
     const task = M.choose(pool.length > 0 ? pool : TASKS);
     return {
       id: M.makeId('cat14'),
       category: 14,
       categoryName: 'Kombinatoryka',
       type: 'combinatorics',
-      difficulty: diff,
-      points: diff === 'easy' ? 3 : 4,
+      points: 4,
       params: {},
       statement: task.statement,
       answer: {
@@ -204,5 +202,5 @@ window.cat14 = (() => {
     };
   }
 
-  return { generate, easy: () => generate('easy'), medium: () => generate('medium'), hard: () => generate('hard') };
+  return { generate };
 })();

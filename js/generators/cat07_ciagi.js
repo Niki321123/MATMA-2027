@@ -7,14 +7,11 @@ window.cat07 = (() => {
   const M = window.MathUtils;
 
   // === SCHEMAT A: Ciąg arytmetyczny + geometryczny (kombinowany) ===
-  function arithGeomCombo(diff) {
-    // Jak matura 2024 z.7: (x,y,z) geometryczny, x+y+z=S; x,y,z = a1,a2,a6 arytmetycznego
+  function arithGeomCombo() {
     const templates = [
-      // Wariant 1: suma = S, pierwsze wyrazy ciągu geom. = a1,a2,a6 aritm.
       () => {
-        // Dobierz ładne liczby
-        const q = M.choose(diff === 'easy' ? [2,3] : [2,3,4,5]);
-        const x = M.choose(diff === 'easy' ? [1,2,4,5] : [1,2,3,4,5]);
+        const q = M.choose([2,3,4,5]);
+        const x = M.choose([1,2,3,4,5,6]);
         const y = x * q, z = x * q * q;
         // Sum = x + y + z = x(1 + q + q²)
         const S = x + y + z;
@@ -46,9 +43,8 @@ window.cat07 = (() => {
           ]
         };
       },
-      // Wariant 2: ciąg geometryczny zbieżny, dane a₁+a₃ i a₁²+a₃²
       () => {
-        const a1 = M.choose(diff === 'easy' ? [4, 6, 8, 10] : [4, 6, 8, 10, 12, 15]);
+        const a1 = M.choose([4, 6, 8, 10, 12, 15, 18, 20]);
         const q_num = M.choose([1, 1, 2, 3]); // q = 1/2, 1/3, 2/3
         const q_den = M.choose([2, 3, 4]);
         if (q_num >= q_den) return null;
@@ -95,7 +91,6 @@ window.cat07 = (() => {
           category: 7,
           categoryName: 'Ciągi liczbowe',
           type: 'arith_geom_combo',
-          difficulty: diff,
           points: 4,
           params: {},
           statement: result.problem,
@@ -113,10 +108,10 @@ window.cat07 = (() => {
   }
 
   // === SCHEMAT B: Prosty ciąg arytmetyczny ===
-  function arithSimple(diff) {
-    const a1 = M.choose(diff === 'easy' ? [1,2,3,4,5] : [-5,-4,-3,-2,-1,1,2,3,4,5,6,7]);
-    const r = M.choose(diff === 'easy' ? [1,2,3] : [-3,-2,-1,1,2,3,4,5]);
-    const n = M.choose(diff === 'easy' ? [5,6,8,10] : [10,12,15,20,25]);
+  function arithSimple() {
+    const a1 = M.choose([-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8]);
+    const r = M.choose([-4,-3,-2,-1,1,2,3,4,5,6]);
+    const n = M.choose([10,12,15,20,25,30]);
     // Sn = n/2 · (2a1 + (n-1)r)
     const Sn = n * (2 * a1 + (n - 1) * r) / 2;
 
@@ -125,7 +120,6 @@ window.cat07 = (() => {
       category: 7,
       categoryName: 'Ciągi liczbowe',
       type: 'arithmetic_sum',
-      difficulty: diff,
       points: 3,
       params: { a1, r, n, Sn },
       statement:
@@ -158,11 +152,9 @@ window.cat07 = (() => {
   }
 
   // === SCHEMAT C: Suma nieskończona szeregu geometrycznego ===
-  function geomInfinite(diff) {
-    const a1 = M.choose(diff === 'easy' ? [2,4,6,8,10,12] : [1,2,3,4,5,6,8,10,12,15,18,20]);
-    const q_choices = diff === 'easy'
-      ? [{p:1,q:2},{p:1,q:3},{p:2,q:3}]
-      : [{p:1,q:2},{p:1,q:3},{p:1,q:4},{p:2,q:3},{p:3,q:4},{p:1,q:5}];
+  function geomInfinite() {
+    const a1 = M.choose([1,2,3,4,5,6,8,10,12,15,18,20,24]);
+    const q_choices = [{p:1,q:2},{p:1,q:3},{p:1,q:4},{p:2,q:3},{p:3,q:4},{p:1,q:5},{p:3,q:5}];
     const qf = M.choose(q_choices);
     const q_latex = M.latexFrac(qf.p, qf.q);
 
@@ -187,7 +179,6 @@ window.cat07 = (() => {
       category: 7,
       categoryName: 'Ciągi liczbowe',
       type: 'geom_infinite_sum',
-      difficulty: diff,
       points: 4,
       params: { a1, qf, S_num, S_den },
       statement:
@@ -219,9 +210,9 @@ window.cat07 = (() => {
     };
   }
 
-  function generate(diff = 'medium') {
-    return M.choose([arithGeomCombo, geomInfinite, diff === 'easy' ? arithSimple : arithGeomCombo])(diff);
+  function generate() {
+    return M.choose([arithGeomCombo, geomInfinite, arithGeomCombo])();
   }
 
-  return { generate, easy: () => generate('easy'), medium: () => generate('medium'), hard: () => generate('hard') };
+  return { generate };
 })();

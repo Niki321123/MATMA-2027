@@ -21,7 +21,6 @@
   // === DOM ===
   const $ = id => document.getElementById(id);
   const elCatSelect = $('select-category');
-  const elDiffTabs = $('difficulty-tabs');
   const elBtnGenerate = $('btn-generate');
   const elYearSelect = $('select-year');
   const elMaturaTaskSelect = $('select-matura-task');
@@ -34,7 +33,6 @@
   const elExamNavPills = $('exam-nav-pills');
   const elExamNavScore = $('exam-nav-score');
   const elBtnStartExam = $('btn-start-exam');
-  const elDiffTabsExam = $('difficulty-tabs-exam');
   const elModeTabs = $('mode-tabs');
 
   const elTaskCard = $('task-card');
@@ -114,17 +112,11 @@
     }
   }
 
-  function getDifficulty() {
-    const active = elDiffTabs?.querySelector('.tab-btn.active');
-    return active ? active.dataset.diff : 'medium';
-  }
-
   // === Generowanie ===
   function generateTask() {
     const catVal = elCatSelect.value;
-    const diff = getDifficulty();
     try {
-      currentTask = catVal === '0' ? G.generateRandom(diff) : G.generate(parseInt(catVal), diff);
+      currentTask = catVal === '0' ? G.generateRandom() : G.generate(parseInt(catVal));
     } catch (e) {
       console.error('Błąd generatora:', e);
       showToast('Błąd generowania zadania.', 'error');
@@ -231,6 +223,7 @@
     if (!currentTask || taskAnswered) return;
     taskAnswered = true;
     PT.record(currentTask.category, correct);
+    SA?.recordAnswer(currentTask.category, correct);
     showToast(correct ? 'Dobrze! Tak trzymaj ✓' : 'Spróbuj ponownie przy następnym zadaniu.', correct ? 'success' : 'warning');
     elBtnSelfCorrect?.classList.add('hidden');
     elBtnSelfWrong?.classList.add('hidden');
@@ -243,27 +236,59 @@
     if (!elProgressSidebar) return;
     const today = PT.getTodayStats();
     const cats = G.getAll();
+    const accuracyPct = today.attempted > 0 ? Math.round(100 * today.correct / today.attempted) : 0;
+
     let html = `
-      <div class="sidebar-today">
-        <div class="today-stat">Dziś: <strong>${today.correct}/${today.attempted}</strong> poprawnych</div>
-        <div class="streak-badge">🔥 Seria: ${today.streak} dni</div>
+      <div class="sb-header">
+        <div class="sb-stat-row">
+          <div class="sb-stat">
+            <span class="sb-stat-val">${today.correct}</span>
+            <span class="sb-stat-lbl">Poprawnych</span>
+          </div>
+          <div class="sb-stat-divider"></div>
+          <div class="sb-stat">
+            <span class="sb-stat-val">${today.attempted}</span>
+            <span class="sb-stat-lbl">Łącznie dziś</span>
+          </div>
+          <div class="sb-stat-divider"></div>
+          <div class="sb-stat">
+            <span class="sb-stat-val sb-stat-streak">🔥 ${today.streak}</span>
+            <span class="sb-stat-lbl">Dni z rzędu</span>
+          </div>
+        </div>
+        ${today.attempted > 0 ? `
+        <div class="sb-accuracy-bar-wrap">
+          <div class="sb-accuracy-bar" style="width:${accuracyPct}%"></div>
+        </div>
+        <div class="sb-accuracy-label">${accuracyPct}% skuteczności</div>
+        ` : ''}
       </div>
-      <div class="sidebar-cats">
+      <div class="sb-cats-label">Postęp kategorii</div>
+      <div class="sb-cats">
     `;
+
     cats.forEach(cat => {
       const pct = PT.getCategoryPercent(cat.id);
       const fill = pct !== null ? pct : 0;
       const pctStr = pct !== null ? `${pct}%` : '—';
+      const cs = PT.getCategoryStats ? PT.getCategoryStats(cat.id) : null;
+      const attempted = cs?.attempted || 0;
       html += `
-        <div class="sidebar-cat">
-          <div class="sidebar-cat-name">${cat.icon} ${cat.id}. ${cat.name.length > 22 ? cat.name.substring(0,22)+'…' : cat.name}</div>
-          <div class="sidebar-progress-bar">
-            <div class="sidebar-progress-fill" style="width:${fill}%; background:${cat.color}"></div>
+        <div class="sb-cat">
+          <div class="sb-cat-left">
+            <span class="sb-cat-icon" style="color:${cat.color}">${cat.icon}</span>
+            <span class="sb-cat-name">${cat.name.length > 20 ? cat.name.substring(0,20)+'…' : cat.name}</span>
           </div>
-          <div class="sidebar-cat-pct">${pctStr}</div>
+          <div class="sb-cat-right">
+            <div class="sb-bar-track">
+              <div class="sb-bar-fill" style="width:${fill}%; background:${cat.color}"></div>
+            </div>
+            <span class="sb-cat-pct" style="color:${pct !== null && pct > 0 ? cat.color : 'var(--text-muted)'}">${pctStr}</span>
+          </div>
         </div>
       `;
     });
+
     html += '</div>';
     elProgressSidebar.innerHTML = html;
   }
@@ -307,27 +332,15 @@
 
   // === Symulacja matury ===
 
-  // Kolejność kategorii jak w prawdziwym arkuszu
-  const EXAM_CATS = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-
-  function getExamDifficulty() {
-    const active = elDiffTabsExam?.querySelector('.tab-btn.active');
-    return active ? active.dataset.diff : 'medium';
-  }
+  const EXAM_CATS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
   function generateExam() {
-    const diff = getExamDifficulty();
     examTasks = [];
     examResults = [];
-    // Shuffle categories slightly but keep order roughly matura-like
-    const cats = [...EXAM_CATS];
-    // Add 2 random extras from all categories for variety
-    [1, 2, 15].forEach(c => {
-      if (Math.random() < 0.4) cats.push(c);
-    });
-    cats.slice(0, 12).forEach(catId => {
+    const cats = [...EXAM_CATS].sort(() => Math.random() - 0.5).slice(0, 12);
+    cats.forEach(catId => {
       try {
-        const task = G.generate(catId, diff);
+        const task = G.generate(catId);
         examTasks.push(task);
         examResults.push(null);
       } catch (e) { /* skip if generator fails */ }
@@ -500,19 +513,6 @@
       if (e.target.classList.contains('mode-tab')) switchMode(e.target.dataset.mode);
     });
 
-    elDiffTabs?.addEventListener('click', e => {
-      if (e.target.classList.contains('tab-btn')) {
-        elDiffTabs.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        e.target.classList.add('active');
-      }
-    });
-    elDiffTabsExam?.addEventListener('click', e => {
-      if (e.target.classList.contains('tab-btn')) {
-        elDiffTabsExam.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        e.target.classList.add('active');
-      }
-    });
-
     elBtnHint?.addEventListener('click', showNextHint);
     elBtnShowSolution?.addEventListener('click', showSolution);
     elBtnSelfCorrect?.addEventListener('click', () => recordResult(true));
@@ -540,11 +540,125 @@
     });
   }
 
+  // === AUTH ===
+  const SA = window.SupabaseAuth;
+  const elBtnAuthOpen   = $('btn-auth-open');
+  const elBtnUserMenu   = $('btn-user-menu');
+  const elModalAuth     = $('modal-auth');
+  const elBtnAuthClose  = $('btn-auth-close');
+  const elModalUser     = $('modal-user');
+  const elBtnUserClose  = $('btn-user-close');
+  const elBtnLogout     = $('btn-logout');
+  const elAuthForm      = $('auth-form');
+  const elAuthEmail     = $('auth-email');
+  const elAuthPassword  = $('auth-password');
+  const elAuthSubmit    = $('auth-submit');
+  const elAuthError     = $('auth-error');
+  const elAuthTabs      = document.querySelectorAll('.auth-tab');
+  let authMode = 'login'; // 'login' | 'register'
+
+  function onAuthChange(user) {
+    const elAvatar    = $('user-avatar');
+    const elEmailShort = $('user-email-short');
+    const elUmAvatar  = $('um-avatar');
+    const elUmEmail   = $('um-email');
+
+    if (user) {
+      const letter = (user.email || user.user_metadata?.name || '?')[0].toUpperCase();
+      const short  = (user.email || '').replace(/@.*/, '');
+      elBtnAuthOpen?.classList.add('hidden');
+      elBtnUserMenu?.classList.remove('hidden');
+      if (elAvatar) elAvatar.textContent = letter;
+      if (elEmailShort) elEmailShort.textContent = short;
+      if (elUmAvatar) elUmAvatar.textContent = letter;
+      if (elUmEmail) elUmEmail.textContent = user.email || '';
+      // Załaduj postęp z chmury
+      syncProgressFromCloud();
+    } else {
+      elBtnAuthOpen?.classList.remove('hidden');
+      elBtnUserMenu?.classList.add('hidden');
+    }
+    updateSidebar();
+  }
+
+  async function syncProgressFromCloud() {
+    if (!SA?.isLoggedIn()) return;
+    const [progress, daily] = await Promise.all([SA.fetchProgress(), SA.fetchDailyStats()]);
+    if (progress) PT.loadFromCloud(progress);
+    if (daily)    PT.loadDailyFromCloud(daily);
+    updateSidebar();
+  }
+
+  function showAuthError(msg) {
+    if (!elAuthError) return;
+    elAuthError.textContent = msg;
+    elAuthError.classList.remove('hidden');
+  }
+  function hideAuthError() { elAuthError?.classList.add('hidden'); }
+
+  function setAuthTab(tab) {
+    authMode = tab;
+    elAuthTabs.forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+    if (elAuthSubmit) elAuthSubmit.textContent = tab === 'login' ? 'Zaloguj się' : 'Zarejestruj się';
+    hideAuthError();
+  }
+
+  function initAuthEvents() {
+    elBtnAuthOpen?.addEventListener('click', () => {
+      elModalAuth?.classList.remove('hidden');
+      elAuthEmail?.focus();
+    });
+    elBtnAuthClose?.addEventListener('click', () => elModalAuth?.classList.add('hidden'));
+    elModalAuth?.addEventListener('click', e => { if (e.target === elModalAuth) elModalAuth.classList.add('hidden'); });
+
+    elBtnUserMenu?.addEventListener('click', () => elModalUser?.classList.remove('hidden'));
+    elBtnUserClose?.addEventListener('click', () => elModalUser?.classList.add('hidden'));
+    elModalUser?.addEventListener('click', e => { if (e.target === elModalUser) elModalUser.classList.add('hidden'); });
+
+    elAuthTabs.forEach(t => t.addEventListener('click', () => setAuthTab(t.dataset.tab)));
+
+    elAuthForm?.addEventListener('submit', async e => {
+      e.preventDefault();
+      hideAuthError();
+      const email = elAuthEmail?.value.trim();
+      const pass  = elAuthPassword?.value;
+      if (!email || !pass) return;
+      elAuthSubmit?.classList.add('loading');
+      elAuthSubmit.textContent = 'Ładowanie…';
+      try {
+        if (authMode === 'login') {
+          await SA.signInEmail(email, pass);
+        } else {
+          await SA.signUpEmail(email, pass);
+          showToast('Sprawdź email, żeby potwierdzić konto!', 'info');
+        }
+        elModalAuth?.classList.add('hidden');
+      } catch (err) {
+        const msg = err.message?.includes('Invalid login') ? 'Błędny email lub hasło.'
+          : err.message?.includes('already registered') ? 'Ten email jest już zarejestrowany.'
+          : err.message?.includes('Password should') ? 'Hasło musi mieć min. 6 znaków.'
+          : err.message || 'Coś poszło nie tak.';
+        showAuthError(msg);
+      } finally {
+        elAuthSubmit?.classList.remove('loading');
+        setAuthTab(authMode);
+      }
+    });
+
+    elBtnLogout?.addEventListener('click', async () => {
+      await SA?.signOut();
+      elModalUser?.classList.add('hidden');
+      showToast('Wylogowano.', 'info');
+    });
+  }
+
   // === Init ===
   function init() {
     initCategorySelect();
     initYearSelect();
     initEvents();
+    initAuthEvents();
+    SA?.init(onAuthChange);
     updateSidebar();
     generateTask();
   }

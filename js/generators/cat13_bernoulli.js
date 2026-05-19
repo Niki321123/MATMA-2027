@@ -6,30 +6,24 @@ window.cat13 = (() => {
   const M = window.MathUtils;
 
   // === Schemat Bernoulliego ===
-  function bernoulli(diff) {
-    // n prób, prawdopodobieństwo sukcesu p = p_num/p_den
-    const configs = diff === 'easy'
-      ? [
-          { n: 3, p_num: 1, p_den: 2, contexts: ['rząd trafień', 'orłów', 'szóstek'] },
-          { n: 4, p_num: 1, p_den: 2, contexts: ['orłów', 'trafień'] },
-          { n: 3, p_num: 1, p_den: 3, contexts: ['sukcesów'] }
-        ]
-      : [
-          { n: 4, p_num: 1, p_den: 3, contexts: ['sukcesów'] },
-          { n: 5, p_num: 1, p_den: 2, contexts: ['orłów'] },
-          { n: 4, p_num: 2, p_den: 5, contexts: ['trafień'] },
-          { n: 6, p_num: 1, p_den: 3, contexts: ['sukcesów'] },
-          { n: 3, p_num: 2, p_den: 3, contexts: ['sukcesów'] }
-        ];
+  function bernoulli() {
+    const configs = [
+      { n: 4, p_num: 1, p_den: 3, contexts: ['sukcesów'] },
+      { n: 5, p_num: 1, p_den: 2, contexts: ['orłów'] },
+      { n: 4, p_num: 2, p_den: 5, contexts: ['trafień'] },
+      { n: 6, p_num: 1, p_den: 3, contexts: ['sukcesów'] },
+      { n: 5, p_num: 2, p_den: 3, contexts: ['sukcesów'] },
+      { n: 4, p_num: 3, p_den: 5, contexts: ['trafień'] },
+      { n: 6, p_num: 1, p_den: 4, contexts: ['sukcesów'] }
+    ];
 
     const cfg = M.choose(configs);
     const { n, p_num, p_den } = cfg;
     const context = M.choose(cfg.contexts);
     const q_num = p_den - p_num;
 
-    // k = dokładnie k sukcesów
-    const k = M.choose(diff === 'easy' ? [1, 2] : [1, 2, 3]);
-    if (k > n) return bernoulli(diff);
+    const k = M.choose([1, 2, 3]);
+    if (k > n) return bernoulli();
 
     const Cnk = M.combinations(n, k);
     // P(X=k) = C(n,k) * p^k * q^(n-k)
@@ -64,7 +58,6 @@ window.cat13 = (() => {
       category: 13,
       categoryName: 'Prawdopodobieństwo',
       type: 'bernoulli',
-      difficulty: diff,
       points: 4,
       params: { n, p_num, p_den, k, Cnk, prob_num, prob_den },
       statement:
@@ -89,7 +82,7 @@ window.cat13 = (() => {
   }
 
   // === Prawdopodobieństwo warunkowe ===
-  function conditional(diff) {
+  function conditional() {
     // Dwa zdarzenia A, B z podanym P(A), P(B), P(A∩B)
     // P(A|B) = P(A∩B)/P(B)
     const TASKS = [
@@ -171,7 +164,7 @@ window.cat13 = (() => {
       }
     ];
 
-    const pool = TASKS.filter(t => t.difficulty === diff);
+    const pool = TASKS.filter(t => t.difficulty === 'medium' || t.difficulty === 'hard');
     const task = M.choose(pool.length > 0 ? pool : TASKS);
 
     return {
@@ -179,8 +172,7 @@ window.cat13 = (() => {
       category: 13,
       categoryName: 'Prawdopodobieństwo',
       type: 'conditional_prob',
-      difficulty: diff,
-      points: diff === 'easy' ? 3 : 4,
+      points: 4,
       params: {},
       statement: task.statement,
       answer: {
@@ -193,9 +185,9 @@ window.cat13 = (() => {
     };
   }
 
-  function generate(diff = 'medium') {
-    return M.choose([bernoulli, conditional])(diff);
+  function generate() {
+    return M.choose([bernoulli, conditional])();
   }
 
-  return { generate, easy: () => generate('easy'), medium: () => generate('medium'), hard: () => generate('hard') };
+  return { generate };
 })();

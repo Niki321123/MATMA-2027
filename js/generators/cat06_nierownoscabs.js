@@ -60,7 +60,6 @@ window.cat06 = (() => {
       category: 6,
       categoryName: 'Nierówność z |...|',
       type: 'abs_linear',
-      difficulty: diff,
       points: 3,
       params: {},
       statement: `Rozwiąż nierówność\n$$${r.statement}$$\nZapisz obliczenia.`,
@@ -147,16 +146,15 @@ window.cat06 = (() => {
     }
   ];
 
-  function generate(diff = 'medium') {
-    const pool = MATURA_TASKS.filter(t => t.difficulty === diff);
+  function generate() {
+    const pool = MATURA_TASKS.filter(t => t.difficulty === 'medium' || t.difficulty === 'hard');
     const task = M.choose(pool.length > 0 ? pool : MATURA_TASKS);
     return {
       id: M.makeId('cat06'),
       category: 6,
       categoryName: 'Nierówność z |...|',
       type: 'abs_inequality',
-      difficulty: diff,
-      points: diff === 'easy' ? 3 : 4,
+      points: 4,
       params: {},
       statement: task.statement,
       answer: {
@@ -169,5 +167,5 @@ window.cat06 = (() => {
     };
   }
 
-  return { generate, easy: () => generate('easy'), medium: () => generate('medium'), hard: () => generate('hard') };
+  return { generate };
 })();

@@ -6,11 +6,10 @@ window.cat12 = (() => {
   const M = window.MathUtils;
 
   // === Wzory Viète'a: dane warunki na x1+x2 i x1·x2 ===
-  function vieta(diff) {
-    // Dobieramy ładne pierwiastki i budujemy zadanie
-    const x1 = M.choose(diff === 'easy' ? [1,2,3,4,5] : [-5,-4,-3,-2,-1,1,2,3,4,5,6]);
-    const x2 = M.choose(diff === 'easy' ? [1,2,3,4,5] : [-5,-4,-3,-2,-1,1,2,3,4,5,6]);
-    const a = M.choose(diff === 'easy' ? [1,2] : [1,-1,2,-2,3]);
+  function vieta() {
+    const x1 = M.choose([-6,-5,-4,-3,-2,-1,1,2,3,4,5,6]);
+    const x2 = M.choose([-6,-5,-4,-3,-2,-1,1,2,3,4,5,6]);
+    const a = M.choose([1,-1,2,-2,3,-3]);
 
     const b = -a * (x1 + x2);
     const c = a * x1 * x2;
@@ -60,7 +59,6 @@ window.cat12 = (() => {
       category: 12,
       categoryName: 'Parametr w równaniu',
       type: 'vieta',
-      difficulty: diff,
       points: 3,
       params: { a, b, c, x1, x2 },
       statement:
@@ -87,10 +85,9 @@ window.cat12 = (() => {
   }
 
   // === Równanie z parametrem m: warunek na wyróżnik ===
-  function paramDiscriminant(diff) {
-    // ax² + mx + c = 0, znajdź m takie że równanie ma 1 lub 2 rozwiązania
-    const a = M.choose(diff === 'easy' ? [1,2] : [1,-1,2,-2,3]);
-    const c = M.choose(diff === 'easy' ? [1,2,3,4] : [-4,-3,-2,-1,1,2,3,4,5,6]);
+  function paramDiscriminant() {
+    const a = M.choose([1,-1,2,-2,3,-3]);
+    const c = M.choose([-6,-5,-4,-3,-2,-1,1,2,3,4,5,6]);
 
     // Δ = m² - 4ac
     // Δ > 0: m² > 4ac → m ∈ (-∞, -√(4ac)) ∪ (√(4ac), +∞)
@@ -165,7 +162,6 @@ window.cat12 = (() => {
       category: 12,
       categoryName: 'Parametr w równaniu',
       type: 'param_discriminant',
-      difficulty: diff,
       points: 4,
       params: { a, c, fac },
       statement:
@@ -186,9 +182,9 @@ window.cat12 = (() => {
     };
   }
 
-  function generate(diff = 'medium') {
-    return M.choose([vieta, paramDiscriminant])(diff);
+  function generate() {
+    return M.choose([vieta, paramDiscriminant])();
   }
 
-  return { generate, easy: () => generate('easy'), medium: () => generate('medium'), hard: () => generate('hard') };
+  return { generate };
 })();

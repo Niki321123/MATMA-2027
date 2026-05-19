@@ -5,7 +5,7 @@ window.cat02 = (() => {
 
   // === SCHEMAT A: granica ciągu wymiernego ===
   // lim (an^k + ...) / (bn^k + ...) = a/b
-  function seqLimit(diff) {
+  function seqLimit() {
     const a = M.nonZeroRand(-5, 5);
     const b = M.nonZeroRand(-5, 5);
     let c = M.rand(-4, 4);
@@ -16,7 +16,7 @@ window.cat02 = (() => {
     const g = M.gcd(Math.abs(a), Math.abs(b));
     const aN = a / g, bN = b / g;
 
-    const degree = diff === 'easy' ? 2 : diff === 'medium' ? 3 : M.choose([3, 4]);
+    const degree = M.choose([3, 4]);
 
     // Buduj numerator i denominator
     let numStr, denStr;
@@ -41,7 +41,6 @@ window.cat02 = (() => {
       category: 2,
       categoryName: 'Granica',
       type: 'sequence_limit',
-      difficulty: diff,
       points: 2,
       params: { aN, bN, c, d, degree, limit: aN / bN },
       statement:
@@ -106,14 +105,13 @@ window.cat02 = (() => {
 
   // === SCHEMAT B: granica funkcji wymiernej w punkcie ===
   // lim (x^n - a^n)/(x - a) = n·a^(n-1)
-  function funcLimit(diff) {
-    const a = M.choose(diff === 'easy' ? [1, 2, 3] : [2, 3, 4, -1, -2]);
-    const n = diff === 'easy' ? 2 : M.choose([2, 3]);
+  function funcLimit() {
+    const a = M.choose([2, 3, 4, -1, -2, -3]);
+    const n = M.choose([2, 3]);
     const an = Math.pow(a, n);
     const limit_val = n * Math.pow(a, n - 1);
 
-    // Numerator: x^n - a^n, Denominator: (x - a)^k
-    const k = diff === 'hard' ? 2 : 1;
+    const k = M.choose([1, 1, 2]); // mostly k=1, occasionally k=2
 
     let numStr = `x^${n}${an >= 0 ? '-' : '+'}${Math.abs(an)}`;
     let denStr = a === 0 ? 'x' : a > 0 ? `(x-${a})${k > 1 ? '^' + k : ''}` : `(x+${Math.abs(a)})${k > 1 ? '^' + k : ''}`;
@@ -132,7 +130,6 @@ window.cat02 = (() => {
       category: 2,
       categoryName: 'Granica',
       type: 'function_limit',
-      difficulty: diff,
       points: 2,
       params: { a, n, k, dir, limit_val },
       statement:
@@ -172,7 +169,7 @@ window.cat02 = (() => {
   }
 
   // === SCHEMAT C: granica ciągu z potęgą ===
-  function powerSeqLimit(diff) {
+  function powerSeqLimit() {
     // ((n+a)/(n+b))^n → e^(a-b)  — ale to skomplikowane
     // Prostsze: ((an+b)/(cn+d))^(2n) → (a/c)^2
     const a = M.choose([1, 2, 3]);
@@ -182,7 +179,7 @@ window.cat02 = (() => {
     if (a === c && b === d) { d += 1; }
 
     const innerLimit = a / c; // granica (an+b)/(cn+d) = a/c
-    const exp_power = diff === 'easy' ? 1 : M.choose([2, 3]);
+    const exp_power = M.choose([2, 3, 4]);
     const finalLimit = Math.pow(innerLimit, exp_power);
     const limitDisplay = M.latexFrac(Math.pow(a, exp_power), Math.pow(c, exp_power));
 
@@ -195,7 +192,6 @@ window.cat02 = (() => {
       category: 2,
       categoryName: 'Granica',
       type: 'power_seq_limit',
-      difficulty: diff,
       points: 2,
       params: { a, b, c, d, exp_power, finalLimit },
       statement:
@@ -228,10 +224,9 @@ window.cat02 = (() => {
     };
   }
 
-  function generate(diff = 'medium') {
-    const gen = M.choose([seqLimit, funcLimit, powerSeqLimit]);
-    return gen(diff);
+  function generate() {
+    return M.choose([seqLimit, funcLimit, powerSeqLimit])();
   }
 
-  return { generate, easy: () => generate('easy'), medium: () => generate('medium'), hard: () => generate('hard') };
+  return { generate };
 })();

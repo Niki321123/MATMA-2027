@@ -6,10 +6,8 @@ window.cat10 = (() => {
   const M = window.MathUtils;
 
   // === Graniastosłup prostokątny (prostopadłościan) ===
-  function cuboid(diff) {
-    const dims = diff === 'easy'
-      ? [[3,4,5],[2,3,6],[4,4,6],[3,3,4]]
-      : [[2,3,5],[3,4,12],[5,5,10],[4,6,8],[2,4,7]];
+  function cuboid() {
+    const dims = [[2,3,5],[3,4,12],[5,5,10],[4,6,8],[2,4,7],[3,5,9],[4,5,6]];
     const [a, b, c] = M.choose(dims);
 
     const diag = Math.sqrt(a*a + b*b + c*c);
@@ -26,7 +24,6 @@ window.cat10 = (() => {
       category: 10,
       categoryName: 'Stereometria',
       type: 'cuboid',
-      difficulty: diff,
       points: 4,
       params: { a, b, c },
       statement:
@@ -55,13 +52,11 @@ window.cat10 = (() => {
   }
 
   // === Graniastosłup prostokątny z kątem ===
-  function prismAngle(diff) {
-    const bases = diff === 'easy'
-      ? [[3,4],[5,12],[6,8]] // trójkąty prostokątne
-      : [[3,4],[5,12],[8,15],[7,24]];
+  function prismAngle() {
+    const bases = [[3,4],[5,12],[8,15],[7,24],[6,8]];
     const [catA, catB] = M.choose(bases);
     const hyp = Math.sqrt(catA*catA + catB*catB);
-    const height = M.choose(diff === 'easy' ? [4,5,6,8,10] : [5,6,8,10,12,15]);
+    const height = M.choose([5,6,8,10,12,15,18]);
     const baseArea = catA * catB / 2;
     const vol = baseArea * height;
 
@@ -70,7 +65,6 @@ window.cat10 = (() => {
       category: 10,
       categoryName: 'Stereometria',
       type: 'triangular_prism',
-      difficulty: diff,
       points: 4,
       params: { catA, catB, height, baseArea, vol },
       statement:
@@ -101,9 +95,9 @@ window.cat10 = (() => {
   }
 
   // === Ostrosłup prawidłowy czworokątny ===
-  function pyramid(diff) {
-    const a = M.choose(diff === 'easy' ? [4,6,8,10] : [4,6,8,10,12]);
-    const H = M.choose(diff === 'easy' ? [3,4,5,6] : [3,4,5,6,8,10,12]);
+  function pyramid() {
+    const a = M.choose([4,6,8,10,12,14]);
+    const H = M.choose([3,4,5,6,8,10,12,15]);
     // Apotema podstawy = a/2, apotema ściany bocznej = sqrt((a/2)²+H²)
     const apothem_base = a / 2;
     const apothem_lateral = Math.sqrt(apothem_base * apothem_base + H * H);
@@ -119,7 +113,6 @@ window.cat10 = (() => {
       category: 10,
       categoryName: 'Stereometria',
       type: 'regular_pyramid',
-      difficulty: diff,
       points: 4,
       params: { a, H, vol },
       statement:
@@ -146,9 +139,9 @@ window.cat10 = (() => {
   }
 
   // === Walec / Stożek ===
-  function cylinder(diff) {
-    const r = M.choose(diff === 'easy' ? [2,3,4,5] : [2,3,4,5,6]);
-    const h = M.choose(diff === 'easy' ? [4,5,6,8,10] : [3,4,5,6,8,10,12]);
+  function cylinder() {
+    const r = M.choose([2,3,4,5,6,7]);
+    const h = M.choose([3,4,5,6,8,10,12,15]);
     const vol_latex = `${r*r} \\cdot ${h}\\pi`;
     const vol_num = Math.PI * r * r * h;
     const lateral = `2\\pi \\cdot ${r} \\cdot ${h} = ${2*r*h}\\pi`;
@@ -158,7 +151,6 @@ window.cat10 = (() => {
       category: 10,
       categoryName: 'Stereometria',
       type: 'cylinder',
-      difficulty: diff,
       points: 3,
       params: { r, h },
       statement:
@@ -182,12 +174,9 @@ window.cat10 = (() => {
     };
   }
 
-  function generate(diff = 'medium') {
-    const gens = diff === 'easy'
-      ? [cylinder, cuboid]
-      : [cuboid, prismAngle, pyramid, cylinder];
-    return M.choose(gens)(diff);
+  function generate() {
+    return M.choose([cuboid, prismAngle, pyramid, cylinder])();
   }
 
-  return { generate, easy: () => generate('easy'), medium: () => generate('medium'), hard: () => generate('hard') };
+  return { generate };
 })();

@@ -14,6 +14,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+
   <!-- App CSS -->
   <link rel="stylesheet" href="css/theme.css">
   <link rel="stylesheet" href="css/layout.css">
@@ -35,6 +38,15 @@
       <button class="btn btn-ghost btn-sm" id="btn-progress-open" title="Statystyki">
         <span>📊</span> Postępy
       </button>
+      <!-- Stan: niezalogowany -->
+      <button class="btn btn-outline btn-sm" id="btn-auth-open" title="Zaloguj się">
+        Zaloguj się
+      </button>
+      <!-- Stan: zalogowany (ukryty domyślnie) -->
+      <button class="btn btn-ghost btn-sm user-btn hidden" id="btn-user-menu" title="Konto">
+        <span class="user-avatar" id="user-avatar">?</span>
+        <span class="user-email-short" id="user-email-short"></span>
+      </button>
     </div>
   </div>
 </header>
@@ -43,7 +55,6 @@
 <div class="mode-tabs-wrapper">
   <div class="mode-tabs" id="mode-tabs">
     <button class="mode-tab active" data-mode="generator">⚡ Generator zadań</button>
-    <button class="mode-tab" data-mode="matura">📜 Zadania z matur</button>
     <button class="mode-tab" data-mode="symulacja">🎓 Symulacja matury</button>
   </div>
 </div>
@@ -57,15 +68,6 @@
       <select class="select" id="select-category">
         <option value="0">🎲 Losowa kategoria</option>
       </select>
-    </div>
-
-    <div class="control-group">
-      <label class="control-label">Poziom trudności</label>
-      <div class="difficulty-tabs" id="difficulty-tabs">
-        <button class="tab-btn" data-diff="easy">Łatwy</button>
-        <button class="tab-btn active" data-diff="medium">Średni</button>
-        <button class="tab-btn" data-diff="hard">Trudny</button>
-      </div>
     </div>
 
     <button class="btn btn-primary" id="btn-generate">⚡ Generuj zadanie</button>
@@ -98,14 +100,6 @@
 <!-- PANEL KONTROLNY - SYMULACJA -->
 <div class="control-panel hidden" id="control-panel-symulacja">
   <div class="control-panel-inner">
-    <div class="control-group">
-      <label class="control-label">Poziom trudności</label>
-      <div class="difficulty-tabs" id="difficulty-tabs-exam">
-        <button class="tab-btn" data-diff="easy">Łatwy</button>
-        <button class="tab-btn active" data-diff="medium">Średni</button>
-        <button class="tab-btn" data-diff="hard">Trudny</button>
-      </div>
-    </div>
     <button class="btn btn-primary" id="btn-start-exam">🎓 Generuj arkusz (12 zadań)</button>
   </div>
 </div>
@@ -210,6 +204,48 @@
 <script src="js/generators/cat01_exp_praktyka.js"></script>
 <script src="js/generators/cat02_granica.js"></script>
 <script src="js/generators/cat03_logarytmy.js"></script>
+<!-- MODAL: AUTH -->
+<div class="modal-overlay hidden" id="modal-auth">
+  <div class="modal-box auth-modal">
+    <button class="modal-close" id="btn-auth-close">✕</button>
+    <div class="auth-logo">∑</div>
+    <h2 class="auth-title" id="auth-modal-title">Zaloguj się</h2>
+    <p class="auth-subtitle" id="auth-modal-sub">Zapisuj postępy w chmurze na wszystkich urządzeniach.</p>
+
+    <!-- Tabs -->
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-tab="login">Logowanie</button>
+      <button class="auth-tab" data-tab="register">Rejestracja</button>
+    </div>
+
+    <!-- Form -->
+    <form class="auth-form" id="auth-form" autocomplete="on">
+      <div class="auth-field">
+        <label class="auth-label" for="auth-email">Email</label>
+        <input class="auth-input" id="auth-email" type="email" placeholder="twoj@email.pl" autocomplete="email" required>
+      </div>
+      <div class="auth-field">
+        <label class="auth-label" for="auth-password">Hasło</label>
+        <input class="auth-input" id="auth-password" type="password" placeholder="••••••••" autocomplete="current-password" required>
+      </div>
+      <div class="auth-error hidden" id="auth-error"></div>
+      <button class="btn btn-primary auth-submit" id="auth-submit" type="submit">Zaloguj się</button>
+    </form>
+
+  </div>
+</div>
+
+<!-- MODAL: USER MENU -->
+<div class="modal-overlay hidden" id="modal-user">
+  <div class="modal-box user-modal">
+    <button class="modal-close" id="btn-user-close">✕</button>
+    <div class="user-modal-avatar" id="um-avatar">?</div>
+    <div class="user-modal-email" id="um-email"></div>
+    <div class="user-modal-sync" id="um-sync-status">✓ Statystyki synchronizowane</div>
+    <button class="btn btn-danger btn-sm" id="btn-logout" style="margin-top:20px;width:100%">Wyloguj się</button>
+  </div>
+</div>
+
 <script src="js/generators/cat04_styczna.js"></script>
 <script src="js/generators/cat05_dowod_nierownosci.js"></script>
 <script src="js/generators/cat06_nierownoscabs.js"></script>
@@ -224,6 +260,7 @@
 <script src="js/generators/cat15_optymalizacja.js"></script>
 <script src="js/generators/index.js?v=20260519"></script>
 <script src="js/data/matura_tasks.js?v=20260519"></script>
+<script src="js/core/SupabaseAuth.js?v=20260519"></script>
 <script src="js/app.js?v=20260519"></script>
 
 </body>
