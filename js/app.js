@@ -71,9 +71,10 @@
   function initYearSelect() {
     if (!MT || !elYearSelect) return;
     MT.getYears().forEach(year => {
+      const count = MT.getByYear(year).length;
       const opt = document.createElement('option');
       opt.value = year;
-      opt.textContent = `Matura ${year}`;
+      opt.textContent = `Matura ${year} (${count} zadań)`;
       elYearSelect.appendChild(opt);
     });
     updateMaturaTaskList();
@@ -81,9 +82,9 @@
 
   function updateMaturaTaskList() {
     if (!MT || !elMaturaTaskSelect) return;
-    elMaturaTaskSelect.innerHTML = '<option value="">— wybierz zadanie —</option>';
     const year = parseInt(elYearSelect.value);
     const tasks = year ? MT.getByYear(year) : MT.getAll();
+    elMaturaTaskSelect.innerHTML = `<option value="">— wybierz zadanie (${tasks.length}) —</option>`;
     tasks.forEach(t => {
       const opt = document.createElement('option');
       opt.value = t.id;
