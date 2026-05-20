@@ -1,0 +1,103 @@
+:root {
+  /* Tła */
+  --bg-primary:    #0d0f1a;
+  --bg-secondary:  #141728;
+  --bg-tertiary:   #1c2035;
+  --bg-card:       #161929;
+  --bg-hover:      #1f2340;
+
+  /* Akcenty */
+  --accent-blue:   #5b8dee;
+  --accent-blue-dim: #3a6bcc;
+  --accent-green:  #4caf7d;
+  --accent-red:    #f25f5f;
+  --accent-yellow: #f5c842;
+  --accent-purple: #a78bfa;
+  --accent-cyan:   #38bdf8;
+
+  /* Tekst */
+  --text-primary:   #e8ecf8;
+  --text-secondary: #8d9bc0;
+  --text-muted:     #5a6480;
+
+  /* Obramowania */
+  --border:        #232745;
+  --border-light:  #2d3260;
+
+  /* KaTeX */
+  --katex-color:   #c5d4ff;
+
+  /* Kategorie kolorów */
+  --cat-1:  #f59e0b;
+  --cat-2:  #ef4444;
+  --cat-3:  #8b5cf6;
+  --cat-4:  #06b6d4;
+  --cat-5:  #10b981;
+  --cat-6:  #f97316;
+  --cat-7:  #3b82f6;
+  --cat-8:  #ec4899;
+  --cat-9:  #14b8a6;
+  --cat-10: #a855f7;
+  --cat-11: #22c55e;
+  --cat-12: #eab308;
+  --cat-13: #f43f5e;
+  --cat-14: #6366f1;
+  --cat-15: #0ea5e9;
+
+  /* Typografia */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Animacje */
+  --transition: 0.18s ease;
+  --transition-slow: 0.35s ease;
+
+  /* Zaokrąglenia */
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+
+  /* Cienie */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.5);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.6);
+  --glow-blue: 0 0 20px rgba(91,141,238,0.25);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* KaTeX override for dark mode */
+.katex { color: var(--katex-color) !important; font-size: 1.05em; }
+.katex-display { color: var(--katex-color) !important; }
+.katex-display > .katex { font-size: 1.15em; }
+
+/* Selection */
+::selection { background: rgba(91,141,238,0.35); color: var(--text-primary); }
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
