@@ -53,7 +53,14 @@ window.SupabaseAuth = (() => {
         .single(),
     ]);
 
-    userPlan = profile?.plan ?? 'free';
+    // Sprawdź wygaśnięcie planu
+    const rawPlan = profile?.plan ?? 'free';
+    const expiresAt = profile?.plan_expires_at;
+    if (expiresAt && new Date(expiresAt) < new Date()) {
+      userPlan = 'free';
+    } else {
+      userPlan = rawPlan;
+    }
     todayUsage = {
       tasks_generated: daily?.tasks_generated ?? 0,
       matura_started:  daily?.matura_started  ?? 0,
@@ -104,6 +111,29 @@ window.SupabaseAuth = (() => {
       },
       { onConflict: 'user_id,date' }
     );
+  }
+
+  // === Kody promocyjne ===
+  async function redeemPromoCode(code) {
+    const { data: { session } } = await sb.auth.getSession();
+    const token = session?.access_token;
+    if (!token) throw new Error('Nie jesteś zalogowany.');
+
+    const res = await fetch(`${SUPABASE_URL}/functions/v1/redeem-promo-code`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+        'apikey': SUPABASE_KEY,
+      },
+      body: JSON.stringify({ code }),
+    });
+
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Błąd aktywacji kodu.');
+    // Odśwież plan lokalnie
+    await fetchProfile();
+    return data;
   }
 
   // === Checkout Stripe ===
@@ -239,7 +269,7 @@ window.SupabaseAuth = (() => {
     getPlan, fetchProfile, getTasksRemaining, getMaturaRemaining,
     canGenerateTask, canStartMatura, trackTaskGenerated, trackMaturaStarted,
     createCheckoutSession,
-    signInWithGoogle, signOut,
+    signInWithGoogle, signOut, redeemPromoCode,
     fetchProgress, fetchDailyStats, recordAnswer,
     loadFromCloud, loadDailyFromCloud,
   };

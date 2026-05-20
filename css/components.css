@@ -1089,6 +1089,37 @@
 .btn-outline:hover {
   background: rgba(91,141,238,0.1);
 }
+/* ===== PROMO CODE ===== */
+.promo-section { margin-top: 14px; }
+.promo-row {
+  display: flex;
+  gap: 8px;
+}
+.promo-input {
+  flex: 1;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  padding: 7px 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  outline: none;
+  transition: border-color var(--transition);
+}
+.promo-input:focus { border-color: var(--accent-blue); }
+.promo-input::placeholder { text-transform: none; letter-spacing: normal; color: var(--text-muted); }
+.promo-msg {
+  font-size: 12px;
+  margin-top: 7px;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+}
+.promo-msg--ok  { background: rgba(76,175,125,0.12); color: var(--accent-green); }
+.promo-msg--err { background: rgba(242,95,95,0.12);  color: var(--accent-red); }
+
 .btn-google {
   display: flex;
   align-items: center;

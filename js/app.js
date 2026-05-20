@@ -753,6 +753,39 @@
       }
     });
 
+    // Kod promocyjny
+    $('btn-redeem-promo')?.addEventListener('click', async () => {
+      const input  = $('promo-input');
+      const msgEl  = $('promo-msg');
+      const code   = input?.value?.trim();
+      if (!code) return;
+      const btn = $('btn-redeem-promo');
+      btn.textContent = '…';
+      btn.disabled = true;
+      msgEl?.classList.add('hidden');
+      try {
+        const result = await SA.redeemPromoCode(code);
+        msgEl.textContent = result.message;
+        msgEl.className = 'promo-msg promo-msg--ok';
+        msgEl.classList.remove('hidden');
+        input.value = '';
+        // Odśwież UI planu
+        const plan = SA.getPlan();
+        const planLabels = { free: 'Free', pro: 'Pro 🚀', max: 'Max ✨' };
+        const elUmPlan = $('um-plan');
+        if (elUmPlan) { elUmPlan.textContent = `Plan: ${planLabels[plan]}`; elUmPlan.className = `user-modal-plan plan-${plan}`; }
+        updateLimitBadge();
+        showToast(result.message, 'success');
+      } catch (err) {
+        msgEl.textContent = err.message;
+        msgEl.className = 'promo-msg promo-msg--err';
+        msgEl.classList.remove('hidden');
+      } finally {
+        btn.textContent = 'Aktywuj';
+        btn.disabled = false;
+      }
+    });
+
     elBtnLogout?.addEventListener('click', async () => {
       await SA?.signOut();
       elModalUser?.classList.add('hidden');
