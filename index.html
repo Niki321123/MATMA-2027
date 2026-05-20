@@ -297,27 +297,47 @@
 <div class="modal-overlay hidden" id="modal-user">
   <div class="modal-box user-modal">
     <button class="modal-close" id="btn-user-close">✕</button>
-    <div class="user-modal-avatar" id="um-avatar">?</div>
-    <div class="user-modal-email" id="um-email"></div>
-    <!-- Nazwa użytkownika -->
-    <div class="um-username-row">
-      <span class="um-username" id="um-username">Brak nazwy</span>
-      <button class="btn btn-ghost btn-sm" id="btn-um-change-username">✏️ Zmień</button>
+
+    <!-- Profil -->
+    <div class="um-profile">
+      <div class="user-modal-avatar" id="um-avatar">?</div>
+      <div class="um-profile-info">
+        <div class="um-username-row">
+          <span class="um-username" id="um-username">Brak nazwy</span>
+          <button class="btn btn-ghost btn-sm" id="btn-um-change-username">✏️ Zmień</button>
+        </div>
+        <div class="user-modal-email" id="um-email"></div>
+        <div class="user-modal-sync">✓ Statystyki synchronizowane</div>
+      </div>
     </div>
-    <div class="user-modal-plan" id="um-plan">Plan: Free</div>
-    <div class="user-modal-sync">✓ Statystyki synchronizowane</div>
-    <div class="um-level-row" id="um-level-row" style="margin-top:10px;font-size:0.85rem;color:var(--text-muted);text-align:center"></div>
-    <button class="btn btn-ghost btn-sm" id="btn-um-change-level" style="margin-top:4px;width:100%">📐 Zmień poziom matematyki</button>
-    <button class="btn btn-outline btn-sm" id="btn-um-upgrade" style="margin-top:10px;width:100%">💎 Zmień plan</button>
+
+    <!-- Plan -->
+    <div class="um-section">
+      <div class="um-section-label">Plan</div>
+      <div class="um-plan-row">
+        <div class="user-modal-plan" id="um-plan">Plan: Free</div>
+        <button class="btn btn-outline btn-sm" id="btn-um-upgrade">💎 Zmień plan</button>
+      </div>
+    </div>
+
+    <!-- Poziom -->
+    <div class="um-section">
+      <div class="um-section-label">Poziom</div>
+      <div class="um-level-row" id="um-level-row"></div>
+      <button class="btn btn-ghost btn-sm um-level-btn" id="btn-um-change-level">📐 Zmień poziom matematyki</button>
+    </div>
+
     <!-- Kod promocyjny -->
-    <div class="promo-section">
+    <div class="um-section">
+      <div class="um-section-label">Kod promocyjny</div>
       <div class="promo-row">
-        <input class="promo-input" id="promo-input" type="text" placeholder="Kod promocyjny" maxlength="20">
+        <input class="promo-input" id="promo-input" type="text" placeholder="Wpisz kod..." maxlength="20">
         <button class="btn btn-primary btn-sm" id="btn-redeem-promo">Aktywuj</button>
       </div>
       <div class="promo-msg hidden" id="promo-msg"></div>
     </div>
-    <button class="btn btn-danger btn-sm" id="btn-logout" style="margin-top:10px;width:100%">Wyloguj się</button>
+
+    <button class="btn btn-danger btn-sm um-logout-btn" id="btn-logout">Wyloguj się</button>
   </div>
 </div>
 
