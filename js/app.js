@@ -15,6 +15,72 @@
   let currentMode    = 'generator';
   let firstTaskShown = false;
 
+  // === Poziom matematyki (PP / PR) ===
+  let levelModalCallback = null;
+
+  function getMathLevel() { return localStorage.getItem('mathLevel') || 'PR'; }
+
+  function setMathLevel(level) {
+    localStorage.setItem('mathLevel', level);
+    rebuildCategorySelect();
+    updateLogoSubtitle();
+    updateLevelRow();
+  }
+
+  function openLevelModal(callback) {
+    levelModalCallback = callback || null;
+    $('modal-level')?.classList.remove('hidden');
+  }
+
+  function closeLevelModal() {
+    $('modal-level')?.classList.add('hidden');
+  }
+
+  function chooseMathLevel(level) {
+    setMathLevel(level);
+    closeLevelModal();
+    if (levelModalCallback) { levelModalCallback(); levelModalCallback = null; }
+  }
+
+  function rebuildCategorySelect() {
+    if (!elCatSelect) return;
+    elCatSelect.innerHTML = '<option value="0">🎲 Losowa kategoria</option>';
+    const cats = getMathLevel() === 'PP' ? G.getAllPP() : G.getAll();
+    cats.forEach(cat => {
+      const opt = document.createElement('option');
+      opt.value = cat.id;
+      opt.textContent = typeof cat.id === 'number' ? `${cat.id}. ${cat.name}` : cat.name;
+      elCatSelect.appendChild(opt);
+    });
+  }
+
+  function updateLogoSubtitle() {
+    const sub = document.querySelector('.logo-sub');
+    if (sub) sub.textContent = getMathLevel() === 'PP'
+      ? 'Matematyka Podstawowa 2027'
+      : 'Matematyka Rozszerzona 2027';
+  }
+
+  function updateLevelRow() {
+    const row = $('um-level-row');
+    if (row) row.textContent = getMathLevel() === 'PP'
+      ? 'Poziom: Matematyka podstawowa'
+      : 'Poziom: Matematyka rozszerzona';
+  }
+
+  function initLevelEvents() {
+    $('btn-level-pp')?.addEventListener('click', () => chooseMathLevel('PP'));
+    $('btn-level-pr')?.addEventListener('click', () => chooseMathLevel('PR'));
+    $('btn-um-change-level')?.addEventListener('click', () => {
+      $('modal-user')?.classList.add('hidden');
+      openLevelModal(() => {
+        updateLogoSubtitle();
+        updateLevelRow();
+        rebuildCategorySelect();
+      });
+    });
+  }
+
   const HINT_BTN_LABELS = ['ogólna', 'wzór', 'podstawienie'];
 
   // === Stan arkusza ===
@@ -63,12 +129,7 @@
 
   // === Inicjalizacja dropdownów ===
   function initCategorySelect() {
-    G.getAll().forEach(cat => {
-      const opt = document.createElement('option');
-      opt.value = cat.id;
-      opt.textContent = `${cat.id}. ${cat.name}`;
-      elCatSelect.appendChild(opt);
-    });
+    rebuildCategorySelect();
   }
 
   function initYearSelect() {
@@ -145,7 +206,12 @@
 
     const catVal = elCatSelect.value;
     try {
-      currentTask = catVal === '0' ? G.generateRandom() : G.generate(parseInt(catVal));
+      if (catVal === '0') {
+        currentTask = getMathLevel() === 'PP' ? G.generateRandomPP() : G.generateRandom();
+      } else {
+        const id = /^\d+$/.test(catVal) ? parseInt(catVal) : catVal;
+        currentTask = G.generate(id);
+      }
     } catch (e) {
       console.error('Błąd generatora:', e);
       showToast('Błąd generowania zadania.', 'error');
@@ -511,8 +577,10 @@
       hideUsernameModal();
       updateUserModalUsername(name);
       showToast(`Witaj, ${name}! 🎉`, 'success');
-      // jeśli to było pierwsze logowanie — generuj zadanie
-      if (!firstTaskShown) generateTask();
+      if (!firstTaskShown) {
+        if (!localStorage.getItem('mathLevel')) openLevelModal(() => generateTask());
+        else generateTask();
+      }
     } catch (err) {
       if (errEl) { errEl.textContent = err.message; errEl.classList.remove('hidden'); }
     } finally {
@@ -544,7 +612,10 @@
     // Pomiń
     $('btn-username-skip')?.addEventListener('click', () => {
       hideUsernameModal();
-      if (!firstTaskShown) generateTask();
+      if (!firstTaskShown) {
+        if (!localStorage.getItem('mathLevel')) openLevelModal(() => generateTask());
+        else generateTask();
+      }
     });
     // "Zmień" w user modal
     $('btn-um-change-username')?.addEventListener('click', () => {
@@ -956,9 +1027,10 @@
       updateLimitBadge();
 
       if (!firstTaskShown) {
-        // Jeśli brak username — pokaż modal wyboru nazwy (generowanie po zamknięciu)
         if (!SA?.getUsername()) {
           showUsernameModal();
+        } else if (!localStorage.getItem('mathLevel')) {
+          openLevelModal(() => generateTask());
         } else {
           generateTask();
         }
@@ -1015,7 +1087,11 @@
         await SA.signInWithGoogle();
       } catch (err) {
         if (elAuthError) {
-          elAuthError.textContent = err.message || 'Błąd logowania.';
+          if (err.message === 'WEBVIEW_BLOCKED') {
+            elAuthError.innerHTML = 'Otwórz stronę w przeglądarce (Chrome/Safari), żeby zalogować się przez Google.<br><small>Logowanie przez Google nie działa w Messengerze i podobnych aplikacjach.</small>';
+          } else {
+            elAuthError.textContent = err.message || 'Błąd logowania.';
+          }
           elAuthError.classList.remove('hidden');
         }
       }
@@ -1080,9 +1156,16 @@
     initAuthEvents();
     initUsernameEvents();
     initRankingEvents();
+    initLevelEvents();
+
+    updateLogoSubtitle();
+    updateLevelRow();
 
     // Pokaż landing dopóki nie znamy stanu auth
     showLanding();
+
+    // Przy pierwszym odwiedzeniu zapytaj o poziom matematyki
+    if (!localStorage.getItem('mathLevel')) openLevelModal();
 
     SA?.init(onAuthChange);
     updateSidebar();

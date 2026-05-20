@@ -19,11 +19,40 @@ window.Generators = (() => {
     { id: 16, name: 'Zadania 6-punktowe',              color: '#e74c3c', icon: '★',  gen: () => window.cat16 },
   ];
 
+  // ── Kategorie PP (Matura Podstawowa) ──────────────────────────────────────
+  const PP_CATEGORIES = [
+    { id: 'pp01', name: 'Liczby rzeczywiste',         color: '#f7b731', icon: '√',   level: 'PP', gen: () => window.pp01 },
+    { id: 'pp02', name: 'Procenty i finanse',          color: '#fd9644', icon: '%',   level: 'PP', gen: () => window.pp02 },
+    { id: 'pp03', name: 'Wyrażenia algebraiczne',      color: '#fc5c65', icon: 'x²',  level: 'PP', gen: () => window.pp03 },
+    { id: 'pp04', name: 'Równania i układy',           color: '#eb3b5a', icon: '=',   level: 'PP', gen: () => window.pp04 },
+    { id: 'pp05', name: 'Nierówności',                 color: '#a55eea', icon: '≤',   level: 'PP', gen: () => window.pp05 },
+    { id: 'pp06', name: 'Funkcja liniowa',             color: '#4b7bec', icon: 'f',   level: 'PP', gen: () => window.pp06 },
+    { id: 'pp07', name: 'Funkcja kwadratowa',          color: '#2d98da', icon: '∩',   level: 'PP', gen: () => window.pp07 },
+    { id: 'pp08', name: 'Ciągi (PP)',                  color: '#26de81', icon: 'aₙ',  level: 'PP', gen: () => window.pp08 },
+    { id: 'pp09', name: 'Trygonometria (PP)',          color: '#20bf6b', icon: 'sin', level: 'PP', gen: () => window.pp09 },
+    { id: 'pp10', name: 'Planimetria (PP)',            color: '#0fb9b1', icon: '△',   level: 'PP', gen: () => window.pp10 },
+    { id: 'pp11', name: 'Stereometria (PP)',           color: '#45aaf2', icon: '⬡',   level: 'PP', gen: () => window.pp11 },
+    { id: 'pp12', name: 'Statystyka',                  color: '#778ca3', icon: 'x̄',   level: 'PP', gen: () => window.pp12 },
+    { id: 'pp13', name: 'Prawdopodobieństwo (PP)',     color: '#fd9644', icon: 'P',   level: 'PP', gen: () => window.pp13 },
+    { id: 'pp14', name: 'Geometria analityczna (PP)', color: '#a55eea', icon: '⊙',   level: 'PP', gen: () => window.pp14 },
+  ];
+
+  const ALL_CATEGORIES = [...CATEGORIES, ...PP_CATEGORIES];
+
   function getMeta(id) {
-    return CATEGORIES.find(c => c.id === id) || null;
+    return ALL_CATEGORIES.find(c => c.id === id) || null;
   }
 
   function getAll() {
+    return CATEGORIES;
+  }
+
+  function getAllPP() {
+    return PP_CATEGORIES;
+  }
+
+  function getByLevel(level) {
+    if (level === 'PP') return PP_CATEGORIES;
     return CATEGORIES;
   }
 
@@ -40,5 +69,10 @@ window.Generators = (() => {
     return generate(meta.id);
   }
 
-  return { getMeta, getAll, generate, generateRandom };
+  function generateRandomPP() {
+    const meta = PP_CATEGORIES[Math.floor(Math.random() * PP_CATEGORIES.length)];
+    return generate(meta.id);
+  }
+
+  return { getMeta, getAll, getAllPP, getByLevel, generate, generateRandom, generateRandomPP };
 })();

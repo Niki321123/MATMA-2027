@@ -1380,3 +1380,40 @@
   color: var(--text-muted);
   font-size: 14px;
 }
+
+/* ===== LEVEL MODAL ===== */
+.level-modal {
+  max-width: 420px;
+  text-align: center;
+  padding: 36px 28px 32px;
+}
+.level-icon { font-size: 40px; margin-bottom: 12px; }
+.level-title { font-size: 1.4rem; font-weight: 700; margin: 0 0 8px; }
+.level-desc { color: var(--text-muted); font-size: 0.9rem; margin: 0 0 28px; line-height: 1.5; }
+.level-cards {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+.level-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 14px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.1s, background 0.15s;
+  font-family: inherit;
+}
+.level-card:hover {
+  border-color: var(--accent-blue);
+  background: var(--bg-hover);
+  transform: translateY(-2px);
+}
+.level-card-icon { font-size: 32px; }
+.level-card-name { font-size: 1rem; font-weight: 700; color: var(--text); }
+.level-card-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }

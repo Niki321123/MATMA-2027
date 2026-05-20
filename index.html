@@ -229,7 +229,9 @@
     </div>
     <div class="user-modal-plan" id="um-plan">Plan: Free</div>
     <div class="user-modal-sync">✓ Statystyki synchronizowane</div>
-    <button class="btn btn-outline btn-sm" id="btn-um-upgrade" style="margin-top:14px;width:100%">💎 Zmień plan</button>
+    <div class="um-level-row" id="um-level-row" style="margin-top:10px;font-size:0.85rem;color:var(--text-muted);text-align:center"></div>
+    <button class="btn btn-ghost btn-sm" id="btn-um-change-level" style="margin-top:4px;width:100%">📐 Zmień poziom matematyki</button>
+    <button class="btn btn-outline btn-sm" id="btn-um-upgrade" style="margin-top:10px;width:100%">💎 Zmień plan</button>
     <!-- Kod promocyjny -->
     <div class="promo-section">
       <div class="promo-row">
@@ -257,6 +259,27 @@
     </div>
     <button class="btn btn-primary btn-full" id="btn-username-save">Zapisz nazwę</button>
     <button class="btn btn-ghost btn-full un-skip" id="btn-username-skip">Pomiń — nie chcę być w rankingu</button>
+  </div>
+</div>
+
+<!-- MODAL: WYBÓR POZIOMU MATEMATYKI -->
+<div class="modal-overlay hidden" id="modal-level">
+  <div class="modal-box level-modal">
+    <div class="level-icon">📐</div>
+    <h2 class="level-title">Którą matematykę zdajesz?</h2>
+    <p class="level-desc">Dostosujemy zadania i kategorie do Twojego poziomu.<br>Możesz to zmienić w dowolnym momencie.</p>
+    <div class="level-cards">
+      <button class="level-card" id="btn-level-pp">
+        <div class="level-card-icon">📗</div>
+        <div class="level-card-name">Podstawowa</div>
+        <div class="level-card-desc">Matura obowiązkowa<br>14 kategorii zadań</div>
+      </button>
+      <button class="level-card" id="btn-level-pr">
+        <div class="level-card-icon">📕</div>
+        <div class="level-card-name">Rozszerzona</div>
+        <div class="level-card-desc">Matura dodatkowa<br>16 kategorii zadań</div>
+      </button>
+    </div>
   </div>
 </div>
 
@@ -318,6 +341,20 @@
 <script src="js/generators/cat14_kombinatoryka.js"></script>
 <script src="js/generators/cat15_optymalizacja.js"></script>
 <script src="js/generators/cat16_szesciopunktowe.js"></script>
+<script src="js/generators/pp01_liczby.js?v=20260521"></script>
+<script src="js/generators/pp02_procenty.js?v=20260521"></script>
+<script src="js/generators/pp03_algebraiczne.js?v=20260521"></script>
+<script src="js/generators/pp04_rownania.js?v=20260521"></script>
+<script src="js/generators/pp05_nierownosci.js?v=20260521"></script>
+<script src="js/generators/pp06_funkcja_liniowa.js?v=20260521"></script>
+<script src="js/generators/pp07_funkcja_kwadratowa.js?v=20260521"></script>
+<script src="js/generators/pp08_ciagi.js?v=20260521"></script>
+<script src="js/generators/pp09_trygonometria.js?v=20260521"></script>
+<script src="js/generators/pp10_planimetria.js?v=20260521"></script>
+<script src="js/generators/pp11_stereometria.js?v=20260521"></script>
+<script src="js/generators/pp12_statystyka.js?v=20260521"></script>
+<script src="js/generators/pp13_prawdopodobienstwo.js?v=20260521"></script>
+<script src="js/generators/pp14_geom_analityczna.js?v=20260521"></script>
 <script src="js/generators/index.js?v=20260521"></script>
 <script src="js/data/matura_tasks.js?v=20260521"></script>
 <script src="js/core/SupabaseAuth.js?v=20260521"></script>
