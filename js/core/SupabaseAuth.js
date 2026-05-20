@@ -187,7 +187,15 @@ window.SupabaseAuth = (() => {
   }
 
   // === Auth actions ===
+  function isInAppBrowser() {
+    const ua = navigator.userAgent || '';
+    return /FBAN|FBAV|Instagram|Messenger|LinkedInApp|Twitter|Snapchat|TikTok|MicroMessenger|Line\/|WhatsApp/i.test(ua);
+  }
+
   async function signInWithGoogle() {
+    if (isInAppBrowser()) {
+      throw new Error('WEBVIEW_BLOCKED');
+    }
     const { error } = await sb.auth.signInWithOAuth({
       provider: 'google',
       options: {
