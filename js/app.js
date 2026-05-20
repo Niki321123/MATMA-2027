@@ -104,7 +104,7 @@
 
     const plan      = SA.getPlan();
     const remaining = SA.getTasksRemaining();
-    const planLabels = { free: 'Free', pro: 'Pro', max: 'Max' };
+    const planLabels = { free: 'Free', standard: 'Standard', pro: 'Pro', max: 'Max' };
 
     let text = `${planLabels[plan] || 'Free'}`;
     if (remaining !== Infinity) {
@@ -602,26 +602,35 @@
       label: 'Free',
       price: '0 zł',
       period: 'na zawsze',
-      features: ['3 zadania dziennie', 'Statystyki podstawowe'],
-      missing:  ['Symulacja matury', 'Synchronizacja w chmurze'],
+      features: ['2 zadania dziennie'],
+      missing:  ['Symulacja matury', 'Karta wzorów', 'Statystyki', 'Sync w chmurze'],
       color: 'var(--text-muted)',
+    },
+    standard: {
+      label: 'Standard',
+      price: '3 zł',
+      period: '/ miesiąc',
+      features: ['3 zadania dziennie', '1 symulacja matury co 2 tygodnie', 'Statystyki per kategoria', 'Sync w chmurze'],
+      missing:  [],
+      color: 'var(--accent-green)',
     },
     pro: {
       label: 'Pro',
-      price: '5 zł',
+      price: '8 zł',
       period: '/ miesiąc',
       features: ['10 zadań dziennie', '1 symulacja matury dziennie', 'Statystyki per kategoria', 'Sync w chmurze'],
       missing:  [],
       color: 'var(--accent-blue)',
-      featured: true,
     },
     max: {
       label: 'Max',
-      price: '10 zł',
+      price: '15 zł',
       period: '/ miesiąc',
       features: ['Nieograniczone zadania', 'Nieograniczone matury', 'Wszystkie funkcje Pro'],
       missing:  [],
       color: 'var(--accent-purple)',
+      featured: true,
+      badge: 'Najbardziej opłacalny',
     },
   };
 
@@ -637,8 +646,9 @@
     if (msgEl) {
       if (reason === 'task-limit') {
         const plan = SA?.getPlan() || 'free';
-        const limit = plan === 'free' ? 3 : 10;
-        msgEl.textContent = `Osiągnąłeś dzienny limit ${limit} zadań dla planu ${PLAN_INFO[plan]?.label}. Przejdź na wyższy plan, aby kontynuować.`;
+        const limitMap = { free: '2 dziennie', standard: '3 dziennie', pro: '10 dziennie' };
+        const limitDesc = limitMap[plan] || '10 dziennie';
+        msgEl.textContent = `Osiągnąłeś limit (${limitDesc}) dla planu ${PLAN_INFO[plan]?.label}. Przejdź na wyższy plan, aby kontynuować.`;
         msgEl.classList.remove('hidden');
       } else if (reason === 'matura-limit') {
         msgEl.textContent = 'Symulacja matury jest dostępna od planu Pro.';
@@ -667,7 +677,7 @@
 
       return `
         <div class="pricing-card ${info.featured ? 'pricing-card--featured' : ''}">
-          ${info.featured ? '<div class="pc-popular">Najpopularniejszy</div>' : ''}
+          ${info.badge ? `<div class="pc-popular">${info.badge}</div>` : ''}
           ${isCurrent    ? '<div class="pc-current-tag">Twój plan</div>' : ''}
           <div class="pc-name" style="color:${info.color}">${info.label}</div>
           <div class="pc-price-row">
@@ -685,7 +695,7 @@
       modal.classList.add('hidden');
       openAuthModal();
     });
-    ['pro', 'max'].forEach(planId => {
+    ['standard', 'pro', 'max'].forEach(planId => {
       $(`btn-plan-${planId}`)?.addEventListener('click', () => handleUpgrade(planId));
     });
 
@@ -934,7 +944,7 @@
       if (elUmEmail)    elUmEmail.textContent     = user.email || '';
 
       const plan = SA?.getPlan() || 'free';
-      const planLabels = { free: 'Free', pro: 'Pro 🚀', max: 'Max ✨' };
+      const planLabels = { free: 'Free', standard: 'Standard', pro: 'Pro 🚀', max: 'Max ✨' };
       if (elUmPlan) {
         elUmPlan.textContent  = `Plan: ${planLabels[plan] || plan}`;
         elUmPlan.className    = `user-modal-plan plan-${plan}`;
@@ -1029,7 +1039,7 @@
         input.value = '';
         // Odśwież UI planu
         const plan = SA.getPlan();
-        const planLabels = { free: 'Free', pro: 'Pro 🚀', max: 'Max ✨' };
+        const planLabels = { free: 'Free', standard: 'Standard', pro: 'Pro 🚀', max: 'Max ✨' };
         const elUmPlan = $('um-plan');
         if (elUmPlan) { elUmPlan.textContent = `Plan: ${planLabels[plan]}`; elUmPlan.className = `user-modal-plan plan-${plan}`; }
         updateLimitBadge();

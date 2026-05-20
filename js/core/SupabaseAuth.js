@@ -6,9 +6,10 @@ window.SupabaseAuth = (() => {
   const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
   const PLAN_LIMITS = {
-    free: { tasks: 3,        matura: 0 },
-    pro:  { tasks: 10,       matura: 1 },
-    max:  { tasks: Infinity, matura: Infinity },
+    free:     { tasks: 2,        matura: 0 },
+    standard: { tasks: 3,        matura: 1 },  // matura reset co 2 tygodnie — obsługiwane przez backend
+    pro:      { tasks: 10,       matura: 1 },
+    max:      { tasks: Infinity, matura: Infinity },
   };
 
   let currentUser = null;
@@ -16,6 +17,7 @@ window.SupabaseAuth = (() => {
   let userPlan = 'free';
   let userUsername = null;
   let todayUsage = { tasks_generated: 0, matura_started: 0 };
+  let maturaLastStartedAt = null; // tylko dla planu standard (dwutygodniowy reset)
 
   // === Init ===
   async function init(onAuthChange) {
@@ -31,7 +33,7 @@ window.SupabaseAuth = (() => {
     sb.auth.onAuthStateChange(async (_event, session) => {
       currentUser = session?.user ?? null;
       if (currentUser) await fetchProfile();
-      else { userPlan = 'free'; userUsername = null; todayUsage = { tasks_generated: 0, matura_started: 0 }; }
+      else { userPlan = 'free'; userUsername = null; maturaLastStartedAt = null; todayUsage = { tasks_generated: 0, matura_started: 0 }; }
       onAuthChangeCallback?.(currentUser);
     });
   }
@@ -56,7 +58,7 @@ window.SupabaseAuth = (() => {
     }
 
     const [{ data: profile }, { data: daily }] = await Promise.all([
-      sb.from('profiles').select('plan, display_name, avatar_url, username').eq('id', currentUser.id).single(),
+      sb.from('profiles').select('plan, display_name, avatar_url, username, matura_last_started_at').eq('id', currentUser.id).single(),
       sb.from('user_daily')
         .select('tasks_generated, matura_started')
         .eq('user_id', currentUser.id)
@@ -72,6 +74,7 @@ window.SupabaseAuth = (() => {
     } else {
       userPlan     = rawPlan;
     userUsername = profile?.username ?? null;
+    maturaLastStartedAt = profile?.matura_last_started_at ?? null;
     }
     todayUsage = {
       tasks_generated: daily?.tasks_generated ?? 0,
@@ -86,6 +89,11 @@ window.SupabaseAuth = (() => {
   }
 
   function getMaturaRemaining() {
+    if (userPlan === 'standard') {
+      if (!maturaLastStartedAt) return 1;
+      const daysSince = (Date.now() - new Date(maturaLastStartedAt).getTime()) / 86400000;
+      return daysSince >= 14 ? 1 : 0;
+    }
     const limit = PLAN_LIMITS[userPlan]?.matura ?? 0;
     if (limit === Infinity) return Infinity;
     return Math.max(0, limit - todayUsage.matura_started);
@@ -107,6 +115,11 @@ window.SupabaseAuth = (() => {
 
   function trackMaturaStarted() {
     if (!currentUser) return;
+    if (userPlan === 'standard') {
+      maturaLastStartedAt = new Date().toISOString();
+      sb.from('profiles').update({ matura_last_started_at: maturaLastStartedAt }).eq('id', currentUser.id).then(() => {});
+      return;
+    }
     todayUsage.matura_started++;
     _syncDailyUsage();
   }
