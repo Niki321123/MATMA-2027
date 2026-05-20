@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generator Zadań Maturalnych — Matematyka Rozszerzona</title>
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-icon">∑</span>
+      <div class="logo-text">
+        <span class="logo-title">Matura Matma</span>
+        <span class="logo-sub">Matematyka Rozszerzona 2027</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <span class="limit-badge hidden" id="limit-badge"></span>
+      <button class="btn btn-ghost btn-sm" id="btn-open-pricing" title="Plany i ceny">💎 Plany</button>
+      <button class="btn btn-ghost btn-sm" id="btn-progress-open" title="Statystyki">📊 Postępy</button>
+      <button class="btn btn-outline btn-sm" id="btn-auth-open" title="Zaloguj się">Zaloguj się</button>
+      <button class="btn btn-ghost btn-sm user-btn hidden" id="btn-user-menu" title="Konto">
+        <span class="user-avatar" id="user-avatar">?</span>
+        <span class="user-email-short" id="user-email-short"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- PANEL TRYBÓW -->
+<div class="mode-tabs-wrapper">
+  <div class="mode-tabs" id="mode-tabs">
+    <button class="mode-tab active" data-mode="generator">⚡ Generator zadań</button>
+    <button class="mode-tab" data-mode="symulacja">🎓 Symulacja matury</button>
+  </div>
+</div>
+
+<!-- PANEL KONTROLNY - GENERATOR -->
+<div class="control-panel" id="control-panel-generator">
+  <div class="control-panel-inner">
+    <div class="control-group">
+      <label class="control-label" for="select-category">Kategoria</label>
+      <select class="select" id="select-category">
+        <option value="0">🎲 Losowa kategoria</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" id="btn-generate">⚡ Generuj zadanie</button>
+  </div>
+</div>
+
+<!-- PANEL KONTROLNY - MATURA -->
+<div class="control-panel hidden" id="control-panel-matura">
+  <div class="control-panel-inner">
+    <div class="control-group">
+      <label class="control-label" for="select-year">Rok matury</label>
+      <select class="select" id="select-year">
+        <option value="0">🎲 Wszystkie lata</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="select-matura-task">Zadanie</label>
+      <select class="select" id="select-matura-task">
+        <option value="">— wybierz zadanie —</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" id="btn-load-matura">📖 Wczytaj zadanie</button>
+    <button class="btn btn-ghost" id="btn-random-matura">🎲 Losuj</button>
+  </div>
+</div>
+
+<!-- PANEL KONTROLNY - SYMULACJA -->
+<div class="control-panel hidden" id="control-panel-symulacja">
+  <div class="control-panel-inner">
+    <button class="btn btn-primary" id="btn-start-exam">🎓 Generuj arkusz (12 zadań)</button>
+  </div>
+</div>
+
+<!-- PASEK NAWIGACJI ARKUSZA -->
+<div class="exam-nav hidden" id="exam-nav">
+  <div class="exam-nav-inner">
+    <div class="exam-nav-pills" id="exam-nav-pills"></div>
+    <div class="exam-nav-score" id="exam-nav-score"></div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="main-layout">
+
+  <!-- KARTA ZADANIA -->
+  <section class="task-section">
+
+    <!-- Landing (niezalogowany) -->
+    <div class="landing-card hidden" id="landing-card">
+      <div class="landing-icon">∑</div>
+      <h2 class="landing-title">Ćwicz maturę z matematyki</h2>
+      <p class="landing-desc">Generator zadań i symulacje arkuszy dla rozszerzonej matury 2027.<br>Zaloguj się, żeby zacząć — Free plan jest bezpłatny.</p>
+      <div class="landing-actions">
+        <button class="btn btn-primary" id="btn-landing-login">Zaloguj się / Zarejestruj</button>
+        <button class="btn btn-ghost" id="btn-landing-plans">💎 Zobacz plany i ceny</button>
+      </div>
+      <div class="landing-plan-preview">
+        <div class="lpp-card"><div class="lpp-name">Free</div><div class="lpp-desc">3 zadania / dzień</div><div class="lpp-price">0 zł</div></div>
+        <div class="lpp-card lpp-card--featured"><div class="lpp-name">Pro</div><div class="lpp-desc">10 zadań + 1 matura</div><div class="lpp-price">5 zł / mies.</div></div>
+        <div class="lpp-card"><div class="lpp-name">Max</div><div class="lpp-desc">Nieograniczone</div><div class="lpp-price">10 zł / mies.</div></div>
+      </div>
+    </div>
+
+    <!-- Karta zadania -->
+    <div class="task-card hidden" id="task-card">
+      <div class="task-header">
+        <div class="task-meta">
+          <span class="task-category-badge" id="task-badge">Kat. 1</span>
+          <span class="task-points-badge" id="task-points">4 pkt</span>
+          <span class="task-source-badge hidden" id="task-source">Matura 2024 z.5</span>
+        </div>
+      </div>
+      <div class="task-statement" id="task-statement"></div>
+      <div class="hints-zone">
+        <button class="btn btn-hint" id="btn-hint">💡 Pokaż wskazówkę (1/3)</button>
+        <div class="hints-list" id="hints-list"></div>
+      </div>
+      <div class="answer-zone">
+        <div class="answer-buttons">
+          <button class="btn btn-ghost" id="btn-show-solution">📖 Pokaż rozwiązanie</button>
+          <button class="btn btn-success-outline hidden" id="btn-self-correct">✓ Rozwiązałem poprawnie</button>
+          <button class="btn btn-danger-outline hidden" id="btn-self-wrong">✗ Nie rozwiązałem</button>
+          <button class="btn btn-primary hidden" id="btn-next">↻ Następne zadanie</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel rozwiązania -->
+    <div class="solution-panel hidden" id="solution-panel">
+      <div class="solution-header">
+        <h3 class="solution-title">Rozwiązanie krok po kroku</h3>
+        <div class="solution-answer-box" id="answer-display"></div>
+      </div>
+      <div class="solution-steps" id="solution-steps"></div>
+    </div>
+
+  </section>
+
+  <!-- SIDEBAR POSTĘPÓW -->
+  <aside class="progress-sidebar" id="progress-sidebar">
+    <div class="sidebar-placeholder">
+      <p>Rozwiąż pierwsze zadanie, aby zobaczyć postępy.</p>
+    </div>
+  </aside>
+
+</main>
+
+<!-- MODAL: STATYSTYKI -->
+<div class="modal-overlay hidden" id="modal-progress">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>Statystyki</h2>
+      <button class="modal-close" id="btn-progress-close">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<!-- MODAL: AUTH -->
+<div class="modal-overlay hidden" id="modal-auth">
+  <div class="modal-box auth-modal">
+    <button class="modal-close" id="btn-auth-close">✕</button>
+    <div class="auth-logo">∑</div>
+    <h2 class="auth-title">Zaloguj się</h2>
+    <p class="auth-subtitle">Zapisuj postępy w chmurze na wszystkich urządzeniach.</p>
+    <div class="auth-error hidden" id="auth-error"></div>
+    <button class="btn btn-google" id="btn-google-login">
+      <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+      Zaloguj się przez Google
+    </button>
+  </div>
+</div>
+
+<!-- MODAL: USER MENU -->
+<div class="modal-overlay hidden" id="modal-user">
+  <div class="modal-box user-modal">
+    <button class="modal-close" id="btn-user-close">✕</button>
+    <div class="user-modal-avatar" id="um-avatar">?</div>
+    <div class="user-modal-email" id="um-email"></div>
+    <div class="user-modal-plan" id="um-plan">Plan: Free</div>
+    <div class="user-modal-sync">✓ Statystyki synchronizowane</div>
+    <button class="btn btn-outline btn-sm" id="btn-um-upgrade" style="margin-top:14px;width:100%">💎 Zmień plan</button>
+    <button class="btn btn-danger btn-sm" id="btn-logout" style="margin-top:10px;width:100%">Wyloguj się</button>
+  </div>
+</div>
+
+<!-- MODAL: PRICING -->
+<div class="modal-overlay hidden" id="modal-pricing">
+  <div class="modal-box pricing-modal">
+    <button class="modal-close" id="btn-pricing-close">✕</button>
+    <div class="pricing-header">
+      <h2>Wybierz plan</h2>
+      <p class="pricing-sub">Przygotuj się do matury rozszerzonej 2027</p>
+    </div>
+    <div class="pricing-limit-msg hidden" id="pricing-limit-msg"></div>
+    <div class="pricing-cards" id="pricing-cards">
+      <!-- Wypełniane przez JS -->
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- APP SCRIPTS — kolejność ma znaczenie! -->
+<script src="js/core/MathUtils.js"></script>
+<script src="js/core/KatexRenderer.js"></script>
+<script src="js/core/AnswerChecker.js"></script>
+<script src="js/core/ProgressTracker.js"></script>
+<script src="js/generators/cat01_exp_praktyka.js"></script>
+<script src="js/generators/cat02_granica.js"></script>
+<script src="js/generators/cat03_logarytmy.js"></script>
+<script src="js/generators/cat04_styczna.js"></script>
+<script src="js/generators/cat05_dowod_nierownosci.js"></script>
+<script src="js/generators/cat06_nierownoscabs.js"></script>
+<script src="js/generators/cat07_ciagi.js"></script>
+<script src="js/generators/cat08_planimetria.js"></script>
+<script src="js/generators/cat09_tryg_rownanie.js"></script>
+<script src="js/generators/cat10_stereometria.js"></script>
+<script src="js/generators/cat11_analityczna.js"></script>
+<script src="js/generators/cat12_param_kwadratowe.js"></script>
+<script src="js/generators/cat13_bernoulli.js"></script>
+<script src="js/generators/cat14_kombinatoryka.js"></script>
+<script src="js/generators/cat15_optymalizacja.js"></script>
+<script src="js/generators/index.js?v=20260520"></script>
+<script src="js/data/matura_tasks.js?v=20260520"></script>
+<script src="js/core/SupabaseAuth.js?v=20260520"></script>
+<script src="js/app.js?v=20260520"></script>
+
+</body>
+</html>
