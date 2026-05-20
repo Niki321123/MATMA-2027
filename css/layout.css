@@ -190,16 +190,22 @@
   .exam-nav { top: 56px; }
 }
 
-/* ===== MOBILE ===== */
-@media (max-width: 480px) {
-  .header-inner { padding: 0 10px; height: 52px; gap: 6px; }
-  .logo-sub { display: none; }
-  .logo-title { font-size: 13px; }
-  .header-actions { gap: 3px; }
+/* ===== TABLET/PHABLET — chowaj etykiety w headerze ===== */
+@media (max-width: 700px) {
   .btn-label { display: none; }
   .btn-icon-only { display: inline !important; }
-  .header-actions .btn-sm { padding: 7px 10px; font-size: 15px; }
+  .header-actions .btn-sm { padding: 8px 11px; }
   .user-email-short { display: none; }
+  .limit-badge { display: none !important; }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 480px) {
+  .header-inner { padding: 0 10px; height: 52px; gap: 4px; }
+  .logo-sub { display: none; }
+  .logo-title { font-size: 13px; }
+  .header-actions { gap: 2px; }
+  .header-actions .btn-sm { padding: 7px 9px; font-size: 15px; }
 
   .mode-tabs { padding: 0 10px; }
   .mode-tab { padding: 9px 13px; font-size: 12px; }
@@ -237,4 +243,40 @@
 @media (max-width: 768px) {
   .wzory-panel { padding: 12px 16px 16px; }
   .wzory-panel-inner { height: calc(100vh - 180px); }
+}
+
+/* ===== WZORY — MOBILE PDF FALLBACK ===== */
+/* Urządzenia dotykowe (telefon/tablet) nie obsługują iframe z PDF */
+.wzory-mobile-fallback { display: none; }
+
+@media (hover: none) {
+  /* touch device — pokaż fallback, ukryj iframe */
+  .wzory-pdf-iframe { display: none; }
+  .wzory-mobile-fallback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 48px 24px;
+    text-align: center;
+    flex: 1;
+  }
+}
+
+.wzory-mobile-icon { font-size: 56px; line-height: 1; }
+.wzory-mobile-text {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 320px;
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .wzory-panel { padding: 8px 10px 12px; }
+  .wzory-panel-inner { height: calc(100dvh - 160px); }
+  .wzory-mobile-fallback { padding: 32px 16px; gap: 14px; }
+  .wzory-mobile-icon { font-size: 44px; }
+  .wzory-mobile-text { font-size: 14px; }
 }
