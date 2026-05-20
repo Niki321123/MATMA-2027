@@ -1,6 +1,8 @@
 // ProgressTracker — zarządzanie postępami ucznia w localStorage
 const ProgressTracker = (() => {
-  const KEY = 'matura_matma_progress_v2';
+  const KEY            = 'matura_matma_progress_v2';
+  const TASK_HIST_KEY  = 'matura_matma_task_hist';
+  const EXAM_HIST_KEY  = 'matura_matma_exam_hist';
 
   const CAT_NAMES = {
     1: 'Funkcja wykł. w praktyce',
@@ -129,6 +131,39 @@ const ProgressTracker = (() => {
 
   function getCatName(id) { return CAT_NAMES[id] || `Kategoria ${id}`; }
 
+  // === HISTORIA ZADAŃ ===
+  // info: { catId, catName, points, result:'correct'|'wrong'|'hint', mode:'generator'|'matura', year?, taskNo? }
+  function recordTask(info) {
+    try {
+      const raw  = localStorage.getItem(TASK_HIST_KEY);
+      const hist = raw ? JSON.parse(raw) : [];
+      hist.unshift({ ...info, ts: Date.now() });
+      if (hist.length > 200) hist.length = 200;
+      localStorage.setItem(TASK_HIST_KEY, JSON.stringify(hist));
+    } catch (e) { console.warn('recordTask:', e); }
+  }
+
+  // info: { pts, maxPts, pct, pass, taskCount, level:'PP'|'PR' }
+  function recordExam(info) {
+    try {
+      const raw  = localStorage.getItem(EXAM_HIST_KEY);
+      const hist = raw ? JSON.parse(raw) : [];
+      hist.unshift({ ...info, ts: Date.now() });
+      if (hist.length > 50) hist.length = 50;
+      localStorage.setItem(EXAM_HIST_KEY, JSON.stringify(hist));
+    } catch (e) { console.warn('recordExam:', e); }
+  }
+
+  function getTaskHistory() {
+    try { const r = localStorage.getItem(TASK_HIST_KEY); return r ? JSON.parse(r) : []; }
+    catch { return []; }
+  }
+
+  function getExamHistory() {
+    try { const r = localStorage.getItem(EXAM_HIST_KEY); return r ? JSON.parse(r) : []; }
+    catch { return []; }
+  }
+
   // Nadpisz lokalne statystyki danymi z Supabase (po zalogowaniu)
   function loadFromCloud(rows) {
     const data = load();
@@ -166,6 +201,7 @@ const ProgressTracker = (() => {
     record, getAll, getTodayStats, getStats,
     getCategoryStats, getCategoryPercent,
     reset, getCatName, loadFromCloud, loadDailyFromCloud,
+    recordTask, recordExam, getTaskHistory, getExamHistory,
     CAT_NAMES
   };
 })();

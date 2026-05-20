@@ -57,8 +57,8 @@
   function updateLogoSubtitle() {
     const sub = document.querySelector('.logo-sub');
     if (sub) sub.textContent = getMathLevel() === 'PP'
-      ? 'Matematyka Podstawowa 2027'
-      : 'Matematyka Rozszerzona 2027';
+      ? 'Matematyka podstawowa'
+      : 'Matematyka rozszerzona';
   }
 
   function updateLevelRow() {
@@ -191,11 +191,7 @@
     elExamNav?.classList.toggle('hidden',    mode !== 'symulacja' || examTasks.length === 0);
     $('wzory-panel')?.classList.toggle('hidden', mode !== 'wzory');
     document.querySelector('.main-layout')?.classList.toggle('hidden', mode === 'wzory');
-    elTaskCard.classList.add('hidden');
-    elSolutionPanel.classList.add('hidden');
-    $('exam-summary')?.remove();
-    currentTask = null;
-    if (mode !== 'symulacja') { examTasks = []; examResults = []; }
+    // Stan zadania/matury NIE jest resetowany — wraca po powrocie do zakładki
   }
 
   // === Generowanie ===
@@ -415,6 +411,19 @@
     const effectiveCorrect = hintPenalty ? false : correct;
     PT.record(currentTask.category, effectiveCorrect);
     SA?.recordAnswer(currentTask.category, effectiveCorrect);
+
+    // Zapisz do historii zadań
+    const catId = currentTask.categoryId ?? currentTask.category;
+    const meta  = G.getMeta(catId);
+    PT.recordTask({
+      catId,
+      catName:  meta?.name || currentTask.categoryName || `Kat. ${catId}`,
+      points:   currentTask.points,
+      result:   hintPenalty ? 'hint' : (correct ? 'correct' : 'wrong'),
+      mode:     currentMode === 'matura' ? 'matura' : 'generator',
+      year:     currentTask.year   || null,
+      taskNo:   currentTask.number || null,
+    });
 
     if (hintPenalty) {
       showToast('Zadanie niezaliczone — użyto wskazówki lub rozwiązania.', 'warning');
@@ -666,33 +675,109 @@
   }
 
   // === Modal statystyk ===
-  function openProgressModal() {
-    if (!elModalProgress) return;
+  let _progressTab = 'stats';
+
+  function _formatAgo(ts) {
+    const d = Math.floor((Date.now() - ts) / 86400000);
+    const h = Math.floor((Date.now() - ts) / 3600000);
+    const m = Math.floor((Date.now() - ts) / 60000);
+    if (d > 0)  return `${d} d. temu`;
+    if (h > 0)  return `${h} godz. temu`;
+    if (m > 0)  return `${m} min temu`;
+    return 'przed chwilą';
+  }
+
+  function _renderStatsTab() {
     const cats  = G.getAll();
     const stats = PT.getStats();
-    let html = `
+    let h = `
       <div class="modal-stats-grid">
         <div class="modal-stat-card"><div class="stat-num">${stats.totalAttempted||0}</div><div class="stat-label">Zadań</div></div>
         <div class="modal-stat-card"><div class="stat-num">${stats.totalCorrect||0}</div><div class="stat-label">Poprawnych</div></div>
-        <div class="modal-stat-card"><div class="stat-num">${stats.streak||0}</div><div class="stat-label">Dni z rzędu</div></div>
+        <div class="modal-stat-card"><div class="stat-num">${stats.streak||0} 🔥</div><div class="stat-label">Dni z rzędu</div></div>
         <div class="modal-stat-card"><div class="stat-num">${stats.totalAttempted ? Math.round(100*stats.totalCorrect/stats.totalAttempted) : 0}%</div><div class="stat-label">Skuteczność</div></div>
       </div>
       <h3 style="margin:1.5rem 0 1rem; color:var(--text-secondary)">Postęp per kategoria</h3>
     `;
     cats.forEach(cat => {
-      const pct  = PT.getCategoryPercent(cat.id);
+      const pct = PT.getCategoryPercent(cat.id);
       const fill = pct !== null ? pct : 0;
-      const cs   = PT.getCategoryStats(cat.id);
-      html += `
+      const cs = PT.getCategoryStats(cat.id);
+      h += `
         <div class="modal-cat-row">
           <div class="modal-cat-info"><span style="color:${cat.color}">${cat.icon}</span> ${cat.id}. ${cat.name}</div>
           <div class="modal-cat-bar"><div class="modal-cat-fill" style="width:${fill}%; background:${cat.color}"></div></div>
           <div class="modal-cat-pct">${pct !== null ? pct+'%' : '—'} <small>(${cs?.attempted||0})</small></div>
-        </div>
-      `;
+        </div>`;
     });
-    elModalBody.innerHTML = html;
+    return h;
+  }
+
+  function _renderTaskHistTab() {
+    const hist = PT.getTaskHistory();
+    if (!hist.length) return '<div class="hist-empty">Brak rozwiązanych zadań.</div>';
+    return '<div class="hist-list">' + hist.map(h => {
+      const icon  = h.result === 'correct' ? '✅' : h.result === 'hint' ? '💡' : '❌';
+      const label = h.result === 'correct' ? 'Poprawnie' : h.result === 'hint' ? 'Ze wskazówką' : 'Błędnie';
+      const src   = h.mode === 'matura' && h.year ? `📜 Matura ${h.year} z.${h.taskNo}` :
+                    h.mode === 'symulacja' ? `🎓 Symulacja zad. ${h.taskNo}` : '🎲 Generator';
+      return `
+        <div class="hist-item">
+          <span class="hist-icon">${icon}</span>
+          <div class="hist-info">
+            <div class="hist-cat">${h.catName}</div>
+            <div class="hist-sub">${src} · ${h.points} pkt · ${label}</div>
+          </div>
+          <span class="hist-time">${_formatAgo(h.ts)}</span>
+        </div>`;
+    }).join('') + '</div>';
+  }
+
+  function _renderExamHistTab() {
+    const hist = PT.getExamHistory();
+    if (!hist.length) return '<div class="hist-empty">Brak ukończonych symulacji matury.</div>';
+    return '<div class="hist-list">' + hist.map(h => {
+      const icon  = h.pass ? '✅' : '❌';
+      const label = h.pass ? 'Zdany' : 'Niezdany';
+      const lvl   = h.level === 'PP' ? 'Podstawowa' : 'Rozszerzona';
+      return `
+        <div class="hist-exam-item">
+          <div class="hist-exam-score ${h.pass ? 'pass' : 'fail'}">${h.pts}/${h.maxPts}</div>
+          <div class="hist-info">
+            <div class="hist-cat">${icon} ${h.pct}% — ${label}</div>
+            <div class="hist-sub">Matematyka ${lvl} · ${h.taskCount} zadań</div>
+          </div>
+          <span class="hist-time">${_formatAgo(h.ts)}</span>
+        </div>`;
+    }).join('') + '</div>';
+  }
+
+  function _renderProgressModal(tab) {
+    _progressTab = tab;
+    const tabs = [
+      { id: 'stats', label: '📊 Statystyki' },
+      { id: 'tasks', label: '📝 Historia zadań' },
+      { id: 'exams', label: '🎓 Historia matur' },
+    ];
+    const tabsHtml = `<div class="hist-tabs">${tabs.map(t =>
+      `<button class="hist-tab${tab === t.id ? ' active' : ''}" data-prog-tab="${t.id}">${t.label}</button>`
+    ).join('')}</div>`;
+
+    const content = tab === 'stats' ? _renderStatsTab()
+                  : tab === 'tasks' ? _renderTaskHistTab()
+                  : _renderExamHistTab();
+
+    elModalBody.innerHTML = tabsHtml + content;
+  }
+
+  function openProgressModal() {
+    if (!elModalProgress) return;
+    _renderProgressModal(_progressTab);
     elModalProgress.classList.remove('hidden');
+    elModalBody.onclick = e => {
+      const btn = e.target.closest('[data-prog-tab]');
+      if (btn) _renderProgressModal(btn.dataset.progTab);
+    };
   }
 
   // === Pricing modal ===
@@ -916,6 +1001,20 @@
     taskAnswered = true;
     examResults[examIndex] = correct ? 'correct' : 'wrong';
     PT.record(currentTask.category, correct);
+
+    // Zapisz do historii zadań (w kontekście symulacji)
+    const catId = currentTask.categoryId ?? currentTask.category;
+    const meta  = G.getMeta(catId);
+    PT.recordTask({
+      catId,
+      catName: meta?.name || currentTask.categoryName || `Kat. ${catId}`,
+      points:  currentTask.points,
+      result:  correct ? 'correct' : 'wrong',
+      mode:    'symulacja',
+      year:    null,
+      taskNo:  examIndex + 1,
+    });
+
     renderExamNav();
     showToast(correct ? 'Dobrze! ✓' : 'Zaznaczono jako błędne.', correct ? 'success' : 'warning');
     elBtnSelfCorrect?.classList.add('hidden');
@@ -945,6 +1044,13 @@
     const maxPts = examTasks.reduce((s, t) => s + t.points, 0);
     const pct    = Math.round(100 * pts / maxPts);
     const pass   = pct >= 30;
+
+    // Zapisz arkusz do historii matur
+    PT.recordExam({
+      pts, maxPts, pct, pass,
+      taskCount: examTasks.length,
+      level: getMathLevel(),
+    });
 
     const breakdownHtml = examTasks.map((t, i) => {
       const r   = examResults[i];
