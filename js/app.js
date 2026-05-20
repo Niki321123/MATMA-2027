@@ -8,11 +8,14 @@
   const MT = window.MaturaTasks;
 
   // === Stan ===
-  let currentTask   = null;
-  let hintsUsed     = 0;
-  let taskAnswered  = false;
-  let currentMode   = 'generator';
+  let currentTask    = null;
+  let hintsUsed      = 0;
+  let taskAnswered   = false;
+  let hintPenalty    = false;   // true gdy użyto wskazówki lub rozwiązania
+  let currentMode    = 'generator';
   let firstTaskShown = false;
+
+  const HINT_BTN_LABELS = ['ogólna', 'wzór', 'podstawienie'];
 
   // === Stan arkusza ===
   let examTasks   = [];
@@ -183,9 +186,11 @@
   }
 
   function displayTask(task, isMatura) {
-    hintsUsed    = 0;
-    taskAnswered = false;
+    hintsUsed      = 0;
+    taskAnswered   = false;
+    hintPenalty    = false;
     firstTaskShown = true;
+    closeConfirm();
 
     hideLanding();
 
@@ -210,7 +215,7 @@
     elSolutionPanel.classList.add('hidden');
     elHintsList.innerHTML = '';
     elBtnHint.disabled = false;
-    elBtnHint.textContent = `💡 Pokaż wskazówkę (1/${task.hints.length})`;
+    elBtnHint.textContent = `💡 Wskazówka 1/${task.hints.length} — ${HINT_BTN_LABELS[0]}`;
     elBtnSelfCorrect?.classList.add('hidden');
     elBtnSelfWrong?.classList.add('hidden');
     elBtnShowSolution?.classList.remove('hidden');
@@ -228,22 +233,67 @@
     elLandingCard?.classList.add('hidden');
   }
 
+  // === Potwierdzenie (inline) ===
+  function closeConfirm() {
+    document.getElementById('inline-confirm')?.remove();
+    if (elBtnHint && hintsUsed < (currentTask?.hints?.length ?? 0)) elBtnHint.disabled = false;
+    if (elBtnShowSolution) elBtnShowSolution.disabled = false;
+  }
+
+  function showConfirm(anchorEl, onYes) {
+    closeConfirm();                              // zamknij poprzedni, jeśli istnieje
+    anchorEl.disabled = true;
+
+    const div = document.createElement('div');
+    div.id = 'inline-confirm';
+    div.className = 'inline-confirm';
+    div.innerHTML =
+      `<span class="inline-confirm-msg">⚠️ Spowoduje to oznaczenie zadania jako <strong>niezaliczone</strong>. Na pewno?</span>` +
+      `<button class="btn btn-sm btn-danger-outline" id="ic-yes">✓ Tak</button>` +
+      `<button class="btn btn-sm btn-ghost"           id="ic-no">Nie</button>`;
+    anchorEl.insertAdjacentElement('afterend', div);
+
+    div.querySelector('#ic-yes').addEventListener('click', () => {
+      div.remove();
+      anchorEl.disabled = false;
+      onYes();
+    });
+    div.querySelector('#ic-no').addEventListener('click', () => {
+      div.remove();
+      anchorEl.disabled = false;
+    });
+  }
+
   // === Wskazówki ===
-  function showNextHint() {
-    if (!currentTask || hintsUsed >= currentTask.hints.length) return;
-    KR.renderHint(currentTask.hints[hintsUsed], elHintsList);
-    hintsUsed++;
+  function _updateHintBtn() {
+    if (!currentTask) return;
     if (hintsUsed >= currentTask.hints.length) {
       elBtnHint.disabled = true;
       elBtnHint.textContent = '✓ Wszystkie wskazówki';
     } else {
-      elBtnHint.textContent = `💡 Pokaż wskazówkę (${hintsUsed + 1}/${currentTask.hints.length})`;
+      const label = HINT_BTN_LABELS[hintsUsed] || `${hintsUsed + 1}`;
+      elBtnHint.textContent = `💡 Wskazówka ${hintsUsed + 1}/${currentTask.hints.length} — ${label}`;
     }
+  }
+
+  function showNextHint() {
+    if (!currentTask || hintsUsed >= currentTask.hints.length || taskAnswered) return;
+    showConfirm(elBtnHint, () => {
+      hintPenalty = true;
+      KR.renderHint(currentTask.hints[hintsUsed], elHintsList);
+      hintsUsed++;
+      _updateHintBtn();
+    });
   }
 
   // === Rozwiązanie ===
   function showSolution() {
     if (!currentTask) return;
+    showConfirm(elBtnShowSolution, _doShowSolution);
+  }
+
+  function _doShowSolution() {
+    hintPenalty = true;
     elSolutionPanel.classList.remove('hidden');
 
     if (elAnswerDisplay) {
@@ -253,9 +303,12 @@
     }
 
     if (elSolutionSteps) KR.renderSolution(currentTask.solution, elSolutionSteps);
-    elBtnSelfCorrect?.classList.remove('hidden');
-    elBtnSelfWrong?.classList.remove('hidden');
     elBtnShowSolution?.classList.add('hidden');
+
+    // Penalty: ukryj "Poprawnie", zostaw tylko "Nie rozwiązałem"
+    elBtnSelfCorrect?.classList.add('hidden');
+    elBtnSelfWrong?.classList.remove('hidden');
+
     elSolutionPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
@@ -264,9 +317,18 @@
     if (currentMode === 'symulacja') { recordExamResult(correct); return; }
     if (!currentTask || taskAnswered) return;
     taskAnswered = true;
-    PT.record(currentTask.category, correct);
-    SA?.recordAnswer(currentTask.category, correct);
-    showToast(correct ? 'Dobrze! Tak trzymaj ✓' : 'Spróbuj ponownie przy następnym zadaniu.', correct ? 'success' : 'warning');
+
+    const effectiveCorrect = hintPenalty ? false : correct;
+    PT.record(currentTask.category, effectiveCorrect);
+    SA?.recordAnswer(currentTask.category, effectiveCorrect);
+
+    if (hintPenalty) {
+      showToast('Zadanie niezaliczone — użyto wskazówki lub rozwiązania.', 'warning');
+    } else {
+      showToast(effectiveCorrect ? 'Dobrze! Tak trzymaj ✓' : 'Spróbuj ponownie przy następnym zadaniu.',
+                effectiveCorrect ? 'success' : 'warning');
+    }
+
     elBtnSelfCorrect?.classList.add('hidden');
     elBtnSelfWrong?.classList.add('hidden');
     if (elBtnNext) { elBtnNext.textContent = '↻ Następne zadanie'; elBtnNext.classList.remove('hidden'); }

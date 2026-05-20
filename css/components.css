@@ -293,6 +293,28 @@
 .task-statement p { margin-bottom: 10px; }
 .task-statement strong { color: var(--text-primary); font-weight: 700; }
 
+/* ===== INLINE CONFIRM ===== */
+.inline-confirm {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px 14px;
+  background: rgba(242,95,95,0.07);
+  border: 1px solid rgba(242,95,95,0.25);
+  border-radius: var(--radius-md);
+  animation: fadeIn 0.15s ease;
+}
+.inline-confirm-msg {
+  font-size: 13px;
+  color: var(--text-secondary);
+  flex: 1;
+  min-width: 180px;
+}
+.inline-confirm-msg strong {
+  color: var(--accent-red);
+}
+
 /* HINTS */
 .hints-zone {
   padding: 0 28px 20px;
@@ -323,6 +345,12 @@
   letter-spacing: 0.08em;
   margin-bottom: 5px;
 }
+/* Kolorowe oznaczenia poziomów wskazówek */
+.hint-item--level1 .hint-level { color: var(--accent-yellow); }
+.hint-item--level2 .hint-level { color: var(--accent-blue); }
+.hint-item--level3 .hint-level { color: var(--accent-green); }
+.hint-item--level2 { border-color: rgba(91,141,238,0.25); background: rgba(91,141,238,0.05); }
+.hint-item--level3 { border-color: rgba(76,175,125,0.25); background: rgba(76,175,125,0.05); }
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: translateY(0); }
