@@ -138,44 +138,146 @@ window.cat10 = (() => {
     };
   }
 
-  // === Walec / Stożek ===
-  function cylinder() {
-    const r = M.choose([2,3,4,5,6,7]);
-    const h = M.choose([3,4,5,6,8,10,12,15]);
-    const vol_latex = `${r*r} \\cdot ${h}\\pi`;
-    const vol_num = Math.PI * r * r * h;
-    const lateral = `2\\pi \\cdot ${r} \\cdot ${h} = ${2*r*h}\\pi`;
+  // === Graniastosłup prawidłowy trójkątny ===
+  // Wzorzec matura: oblicz kąt między krawędzią boczną a przekątną ściany bocznej,
+  //                  lub kąt między prostą a płaszczyzną podstawy
+  function regularTriangularPrism() {
+    // Podstawa: trójkąt równoboczny o boku a
+    // Krawędź boczna: h
+    // Oblicz:  a) objętość  b) kąt między krawędzią AA₁ a przekątną AB₁
+    const dims = [[4,3],[4,6],[6,4],[6,8],[8,6],[10,6],[6,6],[8,8]];
+    const [a, h] = M.choose(dims);
+
+    // Pole trójkąta równobocznego = (√3/4)a²
+    // V = (√3/4)a² · h
+    const vol_coeff = a * a; // V = (√3/4)·a²·h
+    const vol_display = `\\frac{${vol_coeff * h}\\sqrt{3}}{4}`;
+
+    // AB = a (bok podstawy)
+    // AB₁ = √(a² + h²)
+    const AB1_sq = a * a + h * h;
+    // kąt α między AA₁ i AB₁:  rzut AA₁ na AB₁...
+    // Metodą: kąt między AA₁ a AB₁ w trójkącie AA₁B (prostokątnym przy A)
+    // tg α = AB / AA₁ = a / h   (α to kąt przy A₁)
+    // Lub kąt β między AB₁ a płaszczyzną podstawy:
+    //   rzut AB₁ na podstawę = AB = a, prostopadle BB₁ = h
+    //   tg β = h / a
+    const tanAlpha_n = h;
+    const tanAlpha_d = a;
+    const g = (function gcd(x,y){return y===0?x:gcd(y,x%y);})(tanAlpha_n, tanAlpha_d);
+    const tn = tanAlpha_n / g;
+    const td = tanAlpha_d / g;
+    const tanStr = tn === td ? '1' : M.latexFrac(tn, td);
 
     return {
-      id: M.makeId('cat10_cylinder'),
+      id: M.makeId('cat10_tri_prism'),
       category: 10,
       categoryName: 'Stereometria',
-      type: 'cylinder',
-      points: 3,
-      params: { r, h },
+      type: 'regular_triangular_prism',
+      points: 5,
+      params: { a, h, vol_coeff },
       statement:
-        `Walec ma promień podstawy $r = ${r}$ i wysokość $h = ${h}$.\n\n` +
-        `**a)** Oblicz objętość walca.\n\n` +
-        `**b)** Oblicz pole powierzchni bocznej walca.\n\nZapisz obliczenia.`,
+        `Graniastosłup prawidłowy trójkątny $ABCA_1B_1C_1$ ma podstawę będącą ` +
+        `trójkątem równobocznym o boku $a = ${a}$ i wysokość $|AA_1| = ${h}$.\n\n` +
+        `**a)** Oblicz objętość graniastosłupa.\n\n` +
+        `**b)** Oblicz $\\tg$ kąta między odcinkiem $AB_1$ a płaszczyzną podstawy $ABC$.\n\n` +
+        `**c)** Oblicz długość odcinka $AB_1$.\n\nZapisz obliczenia.`,
       answer: {
         type: 'multipart',
-        display: `V = ${r*r*h}\\pi,\\quad S_b = ${2*r*h}\\pi`,
-        description: `$V = ${r*r*h}\\pi$, $S_{boczna} = ${2*r*h}\\pi$`
+        display: `V = ${vol_display},\\quad \\tg\\alpha = ${tanStr},\\quad |AB_1| = \\sqrt{${AB1_sq}}`,
+        description: `$V = ${vol_display}$, $\\tg\\alpha = ${tanStr}$, $|AB_1| = \\sqrt{${AB1_sq}}$`
       },
       hints: [
-        { level: 1, text: 'Objętość walca: $V = \\pi r^2 h$.' },
-        { level: 2, text: 'Pole powierzchni bocznej: $S_b = 2\\pi r h$ (rozwinięcie: prostokąt $2\\pi r \\times h$).' },
-        { level: 3, text: `$V = \\pi\\cdot${r}^2\\cdot${h} = ${r*r*h}\\pi$, $S_b = 2\\pi\\cdot${r}\\cdot${h} = ${2*r*h}\\pi$.` }
+        { level: 1, text: `Pole trójkąta równobocznego o boku $a$: $P = \\frac{\\sqrt{3}}{4}a^2 = \\frac{\\sqrt{3}}{4}\\cdot${a}^2$.` },
+        { level: 2, text: `Kąt między $AB_1$ a płaszczyzną $ABC$: rzut $AB_1$ na podstawę to $AB = ${a}$, pionowa składowa to $BB_1 = ${h}$. Zatem $\\tg\\alpha = \\frac{BB_1}{AB} = \\frac{${h}}{${a}} = ${tanStr}$.` },
+        { level: 3, text: `$|AB_1| = \\sqrt{|AB|^2 + |BB_1|^2} = \\sqrt{${a*a}+${h*h}} = \\sqrt{${AB1_sq}}$.` }
       ],
       solution: [
-        { step: 1, title: 'Objętość', content: `V = \\pi r^2 h = \\pi\\cdot${r}^2\\cdot${h} = ${r*r*h}\\pi`, explanation: '' },
-        { step: 2, title: 'Pole boczne', content: `S_b = 2\\pi r h = 2\\pi\\cdot${r}\\cdot${h} = ${2*r*h}\\pi`, explanation: '' }
+        {
+          step: 1, title: 'Pole podstawy (trójkąt równoboczny)',
+          content: `P_{ABC} = \\frac{\\sqrt{3}}{4}\\cdot${a}^2 = \\frac{${a*a}\\sqrt{3}}{4}`,
+          explanation: 'Wzór na pole trójkąta równobocznego.'
+        },
+        {
+          step: 2, title: 'Objętość',
+          content: `V = P_{ABC}\\cdot h = \\frac{${a*a}\\sqrt{3}}{4}\\cdot${h} = ${vol_display}`,
+          explanation: ''
+        },
+        {
+          step: 3, title: 'Kąt między AB₁ a podstawą',
+          content: `\\text{Rzut } AB_1 \\text{ na podstawę } = AB = ${a},\\quad \\text{składowa pionowa} = BB_1 = ${h}\\\\ \\tg\\alpha = \\frac{BB_1}{AB} = \\frac{${h}}{${a}} = ${tanStr}`,
+          explanation: 'Kąt między prostą a płaszczyzną = kąt między prostą a jej rzutem na płaszczyznę.'
+        },
+        {
+          step: 4, title: 'Długość AB₁',
+          content: `|AB_1| = \\sqrt{|AB|^2 + |BB_1|^2} = \\sqrt{${a}^2 + ${h}^2} = \\sqrt{${a*a}+${h*h}} = \\sqrt{${AB1_sq}}`,
+          explanation: 'Twierdzenie Pitagorasa w trójkącie prostokątnym $ABB_1$.'
+        }
+      ]
+    };
+  }
+
+  // === Walec z obliczaniem kąta i tworzącą ===
+  // Wzorzec maturalny: NIE tylko V i Sb, ale kąt + tworzącą stożka wpisanego lub kąt przekroju
+  function cylinderWithAngle() {
+    // Dany walec: promień r, wysokość h (lub odwrotnie: znana tworząca)
+    // Oblicz: a) V walca  b) kąt między tworzącą a podstawą  c) pole całkowite
+    const r = M.choose([3,4,5,6]);
+    const h = M.choose([4,6,8,10,12]);
+
+    // Tworząca l = √(r²+h²) — to tworząca stożka o tej samej podstawie
+    // W walcu: tworząca (krawędź boczna) jest równoległa do osi, więc kąt z podstawą = 90°
+    // ZAMIAST: walec z wpisanym stożkiem
+    // Stożek wpisany w walec (ta sama podstawa i wierzchołek na górnej podstawie):
+    // r_stożka = r, h_stożka = h, tworząca l = √(r²+h²)
+    // kąt między tworzącą stożka a podstawą: tg β = h/r
+    const l_sq = r * r + h * h;
+    const g = (function gcd(x,y){return y===0?x:gcd(y,x%y);})(h, r);
+    const tg_n = h / g, tg_d = r / g;
+    const tanStr = tg_n === tg_d ? '1' : M.latexFrac(tg_n, tg_d);
+
+    // Obj walca = πr²h
+    const Vcyl_str = `${r*r*h}\\pi`;
+    // Obj stożka = (1/3)πr²h
+    const Vcone_num = r*r*h;
+    const Vcone_str = `\\dfrac{${Vcone_num}\\pi}{3}`;
+    // Pole całkowite walca = 2πr(r+h)
+    const Stot_str = `${2*r}(${r}+${h})\\pi = ${2*r*(r+h)}\\pi`;
+
+    return {
+      id: M.makeId('cat10_cyl_angle'),
+      category: 10,
+      categoryName: 'Stereometria',
+      type: 'cylinder_cone',
+      points: 5,
+      params: { r, h, l_sq },
+      statement:
+        `W walcu o promieniu podstawy $r = ${r}$ i wysokości $h = ${h}$ wpisano stożek tak, ` +
+        `że podstawa stożka jest podstawą walca, a wierzchołek stożka leży w środku ` +
+        `górnej podstawy walca.\n\n` +
+        `**a)** Oblicz objętość walca i objętość stożka.\n\n` +
+        `**b)** Oblicz długość tworzącej stożka.\n\n` +
+        `**c)** Oblicz $\\tg$ kąta między tworzącą stożka a płaszczyzną podstawy.\n\nZapisz obliczenia.`,
+      answer: {
+        type: 'multipart',
+        display: `V_{walca}=${Vcyl_str},\\; V_{stożka}=${Vcone_str},\\; l=\\sqrt{${l_sq}},\\; \\tg\\beta=${tanStr}`,
+        description: `$V_w=${Vcyl_str}$, $V_s=${Vcone_str}$, $l=\\sqrt{${l_sq}}$, $\\tg\\beta=${tanStr}$`
+      },
+      hints: [
+        { level: 1, text: `Objętość walca: $V = \\pi r^2 h = \\pi\\cdot${r}^2\\cdot${h}$. Stożka: $V_s = \\frac{1}{3}\\pi r^2 h$.` },
+        { level: 2, text: `Tworząca stożka łączy krawędź podstawy z wierzchołkiem: $l = \\sqrt{r^2+h^2} = \\sqrt{${r*r}+${h*h}} = \\sqrt{${l_sq}}$.` },
+        { level: 3, text: `Kąt $\\beta$ między tworzącą a podstawą: w trójkącie prostokątnym o przyprostokątnych $r$ i $h$: $\\tg\\beta = \\frac{h}{r} = ${tanStr}$.` }
+      ],
+      solution: [
+        { step: 1, title: 'Objętości', content: `V_{walca} = \\pi\\cdot${r}^2\\cdot${h} = ${Vcyl_str}\\\\ V_{stożka} = \\frac{1}{3}\\cdot${Vcyl_str} = ${Vcone_str}`, explanation: '$V_{stożka} = \\frac{1}{3}V_{walca}$ przy tej samej podstawie i wysokości.' },
+        { step: 2, title: 'Tworząca stożka', content: `l = \\sqrt{r^2+h^2} = \\sqrt{${r}^2+${h}^2} = \\sqrt{${l_sq}}`, explanation: 'Tw. Pitagorasa: trójkąt prostokątny o przyprostokątnych $r$ i $h$.' },
+        { step: 3, title: 'Kąt tworzącej z podstawą', content: `\\tg\\beta = \\frac{h}{r} = \\frac{${h}}{${r}} = ${tanStr}`, explanation: 'W trójkącie prostokątnym: naprzeciwko kąta $\\beta$ leży $h$, przyległa to $r$.' }
       ]
     };
   }
 
   function generate() {
-    return M.choose([cuboid, prismAngle, pyramid, cylinder])();
+    return M.choose([cuboid, prismAngle, pyramid, regularTriangularPrism, cylinderWithAngle])();
   }
 
   return { generate };

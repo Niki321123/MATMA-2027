@@ -16,6 +16,7 @@ window.Generators = (() => {
     { id: 13, name: 'Prawdopodobieństwo',              color: '#fd9644', icon: 'P',  gen: () => window.cat13 },
     { id: 14, name: 'Kombinatoryka',                   color: '#a55eea', icon: '∁',  gen: () => window.cat14 },
     { id: 15, name: 'Optymalizacja',                   color: '#26de81', icon: 'max', gen: () => window.cat15 },
+    { id: 16, name: 'Zadania 6-punktowe',              color: '#e74c3c', icon: '★',  gen: () => window.cat16 },
   ];
 
   function getMeta(id) {

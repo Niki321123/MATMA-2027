@@ -168,64 +168,112 @@ window.cat02 = (() => {
     };
   }
 
-  // === SCHEMAT C: granica ciągu z potęgą ===
-  function powerSeqLimit() {
-    // ((n+a)/(n+b))^n → e^(a-b)  — ale to skomplikowane
-    // Prostsze: ((an+b)/(cn+d))^(2n) → (a/c)^2
-    const a = M.choose([1, 2, 3]);
-    const b = M.choose([1, 2, 3]);
-    const c = M.choose([1, 2, 3]);
-    let d = M.choose([1, 2, 3]);
-    if (a === c && b === d) { d += 1; }
-
-    const innerLimit = a / c; // granica (an+b)/(cn+d) = a/c
-    const exp_power = M.choose([2, 3, 4]);
-    const finalLimit = Math.pow(innerLimit, exp_power);
-    const limitDisplay = M.latexFrac(Math.pow(a, exp_power), Math.pow(c, exp_power));
-
-    const numStr = `${a === 1 ? '' : a}n${b > 0 ? `+${b}` : b < 0 ? b : ''}`;
-    const denStr = `${c === 1 ? '' : c}n${d > 0 ? `+${d}` : d < 0 ? d : ''}`;
-    const powStr = exp_power === 1 ? '' : `^{${exp_power}}`;
+  // === SCHEMAT C: lim (√(n²+an) − n) — technika sprzężenia ===
+  // Wzorzec maturalny: wymaga mnożenia przez sprzężone, nie trywialne
+  function sqrtLimit() {
+    const a = M.choose([2, 4, 6, 8, 10]);
+    const half_a = a / 2;
+    const dispResult = Number.isInteger(half_a) ? String(half_a) : M.latexFrac(a, 2);
 
     return {
-      id: M.makeId('cat02_pow'),
+      id: M.makeId('cat02_sqrt'),
       category: 2,
       categoryName: 'Granica',
-      type: 'power_seq_limit',
-      points: 2,
-      params: { a, b, c, d, exp_power, finalLimit },
+      type: 'sqrt_limit',
+      points: 3,
+      params: { a },
       statement:
         `Oblicz granicę\n` +
-        `$$\\lim_{n \\to +\\infty} \\left(\\frac{${numStr}}{${denStr}}\\right)${powStr}$$\n` +
+        `$$\\lim_{n \\to +\\infty} \\left(\\sqrt{n^2 + ${a}n} - n\\right)$$\n` +
         `Zapisz obliczenia.`,
       answer: {
         type: 'number',
-        value: finalLimit,
-        display: limitDisplay,
-        description: `$\\lim = ${limitDisplay}$`
+        value: half_a,
+        display: dispResult,
+        description: `$\\lim = ${dispResult}$`
       },
       hints: [
-        { level: 1, text: `Oblicz najpierw granicę wyrażenia w nawiasie: $\\lim_{n\\to\\infty} \\frac{${numStr}}{${denStr}}$.` },
-        { level: 2, text: `Po podzieleniu przez $n$: $\\frac{${a}+${b}/n}{${c}+${d}/n} \\to \\frac{${a}}{${c}}$.` },
-        { level: 3, text: `Granica $= \\left(\\frac{${a}}{${c}}\\right)^{${exp_power}} = ${limitDisplay}$.` }
+        { level: 1, text: `Pomnóż i podziel przez wyrażenie sprzężone: $\\dfrac{(\\sqrt{n^2+${a}n}-n)(\\sqrt{n^2+${a}n}+n)}{\\sqrt{n^2+${a}n}+n}$.` },
+        { level: 2, text: `Licznik po pomnożeniu: $(n^2+${a}n) - n^2 = ${a}n$. Dostajemy $\\dfrac{${a}n}{\\sqrt{n^2+${a}n}+n}$.` },
+        { level: 3, text: `Podziel przez $n$: $\\dfrac{${a}}{\\sqrt{1+\\frac{${a}}{n}}+1} \\xrightarrow{n\\to\\infty} \\dfrac{${a}}{1+1} = ${dispResult}$.` }
       ],
       solution: [
         {
-          step: 1, title: 'Granica wyrażenia wewnętrznego',
-          content: `$\\frac{${numStr}}{${denStr}} = \\frac{${a} + \\frac{${b}}{n}}{${c} + \\frac{${d}}{n}} \\xrightarrow{n\\to\\infty} \\frac{${a}}{${c}}$`,
-          explanation: 'Dzielimy przez n i korzystamy z faktu, że 1/n → 0.'
+          step: 1, title: 'Mnożenie przez sprzężone',
+          content: `\\sqrt{n^2+${a}n}-n = \\frac{(\\sqrt{n^2+${a}n}-n)(\\sqrt{n^2+${a}n}+n)}{\\sqrt{n^2+${a}n}+n} = \\frac{n^2+${a}n-n^2}{\\sqrt{n^2+${a}n}+n} = \\frac{${a}n}{\\sqrt{n^2+${a}n}+n}`,
+          explanation: 'Technika: $(A-B)(A+B)=A^2-B^2$. Eliminujemy różnicę pod pierwiastkiem.'
         },
         {
-          step: 2, title: 'Podniesienie do potęgi',
-          content: `$\\left(\\frac{${a}}{${c}}\\right)^{${exp_power}} = \\mathbf{${limitDisplay}}$`,
-          explanation: 'Granica potęgi = potęga granicy (dla skończonych granic).'
+          step: 2, title: 'Podział przez n',
+          content: `\\frac{${a}n}{\\sqrt{n^2+${a}n}+n} = \\frac{${a}}{\\frac{\\sqrt{n^2+${a}n}}{n}+1} = \\frac{${a}}{\\sqrt{\\frac{n^2+${a}n}{n^2}}+1} = \\frac{${a}}{\\sqrt{1+\\frac{${a}}{n}}+1}`,
+          explanation: `$\\frac{\\sqrt{n^2+${a}n}}{n} = \\sqrt{1+\\frac{${a}}{n}}$ — wyłączamy $n$ spod pierwiastka.`
+        },
+        {
+          step: 3, title: 'Obliczenie granicy',
+          content: `\\lim_{n\\to+\\infty} \\frac{${a}}{\\sqrt{1+\\frac{${a}}{n}}+1} = \\frac{${a}}{\\sqrt{1+0}+1} = \\frac{${a}}{2} = \\mathbf{${dispResult}}`,
+          explanation: `$\\frac{${a}}{n}\\to 0$, więc $\\sqrt{1+\\frac{${a}}{n}}\\to 1$.`
         }
       ]
     };
   }
 
+  // === SCHEMAT D: granica ciągu z czynnikiem wykładniczym vs wielomianem ===
+  // lim (a·n + b) / a^n → 0  lub  lim (a^n + b^n) / a^n → 1 (a > b)
+  function expVsPolyLimit() {
+    const type = M.choose(['poly_over_exp', 'exp_ratio']);
+
+    if (type === 'poly_over_exp') {
+      // lim n^k / a^n = 0  (wielomian vs wykładnicza)
+      const a = M.choose([2, 3, 4]);
+      const k = M.choose([1, 2, 3]);
+      const powStr = k === 1 ? 'n' : `n^${k}`;
+      return {
+        id: M.makeId('cat02_exp_poly'),
+        category: 2, categoryName: 'Granica',
+        type: 'exp_vs_poly', points: 3,
+        params: { a, k },
+        statement: `Oblicz granicę\n$$\\lim_{n\\to+\\infty} \\frac{${powStr}}{${a}^n}$$\nZapisz obliczenia.`,
+        answer: { type: 'number', value: 0, display: '0', description: '$\\lim = 0$' },
+        hints: [
+          { level: 1, text: `Funkcja wykładnicza $${a}^n$ rośnie szybciej niż każda potęga $n^k$.` },
+          { level: 2, text: `Skorzystaj z tw.: $\\lim_{n\\to\\infty} \\frac{n^k}{a^n} = 0$ dla każdego $k\\in\\mathbb{N}$ i $a > 1$.` },
+          { level: 3, text: `Dowód: kryterium ilorazowe — $\\frac{a_{n+1}}{a_n} = \\frac{(n+1)^k}{n^k}\\cdot\\frac{1}{a} = \\left(1+\\frac{1}{n}\\right)^k\\cdot\\frac{1}{a} \\to \\frac{1}{a} < 1$.` }
+        ],
+        solution: [
+          { step: 1, title: 'Kryterium ilorazowe', content: `\\frac{a_{n+1}}{a_n} = \\frac{(n+1)^${k}}{n^${k}} \\cdot \\frac{1}{${a}} = \\left(1+\\frac{1}{n}\\right)^{${k}} \\cdot \\frac{1}{${a}}`, explanation: '' },
+          { step: 2, title: 'Granica ilorazu', content: `\\lim_{n\\to\\infty}\\frac{a_{n+1}}{a_n} = 1^{${k}} \\cdot \\frac{1}{${a}} = \\frac{1}{${a}} < 1`, explanation: 'Skoro iloraz kolejnych wyrazów dąży do wartości $<1$, ciąg dąży do 0.' },
+          { step: 3, title: 'Wniosek', content: `\\lim_{n\\to+\\infty}\\frac{${powStr}}{${a}^n} = \\mathbf{0}`, explanation: '' }
+        ]
+      };
+    }
+
+    // type === 'exp_ratio': lim (a^n + b^n) / (a^n + c) = 1  [a > b, wyłącz a^n]
+    const a = M.choose([3, 4, 5]);
+    const b = M.choose([1, 2]);
+    const c = M.choose([1, 2, 3, 4, 5]);
+
+    return {
+      id: M.makeId('cat02_exp_ratio'),
+      category: 2, categoryName: 'Granica',
+      type: 'exp_ratio', points: 3,
+      params: { a, b, c },
+      statement: `Oblicz granicę\n$$\\lim_{n\\to+\\infty} \\frac{${a}^n + ${b}^n}{${a}^n + ${c}}$$\nZapisz obliczenia.`,
+      answer: { type: 'number', value: 1, display: '1', description: '$\\lim = 1$' },
+      hints: [
+        { level: 1, text: `Podziel licznik i mianownik przez $${a}^n$ (dominujący składnik).` },
+        { level: 2, text: `$\\frac{1 + (${b}/${a})^n}{1 + ${c}/${a}^n}$. Co dąży do 0?` },
+        { level: 3, text: `$(\\frac{${b}}{${a}})^n \\to 0$ (bo $\\frac{${b}}{${a}} < 1$) i $\\frac{${c}}{${a}^n} \\to 0$. Granica $= \\frac{1+0}{1+0} = 1$.` }
+      ],
+      solution: [
+        { step: 1, title: 'Podział przez dominujący składnik $${a}^n$', content: `\\frac{${a}^n+${b}^n}{${a}^n+${c}} = \\frac{1+\\left(\\frac{${b}}{${a}}\\right)^n}{1+\\frac{${c}}{${a}^n}}`, explanation: 'Wyłączamy $${a}^n$ z licznika i mianownika.' },
+        { step: 2, title: 'Granice składników', content: `\\left(\\frac{${b}}{${a}}\\right)^n \\to 0\\text{ (bo }\\frac{${b}}{${a}}<1\\text{)},\\quad \\frac{${c}}{${a}^n} \\to 0`, explanation: '' },
+        { step: 3, title: 'Wynik', content: `\\lim = \\frac{1+0}{1+0} = \\mathbf{1}`, explanation: '' }
+      ]
+    };
+  }
+
   function generate() {
-    return M.choose([seqLimit, funcLimit, powerSeqLimit])();
+    return M.choose([seqLimit, funcLimit, sqrtLimit, expVsPolyLimit])();
   }
 
   return { generate };

@@ -128,6 +128,22 @@ window.cat15 = (() => {
     // x1 < x2 for a=1 (positive leading coeff): max at x1, min at x2
     const isMax1 = a > 0; // local max at x1, local min at x2
 
+    // Kontekst słowny
+    const polyCtx = M.choose([
+      {
+        intro: `Zysk pewnego przedsiębiorstwa (w tys. zł) w zależności od liczby $x$ (w tys.) wyprodukowanych jednostek opisuje wzór\n$$f(x) = ${fDisplay}$$`,
+        varName: 'x', varUnit: 'tys. jednostek',
+      },
+      {
+        intro: `Natężenie prądu $I$ (w mA) w pewnym obwodzie elektrycznym w chwili $x$ (w ms) wyraża się wzorem\n$$f(x) = ${fDisplay}$$`,
+        varName: 'x', varUnit: 'ms',
+      },
+      {
+        intro: `Stężenie produktu $C$ (w mol/dm³) pewnej reakcji chemicznej w chwili $x$ (w min) opisuje wzór\n$$f(x) = ${fDisplay}$$`,
+        varName: 'x', varUnit: 'min',
+      },
+    ]);
+
     return {
       id: M.makeId('cat15_poly'),
       category: 15,
@@ -136,10 +152,10 @@ window.cat15 = (() => {
       points: 4,
       params: { p, q, x1, x2, f_x1, f_x2 },
       statement:
-        `Funkcja $f$ jest określona wzorem\n$$f(x) = ${fDisplay}$$\n\n` +
+        `${polyCtx.intro}\n\n` +
         `**a)** Oblicz pochodną $f'(x)$.\n\n` +
         `**b)** Wyznacz przedziały monotoniczności funkcji $f$.\n\n` +
-        `**c)** Wyznacz wartości ekstremalne funkcji $f$ (jeśli istnieją).\n\nZapisz obliczenia.`,
+        `**c)** Wyznacz wartości ekstremalne funkcji $f$ (jeśli istnieją) i podaj ich interpretację.\n\nZapisz obliczenia.`,
       answer: {
         type: 'multipart',
         display: `f'(x)=${fpDisplay},\\ x_{\\min}=${Math.max(x1,x2)},\\ x_{\\max}=${Math.min(x1,x2)}`,

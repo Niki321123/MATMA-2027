@@ -214,8 +214,168 @@ window.cat11 = (() => {
     };
   }
 
+  // === Okrąg przez 2 punkty, środek na prostej ===
+  // Wzorzec matura 2017 z.13: znajdź okrąg przez A, B z centrum na danej prostej
+  const CIRCLE_THROUGH_TASKS = [
+    {
+      // Okrąg przez A=(1,1) i B=(5,1), środek na prostej y=3
+      // Środek: (x₀, 3), odległość od A = odległość od B
+      // (x₀-1)²+(3-1)² = (x₀-5)²+(3-1)²
+      // (x₀-1)² = (x₀-5)² → x₀²-2x₀+1 = x₀²-10x₀+25 → 8x₀=24 → x₀=3
+      // S=(3,3), r²=(3-1)²+(3-1)²=8, r=2√2
+      A: [1, 1], B: [5, 1], lineStr: 'y = 3',
+      center: [3, 3], r2: 8, rStr: '2\\sqrt{2}',
+      eqStr: '(x-3)^2 + (y-3)^2 = 8',
+      solution: [
+        { step: 1, title: 'Środek na prostej', content: 'S = (x_0, 3)', explanation: 'Środek leży na prostej $y=3$.' },
+        { step: 2, title: 'Równoodległość od A i B', content: '(x_0-1)^2+(3-1)^2 = (x_0-5)^2+(3-1)^2\\\\ (x_0-1)^2 = (x_0-5)^2\\\\ 8x_0 = 24 \\implies x_0 = 3', explanation: '' },
+        { step: 3, title: 'Promień', content: 'r^2 = (3-1)^2+(3-1)^2 = 4+4 = 8\\\\ r = 2\\sqrt{2}', explanation: '' },
+        { step: 4, title: 'Równanie okręgu', content: '(x-3)^2+(y-3)^2=8', explanation: '' }
+      ],
+      hints: [
+        { level: 1, text: 'Środek okręgu leży na osi symetrii odcinka AB i na prostej $y=3$.' },
+        { level: 2, text: 'Środek: $S=(x_0, 3)$. Z warunku $|SA|=|SB|$ wyznacz $x_0$.' },
+        { level: 3, text: '$x_0=3$, $S=(3,3)$, $r^2=8$.' }
+      ]
+    },
+    {
+      // Okrąg przez A=(-2,0) i B=(4,0), środek na prostej y=x-1
+      // Środek (x₀, x₀-1), równoodległość:
+      // (x₀+2)²+(x₀-1)² = (x₀-4)²+(x₀-1)²
+      // (x₀+2)² = (x₀-4)² → 4x₀+4=-8x₀+16... wait:
+      // (x₀+2)²=(x₀-4)² → x₀²+4x₀+4 = x₀²-8x₀+16 → 12x₀=12 → x₀=1
+      // S=(1,0), r²=(1+2)²+0²=9, r=3
+      A: [-2, 0], B: [4, 0], lineStr: 'y = x-1',
+      center: [1, 0], r2: 9, rStr: '3',
+      eqStr: '(x-1)^2 + y^2 = 9',
+      solution: [
+        { step: 1, title: 'Środek na prostej', content: 'S = (x_0,\\ x_0-1)', explanation: 'Środek leży na prostej $y=x-1$.' },
+        { step: 2, title: 'Równoodległość', content: '(x_0+2)^2+(x_0-1)^2 = (x_0-4)^2+(x_0-1)^2\\\\ (x_0+2)^2 = (x_0-4)^2\\\\ 12x_0 = 12 \\implies x_0 = 1', explanation: '' },
+        { step: 3, title: 'Środek i promień', content: 'S = (1, 0),\\quad r^2 = (1-(-2))^2+0^2 = 9,\\quad r = 3', explanation: '' },
+        { step: 4, title: 'Równanie', content: '(x-1)^2+y^2=9', explanation: '' }
+      ],
+      hints: [
+        { level: 1, text: 'Środek: $S=(x_0, x_0-1)$ (na prostej $y=x-1$).' },
+        { level: 2, text: 'Z $|SA|^2 = |SB|^2$ wyznacz $x_0$.' },
+        { level: 3, text: '$x_0=1$, $S=(1,0)$, $r=3$.' }
+      ]
+    },
+    {
+      // Okrąg przez A=(0,2) i B=(4,6), środek na osi Ox (y=0)
+      // S=(x₀,0): (x₀)²+(0-2)² = (x₀-4)²+(0-6)²
+      // x₀²+4 = x₀²-8x₀+16+36 → 8x₀=48 → x₀=6
+      // S=(6,0), r²=36+4=40, r=2√10
+      A: [0, 2], B: [4, 6], lineStr: '\\text{oś }Ox\\text{ (y=0)}',
+      center: [6, 0], r2: 40, rStr: '2\\sqrt{10}',
+      eqStr: '(x-6)^2 + y^2 = 40',
+      solution: [
+        { step: 1, title: 'Środek na osi Ox', content: 'S = (x_0, 0)', explanation: '' },
+        { step: 2, title: 'Równoodległość', content: 'x_0^2+4 = (x_0-4)^2+36\\\\ x_0^2+4 = x_0^2-8x_0+52\\\\ 8x_0 = 48 \\implies x_0 = 6', explanation: '' },
+        { step: 3, title: 'Promień', content: 'r^2 = 36+4 = 40,\\quad r = 2\\sqrt{10}', explanation: '' },
+        { step: 4, title: 'Równanie', content: '(x-6)^2+y^2=40', explanation: '' }
+      ],
+      hints: [
+        { level: 1, text: 'Środek okręgu leży na osi $Ox$: $S=(x_0, 0)$.' },
+        { level: 2, text: 'Warunek $|SA|=|SB|$: $(x_0)^2+4=(x_0-4)^2+36$.' },
+        { level: 3, text: '$x_0=6$, $r^2=40$.' }
+      ]
+    }
+  ];
+
+  function circleThroughPoints() {
+    const task = M.choose(CIRCLE_THROUGH_TASKS);
+    return {
+      id: M.makeId('cat11_circle2pts'),
+      category: 11,
+      categoryName: 'Geometria analityczna',
+      type: 'circle_through_points',
+      points: 5,
+      params: {},
+      statement:
+        `Okrąg przechodzi przez punkty $A = (${task.A[0]},\\ ${task.A[1]})$ i $B = (${task.B[0]},\\ ${task.B[1]})$, ` +
+        `a jego środek leży na prostej $${task.lineStr}$.\n\n` +
+        `**Wyznacz równanie tego okręgu.** Zapisz obliczenia.`,
+      answer: {
+        type: 'expression',
+        display: task.eqStr,
+        description: `$${task.eqStr}$`
+      },
+      hints: task.hints,
+      solution: task.solution
+    };
+  }
+
+  // === Dwa okręgi — warunek styczny ===
+  // Wzorzec matura 2019 z.11: znajdź parametr a, przy którym okręgi mają dokładnie jeden wspólny punkt
+  const TWO_CIRCLES_TASKS = [
+    {
+      // k₁: (x-2)²+(y-1)²=9, k₂: (x-a)²+(y+2)²=4
+      // Zewnętrzna styczna: d=r₁+r₂=5
+      // d²=(2-a)²+(1+2)²=(2-a)²+9=25 → (2-a)²=16 → a=6 lub a=-2
+      // Wewnętrzna styczna: d=|r₁-r₂|=1 → (2-a)²+9=1 → (2-a)²=-8 — niemożliwe
+      c1Str: '(x-2)^2+(y-1)^2=9', c1: [2,1,3],
+      c2Str: '(x-a)^2+(y+2)^2=4', r2: 2,
+      external_only: true,
+      answer_display: 'a = 6 \\text{ lub } a = -2',
+      solution: [
+        { step: 1, title: 'Warunek stycznej zewnętrznej', content: 'd = r_1+r_2 = 3+2 = 5', explanation: '' },
+        { step: 2, title: 'Odległość środków', content: 'd^2 = (2-a)^2+(1-(-2))^2 = (2-a)^2+9 = 25\\\\ (2-a)^2 = 16', explanation: '' },
+        { step: 3, title: 'Wartości a', content: '2-a = \\pm 4 \\implies a = -2\\text{ lub }a = 6', explanation: '' },
+        { step: 4, title: 'Styczna wewnętrzna', content: 'd = |r_1-r_2| = 1 \\implies (2-a)^2+9=1\\text{ — niemożliwe}', explanation: 'Tylko styczna zewnętrzna.' }
+      ],
+      hints: [
+        { level: 1, text: 'Okręgi mają jeden wspólny punkt gdy: $d = r_1+r_2$ (zewnętrzna) lub $d=|r_1-r_2|$ (wewnętrzna).' },
+        { level: 2, text: '$r_1=3$, $r_2=2$. Środki: $(2,1)$ i $(a,-2)$. Oblicz $d^2=(2-a)^2+9$.' },
+        { level: 3, text: '$d=5$: $(2-a)^2=16$, $a=6$ lub $a=-2$.' }
+      ]
+    },
+    {
+      // k₁: x²+y²=16, k₂: (x-a)²+(y-3)²=1
+      // Zewnętrzna: d=r₁+r₂=4+1=5 → a²+9=25 → a²=16 → a=±4
+      // Wewnętrzna: d=r₁-r₂=3 → a²+9=9 → a=0
+      c1Str: 'x^2+y^2=16', c1: [0,0,4],
+      c2Str: '(x-a)^2+(y-3)^2=1', r2: 1,
+      answer_display: 'a \\in \\{-4,\\ 0,\\ 4\\}',
+      solution: [
+        { step: 1, title: 'Odległość środków', content: 'd^2 = a^2+9', explanation: 'Środek k₂ to $(a,3)$, środek k₁ to $(0,0)$.' },
+        { step: 2, title: 'Styczna zewnętrzna (d=5)', content: 'a^2+9=25 \\implies a^2=16 \\implies a=\\pm4', explanation: '' },
+        { step: 3, title: 'Styczna wewnętrzna (d=3)', content: 'a^2+9=9 \\implies a=0', explanation: 'k₂ leży wewnątrz k₁.' },
+        { step: 4, title: 'Odpowiedź', content: 'a \\in \\{-4,\\ 0,\\ 4\\}', explanation: '' }
+      ],
+      hints: [
+        { level: 1, text: 'Jeden wspólny punkt: $d=r_1+r_2$ lub $d=|r_1-r_2|$.' },
+        { level: 2, text: '$d^2=a^2+9$. Rozpatrz oba przypadki.' },
+        { level: 3, text: 'Zewnętrzna: $a=\\pm4$. Wewnętrzna: $a=0$.' }
+      ]
+    }
+  ];
+
+  function twoCirclesParam() {
+    const task = M.choose(TWO_CIRCLES_TASKS);
+    return {
+      id: M.makeId('cat11_2circles'),
+      category: 11,
+      categoryName: 'Geometria analityczna',
+      type: 'two_circles_param',
+      points: 5,
+      params: {},
+      statement:
+        `Dane są okręgi:\n$$k_1:\\ ${task.c1Str}$$\n$$k_2:\\ ${task.c2Str}$$\n` +
+        `gdzie $a$ jest parametrem rzeczywistym.\n\n` +
+        `**Wyznacz wszystkie wartości $a$, dla których okręgi $k_1$ i $k_2$ mają dokładnie jeden punkt wspólny.** ` +
+        `Zapisz obliczenia.`,
+      answer: {
+        type: 'expression',
+        display: task.answer_display,
+        description: `$${task.answer_display}$`
+      },
+      hints: task.hints,
+      solution: task.solution
+    };
+  }
+
   function generate() {
-    return M.choose([circleTangent, lineThrough, pointLineDistance, circleFromEquation])();
+    return M.choose([circleTangent, lineThrough, pointLineDistance, circleFromEquation, circleThroughPoints, twoCirclesParam])();
   }
 
   return { generate };

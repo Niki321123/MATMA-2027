@@ -52,6 +52,7 @@
   <div class="mode-tabs" id="mode-tabs">
     <button class="mode-tab active" data-mode="generator">⚡ Generator zadań</button>
     <button class="mode-tab" data-mode="symulacja">🎓 Symulacja matury</button>
+    <button class="mode-tab" data-mode="wzory">📐 Karty wzorów</button>
   </div>
 </div>
 
@@ -92,6 +93,24 @@
 <div class="control-panel hidden" id="control-panel-symulacja">
   <div class="control-panel-inner">
     <button class="btn btn-primary" id="btn-start-exam">🎓 Generuj arkusz (12 zadań)</button>
+  </div>
+</div>
+
+<!-- PANEL KART WZORÓW -->
+<div class="wzory-panel hidden" id="wzory-panel">
+  <div class="wzory-panel-inner">
+    <div class="wzory-toolbar">
+      <span class="wzory-title">📐 Tablice matematyczne CKE 2023</span>
+      <a class="btn btn-ghost btn-sm" href="tablice-matematyczne-2023.pdf" target="_blank" download>⬇ Pobierz PDF</a>
+    </div>
+    <div class="wzory-pdf-container">
+      <iframe
+        src="tablice-matematyczne-2023.pdf"
+        class="wzory-pdf-iframe"
+        id="wzory-pdf-iframe"
+        title="Tablice matematyczne CKE 2023"
+      ></iframe>
+    </div>
   </div>
 </div>
 
@@ -254,6 +273,7 @@
 <script src="js/generators/cat13_bernoulli.js"></script>
 <script src="js/generators/cat14_kombinatoryka.js"></script>
 <script src="js/generators/cat15_optymalizacja.js"></script>
+<script src="js/generators/cat16_szesciopunktowe.js"></script>
 <script src="js/generators/index.js?v=20260520"></script>
 <script src="js/data/matura_tasks.js?v=20260520"></script>
 <script src="js/core/SupabaseAuth.js?v=20260520"></script>

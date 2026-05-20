@@ -125,6 +125,8 @@
     elPanelMatura?.classList.toggle('hidden', mode !== 'matura');
     elPanelExam?.classList.toggle('hidden',  mode !== 'symulacja');
     elExamNav?.classList.toggle('hidden',    mode !== 'symulacja' || examTasks.length === 0);
+    $('wzory-panel')?.classList.toggle('hidden', mode !== 'wzory');
+    document.querySelector('.main-layout')?.classList.toggle('hidden', mode === 'wzory');
     elTaskCard.classList.add('hidden');
     elSolutionPanel.classList.add('hidden');
     $('exam-summary')?.remove();
