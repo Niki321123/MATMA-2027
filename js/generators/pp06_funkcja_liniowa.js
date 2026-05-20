@@ -184,9 +184,50 @@ window.pp06 = (() => {
     };
   }
 
+  function generateClosed() {
+    const configs = [
+      {
+        stmt: 'Prosta $y = 2x - 3$ przecina oś $Ox$ w punkcie:',
+        options: { A: '$\\left(\\frac{3}{2},\\ 0\\right)$', B: '$\\left(-\\frac{3}{2},\\ 0\\right)$', C: '$(3,\\ 0)$', D: '$(-3,\\ 0)$' },
+        correct: 'A',
+        hints: [{ level:1, text:'Oś $Ox$: $y=0$, więc $2x-3=0$.' }],
+        solution: [{ step:1, title:'Rozwiązanie', content:'2x=3\\implies x=\\frac{3}{2}', explanation:'' }]
+      },
+      {
+        stmt: 'Współczynnik kierunkowy prostej przechodzącej przez punkty $(0,\\,1)$ i $(2,\\,5)$ wynosi:',
+        options: { A: '$2$', B: '$-2$', C: '$\\frac{1}{2}$', D: '$4$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$m=\\frac{y_2-y_1}{x_2-x_1}=\\frac{5-1}{2-0}$.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'m=\\frac{5-1}{2-0}=\\frac{4}{2}=2', explanation:'' }]
+      },
+      {
+        stmt: 'Punkt $(3,\\ k)$ leży na prostej $y = -2x + 5$. Wartość $k$ wynosi:',
+        options: { A: '$-1$', B: '$1$', C: '$-11$', D: '$11$' },
+        correct: 'A',
+        hints: [{ level:1, text:'Podstaw $x=3$: $k=-2\\cdot3+5$.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'k=-6+5=-1', explanation:'' }]
+      },
+    ];
+    const cfg = M.choose(configs);
+    return {
+      id: M.makeId('pp06_closed'),
+      categoryId: 'pp06',
+      categoryName: 'Funkcja liniowa',
+      type: 'closed',
+      points: 1,
+      params: {},
+      statement: cfg.stmt,
+      options: cfg.options,
+      correctOption: cfg.correct,
+      answer: { type: 'choice', display: cfg.correct, description: `Odpowiedź: ${cfg.correct}` },
+      hints: cfg.hints,
+      solution: cfg.solution
+    };
+  }
+
   function generate() {
     return M.choose([linearFormula, perpParallel, linearWordProblem])();
   }
 
-  return { generate };
+  return { generate, generateClosed };
 })();

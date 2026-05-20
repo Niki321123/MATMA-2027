@@ -197,9 +197,43 @@ window.pp13 = (() => {
     };
   }
 
+  function generateClosed() {
+    const configs = [
+      {
+        stmt: 'Rzucamy jedną kostką sześcienną. Prawdopodobieństwo wyrzucenia liczby parzystej wynosi:',
+        options: { A: '$\\dfrac{1}{2}$', B: '$\\dfrac{1}{3}$', C: '$\\dfrac{2}{3}$', D: '$\\dfrac{1}{6}$' },
+        correct: 'A',
+        hints: [{ level:1, text:'Liczby parzyste: $\\{2,4,6\\}$ — 3 spośród 6 wyników.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'P=\\frac{3}{6}=\\frac{1}{2}', explanation:'' }]
+      },
+      {
+        stmt: 'W urnie jest $4$ kule białe i $6$ czarnych. Losujemy jedną kulę. Prawdopodobieństwo wylosowania białej wynosi:',
+        options: { A: '$\\dfrac{2}{5}$', B: '$\\dfrac{2}{3}$', C: '$\\dfrac{3}{5}$', D: '$\\dfrac{1}{5}$' },
+        correct: 'A',
+        hints: [{ level:1, text:'Łącznie 10 kul, 4 białe.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'P=\\frac{4}{10}=\\frac{2}{5}', explanation:'' }]
+      },
+    ];
+    const cfg = M.choose(configs);
+    return {
+      id: M.makeId('pp13_closed'),
+      categoryId: 'pp13',
+      categoryName: 'Prawdopodobieństwo (PP)',
+      type: 'closed',
+      points: 1,
+      params: {},
+      statement: cfg.stmt,
+      options: cfg.options,
+      correctOption: cfg.correct,
+      answer: { type: 'choice', display: cfg.correct, description: `Odpowiedź: ${cfg.correct}` },
+      hints: cfg.hints,
+      solution: cfg.solution
+    };
+  }
+
   function generate() {
     return M.choose([classicProb, treeDiagram, combProb])();
   }
 
-  return { generate };
+  return { generate, generateClosed };
 })();

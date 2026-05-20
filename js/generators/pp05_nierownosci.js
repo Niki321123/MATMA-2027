@@ -183,9 +183,50 @@ x-3 & - & - & + \\\\
     };
   }
 
+  function generateClosed() {
+    const configs = [
+      {
+        stmt: 'Rozwiązaniem nierówności $2x - 3 < x + 1$ jest:',
+        options: { A: '$x < 4$', B: '$x > 4$', C: '$x < -4$', D: '$x > -4$' },
+        correct: 'A',
+        hints: [{ level:1, text:'Przenieś $x$ na lewą, liczby na prawą: $x<4$.' }],
+        solution: [{ step:1, title:'Przekształcenie', content:'2x-x<1+3\\implies x<4', explanation:'' }]
+      },
+      {
+        stmt: 'Rozwiązaniem nierówności $x^2 - 4 > 0$ jest:',
+        options: { A: '$x<-2$ lub $x>2$', B: '$-2<x<2$', C: '$x>2$', D: '$x<-2$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$x^2-4=(x-2)(x+2)>0$. Parabolę zwróconą ku górze poza pierwiastkami jest dodatnia.' }],
+        solution: [{ step:1, title:'Nierówność kwadratowa', content:'(x-2)(x+2)>0\\implies x<-2\\text{ lub }x>2', explanation:'' }]
+      },
+      {
+        stmt: 'Zbiór rozwiązań nierówności $\\dfrac{x}{2} \\geq 3$ to:',
+        options: { A: '$\\langle 6,+\\infty)$', B: '$(-\\infty,6\\rangle$', C: '$(6,+\\infty)$', D: '$(-\\infty,6)$' },
+        correct: 'A',
+        hints: [{ level:1, text:'Pomnóż obie strony przez 2: $x\\geq6$.' }],
+        solution: [{ step:1, title:'Rozwiązanie', content:'x\\geq6\\implies x\\in\\langle6,+\\infty)', explanation:'' }]
+      },
+    ];
+    const cfg = M.choose(configs);
+    return {
+      id: M.makeId('pp05_closed'),
+      categoryId: 'pp05',
+      categoryName: 'Nierówności',
+      type: 'closed',
+      points: 1,
+      params: {},
+      statement: cfg.stmt,
+      options: cfg.options,
+      correctOption: cfg.correct,
+      answer: { type: 'choice', display: cfg.correct, description: `Odpowiedź: ${cfg.correct}` },
+      hints: cfg.hints,
+      solution: cfg.solution
+    };
+  }
+
   function generate() {
     return M.choose([linearIneq, quadraticIneq, rationalIneq])();
   }
 
-  return { generate };
+  return { generate, generateClosed };
 })();

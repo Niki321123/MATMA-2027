@@ -193,9 +193,50 @@ window.pp14 = (() => {
     };
   }
 
+  function generateClosed() {
+    const configs = [
+      {
+        stmt: 'Odległość punktu $A=(1,\\ 2)$ od punktu $B=(4,\\ 6)$ wynosi:',
+        options: { A: '$5$', B: '$\\sqrt{7}$', C: '$7$', D: '$\\sqrt{50}$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$|AB|=\\sqrt{(4-1)^2+(6-2)^2}=\\sqrt{9+16}$.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'|AB|=\\sqrt{9+16}=\\sqrt{25}=5', explanation:'' }]
+      },
+      {
+        stmt: 'Prosta $y = 3x - 2$ przecina oś $Oy$ w punkcie:',
+        options: { A: '$(0,\\ -2)$', B: '$(-2,\\ 0)$', C: '$(0,\\ 3)$', D: '$(2,\\ 0)$' },
+        correct: 'A',
+        hints: [{ level:1, text:'Oś $Oy$: $x=0$. Podstaw $x=0$.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'y=3\\cdot0-2=-2\\implies(0,-2)', explanation:'' }]
+      },
+      {
+        stmt: 'Środek odcinka $AB$, gdzie $A=(2,\\ 4)$ i $B=(6,\\ 2)$, ma współrzędne:',
+        options: { A: '$(4,\\ 3)$', B: '$(3,\\ 4)$', C: '$(4,\\ 4)$', D: '$(2,\\ 3)$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$S=\\left(\\frac{x_1+x_2}{2},\\frac{y_1+y_2}{2}\\right)$.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'S=\\left(\\frac{2+6}{2},\\frac{4+2}{2}\\right)=(4,3)', explanation:'' }]
+      },
+    ];
+    const cfg = M.choose(configs);
+    return {
+      id: M.makeId('pp14_closed'),
+      categoryId: 'pp14',
+      categoryName: 'Geometria analityczna (PP)',
+      type: 'closed',
+      points: 1,
+      params: {},
+      statement: cfg.stmt,
+      options: cfg.options,
+      correctOption: cfg.correct,
+      answer: { type: 'choice', display: cfg.correct, description: `Odpowiedź: ${cfg.correct}` },
+      hints: cfg.hints,
+      solution: cfg.solution
+    };
+  }
+
   function generate() {
     return M.choose([segmentMidpoint, lineEquation, circleEquation])();
   }
 
-  return { generate };
+  return { generate, generateClosed };
 })();

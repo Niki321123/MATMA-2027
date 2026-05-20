@@ -162,9 +162,50 @@ window.pp04 = (() => {
     };
   }
 
+  function generateClosed() {
+    const configs = [
+      {
+        stmt: 'Rozwiązaniami równania $x^2 - 5x + 6 = 0$ są:',
+        options: { A: '$x=2$ i $x=3$', B: '$x=-2$ i $x=-3$', C: '$x=1$ i $x=6$', D: '$x=2$ i $x=-3$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$\\Delta=25-24=1$, $x_{1,2}=\\frac{5\\pm1}{2}$.' }],
+        solution: [{ step:1, title:'Wyróżnik', content:'\\Delta=25-24=1,\\quad x_1=\\frac{5-1}{2}=2,\\quad x_2=\\frac{5+1}{2}=3', explanation:'' }]
+      },
+      {
+        stmt: 'Rozwiązaniem równania $\\dfrac{x+2}{3} = 2$ jest:',
+        options: { A: '$x=4$', B: '$x=2$', C: '$x=8$', D: '$x=-2$' },
+        correct: 'A',
+        hints: [{ level:1, text:'Pomnóż obie strony przez 3: $x+2=6$.' }],
+        solution: [{ step:1, title:'Rozwiązanie', content:'x+2=6\\implies x=4', explanation:'' }]
+      },
+      {
+        stmt: 'Układ równań $\\begin{cases}2x+y=7\\\\x-y=2\\end{cases}$ ma rozwiązanie:',
+        options: { A: '$x=3,\\ y=1$', B: '$x=1,\\ y=5$', C: '$x=3,\\ y=-1$', D: '$x=4,\\ y=1$' },
+        correct: 'A',
+        hints: [{ level:1, text:'Dodaj równania stronami: $3x=9$, $x=3$.' }],
+        solution: [{ step:1, title:'Eliminacja', content:'3x=9\\Rightarrow x=3,\\quad y=7-6=1', explanation:'' }]
+      },
+    ];
+    const cfg = M.choose(configs);
+    return {
+      id: M.makeId('pp04_closed'),
+      categoryId: 'pp04',
+      categoryName: 'Równania i układy',
+      type: 'closed',
+      points: 1,
+      params: {},
+      statement: cfg.stmt,
+      options: cfg.options,
+      correctOption: cfg.correct,
+      answer: { type: 'choice', display: cfg.correct, description: `Odpowiedź: ${cfg.correct}` },
+      hints: cfg.hints,
+      solution: cfg.solution
+    };
+  }
+
   function generate() {
     return M.choose([quadratic, linearSystem, vietaParam])();
   }
 
-  return { generate };
+  return { generate, generateClosed };
 })();

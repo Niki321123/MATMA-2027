@@ -191,9 +191,57 @@ window.pp01 = (() => {
     };
   }
 
+  function generateClosed() {
+    const configs = [
+      {
+        stmt: 'Wartość wyrażenia $\\sqrt{48} - \\sqrt{75} + \\sqrt{27}$ jest równa:',
+        options: { A: '$2\\sqrt{3}$', B: '$4\\sqrt{3}$', C: '$6\\sqrt{3}$', D: '$\\sqrt{3}$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$\\sqrt{48}=4\\sqrt{3}$, $\\sqrt{75}=5\\sqrt{3}$, $\\sqrt{27}=3\\sqrt{3}$.' }],
+        solution: [{ step:1, title:'Uproszczenie', content:'4\\sqrt{3}-5\\sqrt{3}+3\\sqrt{3}=(4-5+3)\\sqrt{3}=2\\sqrt{3}', explanation:'' }]
+      },
+      {
+        stmt: 'Wartość wyrażenia $\\dfrac{2^5 \\cdot 4^3}{8^2 \\cdot 2}$ jest równa:',
+        options: { A: '$16$', B: '$8$', C: '$32$', D: '$4$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$4=2^2$, $8=2^3$. Sprowadź do potęg dwójki.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'\\frac{2^{11}}{2^7}=2^4=16', explanation:'' }]
+      },
+      {
+        stmt: 'Liczba $\\log_2 32$ jest równa:',
+        options: { A: '$5$', B: '$4$', C: '$6$', D: '$2$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$\\log_2 32=x \\Leftrightarrow 2^x=32$.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'2^5=32,\\quad \\log_2 32=5', explanation:'' }]
+      },
+      {
+        stmt: 'Wynik działania $\\left(\\dfrac{1}{4}\\right)^{-3}$ jest równy:',
+        options: { A: '$64$', B: '$-64$', C: '$\\dfrac{1}{64}$', D: '$12$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$a^{-n}=\\frac{1}{a^n}$, więc $\\left(\\frac{1}{4}\\right)^{-3}=4^3$.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'\\left(\\tfrac{1}{4}\\right)^{-3}=4^3=64', explanation:'' }]
+      },
+    ];
+    const cfg = M.choose(configs);
+    return {
+      id: M.makeId('pp01_closed'),
+      categoryId: 'pp01',
+      categoryName: 'Liczby rzeczywiste',
+      type: 'closed',
+      points: 1,
+      params: {},
+      statement: cfg.stmt,
+      options: cfg.options,
+      correctOption: cfg.correct,
+      answer: { type: 'choice', display: cfg.correct, description: `Odpowiedź: ${cfg.correct}` },
+      hints: cfg.hints,
+      solution: cfg.solution
+    };
+  }
+
   function generate() {
     return M.choose([rootSimplify, powerExpr, compareReals])();
   }
 
-  return { generate };
+  return { generate, generateClosed };
 })();

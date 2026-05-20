@@ -74,5 +74,56 @@ window.Generators = (() => {
     return generate(meta.id);
   }
 
-  return { getMeta, getAll, getAllPP, getByLevel, generate, generateRandom, generateRandomPP };
+  // PP Matura: 25 zamknięte (1pt) + 7 otwarte (25pt) = 50pt łącznie
+  function generatePPExam() {
+    const closedPlan = [
+      { id: 'pp01', count: 3 },
+      { id: 'pp02', count: 2 },
+      { id: 'pp03', count: 3 },
+      { id: 'pp04', count: 2 },
+      { id: 'pp05', count: 2 },
+      { id: 'pp06', count: 2 },
+      { id: 'pp07', count: 2 },
+      { id: 'pp08', count: 2 },
+      { id: 'pp09', count: 1 },
+      { id: 'pp10', count: 1 },
+      { id: 'pp11', count: 1 },
+      { id: 'pp12', count: 1 },
+      { id: 'pp13', count: 1 },
+      { id: 'pp14', count: 2 },
+    ]; // suma: 25 zamkniętych
+
+    const openPlan = [
+      { id: 'pp02', points: 3 },
+      { id: 'pp04', points: 2 },
+      { id: 'pp07', points: 4 },
+      { id: 'pp08', points: 3 },
+      { id: 'pp10', points: 4 },
+      { id: 'pp11', points: 5 },
+      { id: 'pp14', points: 4 },
+    ]; // suma: 25 pkt
+
+    const tasks = [];
+
+    for (const { id, count } of closedPlan) {
+      const meta = getMeta(id);
+      const gen = meta?.gen();
+      if (!gen?.generateClosed) continue;
+      for (let i = 0; i < count; i++) {
+        tasks.push({ ...gen.generateClosed(), examSection: 'closed' });
+      }
+    }
+
+    for (const { id, points } of openPlan) {
+      const meta = getMeta(id);
+      const gen = meta?.gen();
+      if (!gen) continue;
+      const task = gen.generate();
+      tasks.push({ ...task, points, examSection: 'open' });
+    }
+
+    return tasks;
+  }
+
+  return { getMeta, getAll, getAllPP, getByLevel, generate, generateRandom, generateRandomPP, generatePPExam };
 })();

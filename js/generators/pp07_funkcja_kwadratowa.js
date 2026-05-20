@@ -195,9 +195,50 @@ window.pp07 = (() => {
     };
   }
 
+  function generateClosed() {
+    const configs = [
+      {
+        stmt: 'Wierzchołek paraboli $f(x) = x^2 - 4x + 3$ ma współrzędne:',
+        options: { A: '$(2,\\ -1)$', B: '$(-2,\\ 1)$', C: '$(2,\\ 1)$', D: '$(-2,\\ -1)$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$p=-\\frac{b}{2a}=\\frac{4}{2}=2$, $q=f(2)=4-8+3=-1$.' }],
+        solution: [{ step:1, title:'Wierzchołek', content:'p=2,\\quad q=4-8+3=-1\\implies W=(2,-1)', explanation:'' }]
+      },
+      {
+        stmt: 'Funkcja $f(x) = -(x-1)^2 + 9$ przyjmuje wartość maksymalną równą:',
+        options: { A: '$9$', B: '$1$', C: '$-9$', D: '$8$' },
+        correct: 'A',
+        hints: [{ level:1, text:'Postać kanoniczna: wierzchołek w $(1,9)$, ramiona ku dołowi — max to $q$.' }],
+        solution: [{ step:1, title:'Max', content:'\\text{Wierzchołek }(1,9)\\text{, ramiona skierowane w dół}\\implies f_{\\max}=9', explanation:'' }]
+      },
+      {
+        stmt: 'Ile miejsc zerowych ma funkcja $f(x) = x^2 + 2x + 5$?',
+        options: { A: '$0$', B: '$1$', C: '$2$', D: '$3$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$\\Delta=4-20=-16<0$.' }],
+        solution: [{ step:1, title:'Wyróżnik', content:'\\Delta=4-4\\cdot5=4-20=-16<0\\implies\\text{brak miejsc zerowych}', explanation:'' }]
+      },
+    ];
+    const cfg = M.choose(configs);
+    return {
+      id: M.makeId('pp07_closed'),
+      categoryId: 'pp07',
+      categoryName: 'Funkcja kwadratowa',
+      type: 'closed',
+      points: 1,
+      params: {},
+      statement: cfg.stmt,
+      options: cfg.options,
+      correctOption: cfg.correct,
+      answer: { type: 'choice', display: cfg.correct, description: `Odpowiedź: ${cfg.correct}` },
+      hints: cfg.hints,
+      solution: cfg.solution
+    };
+  }
+
   function generate() {
     return M.choose([canonicalForm, zeros, fromConditions])();
   }
 
-  return { generate };
+  return { generate, generateClosed };
 })();

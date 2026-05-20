@@ -36,10 +36,10 @@
     </div>
     <div class="header-actions">
       <span class="limit-badge hidden" id="limit-badge"></span>
-      <button class="btn btn-ghost btn-sm" id="btn-open-pricing" title="Plany i ceny">💎 Plany</button>
-      <button class="btn btn-ghost btn-sm" id="btn-ranking-open" title="Tabela aktywności">🏆 Ranking</button>
-      <button class="btn btn-ghost btn-sm" id="btn-progress-open" title="Statystyki">📊 Postępy</button>
-      <button class="btn btn-outline btn-sm" id="btn-auth-open" title="Zaloguj się">Zaloguj się</button>
+      <button class="btn btn-ghost btn-sm" id="btn-open-pricing" title="Plany i ceny">💎 <span class="btn-label">Plany</span></button>
+      <button class="btn btn-ghost btn-sm" id="btn-ranking-open" title="Tabela aktywności">🏆 <span class="btn-label">Ranking</span></button>
+      <button class="btn btn-ghost btn-sm" id="btn-progress-open" title="Statystyki">📊 <span class="btn-label">Postępy</span></button>
+      <button class="btn btn-outline btn-sm" id="btn-auth-open" title="Zaloguj się"><span class="btn-label">Zaloguj się</span><span class="btn-icon-only" style="display:none">👤</span></button>
       <button class="btn btn-ghost btn-sm user-btn hidden" id="btn-user-menu" title="Konto">
         <span class="user-avatar" id="user-avatar">?</span>
         <span class="user-email-short" id="user-email-short"></span>
@@ -161,6 +161,15 @@
         <div class="hints-list" id="hints-list"></div>
       </div>
       <div class="answer-zone">
+        <!-- Opcje A/B/C/D — zadania zamknięte -->
+        <div class="closed-options hidden" id="closed-options">
+          <div class="closed-options-grid">
+            <button class="opt-btn" data-opt="A"><span class="opt-label">A</span><span class="opt-text" id="opt-A-text"></span></button>
+            <button class="opt-btn" data-opt="B"><span class="opt-label">B</span><span class="opt-text" id="opt-B-text"></span></button>
+            <button class="opt-btn" data-opt="C"><span class="opt-label">C</span><span class="opt-text" id="opt-C-text"></span></button>
+            <button class="opt-btn" data-opt="D"><span class="opt-label">D</span><span class="opt-text" id="opt-D-text"></span></button>
+          </div>
+        </div>
         <div class="answer-buttons">
           <button class="btn btn-ghost" id="btn-show-solution">📖 Pokaż rozwiązanie</button>
           <button class="btn btn-success-outline hidden" id="btn-self-correct">✓ Rozwiązałem poprawnie</button>
@@ -341,24 +350,24 @@
 <script src="js/generators/cat14_kombinatoryka.js"></script>
 <script src="js/generators/cat15_optymalizacja.js"></script>
 <script src="js/generators/cat16_szesciopunktowe.js"></script>
-<script src="js/generators/pp01_liczby.js?v=20260521"></script>
-<script src="js/generators/pp02_procenty.js?v=20260521"></script>
-<script src="js/generators/pp03_algebraiczne.js?v=20260521"></script>
-<script src="js/generators/pp04_rownania.js?v=20260521"></script>
-<script src="js/generators/pp05_nierownosci.js?v=20260521"></script>
-<script src="js/generators/pp06_funkcja_liniowa.js?v=20260521"></script>
-<script src="js/generators/pp07_funkcja_kwadratowa.js?v=20260521"></script>
-<script src="js/generators/pp08_ciagi.js?v=20260521"></script>
-<script src="js/generators/pp09_trygonometria.js?v=20260521"></script>
-<script src="js/generators/pp10_planimetria.js?v=20260521"></script>
-<script src="js/generators/pp11_stereometria.js?v=20260521"></script>
-<script src="js/generators/pp12_statystyka.js?v=20260521"></script>
-<script src="js/generators/pp13_prawdopodobienstwo.js?v=20260521"></script>
-<script src="js/generators/pp14_geom_analityczna.js?v=20260521"></script>
-<script src="js/generators/index.js?v=20260521"></script>
-<script src="js/data/matura_tasks.js?v=20260521"></script>
-<script src="js/core/SupabaseAuth.js?v=20260521"></script>
-<script src="js/app.js?v=20260521"></script>
+<script src="js/generators/pp01_liczby.js?v=20260522"></script>
+<script src="js/generators/pp02_procenty.js?v=20260522"></script>
+<script src="js/generators/pp03_algebraiczne.js?v=20260522"></script>
+<script src="js/generators/pp04_rownania.js?v=20260522"></script>
+<script src="js/generators/pp05_nierownosci.js?v=20260522"></script>
+<script src="js/generators/pp06_funkcja_liniowa.js?v=20260522"></script>
+<script src="js/generators/pp07_funkcja_kwadratowa.js?v=20260522"></script>
+<script src="js/generators/pp08_ciagi.js?v=20260522"></script>
+<script src="js/generators/pp09_trygonometria.js?v=20260522"></script>
+<script src="js/generators/pp10_planimetria.js?v=20260522"></script>
+<script src="js/generators/pp11_stereometria.js?v=20260522"></script>
+<script src="js/generators/pp12_statystyka.js?v=20260522"></script>
+<script src="js/generators/pp13_prawdopodobienstwo.js?v=20260522"></script>
+<script src="js/generators/pp14_geom_analityczna.js?v=20260522"></script>
+<script src="js/generators/index.js?v=20260522"></script>
+<script src="js/data/matura_tasks.js?v=20260522"></script>
+<script src="js/core/SupabaseAuth.js?v=20260522"></script>
+<script src="js/app.js?v=20260522"></script>
 
 </body>
 </html>

@@ -186,9 +186,50 @@ window.pp08 = (() => {
     };
   }
 
+  function generateClosed() {
+    const configs = [
+      {
+        stmt: 'Czwarty wyraz ciągu geometrycznego o pierwszym wyrazie $a_1=2$ i ilorazie $q=3$ wynosi:',
+        options: { A: '$54$', B: '$18$', C: '$162$', D: '$6$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$a_4=a_1\\cdot q^3=2\\cdot27$.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'a_4=2\\cdot3^3=2\\cdot27=54', explanation:'' }]
+      },
+      {
+        stmt: 'Suma pięciu kolejnych wyrazów ciągu arytmetycznego $1, 3, 5, 7, 9$ wynosi:',
+        options: { A: '$25$', B: '$20$', C: '$15$', D: '$30$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$S_5=\\frac{5(1+9)}{2}$.' }],
+        solution: [{ step:1, title:'Suma', content:'S_5=\\frac{5(a_1+a_5)}{2}=\\frac{5\\cdot10}{2}=25', explanation:'' }]
+      },
+      {
+        stmt: 'W ciągu geometrycznym $a_1=3$ i $a_4=24$. Iloraz $q$ tego ciągu wynosi:',
+        options: { A: '$2$', B: '$3$', C: '$8$', D: '$4$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$a_4=a_1\\cdot q^3$, więc $3q^3=24$.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'q^3=\\frac{24}{3}=8\\implies q=2', explanation:'' }]
+      },
+    ];
+    const cfg = M.choose(configs);
+    return {
+      id: M.makeId('pp08_closed'),
+      categoryId: 'pp08',
+      categoryName: 'Ciągi (PP)',
+      type: 'closed',
+      points: 1,
+      params: {},
+      statement: cfg.stmt,
+      options: cfg.options,
+      correctOption: cfg.correct,
+      answer: { type: 'choice', display: cfg.correct, description: `Odpowiedź: ${cfg.correct}` },
+      hints: cfg.hints,
+      solution: cfg.solution
+    };
+  }
+
   function generate() {
     return M.choose([arithmeticSeq, geometricSeq, seqWordProblem])();
   }
 
-  return { generate };
+  return { generate, generateClosed };
 })();

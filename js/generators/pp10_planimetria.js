@@ -197,9 +197,43 @@ window.pp10 = (() => {
     };
   }
 
+  function generateClosed() {
+    const configs = [
+      {
+        stmt: 'Trójkąt prostokątny ma przyprostokątne długości $3$ i $4$. Jego pole wynosi:',
+        options: { A: '$6$', B: '$12$', C: '$7$', D: '$5$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$P=\\frac{1}{2}\\cdot a\\cdot b$.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'P=\\frac{1}{2}\\cdot3\\cdot4=6', explanation:'' }]
+      },
+      {
+        stmt: 'Okrąg ma obwód $10\\pi$. Jego pole wynosi:',
+        options: { A: '$25\\pi$', B: '$10\\pi$', C: '$5\\pi$', D: '$100\\pi$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$2\\pi r=10\\pi\\implies r=5$.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'r=5,\\quad P=\\pi r^2=25\\pi', explanation:'' }]
+      },
+    ];
+    const cfg = M.choose(configs);
+    return {
+      id: M.makeId('pp10_closed'),
+      categoryId: 'pp10',
+      categoryName: 'Planimetria (PP)',
+      type: 'closed',
+      points: 1,
+      params: {},
+      statement: cfg.stmt,
+      options: cfg.options,
+      correctOption: cfg.correct,
+      answer: { type: 'choice', display: cfg.correct, description: `Odpowiedź: ${cfg.correct}` },
+      hints: cfg.hints,
+      solution: cfg.solution
+    };
+  }
+
   function generate() {
     return M.choose([triangle, trapezoid, circle])();
   }
 
-  return { generate };
+  return { generate, generateClosed };
 })();

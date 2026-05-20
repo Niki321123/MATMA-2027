@@ -174,9 +174,43 @@ window.pp09 = (() => {
     };
   }
 
+  function generateClosed() {
+    const configs = [
+      {
+        stmt: 'Wartość wyrażenia $\\sin 30° + \\cos 60°$ wynosi:',
+        options: { A: '$1$', B: '$\\sqrt{3}$', C: '$\\frac{\\sqrt{3}}{2}$', D: '$\\frac{1}{2}$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$\\sin 30°=\\frac{1}{2}$, $\\cos 60°=\\frac{1}{2}$.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'\\frac{1}{2}+\\frac{1}{2}=1', explanation:'' }]
+      },
+      {
+        stmt: 'W trójkącie prostokątnym $\\sin\\alpha = \\dfrac{3}{5}$. Wartość $\\cos\\alpha$ wynosi:',
+        options: { A: '$\\dfrac{4}{5}$', B: '$\\dfrac{3}{4}$', C: '$\\dfrac{4}{3}$', D: '$\\dfrac{5}{4}$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$\\sin^2\\alpha+\\cos^2\\alpha=1$.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'\\cos^2\\alpha=1-\\frac{9}{25}=\\frac{16}{25}\\implies\\cos\\alpha=\\frac{4}{5}', explanation:'' }]
+      },
+    ];
+    const cfg = M.choose(configs);
+    return {
+      id: M.makeId('pp09_closed'),
+      categoryId: 'pp09',
+      categoryName: 'Trygonometria (PP)',
+      type: 'closed',
+      points: 1,
+      params: {},
+      statement: cfg.stmt,
+      options: cfg.options,
+      correctOption: cfg.correct,
+      answer: { type: 'choice', display: cfg.correct, description: `Odpowiedź: ${cfg.correct}` },
+      hints: cfg.hints,
+      solution: cfg.solution
+    };
+  }
+
   function generate() {
     return M.choose([rightTriangle, standardAngles, triangleCalc])();
   }
 
-  return { generate };
+  return { generate, generateClosed };
 })();

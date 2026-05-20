@@ -187,9 +187,50 @@ window.pp02 = (() => {
     };
   }
 
+  function generateClosed() {
+    const configs = [
+      {
+        stmt: 'Cena towaru wynosiła $80$ zł. Po podwyżce o $25\\%$ cena wynosi:',
+        options: { A: '$100$ zł', B: '$105$ zł', C: '$96$ zł', D: '$95$ zł' },
+        correct: 'A',
+        hints: [{ level:1, text:'$80 \\cdot 1{,}25 = 100$ zł.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'80\\cdot1{,}25=100\\text{ zł}', explanation:'' }]
+      },
+      {
+        stmt: 'Ile procent stanowi liczba $12$ z liczby $48$?',
+        options: { A: '$25\\%$', B: '$20\\%$', C: '$30\\%$', D: '$40\\%$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$\\frac{12}{48}=\\frac{1}{4}=0{,}25=25\\%$.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'\\frac{12}{48}=0{,}25=25\\%', explanation:'' }]
+      },
+      {
+        stmt: 'Cena wzrosła o $20\\%$, a następnie obniżono ją o $20\\%$. Cena końcowa stanowi $\\ldots\\%$ ceny pierwotnej:',
+        options: { A: '$96\\%$', B: '$100\\%$', C: '$104\\%$', D: '$80\\%$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$1{,}2 \\cdot 0{,}8 = 0{,}96$.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'1{,}2\\cdot0{,}8=0{,}96=96\\%', explanation:'Kolejne zmiany procentowe mnożą się.' }]
+      },
+    ];
+    const cfg = M.choose(configs);
+    return {
+      id: M.makeId('pp02_closed'),
+      categoryId: 'pp02',
+      categoryName: 'Procenty i finanse',
+      type: 'closed',
+      points: 1,
+      params: {},
+      statement: cfg.stmt,
+      options: cfg.options,
+      correctOption: cfg.correct,
+      answer: { type: 'choice', display: cfg.correct, description: `Odpowiedź: ${cfg.correct}` },
+      hints: cfg.hints,
+      solution: cfg.solution
+    };
+  }
+
   function generate() {
     return M.choose([basicPercent, percentChanges, bankInterest])();
   }
 
-  return { generate };
+  return { generate, generateClosed };
 })();

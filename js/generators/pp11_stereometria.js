@@ -217,9 +217,43 @@ window.pp11 = (() => {
     };
   }
 
+  function generateClosed() {
+    const configs = [
+      {
+        stmt: 'Kula o promieniu $r = 3$ ma objętość równą:',
+        options: { A: '$36\\pi$', B: '$12\\pi$', C: '$108\\pi$', D: '$4\\pi$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$V=\\frac{4}{3}\\pi r^3$.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'V=\\frac{4}{3}\\pi\\cdot27=36\\pi', explanation:'' }]
+      },
+      {
+        stmt: 'Sześcian o boku $a = 4$ ma objętość:',
+        options: { A: '$64$', B: '$96$', C: '$48$', D: '$16$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$V=a^3$.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'V=4^3=64', explanation:'' }]
+      },
+    ];
+    const cfg = M.choose(configs);
+    return {
+      id: M.makeId('pp11_closed'),
+      categoryId: 'pp11',
+      categoryName: 'Stereometria (PP)',
+      type: 'closed',
+      points: 1,
+      params: {},
+      statement: cfg.stmt,
+      options: cfg.options,
+      correctOption: cfg.correct,
+      answer: { type: 'choice', display: cfg.correct, description: `Odpowiedź: ${cfg.correct}` },
+      hints: cfg.hints,
+      solution: cfg.solution
+    };
+  }
+
   function generate() {
     return M.choose([prism, pyramid, cylinderCone])();
   }
 
-  return { generate };
+  return { generate, generateClosed };
 })();

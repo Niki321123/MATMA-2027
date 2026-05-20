@@ -186,9 +186,50 @@ window.pp03 = (() => {
     };
   }
 
+  function generateClosed() {
+    const configs = [
+      {
+        stmt: 'Wynik mnożenia $(x+3)(x-3)$ jest równy:',
+        options: { A: '$x^2-9$', B: '$x^2+9$', C: '$x^2-6x-9$', D: '$x^2+6x-9$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$(a+b)(a-b)=a^2-b^2$.' }],
+        solution: [{ step:1, title:'Wzór', content:'(x+3)(x-3)=x^2-3^2=x^2-9', explanation:'' }]
+      },
+      {
+        stmt: 'Po rozwinięciu $(2a-1)^2$ otrzymujemy:',
+        options: { A: '$4a^2-4a+1$', B: '$4a^2-1$', C: '$4a^2+4a+1$', D: '$4a^2-4a-1$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$(x-y)^2=x^2-2xy+y^2$. Tutaj $x=2a$, $y=1$.' }],
+        solution: [{ step:1, title:'Wzór', content:'(2a)^2-2\\cdot2a\\cdot1+1^2=4a^2-4a+1', explanation:'' }]
+      },
+      {
+        stmt: 'Wyrażenie $\\dfrac{x^2-4}{x+2}$ dla $x \\neq -2$ jest równe:',
+        options: { A: '$x-2$', B: '$x+2$', C: '$x^2-2$', D: '$2$' },
+        correct: 'A',
+        hints: [{ level:1, text:'$x^2-4=(x+2)(x-2)$.' }],
+        solution: [{ step:1, title:'Rozkład', content:'\\frac{(x+2)(x-2)}{x+2}=x-2', explanation:'' }]
+      },
+    ];
+    const cfg = M.choose(configs);
+    return {
+      id: M.makeId('pp03_closed'),
+      categoryId: 'pp03',
+      categoryName: 'Wyrażenia algebraiczne',
+      type: 'closed',
+      points: 1,
+      params: {},
+      statement: cfg.stmt,
+      options: cfg.options,
+      correctOption: cfg.correct,
+      answer: { type: 'choice', display: cfg.correct, description: `Odpowiedź: ${cfg.correct}` },
+      hints: cfg.hints,
+      solution: cfg.solution
+    };
+  }
+
   function generate() {
     return M.choose([algebraicFrac, algebraicValue, factorize])();
   }
 
-  return { generate };
+  return { generate, generateClosed };
 })();

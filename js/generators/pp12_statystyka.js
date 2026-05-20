@@ -191,9 +191,43 @@ window.pp12 = (() => {
     };
   }
 
+  function generateClosed() {
+    const configs = [
+      {
+        stmt: 'Mediana zbioru danych $\\{2,\\ 5,\\ 3,\\ 8,\\ 4\\}$ wynosi:',
+        options: { A: '$4$', B: '$3$', C: '$5$', D: '$6$' },
+        correct: 'A',
+        hints: [{ level:1, text:'Uszereguj rosnąco: $\\{2,3,4,5,8\\}$. Mediana = środkowy element.' }],
+        solution: [{ step:1, title:'Obliczenie', content:'\\text{Posortowane: }2,3,4,5,8\\implies\\text{mediana}=4', explanation:'' }]
+      },
+      {
+        stmt: 'Średnia arytmetyczna liczb $4,\\ 6,\\ 8,\\ 10,\\ 12$ wynosi:',
+        options: { A: '$8$', B: '$6$', C: '$10$', D: '$7$' },
+        correct: 'A',
+        hints: [{ level:1, text:'Suma: $4+6+8+10+12=40$. Ile elementów?' }],
+        solution: [{ step:1, title:'Obliczenie', content:'\\bar{x}=\\frac{40}{5}=8', explanation:'' }]
+      },
+    ];
+    const cfg = M.choose(configs);
+    return {
+      id: M.makeId('pp12_closed'),
+      categoryId: 'pp12',
+      categoryName: 'Statystyka',
+      type: 'closed',
+      points: 1,
+      params: {},
+      statement: cfg.stmt,
+      options: cfg.options,
+      correctOption: cfg.correct,
+      answer: { type: 'choice', display: cfg.correct, description: `Odpowiedź: ${cfg.correct}` },
+      hints: cfg.hints,
+      solution: cfg.solution
+    };
+  }
+
   function generate() {
     return M.choose([meanMedian, missingValue, dataInterpret])();
   }
 
-  return { generate };
+  return { generate, generateClosed };
 })();

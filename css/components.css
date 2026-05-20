@@ -107,7 +107,8 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a6480' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 12px center;
-  min-width: 260px;
+  min-width: 200px;
+  max-width: 100%;
   transition: border-color var(--transition);
 }
 .select:hover { border-color: var(--border-light); }
@@ -485,7 +486,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+@media (max-width: 480px) {
+  .modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
 }
 .modal {
   background: var(--bg-secondary);
@@ -1401,32 +1409,32 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  padding: 20px 14px;
-  border: 2px solid var(--border);
+  padding: 24px 16px;
+  border: 2px solid var(--border-light);
   border-radius: var(--radius-lg);
-  background: var(--bg-card);
+  background: rgba(255,255,255,0.08);
   cursor: pointer;
   transition: border-color 0.15s, transform 0.1s, background 0.15s;
   font-family: inherit;
 }
 .level-card:hover {
   border-color: var(--accent-blue);
-  background: var(--bg-hover);
+  background: rgba(255,255,255,0.13);
   transform: translateY(-2px);
 }
-.level-card-icon { font-size: 32px; }
-.level-card-name { font-size: 1rem; font-weight: 700; color: var(--text); }
-.level-card-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+.level-card-icon { font-size: 36px; }
+.level-card-name { font-size: 1.05rem; font-weight: 700; color: var(--text-primary); }
+.level-card-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.4; }
 
 /* ===== MODAL BOX (glass) ===== */
 .modal-box {
-  background: rgba(10, 13, 30, 0.85);
+  background: rgba(10, 13, 30, 0.92);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: var(--radius-xl);
   width: 100%;
-  max-height: 90vh;
+  max-height: calc(100dvh - 32px);
   overflow-y: auto;
   box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.05);
   position: relative;
@@ -1435,6 +1443,19 @@
 @keyframes modalIn {
   from { opacity: 0; transform: scale(0.94) translateY(12px); }
   to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+@media (max-width: 480px) {
+  .modal-box {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    max-height: 92dvh;
+    width: 100%;
+    animation: modalSlideUp 0.28s cubic-bezier(.25,.8,.25,1);
+  }
+  @keyframes modalSlideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
 }
 
 /* Task card — glass */
@@ -1484,4 +1505,152 @@
 .ranking-row--me {
   background: rgba(96,151,255,0.07);
   border-color: rgba(96,151,255,0.3);
+}
+
+/* ===== RESPONSIVE COMPONENTS ===== */
+@media (max-width: 640px) {
+  /* Task card */
+  .task-statement { padding: 20px 18px 14px; font-size: 15px; }
+  .hints-zone { padding: 0 18px 14px; }
+  .answer-zone { padding: 14px 18px 20px; }
+  .answer-buttons { gap: 8px; }
+  .answer-buttons .btn { flex: 1 1 auto; justify-content: center; min-width: 0; }
+
+  /* Solution */
+  .solution-header { padding: 16px 18px; }
+  .solution-steps { padding: 16px 18px; }
+
+  /* Task header */
+  .task-header { padding: 12px 18px; }
+
+  /* Landing */
+  .landing-card { padding: 36px 20px 32px; gap: 14px; }
+  .landing-title { font-size: 1.4rem; }
+  .landing-plan-preview { gap: 8px; }
+  .lpp-card { min-width: 100px; padding: 10px 14px; }
+
+  /* Pricing modal */
+  .pricing-modal { padding: 24px 18px 20px; }
+  .pricing-cards { gap: 12px; margin-top: 16px; }
+
+  /* Auth modal */
+  .auth-modal { padding: 28px 20px 24px; }
+
+  /* Username modal */
+  .username-modal { padding: 28px 20px 22px; }
+
+  /* Modal stats */
+  .modal-stats-grid { grid-template-columns: repeat(3,1fr); gap: 8px; }
+  .modal-stat-card { padding: 10px; }
+  .modal-stat-card .val { font-size: 22px; }
+  .modal-body { padding: 16px; }
+
+  /* Level modal */
+  .level-modal { padding: 28px 20px 24px; }
+
+  /* Ranking modal */
+  .ranking-modal { padding: 0; }
+}
+
+@media (max-width: 420px) {
+  /* Level cards — stack vertically */
+  .level-cards { flex-direction: column; gap: 10px; }
+  .level-card { padding: 16px 14px; flex-direction: row; gap: 12px; text-align: left; justify-content: flex-start; }
+  .level-card-icon { font-size: 28px; flex-shrink: 0; }
+
+  /* Answer buttons — full width stacked */
+  .answer-buttons { flex-direction: column; }
+  .answer-buttons .btn { width: 100%; justify-content: center; }
+
+  /* Select full width */
+  .select { min-width: 0; width: 100%; }
+  .control-group { width: 100%; }
+
+  /* Limit badge — hide on very small */
+  .limit-badge { display: none; }
+
+  /* Modal stats - 2 cols on tiny */
+  .modal-stats-grid { grid-template-columns: repeat(2,1fr); }
+
+  /* Exam pills smaller */
+  .exam-pill { width: 28px; height: 28px; font-size: 11px; }
+}
+
+/* ===== ZADANIA ZAMKNIĘTE (A/B/C/D) ===== */
+.closed-options { margin: 16px 0 8px; }
+.closed-options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.opt-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.04);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--text-primary);
+  text-align: left;
+  transition: all var(--transition);
+  min-height: 52px;
+}
+.opt-btn:hover:not(:disabled) {
+  border-color: var(--accent-blue);
+  background: rgba(96,151,255,0.08);
+}
+.opt-btn:disabled { cursor: default; }
+.opt-btn.correct {
+  border-color: var(--accent-green);
+  background: rgba(74,222,128,0.12);
+}
+.opt-btn.wrong {
+  border-color: var(--accent-red);
+  background: rgba(248,113,113,0.12);
+}
+.opt-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--border);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+.opt-btn.correct .opt-label { background: var(--accent-green); color: #fff; }
+.opt-btn.wrong   .opt-label { background: var(--accent-red);   color: #fff; }
+.opt-text { flex: 1; line-height: 1.4; }
+
+/* Separator sekcji I / II w exam-nav */
+.exam-section-sep {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 6px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-right: 1px solid var(--border);
+  margin-right: 2px;
+}
+
+/* Pill dla zadań otwartych — kwadratowy ale z innym obramowaniem */
+.exam-pill.exam-pill-open {
+  border-style: dashed;
+}
+
+@media (max-width: 500px) {
+  .closed-options-grid { grid-template-columns: 1fr; }
 }

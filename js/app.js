@@ -260,8 +260,10 @@
 
     hideLanding();
 
-    const meta = G.getMeta(task.category);
-    if (elTaskBadge) elTaskBadge.textContent = meta ? `${meta.icon} ${meta.name}` : (task.categoryName || `Kat. ${task.category}`);
+    const isClosed = task.type === 'closed';
+    const catId    = task.categoryId ?? task.category;
+    const meta     = G.getMeta(catId);
+    if (elTaskBadge) elTaskBadge.textContent = meta ? `${meta.icon} ${meta.name}` : (task.categoryName || `Kat. ${catId}`);
     if (elTaskPoints) elTaskPoints.textContent = `${task.points} pkt`;
 
     if (elTaskSource) {
@@ -275,16 +277,42 @@
 
     if (elTaskStatement) KR.render(task.statement, elTaskStatement);
 
+    // Zadania zamknięte A/B/C/D
+    const closedEl = $('closed-options');
+    if (closedEl) {
+      closedEl.classList.toggle('hidden', !isClosed);
+      if (isClosed) {
+        ['A', 'B', 'C', 'D'].forEach(opt => {
+          const el = $(`opt-${opt}-text`);
+          if (el) KR.render(task.options[opt] || '', el);
+        });
+        document.querySelectorAll('.opt-btn').forEach(b => {
+          b.classList.remove('selected', 'correct', 'wrong');
+          b.disabled = false;
+        });
+      }
+    }
+
     elTaskCard.classList.remove('hidden');
     elTaskCard.style.animation = 'none';
     requestAnimationFrame(() => { elTaskCard.style.animation = ''; });
     elSolutionPanel.classList.add('hidden');
     elHintsList.innerHTML = '';
-    elBtnHint.disabled = false;
-    elBtnHint.textContent = `💡 Wskazówka 1/${task.hints.length} — ${HINT_BTN_LABELS[0]}`;
+    if (task.hints?.length) {
+      elBtnHint.disabled = false;
+      elBtnHint.textContent = `💡 Wskazówka 1/${task.hints.length} — ${HINT_BTN_LABELS[0]}`;
+    } else {
+      elBtnHint.disabled = true;
+      elBtnHint.textContent = '💡 Brak wskazówek';
+    }
     elBtnSelfCorrect?.classList.add('hidden');
     elBtnSelfWrong?.classList.add('hidden');
-    elBtnShowSolution?.classList.remove('hidden');
+    // Dla zadań zamkniętych: ukryj "Pokaż rozwiązanie" (auto-ujawnienie po wyborze opcji)
+    if (isClosed) {
+      elBtnShowSolution?.classList.add('hidden');
+    } else {
+      elBtnShowSolution?.classList.remove('hidden');
+    }
     elBtnNext?.classList.add('hidden');
   }
 
@@ -806,13 +834,20 @@
 
     examTasks   = [];
     examResults = [];
-    const cats  = [...EXAM_CATS].sort(() => Math.random() - 0.5).slice(0, 12);
-    cats.forEach(catId => {
-      try {
-        examTasks.push(G.generate(catId));
-        examResults.push(null);
-      } catch (e) { /* skip */ }
-    });
+
+    if (getMathLevel() === 'PP') {
+      examTasks = G.generatePPExam();
+      examResults = new Array(examTasks.length).fill(null);
+    } else {
+      const cats = [...EXAM_CATS].sort(() => Math.random() - 0.5).slice(0, 12);
+      cats.forEach(catId => {
+        try {
+          examTasks.push(G.generate(catId));
+          examResults.push(null);
+        } catch (e) { /* skip */ }
+      });
+    }
+
     if (examTasks.length === 0) { showToast('Błąd generowania arkusza.', 'error'); return; }
 
     SA.trackMaturaStarted();
@@ -829,7 +864,8 @@
     displayTask(currentTask, false);
     if (elTaskBadge) elTaskBadge.textContent = `Zad. ${idx + 1}/${examTasks.length}`;
     if (elTaskSource) {
-      elTaskSource.textContent = `🎓 Arkusz — ${currentTask.categoryName}`;
+      const section = currentTask.examSection === 'closed' ? '📋 Część I (zamknięta)' : '✏️ Część II (otwarta)';
+      elTaskSource.textContent = `🎓 ${section} — ${currentTask.categoryName}`;
       elTaskSource.classList.remove('hidden');
     }
     renderExamNav();
@@ -839,12 +875,21 @@
   function renderExamNav() {
     if (!elExamNavPills) return;
     elExamNavPills.innerHTML = '';
+    let lastSection = null;
     examTasks.forEach((t, i) => {
+      // Separator sekcji
+      if (t.examSection && t.examSection !== lastSection) {
+        lastSection = t.examSection;
+        const sep = document.createElement('span');
+        sep.className = 'exam-section-sep';
+        sep.textContent = t.examSection === 'closed' ? 'I' : 'II';
+        elExamNavPills.appendChild(sep);
+      }
       const pill = document.createElement('button');
-      pill.className = 'exam-pill';
+      pill.className = 'exam-pill' + (t.examSection === 'open' ? ' exam-pill-open' : '');
       pill.textContent = i + 1;
-      pill.title = `${i + 1}. ${t.categoryName} (${t.points} pkt)`;
-      if (i === examIndex)            pill.classList.add('active');
+      pill.title = `${i + 1}. ${t.categoryName} (${t.points} pkt)${t.examSection === 'closed' ? ' — zamknięte' : ''}`;
+      if (i === examIndex)                   pill.classList.add('active');
       else if (examResults[i] === 'correct') pill.classList.add('correct');
       else if (examResults[i] === 'wrong')   pill.classList.add('wrong');
       else if (examResults[i] === 'skip')    pill.classList.add('skipped');
@@ -952,6 +997,55 @@
     elBtnShowSolution?.addEventListener('click', showSolution);
     elBtnSelfCorrect?.addEventListener('click', () => recordResult(true));
     elBtnSelfWrong?.addEventListener('click', () => recordResult(false));
+
+    // Opcje A/B/C/D dla zadań zamkniętych
+    document.querySelectorAll('.opt-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (taskAnswered || !currentTask || currentTask.type !== 'closed') return;
+        const selected = btn.dataset.opt;
+        const isCorrect = selected === currentTask.correctOption;
+        taskAnswered = true;
+
+        document.querySelectorAll('.opt-btn').forEach(b => {
+          b.disabled = true;
+          if (b.dataset.opt === currentTask.correctOption) b.classList.add('correct');
+          else if (b.dataset.opt === selected) b.classList.add('wrong');
+        });
+
+        // Pokaż rozwiązanie automatycznie
+        elSolutionPanel.classList.remove('hidden');
+        if (elAnswerDisplay) {
+          const correctText = currentTask.options[currentTask.correctOption];
+          KR.render(`**Odpowiedź:** ${currentTask.correctOption}: ${correctText}`, elAnswerDisplay);
+        }
+        if (elSolutionSteps) KR.renderSolution(currentTask.solution, elSolutionSteps);
+        elBtnShowSolution?.classList.add('hidden');
+
+        if (currentMode === 'symulacja') {
+          examResults[examIndex] = isCorrect ? 'correct' : 'wrong';
+          PT.record(currentTask.categoryId ?? currentTask.category, isCorrect);
+          renderExamNav();
+          showToast(isCorrect ? 'Poprawnie! ✓' : `Błąd — prawidłowa: ${currentTask.correctOption}`, isCorrect ? 'success' : 'warning');
+          elBtnSelfCorrect?.classList.add('hidden');
+          elBtnSelfWrong?.classList.add('hidden');
+          const remaining = examResults.findIndex(r => r === null);
+          if (remaining !== -1) {
+            const nextIdx = examResults.findIndex((r, i) => r === null && i > examIndex);
+            const labelIdx = nextIdx !== -1 ? nextIdx : remaining;
+            if (elBtnNext) { elBtnNext.textContent = `→ Zadanie ${labelIdx + 1}`; elBtnNext.classList.remove('hidden'); }
+          } else {
+            if (elBtnNext) { elBtnNext.textContent = '📊 Pokaż wyniki'; elBtnNext.classList.remove('hidden'); }
+          }
+          updateSidebar();
+        } else {
+          PT.record(currentTask.categoryId ?? currentTask.category, isCorrect);
+          SA?.recordAnswer(currentTask.categoryId ?? currentTask.category, isCorrect);
+          showToast(isCorrect ? 'Poprawnie! ✓' : `Błąd — prawidłowa odpowiedź: ${currentTask.correctOption}`, isCorrect ? 'success' : 'warning');
+          if (elBtnNext) { elBtnNext.textContent = '↻ Następne zadanie'; elBtnNext.classList.remove('hidden'); }
+          updateSidebar();
+        }
+      });
+    });
     elBtnNext?.addEventListener('click', () => {
       if (currentMode === 'symulacja') advanceExam();
       else if (currentMode === 'matura') loadRandomMatura();
