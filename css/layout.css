@@ -10,12 +10,12 @@
 .header-inner {
   max-width: 1500px;
   margin: 0 auto;
-  padding: 0 28px;
-  height: 58px;
+  padding: 0 32px;
+  height: 68px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 20px;
 }
 .logo {
   display: flex;
@@ -37,7 +37,7 @@
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   flex-shrink: 0;
 }
 
@@ -74,7 +74,7 @@
   background: var(--bg-secondary);
   border-bottom: 1px solid var(--border);
   position: sticky;
-  top: 58px;
+  top: 68px;
   z-index: 90;
 }
 .control-panel-inner {
@@ -100,7 +100,7 @@
   background: var(--bg-secondary);
   border-bottom: 1px solid var(--border);
   position: sticky;
-  top: 104px;
+  top: 114px;
   z-index: 85;
 }
 .exam-nav-inner {
@@ -146,7 +146,7 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   position: sticky;
-  top: 120px;
+  top: 130px;
 }
 
 /* Sidebar — stats header */
