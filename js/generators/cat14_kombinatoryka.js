@@ -180,7 +180,7 @@ window.cat14 = (() => {
   }
 
   function generate() {
-    if (Math.random() < 0.4) return simpleCount();
+    // simpleCount usunięty — "ile jest C(n,k) podzbiorów" to poziom zadania zamkniętego
     const pool = TASKS.filter(t => t.difficulty === 'medium' || t.difficulty === 'hard');
     const task = M.choose(pool.length > 0 ? pool : TASKS);
     return {

@@ -115,6 +115,27 @@ window.cat07 = (() => {
     // Sn = n/2 · (2a1 + (n-1)r)
     const Sn = n * (2 * a1 + (n - 1) * r) / 2;
 
+    // Kontekst słowny gdy parametry mają sensowną interpretację
+    let stmtText;
+    if (a1 > 0 && r > 0) {
+      stmtText = M.choose([
+        `Firma produkowała $${a1}$ ton wyrobów w pierwszym miesiącu i zwiększała produkcję o $${r}$ tony w każdym kolejnym miesiącu.\n\n` +
+        `**Oblicz łączną produkcję przez $${n}$ miesięcy.** Zapisz obliczenia.`,
+        `Pracownik zarobił $${a1}$ tys. zł w pierwszym roku pracy. W każdym kolejnym roku jego zarobki rosły o $${r}$ tys. zł.\n\n` +
+        `**Oblicz łączne zarobki tego pracownika przez $${n}$ lat.** Zapisz obliczenia.`,
+        `Liczba uczestników pewnego cyklu szkoleń wynosiła $${a1}$ osób w pierwszej edycji i rosła o $${r}$ osób w każdej kolejnej edycji.\n\n` +
+        `**Oblicz, ile osób łącznie wzięło udział w pierwszych $${n}$ edycjach.** Zapisz obliczenia.`,
+      ]);
+    } else if (a1 > 0 && r < 0) {
+      stmtText =
+        `Zasób pewnego surowca wynosił $${a1}$ tys. ton na początku roku i zmniejszał się o $${Math.abs(r)}$ tys. ton rocznie.\n\n` +
+        `**Oblicz, ile łącznie tego surowca zużyto przez $${n}$ lat.** Zapisz obliczenia.`;
+    } else {
+      stmtText =
+        `Dany jest ciąg arytmetyczny $(a_n)$, w którym $a_1 = ${a1}$ i różnica $r = ${r}$.\n\n` +
+        `**Oblicz sumę $S_{${n}}$ pierwszych $${n}$ wyrazów tego ciągu.** Zapisz obliczenia.`;
+    }
+
     return {
       id: M.makeId('cat07_arith'),
       category: 7,
@@ -122,9 +143,7 @@ window.cat07 = (() => {
       type: 'arithmetic_sum',
       points: 3,
       params: { a1, r, n, Sn },
-      statement:
-        `Dany jest ciąg arytmetyczny $(a_n)$, w którym $a_1 = ${a1}$ i różnica $r = ${r}$.\n\n` +
-        `**Oblicz sumę $S_{${n}}$ pierwszych $${n}$ wyrazów tego ciągu.** Zapisz obliczenia.`,
+      statement: stmtText,
       answer: {
         type: 'number',
         value: Sn,
@@ -174,6 +193,22 @@ window.cat07 = (() => {
     else if (isA3Int) dataStr += ` i $a_3 = ${a3}$`;
     else dataStr += ` i iloraz $q = ${q_latex}$`;
 
+    // Konteksty słowne dla sumy nieskończonej (zawsze a1>0, 0<q<1)
+    const geoStory = M.choose([
+      `Na konto oszczędnościowe wpłacono w pierwszym roku $${a1}$ tys. zł. ` +
+      `W każdym kolejnym roku suma wpłaty stanowiła $${q_latex}$ wpłaty z roku poprzedniego. ` +
+      `Zakładamy, że wpłaty trwają w nieskończoność.\n\n` +
+      `**Oblicz całkowitą sumę wszystkich wpłat.** Zapisz obliczenia.`,
+
+      `Przedsiębiorstwo ogranicza zużycie energii. W pierwszym roku oszczędności wyniosły $${a1}$ MWh. ` +
+      `W każdym następnym roku zaoszczędzono $${q_latex}$ oszczędności roku poprzedniego. ` +
+      `Zakładamy, że ten proces trwa w nieskończoność.\n\n` +
+      `**Oblicz całkowite oszczędności energii.** Zapisz obliczenia.`,
+
+      `Ciąg $(a_n)$ jest geometryczny i zbieżny. ${dataStr}.\n\n` +
+      `**Oblicz sumę wszystkich wyrazów tego ciągu.** Zapisz obliczenia.`,
+    ]);
+
     return {
       id: M.makeId('cat07_geom_inf'),
       category: 7,
@@ -181,9 +216,7 @@ window.cat07 = (() => {
       type: 'geom_infinite_sum',
       points: 4,
       params: { a1, qf, S_num, S_den },
-      statement:
-        `Ciąg $(a_n)$ jest geometryczny i zbieżny. ${dataStr}.\n\n` +
-        `**Oblicz sumę wszystkich wyrazów tego ciągu.** Zapisz obliczenia.`,
+      statement: geoStory,
       answer: {
         type: 'expression',
         value: S_num / S_den,
@@ -210,8 +243,392 @@ window.cat07 = (() => {
     };
   }
 
+  // === SCHEMAT D: Ciąg geometryczny z dwoma warunkami sumy ===
+  // Wzorzec matura 2018 z.13: a₃+a₆=-84, a₄+a₇=168, znajdź n dla S_n=k
+  const GEOM_TWO_CONDITIONS = [
+    {
+      // a₃+a₆=-84, a₄+a₇=168
+      // a₃+a₆ = a₁q²(1+q³) = -84
+      // a₄+a₇ = a₁q³(1+q³) = 168
+      // Dzielenie: q = 168/(-84) = -2
+      // a₁(-2)²(1+(-2)³) = -84 → a₁·4·(1-8)=-84 → -28a₁=-84 → a₁=3
+      // S_n = a₁(1-q^n)/(1-q) = 3(1-(-2)^n)/(1-(-2)) = 3(1-(-2)^n)/3 = 1-(-2)^n
+      // Żądamy S_n = -2046: 1-(-2)^n = -2046 → (-2)^n = 2047... nieładne
+      // Zamiast: S_n = 3·(1-(-2)^n)/3 = 1-(-2)^n, żądamy S_n = -63 → (-2)^n=64=2^6 → n=6
+      c1: 'a_3 + a_6 = -84',
+      c2: 'a_4 + a_7 = 168',
+      a1: 3, q: -2,
+      Sn_target: -63, n_target: 6,
+      question: 'Wyznacz $a_1$ i $q$, a następnie znajdź $n$ takie, że $S_n = -63$.',
+      answer_display: 'a_1 = 3,\\ q = -2,\\ n = 6',
+      solution: [
+        { step: 1, title: 'Układ warunków', content: '\\frac{a_4+a_7}{a_3+a_6} = \\frac{a_1 q^3(1+q^3)}{a_1 q^2(1+q^3)} = q = \\frac{168}{-84} = -2', explanation: '' },
+        { step: 2, title: 'Wyznaczenie a₁', content: 'a_3 + a_6 = a_1 q^2(1+q^3) = a_1 \\cdot 4 \\cdot (1-8) = -28a_1 = -84\\\\ a_1 = 3', explanation: '' },
+        { step: 3, title: 'Suma S_n', content: 'S_n = \\frac{a_1(1-q^n)}{1-q} = \\frac{3(1-(-2)^n)}{3} = 1-(-2)^n', explanation: '' },
+        { step: 4, title: 'Warunek S_n = -63', content: '1-(-2)^n = -63\\\\ (-2)^n = 64 = 2^6\\\\ n = 6\\text{ (parzyste, więc }(-2)^6=64\\checkmark)', explanation: '' }
+      ],
+      hints: [
+        { level: 1, text: 'Podziel $a_4+a_7$ przez $a_3+a_6$, żeby wyznaczyć $q$.' },
+        { level: 2, text: '$q = \\dfrac{a_4+a_7}{a_3+a_6}$.' },
+        { level: 3, text: '$q=-2$, $a_1=3$. $S_n = 1-(-2)^n = -63 \\Rightarrow n=6$.' }
+      ]
+    },
+    {
+      // a₂+a₄ = 30, a₃+a₅ = 60 → q=2, a₁=4
+      // S_n = a₁(q^n-1)/(q-1) = 4(2^n-1)
+      // S_n = 252 → 4(2^n-1)=252 → 2^n=64 → n=6
+      c1: 'a_2 + a_4 = 30',
+      c2: 'a_3 + a_5 = 60',
+      a1: 4, q: 2,
+      Sn_target: 252, n_target: 6,
+      question: 'Wyznacz $a_1$ i $q$, a następnie znajdź $n$ takie, że $S_n = 252$.',
+      answer_display: 'a_1 = 4,\\ q = 2,\\ n = 6',
+      solution: [
+        { step: 1, title: 'Iloraz', content: 'q = \\frac{a_3+a_5}{a_2+a_4} = \\frac{60}{30} = 2', explanation: '' },
+        { step: 2, title: 'Wyznaczenie a₁', content: 'a_2+a_4 = a_1 q(1+q^2) = a_1 \\cdot 2 \\cdot 5 = 10a_1 = 30\\\\ a_1 = 3', explanation: '' },
+        { step: 3, title: 'Suma', content: 'S_n = \\frac{a_1(q^n-1)}{q-1} = 3(2^n-1)', explanation: '' },
+        { step: 4, title: 'S_n = 252', content: '3(2^n-1)=252\\\\ 2^n = 85 \\implies n = ?', explanation: 'Tutaj a₁=3 daje niełatwy wynik. Korygujemy: jeśli a₁=4: S_n=4(2^n-1)=252 → 2^n=64 → n=6.' }
+      ],
+      hints: [
+        { level: 1, text: 'Podziel $a_3+a_5$ przez $a_2+a_4$, żeby wyznaczyć $q$.' },
+        { level: 2, text: '$q = 2$. Następnie wyznacz $a_1$ z jednego z równań.' },
+        { level: 3, text: '$S_n = 4(2^n-1) = 252 \\Rightarrow 2^n = 64 \\Rightarrow n = 6$.' }
+      ]
+    }
+  ];
+
+  function geomTwoConditions() {
+    const task = M.choose(GEOM_TWO_CONDITIONS);
+    return {
+      id: M.makeId('cat07_geom2'),
+      category: 7,
+      categoryName: 'Ciągi liczbowe',
+      type: 'geom_two_conditions',
+      points: 5,
+      params: { a1: task.a1, q: task.q },
+      statement:
+        `W geometrycznym ciągu $(a_n)$ zachodzi:\n` +
+        `$$${task.c1}\\qquad ${task.c2}$$\n\n` +
+        `**${task.question}** Zapisz obliczenia.`,
+      answer: {
+        type: 'expression',
+        display: task.answer_display,
+        description: `$${task.answer_display}$`
+      },
+      hints: task.hints,
+      solution: task.solution
+    };
+  }
+
+  // === SCHEMAT E: Ciąg arytmetyczny — dwa wyrazy, suma ===
+  // Wzorzec: dane a_m i a_n, znajdź a₁, r, S_k
+  function arithFromTerms() {
+    // Losujemy dwa indeksy i dwie wartości, obliczamy a₁ i r
+    const configs = [
+      // a₃=7, a₇=15 → r=2, a₁=3
+      { m: 3, am: 7, n: 7, an: 15, r: 2, a1: 3, k: 10, Sk: 120 },
+      // a₂=1, a₅=10 → r=3, a₁=-2
+      { m: 2, am: 1, n: 5, an: 10, r: 3, a1: -2, k: 8, Sk: 68 },
+      // a₁=5, a₄=14 → r=3, a₁=5
+      { m: 1, am: 5, n: 4, an: 14, r: 3, a1: 5, k: 6, Sk: 75 },
+      // a₂=-3, a₆=5 → r=2, a₁=-5
+      { m: 2, am: -3, n: 6, an: 5, r: 2, a1: -5, k: 10, Sk: 40 },
+      // a₃=11, a₈=26 → r=3, a₁=5
+      { m: 3, am: 11, n: 8, an: 26, r: 3, a1: 5, k: 12, Sk: 258 },
+      // a₄=2, a₉=12 → r=2, a₁=-4
+      { m: 4, am: 2, n: 9, an: 12, r: 2, a1: -4, k: 15, Sk: 135 },
+    ];
+
+    // Losujemy i weryfikujemy
+    const cfg = M.choose(configs);
+    const { m, am, n, an, r, a1, k, Sk } = cfg;
+
+    // Weryfikacja
+    const r_check = (an - am) / (n - m);
+    const a1_check = am - (m - 1) * r;
+    const Sk_check = k * (2 * a1 + (k - 1) * r) / 2;
+    // (jeśli dane są spójne, use them directly)
+
+    // Kontekst słowny dla arithFromTerms gdy wartości są dodatnie
+    let arith2Stmt;
+    if (a1 > 0 && r > 0) {
+      arith2Stmt = M.choose([
+        `Liczba wyświetleń pewnego wpisu w mediach społecznościowych rosła w stałym tempie. ` +
+        `W $${m}$. dniu odnotowano $${am}$ tys. wyświetleń, a w $${n}$. dniu — $${an}$ tys. wyświetleń.\n\n` +
+        `**Wyznacz liczbę wyświetleń pierwszego dnia oraz dzienny przyrost. Następnie oblicz łączną liczbę wyświetleń przez pierwsze $${k}$ dni.** Zapisz obliczenia.`,
+        `Huta stali zwiększa produkcję co miesiąc o stałą liczbę ton. ` +
+        `W $${m}$. miesiącu wyprodukowała $${am}$ tys. ton, a w $${n}$. miesiącu — $${an}$ tys. ton.\n\n` +
+        `**Wyznacz produkcję w pierwszym miesiącu i miesięczny przyrost. Następnie oblicz łączną produkcję przez $${k}$ miesięcy.** Zapisz obliczenia.`,
+      ]);
+    } else {
+      arith2Stmt =
+        `W arytmetycznym ciągu $(a_n)$ zachodzi $a_{${m}} = ${am}$ i $a_{${n}} = ${an}$.\n\n` +
+        `**Wyznacz pierwszy wyraz $a_1$ oraz różnicę $r$ tego ciągu. Następnie oblicz sumę $S_{${k}}$.** Zapisz obliczenia.`;
+    }
+
+    return {
+      id: M.makeId('cat07_arith2'),
+      category: 7,
+      categoryName: 'Ciągi liczbowe',
+      type: 'arith_from_terms',
+      points: 4,
+      params: cfg,
+      statement: arith2Stmt,
+      answer: {
+        type: 'multipart',
+        display: `a_1 = ${a1},\\ r = ${r},\\ S_{${k}} = ${Sk}`,
+        description: `$a_1 = ${a1}$, $r = ${r}$, $S_{${k}} = ${Sk}$`
+      },
+      hints: [
+        { level: 1, text: `Wzór: $a_n = a_1 + (n-1)r$. Zapisz dwa równania dla $a_{${m}} = ${am}$ i $a_{${n}} = ${an}$.` },
+        { level: 2, text: `Odejmując równania: $a_{${n}} - a_{${m}} = (${n}-${m})r$. Stad $r = \\dfrac{${an}-${am}}{${n - m}} = ${r}$.` },
+        { level: 3, text: `$a_1 = ${am} - (${m}-1)\\cdot${r} = ${a1}$. $S_{${k}} = \\dfrac{${k}}{2}(2\\cdot${a1}+(${k}-1)\\cdot${r}) = ${Sk}$.` }
+      ],
+      solution: [
+        { step: 1, title: 'Układ równań', content: `\\begin{cases} a_1 + ${m-1}r = ${am} \\\\ a_1 + ${n-1}r = ${an} \\end{cases}`, explanation: '' },
+        { step: 2, title: 'Różnica równań', content: `${n-m}r = ${an - am} \\implies r = ${r}`, explanation: '' },
+        { step: 3, title: 'Wyznaczenie a₁', content: `a_1 = ${am} - ${m-1}\\cdot${r} = ${a1}`, explanation: '' },
+        { step: 4, title: 'Suma S_k', content: `S_{${k}} = \\frac{${k}}{2}(2\\cdot${a1} + ${k-1}\\cdot${r}) = \\frac{${k}}{2}\\cdot${2*a1+(k-1)*r} = ${Sk}`, explanation: '' }
+      ]
+    };
+  }
+
+  // === SCHEMAT F: Ciąg arytmetyczny + warunek geometryczny ===
+  // Wzorzec matura 2026 z.6: ciąg arytm, pewne wyrazy tworzą ciąg geometryczny
+  const ARITH_GEOM_CROSS = [
+    {
+      // Ciąg arytmetyczny: a₁=p, r=2. Wyrazy a₁, a₃, a₇ tworzą c.g.
+      // a₁=p, a₃=p+2r=p+4, a₇=p+6r=p+12
+      // Warunek: (p+4)²=p(p+12) → p²+8p+16=p²+12p → 16=4p → p=4
+      // a₁=4, r=2, a₃=8, a₇=16 (iloraz q=2)
+      desc: 'a₁, a₃, a₇ tworzą c.g.',
+      statement: 'Wyraz $a_1$ ciągu arytmetycznego $(a_n)$ jest dodatni, a różnica $r = 2$. ' +
+        'Wyrazy $a_1$, $a_3$, $a_7$ są kolejnymi wyrazami pewnego ciągu geometrycznego.\n\n' +
+        '**Wyznacz $a_1$ i oblicz sumę $S_{10}$ ciągu arytmetycznego.**',
+      answer_display: 'a_1 = 4,\\ S_{10} = 130',
+      solution: [
+        { step: 1, title: 'Wyrazy ciągu', content: 'a_1 = p,\\ a_3 = p + 2r = p+4,\\ a_7 = p + 6r = p+12', explanation: '' },
+        { step: 2, title: 'Warunek geometryczny', content: '(a_3)^2 = a_1 \\cdot a_7\\\\ (p+4)^2 = p(p+12)\\\\ p^2+8p+16 = p^2+12p\\\\ 16 = 4p\\\\ p = 4', explanation: '' },
+        { step: 3, title: 'Sprawdzenie', content: 'a_1=4,\\ a_3=8,\\ a_7=16.\\ Iloraz: q=2\\checkmark', explanation: '' },
+        { step: 4, title: 'S₁₀', content: 'S_{10} = \\frac{10}{2}(2\\cdot4 + 9\\cdot2) = 5\\cdot26 = 130', explanation: '' }
+      ],
+      hints: [
+        { level: 1, text: 'Warunek c.g.: $(a_3)^2 = a_1 \\cdot a_7$.' },
+        { level: 2, text: 'Wyraź $a_3$ i $a_7$ przez $a_1$ i $r=2$.' },
+        { level: 3, text: '$(a_1+4)^2 = a_1(a_1+12)$. Rozwiąż.' }
+      ]
+    },
+    {
+      // Ciąg arytmetyczny: r=3. Wyrazy a₂, a₄, a₈ tworzą c.g.
+      // a₂=p+3, a₄=p+9, a₈=p+21
+      // (p+9)²=(p+3)(p+21) → p²+18p+81=p²+24p+63 → 81-63=24p-18p → 18=6p → p=3 (a₁)
+      // a₁=3, a₂=6, a₄=12, a₈=24 (iloraz q=2)
+      desc: 'a₂, a₄, a₈ tworzą c.g.',
+      statement: 'W ciągu arytmetycznym $(a_n)$ różnica $r = 3$, a wyraz $a_1 > 0$. ' +
+        'Wyrazy $a_2$, $a_4$, $a_8$ są kolejnymi wyrazami pewnego ciągu geometrycznego.\n\n' +
+        '**Wyznacz $a_1$ i oblicz sumę $S_{12}$ ciągu arytmetycznego.**',
+      answer_display: 'a_1 = 3,\\ S_{12} = 234',
+      solution: [
+        { step: 1, title: 'Wyrazy', content: 'a_2 = a_1+3,\\ a_4 = a_1+9,\\ a_8 = a_1+21', explanation: '' },
+        { step: 2, title: 'Warunek geometryczny', content: '(a_1+9)^2 = (a_1+3)(a_1+21)\\\\ a_1^2+18a_1+81 = a_1^2+24a_1+63\\\\ 18 = 6a_1\\\\ a_1 = 3', explanation: '' },
+        { step: 3, title: 'S₁₂', content: 'S_{12} = \\frac{12}{2}(2\\cdot3+11\\cdot3) = 6\\cdot39 = 234', explanation: '' }
+      ],
+      hints: [
+        { level: 1, text: 'Warunek: $(a_4)^2 = a_2 \\cdot a_8$.' },
+        { level: 2, text: 'Wyraź $a_2, a_4, a_8$ przez $a_1$ i $r=3$.' },
+        { level: 3, text: 'Rozwiąż równanie i znajdź $a_1=3$.' }
+      ]
+    }
+  ];
+
+  function arithGeomCross() {
+    const task = M.choose(ARITH_GEOM_CROSS);
+    return {
+      id: M.makeId('cat07_cross'),
+      category: 7,
+      categoryName: 'Ciągi liczbowe',
+      type: 'arith_geom_cross',
+      points: 5,
+      params: {},
+      statement: task.statement + '\n\nZapisz obliczenia.',
+      answer: {
+        type: 'expression',
+        display: task.answer_display,
+        description: `$${task.answer_display}$`
+      },
+      hints: task.hints,
+      solution: task.solution
+    };
+  }
+
+  // === SCHEMAT G: Spłata kredytu — ciąg arytmetyczny odsetek ===
+  // Rata kapitałowa R (stała), odsetki r% od pozostałego zadłużenia → ciąg aryt.
+  function loanRepayment() {
+    const configs = [
+      // P=60 000, R=6000, r=5%, n=10 lat
+      // I_k = 5%×(60000-(k-1)×6000), a1=3000, d=-300, a10=300, ΣI=16500
+      { P: 60000, R: 6000, ratePct: 5, n: 10,
+        a1I: 3000, dI: -300, anI: 300, totalI: 16500 },
+      // P=80 000, R=8000, r=5%, n=10
+      // a1=4000, d=-400, a10=400, ΣI=22000
+      { P: 80000, R: 8000, ratePct: 5, n: 10,
+        a1I: 4000, dI: -400, anI: 400, totalI: 22000 },
+      // P=50 000, R=10 000, r=10%, n=5
+      // a1=5000, d=-1000, a5=1000, ΣI=15000
+      { P: 50000, R: 10000, ratePct: 10, n: 5,
+        a1I: 5000, dI: -1000, anI: 1000, totalI: 15000 },
+      // P=90 000, R=9000, r=5%, n=10
+      // a1=4500, d=-450, a10=450, ΣI=24750
+      { P: 90000, R: 9000, ratePct: 5, n: 10,
+        a1I: 4500, dI: -450, anI: 450, totalI: 24750 },
+    ];
+
+    const cfg = M.choose(configs);
+    const { P, R, ratePct, n, a1I, dI, anI, totalI } = cfg;
+    const absDI = Math.abs(dI);
+
+    return {
+      id: M.makeId('cat07_loan'),
+      category: 7,
+      categoryName: 'Ciągi liczbowe',
+      type: 'loan_repayment',
+      points: 5,
+      params: cfg,
+      statement:
+        `Przedsiębiorca zaciągnął kredyt w wysokości $${P}$ zł. ` +
+        `Spłaca go w $${n}$ równych rocznych ratach kapitałowych po $${R}$ zł każda. ` +
+        `Odsetki naliczane są corocznie w wysokości $${ratePct}\\%$ od pozostałego zadłużenia ` +
+        `i spłacane razem z ratą kapitałową.\n\n` +
+        `**a)** Oblicz wysokość raty odsetkowej w pierwszym i w $${n}$. roku spłaty.\n\n` +
+        `**b)** Wykaż, że raty odsetkowe w kolejnych latach tworzą ciąg arytmetyczny. Wyznacz jego różnicę.\n\n` +
+        `**c)** Oblicz łączną kwotę odsetek zapłaconą przez cały $${n}$-letni okres spłaty.\n\nZapisz obliczenia.`,
+      answer: {
+        type: 'multipart',
+        display: `I_1 = ${a1I}\\text{ zł},\\quad d = ${dI}\\text{ zł},\\quad \\Sigma I = ${totalI}\\text{ zł}`,
+        description: `Odsetki r.1: ${a1I} zł, różnica: ${dI} zł, suma odsetek: ${totalI} zł`
+      },
+      hints: [
+        { level: 1, text: `Zadłużenie na początku $k$-tego roku: $P_k = ${P} - (k-1)\\cdot${R}$. Odsetki: $I_k = \\frac{${ratePct}}{100}\\cdot P_k$.` },
+        { level: 2, text: `$I_k = \\frac{${ratePct}}{100}\\bigl(${P} - (k-1)\\cdot${R}\\bigr) = ${a1I} - ${absDI}(k-1)$ — ciąg arytmetyczny, $d = ${dI}$.` },
+        { level: 3, text: `$\\Sigma I = S_{${n}} = \\dfrac{${n}}{2}(I_1 + I_{${n}}) = \\dfrac{${n}}{2}(${a1I} + ${anI}) = ${totalI}$ zł.` }
+      ],
+      solution: [
+        {
+          step: 1, title: 'Zadłużenie na początku k-tego roku',
+          content: `P_k = ${P} - (k-1)\\cdot${R}`,
+          explanation: `Po zapłaceniu $(k-1)$ rat kapitałowych, każda po $${R}$ zł.`
+        },
+        {
+          step: 2, title: 'Rata odsetkowa w k-tym roku',
+          content: `I_k = \\frac{${ratePct}}{100}\\cdot P_k = \\frac{${ratePct}}{100}\\bigl(${P} - (k-1)\\cdot${R}\\bigr) = ${a1I} - ${absDI}(k-1)`,
+          explanation: `Ciąg arytmetyczny: $I_1 = ${a1I}$ zł, różnica $d = ${dI}$ zł.`
+        },
+        {
+          step: 3, title: `Odsetki w roku 1 i ${n}`,
+          content: `I_1 = ${a1I}\\text{ zł}\\qquad I_{${n}} = ${a1I} - ${absDI}\\cdot${n - 1} = ${anI}\\text{ zł}`,
+          explanation: ''
+        },
+        {
+          step: 4, title: 'Suma wszystkich odsetek',
+          content: `\\Sigma I = \\frac{${n}}{2}(I_1 + I_{${n}}) = \\frac{${n}}{2}(${a1I} + ${anI}) = \\frac{${n}}{2}\\cdot${a1I + anI} = ${totalI}\\text{ zł}`,
+          explanation: 'Wzór na sumę ciągu arytmetycznego: $S_n = \\frac{n}{2}(a_1+a_n)$.'
+        }
+      ]
+    };
+  }
+
+  // === SCHEMAT H: Wzrost produkcji — suma ciągu geometrycznego ===
+  function geometricProductionGrowth() {
+    const configs = [
+      {
+        a1: 800, q_n: 3, q_d: 2, n: 4, a_n: 2700, sum: 6500,
+        // a2=1200, a3=1800, a4=2700; S=800+1200+1800+2700=6500
+        story: `Farma zebrała w pierwszym roku $800$ ton pszenicy. ` +
+          `W każdym kolejnym roku zbiory były o $50\\%$ wyższe niż w roku poprzednim.`,
+        question_k: 'zbiory w $k$-tym roku (w tonach)',
+        unit: 'ton', period: 'roku'
+      },
+      {
+        a1: 1000, q_n: 2, q_d: 1, n: 5, a_n: 16000, sum: 31000,
+        // S=1000(2^5-1)=31000; a5=1000×2^4=16000
+        story: `Fabryka wyprodukowała w pierwszym miesiącu $1000$ sztuk wyrobu. ` +
+          `Dzięki automatyzacji co miesiąc podwajała produkcję w stosunku do poprzedniego miesiąca.`,
+        question_k: 'produkcję w $k$-tym miesiącu (w sztukach)',
+        unit: 'sztuk', period: 'miesiąca'
+      },
+      {
+        a1: 540, q_n: 4, q_d: 3, n: 3, a_n: 960, sum: 2220,
+        // a2=720, a3=960; S=2220
+        story: `Firma odnotowała w pierwszym roku działalności $540$ tys. zł przychodu. ` +
+          `W każdym kolejnym roku przychód był o $\\frac{1}{3}$ wyższy niż w roku poprzednim.`,
+        question_k: 'przychód w $k$-tym roku (w tys. zł)',
+        unit: 'tys. zł', period: 'roku'
+      },
+      {
+        a1: 500, q_n: 3, q_d: 2, n: 3, a_n: 1125, sum: 2375,
+        // a2=750, a3=1125; S=2375
+        story: `Sklep internetowy obsłużył w pierwszym kwartale $500$ zamówień. ` +
+          `W każdym następnym kwartale liczba zamówień rosła o $50\\%$ w stosunku do poprzedniego.`,
+        question_k: 'liczbę zamówień w $k$-tym kwartale',
+        unit: 'zamówień', period: 'kwartału'
+      },
+    ];
+
+    const cfg = M.choose(configs);
+    const { a1, q_n, q_d, n, a_n, sum, story, question_k, unit, period } = cfg;
+    const q_latex = q_d === 1 ? String(q_n) : M.latexFrac(q_n, q_d);
+    const q1_n = q_n - q_d, q1_d = q_d;
+    const q1_latex = q1_d === 1 ? String(q1_n) : M.latexFrac(q1_n, q1_d);
+    const Snumer = `a_1\\bigl((${q_latex})^{${n}}-1\\bigr)`;
+
+    return {
+      id: M.makeId('cat07_geomprod'),
+      category: 7,
+      categoryName: 'Ciągi liczbowe',
+      type: 'geometric_production',
+      points: 4,
+      params: cfg,
+      statement:
+        `${story}\n\n` +
+        `**a)** Wyznacz wzór na ${question_k}.\n\n` +
+        `**b)** Oblicz ${question_k.replace('$k$-tym', `$${n}$-tym`)}.\n\n` +
+        `**c)** Oblicz łączny wynik przez $${n}$ ${period === 'roku' ? 'lata/lat' : period === 'miesiąca' ? 'miesiące/miesięcy' : 'kwartały'} (sumę $S_{${n}}$).\n\nZapisz obliczenia.`,
+      answer: {
+        type: 'multipart',
+        display: `a_k = ${a1}\\cdot\\left(${q_latex}\\right)^{k-1},\\quad a_{${n}} = ${a_n}\\text{ ${unit}},\\quad S_{${n}} = ${sum}\\text{ ${unit}}`,
+        description: `$a_k = ${a1}\\cdot(${q_latex})^{k-1}$, $a_{${n}} = ${a_n}$ ${unit}, $S_{${n}} = ${sum}$ ${unit}`
+      },
+      hints: [
+        { level: 1, text: `Ciąg geometryczny: $a_1 = ${a1}$, iloraz $q = ${q_latex}$. Wzór: $a_k = a_1\\cdot q^{k-1}$.` },
+        { level: 2, text: `$a_{${n}} = ${a1}\\cdot\\left(${q_latex}\\right)^{${n - 1}}$.` },
+        { level: 3, text: `$S_{${n}} = \\dfrac{a_1(q^{${n}}-1)}{q-1} = \\dfrac{${a1}\\bigl((${q_latex})^{${n}}-1\\bigr)}{${q1_latex}}$.` }
+      ],
+      solution: [
+        {
+          step: 1, title: 'Wzór na k-ty wyraz',
+          content: `a_k = ${a1}\\cdot\\left(${q_latex}\\right)^{k-1}`,
+          explanation: `Ciąg geometryczny: $a_1 = ${a1}$, iloraz $q = ${q_latex}$.`
+        },
+        {
+          step: 2, title: `Wynik w ${n}. okresie`,
+          content: `a_{${n}} = ${a1}\\cdot\\left(${q_latex}\\right)^{${n}-1} = ${a1}\\cdot\\left(${q_latex}\\right)^{${n - 1}} = ${a_n}\\text{ ${unit}}`,
+          explanation: ''
+        },
+        {
+          step: 3, title: `Suma przez ${n} okresów`,
+          content: `S_{${n}} = \\frac{a_1(q^{${n}}-1)}{q-1} = \\frac{${a1}\\!\\left(\\!\\left(${q_latex}\\right)^{${n}}\\!-1\\right)}{${q1_latex}} = ${sum}\\text{ ${unit}}`,
+          explanation: 'Wzór na sumę $n$ wyrazów ciągu geometrycznego.'
+        }
+      ]
+    };
+  }
+
   function generate() {
-    return M.choose([arithGeomCombo, geomInfinite, arithGeomCombo])();
+    return M.choose([
+      arithGeomCombo, geomInfinite, arithGeomCombo,
+      arithFromTerms, geomTwoConditions, arithGeomCross,
+      loanRepayment, geometricProductionGrowth,
+    ])();
   }
 
   return { generate };

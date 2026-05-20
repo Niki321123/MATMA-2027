@@ -146,14 +146,17 @@ const KatexRenderer = (() => {
   }
 
   // Renderuj wskazówkę do elementu
+  const HINT_TYPE_LABELS = { 1: 'ogólna', 2: 'wzór', 3: 'podstawienie' };
+
   function renderHint(hint, container) {
     if (!container) return;
     const hintEl = document.createElement('div');
-    hintEl.className = 'hint-item';
+    hintEl.className = `hint-item hint-item--level${hint.level}`;
 
     const levelEl = document.createElement('div');
     levelEl.className = 'hint-level';
-    levelEl.textContent = `Wskazówka ${hint.level}`;
+    const typeLabel = HINT_TYPE_LABELS[hint.level] || '';
+    levelEl.textContent = `Wskazówka ${hint.level}${typeLabel ? ` — ${typeLabel}` : ''}`;
     hintEl.appendChild(levelEl);
 
     const textEl = document.createElement('div');

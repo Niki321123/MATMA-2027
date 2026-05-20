@@ -379,7 +379,8 @@ window.cat03 = (() => {
   }
 
   function generate() {
-    return M.choose([expressLog, computeLog, logEquation, logInequality])();
+    // computeLog usunięty z rotacji — zbyt proste jak na zadanie otwarte (poziom zamkniętego)
+    return M.choose([expressLog, logEquation, logEquation, logInequality])();
   }
 
   return { generate };

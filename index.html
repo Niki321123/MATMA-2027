@@ -37,6 +37,7 @@
     <div class="header-actions">
       <span class="limit-badge hidden" id="limit-badge"></span>
       <button class="btn btn-ghost btn-sm" id="btn-open-pricing" title="Plany i ceny">💎 Plany</button>
+      <button class="btn btn-ghost btn-sm" id="btn-ranking-open" title="Tabela aktywności">🏆 Ranking</button>
       <button class="btn btn-ghost btn-sm" id="btn-progress-open" title="Statystyki">📊 Postępy</button>
       <button class="btn btn-outline btn-sm" id="btn-auth-open" title="Zaloguj się">Zaloguj się</button>
       <button class="btn btn-ghost btn-sm user-btn hidden" id="btn-user-menu" title="Konto">
@@ -52,6 +53,7 @@
   <div class="mode-tabs" id="mode-tabs">
     <button class="mode-tab active" data-mode="generator">⚡ Generator zadań</button>
     <button class="mode-tab" data-mode="symulacja">🎓 Symulacja matury</button>
+    <button class="mode-tab" data-mode="wzory">📐 Karty wzorów</button>
   </div>
 </div>
 
@@ -92,6 +94,24 @@
 <div class="control-panel hidden" id="control-panel-symulacja">
   <div class="control-panel-inner">
     <button class="btn btn-primary" id="btn-start-exam">🎓 Generuj arkusz (12 zadań)</button>
+  </div>
+</div>
+
+<!-- PANEL KART WZORÓW -->
+<div class="wzory-panel hidden" id="wzory-panel">
+  <div class="wzory-panel-inner">
+    <div class="wzory-toolbar">
+      <span class="wzory-title">📐 Tablice matematyczne CKE 2023</span>
+      <a class="btn btn-ghost btn-sm" href="tablice-matematyczne-2023.pdf" target="_blank" download>⬇ Pobierz PDF</a>
+    </div>
+    <div class="wzory-pdf-container">
+      <iframe
+        src="tablice-matematyczne-2023.pdf"
+        class="wzory-pdf-iframe"
+        id="wzory-pdf-iframe"
+        title="Tablice matematyczne CKE 2023"
+      ></iframe>
+    </div>
   </div>
 </div>
 
@@ -201,10 +221,41 @@
     <button class="modal-close" id="btn-user-close">✕</button>
     <div class="user-modal-avatar" id="um-avatar">?</div>
     <div class="user-modal-email" id="um-email"></div>
+    <!-- Nazwa użytkownika -->
+    <div class="um-username-row">
+      <span class="um-username" id="um-username">Brak nazwy</span>
+      <button class="btn btn-ghost btn-sm" id="btn-um-change-username">✏️ Zmień</button>
+    </div>
     <div class="user-modal-plan" id="um-plan">Plan: Free</div>
     <div class="user-modal-sync">✓ Statystyki synchronizowane</div>
     <button class="btn btn-outline btn-sm" id="btn-um-upgrade" style="margin-top:14px;width:100%">💎 Zmień plan</button>
+    <!-- Kod promocyjny -->
+    <div class="promo-section">
+      <div class="promo-row">
+        <input class="promo-input" id="promo-input" type="text" placeholder="Kod promocyjny" maxlength="20">
+        <button class="btn btn-primary btn-sm" id="btn-redeem-promo">Aktywuj</button>
+      </div>
+      <div class="promo-msg hidden" id="promo-msg"></div>
+    </div>
     <button class="btn btn-danger btn-sm" id="btn-logout" style="margin-top:10px;width:100%">Wyloguj się</button>
+  </div>
+</div>
+
+<!-- MODAL: WYBÓR NAZWY UŻYTKOWNIKA -->
+<div class="modal-overlay hidden" id="modal-username">
+  <div class="modal-box username-modal">
+    <div class="un-icon">👤</div>
+    <h2 class="un-title">Wybierz nazwę użytkownika</h2>
+    <p class="un-desc">Ta nazwa będzie widoczna w tabeli rankingowej.<br>Możesz ją później zmienić w ustawieniach konta.</p>
+    <div class="un-input-wrap">
+      <input class="un-input" type="text" id="username-input"
+             placeholder="np. MatmaMaster2027"
+             maxlength="20" autocomplete="off" spellcheck="false">
+      <div class="un-hint">3–20 znaków · litery, cyfry, podkreślnik (_)</div>
+      <div class="un-error hidden" id="username-error"></div>
+    </div>
+    <button class="btn btn-primary btn-full" id="btn-username-save">Zapisz nazwę</button>
+    <button class="btn btn-ghost btn-full un-skip" id="btn-username-skip">Pomiń — nie chcę być w rankingu</button>
   </div>
 </div>
 
@@ -219,6 +270,25 @@
     <div class="pricing-limit-msg hidden" id="pricing-limit-msg"></div>
     <div class="pricing-cards" id="pricing-cards">
       <!-- Wypełniane przez JS -->
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: RANKING -->
+<div class="modal-overlay hidden" id="modal-ranking">
+  <div class="modal-box ranking-modal">
+    <button class="modal-close" id="btn-ranking-close">✕</button>
+    <div class="ranking-header">
+      <h2>🏆 Tabela aktywności</h2>
+      <p class="ranking-sub">Ranking wszystkich użytkowników platformy</p>
+    </div>
+    <div class="ranking-tabs" id="ranking-tabs">
+      <button class="ranking-tab active" data-tab="tasks">📊 Zadania</button>
+      <button class="ranking-tab" data-tab="accuracy">🎯 Skuteczność</button>
+      <button class="ranking-tab" data-tab="streak">🔥 Streak</button>
+    </div>
+    <div class="ranking-body" id="ranking-body">
+      <div class="ranking-loading">Ładowanie danych…</div>
     </div>
   </div>
 </div>
@@ -246,6 +316,7 @@
 <script src="js/generators/cat13_bernoulli.js"></script>
 <script src="js/generators/cat14_kombinatoryka.js"></script>
 <script src="js/generators/cat15_optymalizacja.js"></script>
+<script src="js/generators/cat16_szesciopunktowe.js"></script>
 <script src="js/generators/index.js?v=20260520"></script>
 <script src="js/data/matura_tasks.js?v=20260520"></script>
 <script src="js/core/SupabaseAuth.js?v=20260520"></script>

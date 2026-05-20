@@ -8,11 +8,14 @@
   const MT = window.MaturaTasks;
 
   // === Stan ===
-  let currentTask   = null;
-  let hintsUsed     = 0;
-  let taskAnswered  = false;
-  let currentMode   = 'generator';
+  let currentTask    = null;
+  let hintsUsed      = 0;
+  let taskAnswered   = false;
+  let hintPenalty    = false;   // true gdy użyto wskazówki lub rozwiązania
+  let currentMode    = 'generator';
   let firstTaskShown = false;
+
+  const HINT_BTN_LABELS = ['ogólna', 'wzór', 'podstawienie'];
 
   // === Stan arkusza ===
   let examTasks   = [];
@@ -125,6 +128,8 @@
     elPanelMatura?.classList.toggle('hidden', mode !== 'matura');
     elPanelExam?.classList.toggle('hidden',  mode !== 'symulacja');
     elExamNav?.classList.toggle('hidden',    mode !== 'symulacja' || examTasks.length === 0);
+    $('wzory-panel')?.classList.toggle('hidden', mode !== 'wzory');
+    document.querySelector('.main-layout')?.classList.toggle('hidden', mode === 'wzory');
     elTaskCard.classList.add('hidden');
     elSolutionPanel.classList.add('hidden');
     $('exam-summary')?.remove();
@@ -181,9 +186,11 @@
   }
 
   function displayTask(task, isMatura) {
-    hintsUsed    = 0;
-    taskAnswered = false;
+    hintsUsed      = 0;
+    taskAnswered   = false;
+    hintPenalty    = false;
     firstTaskShown = true;
+    closeConfirm();
 
     hideLanding();
 
@@ -208,7 +215,7 @@
     elSolutionPanel.classList.add('hidden');
     elHintsList.innerHTML = '';
     elBtnHint.disabled = false;
-    elBtnHint.textContent = `💡 Pokaż wskazówkę (1/${task.hints.length})`;
+    elBtnHint.textContent = `💡 Wskazówka 1/${task.hints.length} — ${HINT_BTN_LABELS[0]}`;
     elBtnSelfCorrect?.classList.add('hidden');
     elBtnSelfWrong?.classList.add('hidden');
     elBtnShowSolution?.classList.remove('hidden');
@@ -226,22 +233,67 @@
     elLandingCard?.classList.add('hidden');
   }
 
+  // === Potwierdzenie (inline) ===
+  function closeConfirm() {
+    document.getElementById('inline-confirm')?.remove();
+    if (elBtnHint && hintsUsed < (currentTask?.hints?.length ?? 0)) elBtnHint.disabled = false;
+    if (elBtnShowSolution) elBtnShowSolution.disabled = false;
+  }
+
+  function showConfirm(anchorEl, onYes) {
+    closeConfirm();                              // zamknij poprzedni, jeśli istnieje
+    anchorEl.disabled = true;
+
+    const div = document.createElement('div');
+    div.id = 'inline-confirm';
+    div.className = 'inline-confirm';
+    div.innerHTML =
+      `<span class="inline-confirm-msg">⚠️ Spowoduje to oznaczenie zadania jako <strong>niezaliczone</strong>. Na pewno?</span>` +
+      `<button class="btn btn-sm btn-danger-outline" id="ic-yes">✓ Tak</button>` +
+      `<button class="btn btn-sm btn-ghost"           id="ic-no">Nie</button>`;
+    anchorEl.insertAdjacentElement('afterend', div);
+
+    div.querySelector('#ic-yes').addEventListener('click', () => {
+      div.remove();
+      anchorEl.disabled = false;
+      onYes();
+    });
+    div.querySelector('#ic-no').addEventListener('click', () => {
+      div.remove();
+      anchorEl.disabled = false;
+    });
+  }
+
   // === Wskazówki ===
-  function showNextHint() {
-    if (!currentTask || hintsUsed >= currentTask.hints.length) return;
-    KR.renderHint(currentTask.hints[hintsUsed], elHintsList);
-    hintsUsed++;
+  function _updateHintBtn() {
+    if (!currentTask) return;
     if (hintsUsed >= currentTask.hints.length) {
       elBtnHint.disabled = true;
       elBtnHint.textContent = '✓ Wszystkie wskazówki';
     } else {
-      elBtnHint.textContent = `💡 Pokaż wskazówkę (${hintsUsed + 1}/${currentTask.hints.length})`;
+      const label = HINT_BTN_LABELS[hintsUsed] || `${hintsUsed + 1}`;
+      elBtnHint.textContent = `💡 Wskazówka ${hintsUsed + 1}/${currentTask.hints.length} — ${label}`;
     }
+  }
+
+  function showNextHint() {
+    if (!currentTask || hintsUsed >= currentTask.hints.length || taskAnswered) return;
+    showConfirm(elBtnHint, () => {
+      hintPenalty = true;
+      KR.renderHint(currentTask.hints[hintsUsed], elHintsList);
+      hintsUsed++;
+      _updateHintBtn();
+    });
   }
 
   // === Rozwiązanie ===
   function showSolution() {
     if (!currentTask) return;
+    showConfirm(elBtnShowSolution, _doShowSolution);
+  }
+
+  function _doShowSolution() {
+    hintPenalty = true;
     elSolutionPanel.classList.remove('hidden');
 
     if (elAnswerDisplay) {
@@ -251,9 +303,12 @@
     }
 
     if (elSolutionSteps) KR.renderSolution(currentTask.solution, elSolutionSteps);
-    elBtnSelfCorrect?.classList.remove('hidden');
-    elBtnSelfWrong?.classList.remove('hidden');
     elBtnShowSolution?.classList.add('hidden');
+
+    // Penalty: ukryj "Poprawnie", zostaw tylko "Nie rozwiązałem"
+    elBtnSelfCorrect?.classList.add('hidden');
+    elBtnSelfWrong?.classList.remove('hidden');
+
     elSolutionPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
@@ -262,9 +317,18 @@
     if (currentMode === 'symulacja') { recordExamResult(correct); return; }
     if (!currentTask || taskAnswered) return;
     taskAnswered = true;
-    PT.record(currentTask.category, correct);
-    SA?.recordAnswer(currentTask.category, correct);
-    showToast(correct ? 'Dobrze! Tak trzymaj ✓' : 'Spróbuj ponownie przy następnym zadaniu.', correct ? 'success' : 'warning');
+
+    const effectiveCorrect = hintPenalty ? false : correct;
+    PT.record(currentTask.category, effectiveCorrect);
+    SA?.recordAnswer(currentTask.category, effectiveCorrect);
+
+    if (hintPenalty) {
+      showToast('Zadanie niezaliczone — użyto wskazówki lub rozwiązania.', 'warning');
+    } else {
+      showToast(effectiveCorrect ? 'Dobrze! Tak trzymaj ✓' : 'Spróbuj ponownie przy następnym zadaniu.',
+                effectiveCorrect ? 'success' : 'warning');
+    }
+
     elBtnSelfCorrect?.classList.add('hidden');
     elBtnSelfWrong?.classList.add('hidden');
     if (elBtnNext) { elBtnNext.textContent = '↻ Następne zadanie'; elBtnNext.classList.remove('hidden'); }
@@ -317,6 +381,189 @@
     });
     html += '</div>';
     elProgressSidebar.innerHTML = html;
+  }
+
+  // === Ranking ===
+  let rankingData = null;
+  let rankingTab  = 'tasks';
+
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  async function openRankingModal() {
+    const SA = window.SupabaseAuth;
+    const modal = $('modal-ranking');
+    if (!modal) return;
+    modal.classList.remove('hidden');
+
+    if (!SA?.isLoggedIn()) {
+      $('ranking-body').innerHTML = '<div class="ranking-empty">Zaloguj się, aby zobaczyć ranking.</div>';
+      return;
+    }
+
+    $('ranking-body').innerHTML = '<div class="ranking-loading">Ładowanie danych…</div>';
+    try {
+      rankingData = await SA.fetchLeaderboard();
+      renderRankingTab(rankingTab);
+    } catch (e) {
+      $('ranking-body').innerHTML = '<div class="ranking-empty">Błąd ładowania rankingu.</div>';
+    }
+  }
+
+  function renderRankingTab(tab) {
+    rankingTab = tab;
+    if (!rankingData) return;
+
+    // podświetl aktywną zakładkę
+    document.querySelectorAll('.ranking-tab').forEach(b =>
+      b.classList.toggle('active', b.dataset.tab === tab)
+    );
+
+    const SA = window.SupabaseAuth;
+    const meId = SA?.getUser()?.id;
+
+    let sorted, valueFn, subNote = '';
+    if (tab === 'tasks') {
+      sorted  = [...rankingData].sort((a, b) => b.total_attempted - a.total_attempted);
+      valueFn = u => `<span>${u.total_attempted}</span><small>zadań</small>`;
+    } else if (tab === 'accuracy') {
+      sorted  = [...rankingData]
+        .filter(u => u.total_attempted >= 10 && u.accuracy_pct !== null)
+        .sort((a, b) => b.accuracy_pct - a.accuracy_pct);
+      valueFn = u => `<span>${u.accuracy_pct}%</span><small>skuteczności</small>`;
+      subNote = '* tylko gracze z min. 10 rozwiązanymi zadaniami';
+    } else {
+      sorted  = [...rankingData].filter(u => u.max_streak > 0)
+                               .sort((a, b) => b.max_streak - a.max_streak);
+      valueFn = u => `<span>${u.max_streak} 🔥</span><small>dni z rzędu</small>`;
+    }
+
+    const MEDALS = ['🥇', '🥈', '🥉'];
+    const top10  = sorted.slice(0, 10);
+    const myRank = sorted.findIndex(u => u.user_id === meId);
+
+    if (top10.length === 0) {
+      $('ranking-body').innerHTML = '<div class="ranking-empty">Brak danych do wyświetlenia.</div>';
+      return;
+    }
+
+    let html = '<div class="ranking-list">';
+    top10.forEach((u, i) => {
+      const isMe   = u.user_id === meId;
+      const pos    = i < 3 ? MEDALS[i] : `${i + 1}.`;
+      const planBadge = `<span class="rb-plan rb-plan--${u.plan || 'free'}">${(u.plan || 'FREE').toUpperCase()}</span>`;
+      html += `
+        <div class="ranking-row${isMe ? ' ranking-row--me' : ''}">
+          <span class="ranking-pos">${pos}</span>
+          <span class="ranking-name">${escHtml(u.display_name)}${isMe ? ' <span class="ranking-you">← Ty</span>' : ''}</span>
+          ${planBadge}
+          <div class="ranking-val">${valueFn(u)}</div>
+        </div>`;
+    });
+
+    if (myRank >= 10) {
+      const me = sorted[myRank];
+      html += `
+        <div class="ranking-separator">· · ·</div>
+        <div class="ranking-row ranking-row--me">
+          <span class="ranking-pos">${myRank + 1}.</span>
+          <span class="ranking-name">${escHtml(me.display_name)} <span class="ranking-you">← Ty</span></span>
+          <span class="rb-plan rb-plan--${me.plan || 'free'}">${(me.plan || 'FREE').toUpperCase()}</span>
+          <div class="ranking-val">${valueFn(me)}</div>
+        </div>`;
+    }
+
+    if (subNote) html += `<div class="ranking-note">${subNote}</div>`;
+    html += '</div>';
+    $('ranking-body').innerHTML = html;
+  }
+
+  // === Username modal ===
+  function showUsernameModal(forceShow = false) {
+    const SA = window.SupabaseAuth;
+    if (!forceShow && SA?.getUsername()) return; // już ustawiona
+    const modal = $('modal-username');
+    if (modal) modal.classList.remove('hidden');
+    setTimeout(() => $('username-input')?.focus(), 80);
+  }
+
+  function hideUsernameModal() {
+    $('modal-username')?.classList.add('hidden');
+    $('username-input') && ($('username-input').value = '');
+    $('username-error')?.classList.add('hidden');
+  }
+
+  async function saveUsername() {
+    const SA   = window.SupabaseAuth;
+    const input = $('username-input');
+    const errEl = $('username-error');
+    const btn   = $('btn-username-save');
+    const name  = input?.value?.trim() || '';
+    if (!name) { input?.focus(); return; }
+
+    btn.textContent = 'Sprawdzam…';
+    btn.disabled    = true;
+    errEl?.classList.add('hidden');
+
+    try {
+      await SA.setUsername(name);
+      hideUsernameModal();
+      updateUserModalUsername(name);
+      showToast(`Witaj, ${name}! 🎉`, 'success');
+      // jeśli to było pierwsze logowanie — generuj zadanie
+      if (!firstTaskShown) generateTask();
+    } catch (err) {
+      if (errEl) { errEl.textContent = err.message; errEl.classList.remove('hidden'); }
+    } finally {
+      btn.textContent = 'Zapisz nazwę';
+      btn.disabled    = false;
+    }
+  }
+
+  function updateUserModalUsername(name) {
+    const el = $('um-username');
+    if (!el) return;
+    if (name) {
+      el.textContent = name;
+      el.classList.remove('um-username--empty');
+    } else {
+      el.textContent = 'Brak nazwy';
+      el.classList.add('um-username--empty');
+    }
+  }
+
+  function initUsernameEvents() {
+    $('btn-username-save')?.addEventListener('click', saveUsername);
+    $('username-input')?.addEventListener('keydown', e => {
+      if (e.key === 'Enter') saveUsername();
+    });
+    $('username-input')?.addEventListener('input', () =>
+      $('username-error')?.classList.add('hidden')
+    );
+    // Pomiń
+    $('btn-username-skip')?.addEventListener('click', () => {
+      hideUsernameModal();
+      if (!firstTaskShown) generateTask();
+    });
+    // "Zmień" w user modal
+    $('btn-um-change-username')?.addEventListener('click', () => {
+      $('modal-user')?.classList.add('hidden');
+      showUsernameModal(true);
+    });
+  }
+
+  function initRankingEvents() {
+    $('btn-ranking-open')?.addEventListener('click', openRankingModal);
+    $('btn-ranking-close')?.addEventListener('click', () => $('modal-ranking')?.classList.add('hidden'));
+    $('modal-ranking')?.addEventListener('click', e => {
+      if (e.target === $('modal-ranking')) $('modal-ranking').classList.add('hidden');
+    });
+    $('ranking-tabs')?.addEventListener('click', e => {
+      if (e.target.classList.contains('ranking-tab')) {
+        renderRankingTab(e.target.dataset.tab);
+      }
+    });
   }
 
   // === Modal statystyk ===
@@ -693,10 +940,21 @@
         elUmPlan.className    = `user-modal-plan plan-${plan}`;
       }
 
+      // Pokaż username w modalu użytkownika
+      updateUserModalUsername(SA?.getUsername() || '');
+
       updateLimitBadge();
 
-      if (!firstTaskShown) generateTask();
-      else syncProgressFromCloud();
+      if (!firstTaskShown) {
+        // Jeśli brak username — pokaż modal wyboru nazwy (generowanie po zamknięciu)
+        if (!SA?.getUsername()) {
+          showUsernameModal();
+        } else {
+          generateTask();
+        }
+      } else {
+        syncProgressFromCloud();
+      }
     } else {
       elBtnAuthOpen?.classList.remove('hidden');
       elBtnUserMenu?.classList.add('hidden');
@@ -753,6 +1011,39 @@
       }
     });
 
+    // Kod promocyjny
+    $('btn-redeem-promo')?.addEventListener('click', async () => {
+      const input  = $('promo-input');
+      const msgEl  = $('promo-msg');
+      const code   = input?.value?.trim();
+      if (!code) return;
+      const btn = $('btn-redeem-promo');
+      btn.textContent = '…';
+      btn.disabled = true;
+      msgEl?.classList.add('hidden');
+      try {
+        const result = await SA.redeemPromoCode(code);
+        msgEl.textContent = result.message;
+        msgEl.className = 'promo-msg promo-msg--ok';
+        msgEl.classList.remove('hidden');
+        input.value = '';
+        // Odśwież UI planu
+        const plan = SA.getPlan();
+        const planLabels = { free: 'Free', pro: 'Pro 🚀', max: 'Max ✨' };
+        const elUmPlan = $('um-plan');
+        if (elUmPlan) { elUmPlan.textContent = `Plan: ${planLabels[plan]}`; elUmPlan.className = `user-modal-plan plan-${plan}`; }
+        updateLimitBadge();
+        showToast(result.message, 'success');
+      } catch (err) {
+        msgEl.textContent = err.message;
+        msgEl.className = 'promo-msg promo-msg--err';
+        msgEl.classList.remove('hidden');
+      } finally {
+        btn.textContent = 'Aktywuj';
+        btn.disabled = false;
+      }
+    });
+
     elBtnLogout?.addEventListener('click', async () => {
       await SA?.signOut();
       elModalUser?.classList.add('hidden');
@@ -777,6 +1068,8 @@
     initYearSelect();
     initEvents();
     initAuthEvents();
+    initUsernameEvents();
+    initRankingEvents();
 
     // Pokaż landing dopóki nie znamy stanu auth
     showLanding();

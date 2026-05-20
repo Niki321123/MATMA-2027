@@ -14,6 +14,7 @@ window.SupabaseAuth = (() => {
   let currentUser = null;
   let onAuthChangeCallback = null;
   let userPlan = 'free';
+  let userUsername = null;
   let todayUsage = { tasks_generated: 0, matura_started: 0 };
 
   // === Init ===
@@ -30,22 +31,32 @@ window.SupabaseAuth = (() => {
     sb.auth.onAuthStateChange(async (_event, session) => {
       currentUser = session?.user ?? null;
       if (currentUser) await fetchProfile();
-      else { userPlan = 'free'; todayUsage = { tasks_generated: 0, matura_started: 0 }; }
+      else { userPlan = 'free'; userUsername = null; todayUsage = { tasks_generated: 0, matura_started: 0 }; }
       onAuthChangeCallback?.(currentUser);
     });
   }
 
-  function getUser()    { return currentUser; }
-  function isLoggedIn() { return !!currentUser; }
-  function getPlan()    { return userPlan; }
+  function getUser()     { return currentUser; }
+  function isLoggedIn()  { return !!currentUser; }
+  function getPlan()     { return userPlan; }
+  function getUsername() { return userUsername; }
 
   // === Plan & usage ===
   async function fetchProfile() {
     if (!currentUser) return;
     const today = new Date().toISOString().slice(0, 10);
 
+    // Synchronizuj display_name z Google OAuth (przy każdym logowaniu)
+    const meta = currentUser.user_metadata || {};
+    const displayName = meta.full_name || meta.name || (currentUser.email || '').split('@')[0];
+    const avatarUrl   = meta.avatar_url || null;
+    if (displayName) {
+      sb.from('profiles').update({ display_name: displayName, avatar_url: avatarUrl })
+        .eq('id', currentUser.id).then(() => {}); // fire-and-forget
+    }
+
     const [{ data: profile }, { data: daily }] = await Promise.all([
-      sb.from('profiles').select('plan').eq('id', currentUser.id).single(),
+      sb.from('profiles').select('plan, display_name, avatar_url, username').eq('id', currentUser.id).single(),
       sb.from('user_daily')
         .select('tasks_generated, matura_started')
         .eq('user_id', currentUser.id)
@@ -53,7 +64,15 @@ window.SupabaseAuth = (() => {
         .single(),
     ]);
 
-    userPlan = profile?.plan ?? 'free';
+    // Sprawdź wygaśnięcie planu
+    const rawPlan = profile?.plan ?? 'free';
+    const expiresAt = profile?.plan_expires_at;
+    if (expiresAt && new Date(expiresAt) < new Date()) {
+      userPlan = 'free';
+    } else {
+      userPlan     = rawPlan;
+    userUsername = profile?.username ?? null;
+    }
     todayUsage = {
       tasks_generated: daily?.tasks_generated ?? 0,
       matura_started:  daily?.matura_started  ?? 0,
@@ -104,6 +123,29 @@ window.SupabaseAuth = (() => {
       },
       { onConflict: 'user_id,date' }
     );
+  }
+
+  // === Kody promocyjne ===
+  async function redeemPromoCode(code) {
+    const { data: { session } } = await sb.auth.getSession();
+    const token = session?.access_token;
+    if (!token) throw new Error('Nie jesteś zalogowany.');
+
+    const res = await fetch(`${SUPABASE_URL}/functions/v1/redeem-promo-code`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+        'apikey': SUPABASE_KEY,
+      },
+      body: JSON.stringify({ code }),
+    });
+
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Błąd aktywacji kodu.');
+    // Odśwież plan lokalnie
+    await fetchProfile();
+    return data;
   }
 
   // === Checkout Stripe ===
@@ -234,13 +276,47 @@ window.SupabaseAuth = (() => {
     // handled by ProgressTracker
   }
 
+  // === Username ===
+  async function checkUsernameAvailable(name) {
+    const { data } = await sb.from('profiles')
+      .select('id')
+      .eq('username', name)
+      .neq('id', currentUser?.id ?? '')
+      .maybeSingle();
+    return !data; // true = wolna
+  }
+
+  async function setUsername(name) {
+    if (!currentUser) throw new Error('Nie jesteś zalogowany.');
+    const trimmed = name.trim();
+    if (!/^[a-zA-Z0-9_]{3,20}$/.test(trimmed))
+      throw new Error('3–20 znaków: litery, cyfry, podkreślnik (_).');
+    const available = await checkUsernameAvailable(trimmed);
+    if (!available) throw new Error('Ta nazwa jest już zajęta.');
+    const { error } = await sb.from('profiles')
+      .update({ username: trimmed })
+      .eq('id', currentUser.id);
+    if (error) throw new Error('Błąd zapisywania nazwy.');
+    userUsername = trimmed;
+    return trimmed;
+  }
+
+  // === Leaderboard ===
+  async function fetchLeaderboard() {
+    const { data, error } = await sb.rpc('get_leaderboard');
+    if (error) { console.error('fetchLeaderboard:', error); return []; }
+    return data || [];
+  }
+
   return {
     init, getUser, isLoggedIn,
     getPlan, fetchProfile, getTasksRemaining, getMaturaRemaining,
     canGenerateTask, canStartMatura, trackTaskGenerated, trackMaturaStarted,
     createCheckoutSession,
-    signInWithGoogle, signOut,
+    signInWithGoogle, signOut, redeemPromoCode,
     fetchProgress, fetchDailyStats, recordAnswer,
     loadFromCloud, loadDailyFromCloud,
+    getUsername, setUsername, checkUsernameAvailable,
+    fetchLeaderboard,
   };
 })();
