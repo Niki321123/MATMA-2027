@@ -189,8 +189,9 @@
     elPanelMatura?.classList.toggle('hidden', mode !== 'matura');
     elPanelExam?.classList.toggle('hidden',  mode !== 'symulacja');
     elExamNav?.classList.toggle('hidden',    mode !== 'symulacja' || examTasks.length === 0);
-    $('wzory-panel')?.classList.toggle('hidden', mode !== 'wzory');
-    document.querySelector('.main-layout')?.classList.toggle('hidden', mode === 'wzory');
+    $('wzory-panel')?.classList.toggle('hidden',   mode !== 'wzory');
+    $('calc-panel')?.classList.toggle('hidden',    mode !== 'kalkulator');
+    document.querySelector('.main-layout')?.classList.toggle('hidden', mode === 'wzory' || mode === 'kalkulator');
     // Stan zadania/matury NIE jest resetowany — wraca po powrocie do zakładki
   }
 
@@ -1079,6 +1080,106 @@
     if (elExamNavScore) elExamNavScore.textContent = `${pts}/${maxPts} pkt (${pct}%)`;
   }
 
+  // === Kalkulator ===
+  let _cDisp    = '0';   // wyświetlany string
+  let _cOp      = null;  // oczekiwana operacja: 'add'|'sub'|'mul'|'div'
+  let _cOperand = null;  // lewy argument operacji
+  let _cMem     = 0;     // pamięć
+  let _cNewNum  = true;  // następna cyfra zaczyna nową liczbę
+  let _cMrcHit  = false; // śledzenie podwójnego naciśnięcia MRC
+
+  function _cFmt(n) {
+    if (!isFinite(n) || isNaN(n)) return 'E';
+    if (Math.abs(n) >= 1e9) return 'E';
+    const r = parseFloat(n.toPrecision(10));
+    const s = String(r);
+    if (s.replace('-','').replace('.','').length <= 8) return s;
+    return parseFloat(r.toPrecision(8)).toString();
+  }
+
+  function _cCompute(a, b, op) {
+    if (op === 'add') return a + b;
+    if (op === 'sub') return a - b;
+    if (op === 'mul') return a * b;
+    if (op === 'div') return b !== 0 ? a / b : NaN;
+    return b;
+  }
+
+  function _cRefresh() {
+    const el  = document.getElementById('calc-display');
+    const min = document.getElementById('calc-ind-minus');
+    const mem = document.getElementById('calc-ind-memory');
+    if (el) {
+      el.textContent = _cDisp;
+      el.classList.toggle('calc-error', _cDisp === 'E');
+    }
+    if (min) min.classList.toggle('active', _cDisp.startsWith('-'));
+    if (mem) mem.classList.toggle('active', _cMem !== 0);
+  }
+
+  function _cKey(key) {
+    if (key >= '0' && key <= '9') {
+      if (_cDisp === 'E') { _cDisp = key; _cNewNum = false; }
+      else if (_cNewNum) { _cDisp = key === '0' ? '0' : key; _cNewNum = false; }
+      else if (_cDisp === '0') _cDisp = key;
+      else if (_cDisp.replace('-','').replace('.','').length < 8) _cDisp += key;
+    } else if (key === 'dot') {
+      if (_cDisp === 'E') { _cDisp = '0.'; _cNewNum = false; }
+      else if (_cNewNum) { _cDisp = '0.'; _cNewNum = false; }
+      else if (!_cDisp.includes('.')) _cDisp += '.';
+    } else if (['add','sub','mul','div'].includes(key)) {
+      if (_cOperand !== null && !_cNewNum) {
+        const r = _cFmt(_cCompute(_cOperand, parseFloat(_cDisp), _cOp));
+        _cDisp = r; _cOperand = parseFloat(r);
+      } else {
+        _cOperand = parseFloat(_cDisp);
+      }
+      _cOp = key; _cNewNum = true;
+    } else if (key === 'eq') {
+      if (_cOperand !== null && _cOp !== null) {
+        _cDisp = _cFmt(_cCompute(_cOperand, parseFloat(_cDisp), _cOp));
+        _cOperand = null; _cOp = null; _cNewNum = true;
+      }
+    } else if (key === 'ac') {
+      _cDisp = '0'; _cOperand = null; _cOp = null; _cNewNum = true;
+    } else if (key === 'c') {
+      _cDisp = '0'; _cNewNum = true;
+    } else if (key === 'sign') {
+      if (_cDisp !== '0' && _cDisp !== 'E') {
+        _cDisp = _cDisp.startsWith('-') ? _cDisp.slice(1) : '-' + _cDisp;
+      }
+    } else if (key === 'pct') {
+      let v = parseFloat(_cDisp);
+      _cDisp = _cFmt(_cOperand !== null ? (_cOperand * v) / 100 : v / 100);
+      _cNewNum = true;
+    } else if (key === 'sqrt') {
+      const v = parseFloat(_cDisp);
+      _cDisp = v < 0 ? 'E' : _cFmt(Math.sqrt(v));
+      _cNewNum = true;
+    } else if (key === 'mplus') {
+      _cMem += parseFloat(_cDisp) || 0; _cNewNum = true; _cMrcHit = false;
+    } else if (key === 'mminus') {
+      _cMem -= parseFloat(_cDisp) || 0; _cNewNum = true; _cMrcHit = false;
+    } else if (key === 'mrc') {
+      if (_cMrcHit) { _cMem = 0; _cMrcHit = false; }
+      else { _cDisp = _cFmt(_cMem); _cNewNum = true; _cMrcHit = true; }
+      _cRefresh(); return;
+    } else if (key === 'off') {
+      return; // OFF nie ma sensu w przeglądarce
+    }
+    _cMrcHit = false;
+    _cRefresh();
+  }
+
+  function initCalc() {
+    const panel = document.getElementById('calc-panel');
+    if (!panel) return;
+    panel.addEventListener('click', e => {
+      const btn = e.target.closest('[data-calc]');
+      if (btn) _cKey(btn.dataset.calc);
+    });
+  }
+
   // === Events ===
   function initEvents() {
     elBtnGenerate?.addEventListener('click', () => {
@@ -1171,6 +1272,19 @@
 
     document.addEventListener('keydown', e => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
+
+      // Kalkulator — przejmuje klawiaturę gdy aktywny
+      if (currentMode === 'kalkulator') {
+        const km = { '0':'0','1':'1','2':'2','3':'3','4':'4','5':'5','6':'6','7':'7','8':'8','9':'9',
+          '.':'dot',',':'dot',
+          '+':'add','-':'sub','*':'mul','/':'div',
+          'Enter':'eq','=':'eq',
+          'Escape':'ac','Delete':'ac','Backspace':'c',
+          'q':'sqrt','Q':'sqrt' };
+        if (km[e.key]) { e.preventDefault(); _cKey(km[e.key]); }
+        return;
+      }
+
       if (e.key === 'Enter' && (!currentTask || taskAnswered)) {
         if (currentMode === 'symulacja') { if (taskAnswered) advanceExam(); else if (!examTasks.length) generateExam(); }
         else if (currentMode === 'matura') loadRandomMatura();
@@ -1357,6 +1471,7 @@
     initUsernameEvents();
     initRankingEvents();
     initLevelEvents();
+    initCalc();
 
     updateLogoSubtitle();
     updateLevelRow();

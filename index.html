@@ -18,9 +18,9 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 
   <!-- App CSS -->
-  <link rel="stylesheet" href="css/theme.css?v=20260520b">
-  <link rel="stylesheet" href="css/layout.css?v=20260520b">
-  <link rel="stylesheet" href="css/components.css?v=20260520b">
+  <link rel="stylesheet" href="css/theme.css?v=20260520c">
+  <link rel="stylesheet" href="css/layout.css?v=20260520c">
+  <link rel="stylesheet" href="css/components.css?v=20260520c">
 </head>
 <body>
 
@@ -54,6 +54,7 @@
     <button class="mode-tab active" data-mode="generator">⚡ Generator zadań</button>
     <button class="mode-tab" data-mode="symulacja">🎓 Symulacja matury</button>
     <button class="mode-tab" data-mode="wzory">📐 Karty wzorów</button>
+    <button class="mode-tab" data-mode="kalkulator">🔢 Kalkulator</button>
   </div>
 </div>
 
@@ -120,6 +121,64 @@
         <a class="btn btn-ghost" href="tablice-matematyczne-2023.pdf" download>
           ⬇ Pobierz PDF
         </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- KALKULATOR -->
+<div class="calc-panel hidden" id="calc-panel">
+  <div class="calc-outer">
+    <div class="calc-body">
+      <div class="calc-header">
+        <span class="calc-brand">CASIO</span>
+        <span class="calc-model">ELECTRONIC CALCULATOR · HL-4A</span>
+      </div>
+      <div class="calc-screen">
+        <div class="calc-indicators">
+          <span id="calc-ind-minus"  class="calc-ind">MINUS</span>
+          <span id="calc-ind-memory" class="calc-ind">MEMORY</span>
+        </div>
+        <div class="calc-display" id="calc-display">0</div>
+      </div>
+      <div class="calc-keys">
+        <div class="calc-row calc-row-5">
+          <button class="calc-btn calc-btn-mem" data-calc="mrc">MRC</button>
+          <button class="calc-btn calc-btn-mem" data-calc="mminus">M−</button>
+          <button class="calc-btn calc-btn-mem" data-calc="mplus">M+</button>
+          <button class="calc-btn calc-btn-mem" data-calc="sqrt">√</button>
+          <button class="calc-btn calc-btn-off" data-calc="off">OFF</button>
+        </div>
+        <div class="calc-row calc-row-4">
+          <button class="calc-btn calc-btn-ac" data-calc="ac">AC</button>
+          <button class="calc-btn calc-btn-c"  data-calc="c">C</button>
+          <button class="calc-btn calc-btn-fn" data-calc="sign">+/−</button>
+          <button class="calc-btn calc-btn-fn" data-calc="pct">%</button>
+        </div>
+        <div class="calc-row calc-row-4">
+          <button class="calc-btn calc-btn-num" data-calc="7">7</button>
+          <button class="calc-btn calc-btn-num" data-calc="8">8</button>
+          <button class="calc-btn calc-btn-num" data-calc="9">9</button>
+          <button class="calc-btn calc-btn-op"  data-calc="div">÷</button>
+        </div>
+        <div class="calc-row calc-row-4">
+          <button class="calc-btn calc-btn-num" data-calc="4">4</button>
+          <button class="calc-btn calc-btn-num" data-calc="5">5</button>
+          <button class="calc-btn calc-btn-num" data-calc="6">6</button>
+          <button class="calc-btn calc-btn-op"  data-calc="mul">×</button>
+        </div>
+        <div class="calc-row calc-row-4">
+          <button class="calc-btn calc-btn-num" data-calc="1">1</button>
+          <button class="calc-btn calc-btn-num" data-calc="2">2</button>
+          <button class="calc-btn calc-btn-num" data-calc="3">3</button>
+          <button class="calc-btn calc-btn-op"  data-calc="sub">−</button>
+        </div>
+        <div class="calc-row calc-row-4">
+          <button class="calc-btn calc-btn-num" data-calc="0">0</button>
+          <button class="calc-btn calc-btn-num" data-calc="dot">·</button>
+          <button class="calc-btn calc-btn-eq"  data-calc="eq">=</button>
+          <button class="calc-btn calc-btn-op"  data-calc="add">+</button>
+        </div>
       </div>
     </div>
   </div>
@@ -340,44 +399,44 @@
 <div class="toast" id="toast"></div>
 
 <!-- APP SCRIPTS — kolejność ma znaczenie! -->
-<script src="js/core/MathUtils.js?v=20260520b"></script>
-<script src="js/core/KatexRenderer.js?v=20260520b"></script>
-<script src="js/core/AnswerChecker.js?v=20260520b"></script>
-<script src="js/core/ProgressTracker.js?v=20260520b"></script>
-<script src="js/generators/cat01_exp_praktyka.js?v=20260520b"></script>
-<script src="js/generators/cat02_granica.js?v=20260520b"></script>
-<script src="js/generators/cat03_logarytmy.js?v=20260520b"></script>
-<script src="js/generators/cat04_styczna.js?v=20260520b"></script>
-<script src="js/generators/cat05_dowod_nierownosci.js?v=20260520b"></script>
-<script src="js/generators/cat06_nierownoscabs.js?v=20260520b"></script>
-<script src="js/generators/cat07_ciagi.js?v=20260520b"></script>
-<script src="js/generators/cat08_planimetria.js?v=20260520b"></script>
-<script src="js/generators/cat09_tryg_rownanie.js?v=20260520b"></script>
-<script src="js/generators/cat10_stereometria.js?v=20260520b"></script>
-<script src="js/generators/cat11_analityczna.js?v=20260520b"></script>
-<script src="js/generators/cat12_param_kwadratowe.js?v=20260520b"></script>
-<script src="js/generators/cat13_bernoulli.js?v=20260520b"></script>
-<script src="js/generators/cat14_kombinatoryka.js?v=20260520b"></script>
-<script src="js/generators/cat15_optymalizacja.js?v=20260520b"></script>
-<script src="js/generators/cat16_szesciopunktowe.js?v=20260520b"></script>
-<script src="js/generators/pp01_liczby.js?v=20260520b"></script>
-<script src="js/generators/pp02_procenty.js?v=20260520b"></script>
-<script src="js/generators/pp03_algebraiczne.js?v=20260520b"></script>
-<script src="js/generators/pp04_rownania.js?v=20260520b"></script>
-<script src="js/generators/pp05_nierownosci.js?v=20260520b"></script>
-<script src="js/generators/pp06_funkcja_liniowa.js?v=20260520b"></script>
-<script src="js/generators/pp07_funkcja_kwadratowa.js?v=20260520b"></script>
-<script src="js/generators/pp08_ciagi.js?v=20260520b"></script>
-<script src="js/generators/pp09_trygonometria.js?v=20260520b"></script>
-<script src="js/generators/pp10_planimetria.js?v=20260520b"></script>
-<script src="js/generators/pp11_stereometria.js?v=20260520b"></script>
-<script src="js/generators/pp12_statystyka.js?v=20260520b"></script>
-<script src="js/generators/pp13_prawdopodobienstwo.js?v=20260520b"></script>
-<script src="js/generators/pp14_geom_analityczna.js?v=20260520b"></script>
-<script src="js/generators/index.js?v=20260520b"></script>
-<script src="js/data/matura_tasks.js?v=20260520b"></script>
-<script src="js/core/SupabaseAuth.js?v=20260520b"></script>
-<script src="js/app.js?v=20260520b"></script>
+<script src="js/core/MathUtils.js?v=20260520c"></script>
+<script src="js/core/KatexRenderer.js?v=20260520c"></script>
+<script src="js/core/AnswerChecker.js?v=20260520c"></script>
+<script src="js/core/ProgressTracker.js?v=20260520c"></script>
+<script src="js/generators/cat01_exp_praktyka.js?v=20260520c"></script>
+<script src="js/generators/cat02_granica.js?v=20260520c"></script>
+<script src="js/generators/cat03_logarytmy.js?v=20260520c"></script>
+<script src="js/generators/cat04_styczna.js?v=20260520c"></script>
+<script src="js/generators/cat05_dowod_nierownosci.js?v=20260520c"></script>
+<script src="js/generators/cat06_nierownoscabs.js?v=20260520c"></script>
+<script src="js/generators/cat07_ciagi.js?v=20260520c"></script>
+<script src="js/generators/cat08_planimetria.js?v=20260520c"></script>
+<script src="js/generators/cat09_tryg_rownanie.js?v=20260520c"></script>
+<script src="js/generators/cat10_stereometria.js?v=20260520c"></script>
+<script src="js/generators/cat11_analityczna.js?v=20260520c"></script>
+<script src="js/generators/cat12_param_kwadratowe.js?v=20260520c"></script>
+<script src="js/generators/cat13_bernoulli.js?v=20260520c"></script>
+<script src="js/generators/cat14_kombinatoryka.js?v=20260520c"></script>
+<script src="js/generators/cat15_optymalizacja.js?v=20260520c"></script>
+<script src="js/generators/cat16_szesciopunktowe.js?v=20260520c"></script>
+<script src="js/generators/pp01_liczby.js?v=20260520c"></script>
+<script src="js/generators/pp02_procenty.js?v=20260520c"></script>
+<script src="js/generators/pp03_algebraiczne.js?v=20260520c"></script>
+<script src="js/generators/pp04_rownania.js?v=20260520c"></script>
+<script src="js/generators/pp05_nierownosci.js?v=20260520c"></script>
+<script src="js/generators/pp06_funkcja_liniowa.js?v=20260520c"></script>
+<script src="js/generators/pp07_funkcja_kwadratowa.js?v=20260520c"></script>
+<script src="js/generators/pp08_ciagi.js?v=20260520c"></script>
+<script src="js/generators/pp09_trygonometria.js?v=20260520c"></script>
+<script src="js/generators/pp10_planimetria.js?v=20260520c"></script>
+<script src="js/generators/pp11_stereometria.js?v=20260520c"></script>
+<script src="js/generators/pp12_statystyka.js?v=20260520c"></script>
+<script src="js/generators/pp13_prawdopodobienstwo.js?v=20260520c"></script>
+<script src="js/generators/pp14_geom_analityczna.js?v=20260520c"></script>
+<script src="js/generators/index.js?v=20260520c"></script>
+<script src="js/data/matura_tasks.js?v=20260520c"></script>
+<script src="js/core/SupabaseAuth.js?v=20260520c"></script>
+<script src="js/app.js?v=20260520c"></script>
 
 </body>
 </html>
