@@ -1185,6 +1185,66 @@
   background: rgba(242,95,95,0.25);
 }
 
+/* ===== USERNAME MODAL ===== */
+.username-modal {
+  max-width: 400px;
+  padding: 36px 32px 28px;
+  text-align: center;
+}
+.un-icon  { font-size: 3rem; margin-bottom: 8px; line-height: 1; }
+.un-title { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+.un-desc  { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; }
+.un-input-wrap { margin-bottom: 16px; text-align: left; }
+.un-input {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 14px;
+  letter-spacing: 0.02em;
+  transition: border-color var(--transition);
+  outline: none;
+}
+.un-input:focus { border-color: var(--accent-blue); box-shadow: 0 0 0 3px rgba(91,141,238,0.18); }
+.un-hint  { font-size: 11px; color: var(--text-muted); margin-top: 6px; }
+.un-error {
+  font-size: 12px; color: var(--accent-red);
+  background: rgba(242,95,95,0.1);
+  border: 1px solid rgba(242,95,95,0.25);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+  margin-top: 8px;
+}
+.un-skip  {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+  border-color: transparent;
+}
+.un-skip:hover { color: var(--text-secondary); }
+
+/* Username row w user modal */
+.um-username-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  margin-top: 2px;
+}
+.um-username {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent-blue);
+  letter-spacing: 0.01em;
+}
+.um-username--empty { color: var(--text-muted); font-weight: 400; font-style: italic; }
+
 /* ===== RANKING MODAL ===== */
 .ranking-modal {
   max-width: 560px;

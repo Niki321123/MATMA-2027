@@ -221,6 +221,11 @@
     <button class="modal-close" id="btn-user-close">✕</button>
     <div class="user-modal-avatar" id="um-avatar">?</div>
     <div class="user-modal-email" id="um-email"></div>
+    <!-- Nazwa użytkownika -->
+    <div class="um-username-row">
+      <span class="um-username" id="um-username">Brak nazwy</span>
+      <button class="btn btn-ghost btn-sm" id="btn-um-change-username">✏️ Zmień</button>
+    </div>
     <div class="user-modal-plan" id="um-plan">Plan: Free</div>
     <div class="user-modal-sync">✓ Statystyki synchronizowane</div>
     <button class="btn btn-outline btn-sm" id="btn-um-upgrade" style="margin-top:14px;width:100%">💎 Zmień plan</button>
@@ -233,6 +238,24 @@
       <div class="promo-msg hidden" id="promo-msg"></div>
     </div>
     <button class="btn btn-danger btn-sm" id="btn-logout" style="margin-top:10px;width:100%">Wyloguj się</button>
+  </div>
+</div>
+
+<!-- MODAL: WYBÓR NAZWY UŻYTKOWNIKA -->
+<div class="modal-overlay hidden" id="modal-username">
+  <div class="modal-box username-modal">
+    <div class="un-icon">👤</div>
+    <h2 class="un-title">Wybierz nazwę użytkownika</h2>
+    <p class="un-desc">Ta nazwa będzie widoczna w tabeli rankingowej.<br>Możesz ją później zmienić w ustawieniach konta.</p>
+    <div class="un-input-wrap">
+      <input class="un-input" type="text" id="username-input"
+             placeholder="np. MatmaMaster2027"
+             maxlength="20" autocomplete="off" spellcheck="false">
+      <div class="un-hint">3–20 znaków · litery, cyfry, podkreślnik (_)</div>
+      <div class="un-error hidden" id="username-error"></div>
+    </div>
+    <button class="btn btn-primary btn-full" id="btn-username-save">Zapisz nazwę</button>
+    <button class="btn btn-ghost btn-full un-skip" id="btn-username-skip">Pomiń — nie chcę być w rankingu</button>
   </div>
 </div>
 

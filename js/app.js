@@ -479,6 +479,80 @@
     $('ranking-body').innerHTML = html;
   }
 
+  // === Username modal ===
+  function showUsernameModal(forceShow = false) {
+    const SA = window.SupabaseAuth;
+    if (!forceShow && SA?.getUsername()) return; // już ustawiona
+    const modal = $('modal-username');
+    if (modal) modal.classList.remove('hidden');
+    setTimeout(() => $('username-input')?.focus(), 80);
+  }
+
+  function hideUsernameModal() {
+    $('modal-username')?.classList.add('hidden');
+    $('username-input') && ($('username-input').value = '');
+    $('username-error')?.classList.add('hidden');
+  }
+
+  async function saveUsername() {
+    const SA   = window.SupabaseAuth;
+    const input = $('username-input');
+    const errEl = $('username-error');
+    const btn   = $('btn-username-save');
+    const name  = input?.value?.trim() || '';
+    if (!name) { input?.focus(); return; }
+
+    btn.textContent = 'Sprawdzam…';
+    btn.disabled    = true;
+    errEl?.classList.add('hidden');
+
+    try {
+      await SA.setUsername(name);
+      hideUsernameModal();
+      updateUserModalUsername(name);
+      showToast(`Witaj, ${name}! 🎉`, 'success');
+      // jeśli to było pierwsze logowanie — generuj zadanie
+      if (!firstTaskShown) generateTask();
+    } catch (err) {
+      if (errEl) { errEl.textContent = err.message; errEl.classList.remove('hidden'); }
+    } finally {
+      btn.textContent = 'Zapisz nazwę';
+      btn.disabled    = false;
+    }
+  }
+
+  function updateUserModalUsername(name) {
+    const el = $('um-username');
+    if (!el) return;
+    if (name) {
+      el.textContent = name;
+      el.classList.remove('um-username--empty');
+    } else {
+      el.textContent = 'Brak nazwy';
+      el.classList.add('um-username--empty');
+    }
+  }
+
+  function initUsernameEvents() {
+    $('btn-username-save')?.addEventListener('click', saveUsername);
+    $('username-input')?.addEventListener('keydown', e => {
+      if (e.key === 'Enter') saveUsername();
+    });
+    $('username-input')?.addEventListener('input', () =>
+      $('username-error')?.classList.add('hidden')
+    );
+    // Pomiń
+    $('btn-username-skip')?.addEventListener('click', () => {
+      hideUsernameModal();
+      if (!firstTaskShown) generateTask();
+    });
+    // "Zmień" w user modal
+    $('btn-um-change-username')?.addEventListener('click', () => {
+      $('modal-user')?.classList.add('hidden');
+      showUsernameModal(true);
+    });
+  }
+
   function initRankingEvents() {
     $('btn-ranking-open')?.addEventListener('click', openRankingModal);
     $('btn-ranking-close')?.addEventListener('click', () => $('modal-ranking')?.classList.add('hidden'));
@@ -866,10 +940,21 @@
         elUmPlan.className    = `user-modal-plan plan-${plan}`;
       }
 
+      // Pokaż username w modalu użytkownika
+      updateUserModalUsername(SA?.getUsername() || '');
+
       updateLimitBadge();
 
-      if (!firstTaskShown) generateTask();
-      else syncProgressFromCloud();
+      if (!firstTaskShown) {
+        // Jeśli brak username — pokaż modal wyboru nazwy (generowanie po zamknięciu)
+        if (!SA?.getUsername()) {
+          showUsernameModal();
+        } else {
+          generateTask();
+        }
+      } else {
+        syncProgressFromCloud();
+      }
     } else {
       elBtnAuthOpen?.classList.remove('hidden');
       elBtnUserMenu?.classList.add('hidden');
@@ -983,6 +1068,7 @@
     initYearSelect();
     initEvents();
     initAuthEvents();
+    initUsernameEvents();
     initRankingEvents();
 
     // Pokaż landing dopóki nie znamy stanu auth
