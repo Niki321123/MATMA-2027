@@ -383,6 +383,115 @@
     elProgressSidebar.innerHTML = html;
   }
 
+  // === Ranking ===
+  let rankingData = null;
+  let rankingTab  = 'tasks';
+
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  async function openRankingModal() {
+    const SA = window.SupabaseAuth;
+    const modal = $('modal-ranking');
+    if (!modal) return;
+    modal.classList.remove('hidden');
+
+    if (!SA?.isLoggedIn()) {
+      $('ranking-body').innerHTML = '<div class="ranking-empty">Zaloguj się, aby zobaczyć ranking.</div>';
+      return;
+    }
+
+    $('ranking-body').innerHTML = '<div class="ranking-loading">Ładowanie danych…</div>';
+    try {
+      rankingData = await SA.fetchLeaderboard();
+      renderRankingTab(rankingTab);
+    } catch (e) {
+      $('ranking-body').innerHTML = '<div class="ranking-empty">Błąd ładowania rankingu.</div>';
+    }
+  }
+
+  function renderRankingTab(tab) {
+    rankingTab = tab;
+    if (!rankingData) return;
+
+    // podświetl aktywną zakładkę
+    document.querySelectorAll('.ranking-tab').forEach(b =>
+      b.classList.toggle('active', b.dataset.tab === tab)
+    );
+
+    const SA = window.SupabaseAuth;
+    const meId = SA?.getUser()?.id;
+
+    let sorted, valueFn, subNote = '';
+    if (tab === 'tasks') {
+      sorted  = [...rankingData].sort((a, b) => b.total_attempted - a.total_attempted);
+      valueFn = u => `<span>${u.total_attempted}</span><small>zadań</small>`;
+    } else if (tab === 'accuracy') {
+      sorted  = [...rankingData]
+        .filter(u => u.total_attempted >= 10 && u.accuracy_pct !== null)
+        .sort((a, b) => b.accuracy_pct - a.accuracy_pct);
+      valueFn = u => `<span>${u.accuracy_pct}%</span><small>skuteczności</small>`;
+      subNote = '* tylko gracze z min. 10 rozwiązanymi zadaniami';
+    } else {
+      sorted  = [...rankingData].filter(u => u.max_streak > 0)
+                               .sort((a, b) => b.max_streak - a.max_streak);
+      valueFn = u => `<span>${u.max_streak} 🔥</span><small>dni z rzędu</small>`;
+    }
+
+    const MEDALS = ['🥇', '🥈', '🥉'];
+    const top10  = sorted.slice(0, 10);
+    const myRank = sorted.findIndex(u => u.user_id === meId);
+
+    if (top10.length === 0) {
+      $('ranking-body').innerHTML = '<div class="ranking-empty">Brak danych do wyświetlenia.</div>';
+      return;
+    }
+
+    let html = '<div class="ranking-list">';
+    top10.forEach((u, i) => {
+      const isMe   = u.user_id === meId;
+      const pos    = i < 3 ? MEDALS[i] : `${i + 1}.`;
+      const planBadge = `<span class="rb-plan rb-plan--${u.plan || 'free'}">${(u.plan || 'FREE').toUpperCase()}</span>`;
+      html += `
+        <div class="ranking-row${isMe ? ' ranking-row--me' : ''}">
+          <span class="ranking-pos">${pos}</span>
+          <span class="ranking-name">${escHtml(u.display_name)}${isMe ? ' <span class="ranking-you">← Ty</span>' : ''}</span>
+          ${planBadge}
+          <div class="ranking-val">${valueFn(u)}</div>
+        </div>`;
+    });
+
+    if (myRank >= 10) {
+      const me = sorted[myRank];
+      html += `
+        <div class="ranking-separator">· · ·</div>
+        <div class="ranking-row ranking-row--me">
+          <span class="ranking-pos">${myRank + 1}.</span>
+          <span class="ranking-name">${escHtml(me.display_name)} <span class="ranking-you">← Ty</span></span>
+          <span class="rb-plan rb-plan--${me.plan || 'free'}">${(me.plan || 'FREE').toUpperCase()}</span>
+          <div class="ranking-val">${valueFn(me)}</div>
+        </div>`;
+    }
+
+    if (subNote) html += `<div class="ranking-note">${subNote}</div>`;
+    html += '</div>';
+    $('ranking-body').innerHTML = html;
+  }
+
+  function initRankingEvents() {
+    $('btn-ranking-open')?.addEventListener('click', openRankingModal);
+    $('btn-ranking-close')?.addEventListener('click', () => $('modal-ranking')?.classList.add('hidden'));
+    $('modal-ranking')?.addEventListener('click', e => {
+      if (e.target === $('modal-ranking')) $('modal-ranking').classList.add('hidden');
+    });
+    $('ranking-tabs')?.addEventListener('click', e => {
+      if (e.target.classList.contains('ranking-tab')) {
+        renderRankingTab(e.target.dataset.tab);
+      }
+    });
+  }
+
   // === Modal statystyk ===
   function openProgressModal() {
     if (!elModalProgress) return;
@@ -874,6 +983,7 @@
     initYearSelect();
     initEvents();
     initAuthEvents();
+    initRankingEvents();
 
     // Pokaż landing dopóki nie znamy stanu auth
     showLanding();

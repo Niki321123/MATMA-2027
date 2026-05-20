@@ -37,6 +37,7 @@
     <div class="header-actions">
       <span class="limit-badge hidden" id="limit-badge"></span>
       <button class="btn btn-ghost btn-sm" id="btn-open-pricing" title="Plany i ceny">💎 Plany</button>
+      <button class="btn btn-ghost btn-sm" id="btn-ranking-open" title="Tabela aktywności">🏆 Ranking</button>
       <button class="btn btn-ghost btn-sm" id="btn-progress-open" title="Statystyki">📊 Postępy</button>
       <button class="btn btn-outline btn-sm" id="btn-auth-open" title="Zaloguj się">Zaloguj się</button>
       <button class="btn btn-ghost btn-sm user-btn hidden" id="btn-user-menu" title="Konto">
@@ -246,6 +247,25 @@
     <div class="pricing-limit-msg hidden" id="pricing-limit-msg"></div>
     <div class="pricing-cards" id="pricing-cards">
       <!-- Wypełniane przez JS -->
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: RANKING -->
+<div class="modal-overlay hidden" id="modal-ranking">
+  <div class="modal-box ranking-modal">
+    <button class="modal-close" id="btn-ranking-close">✕</button>
+    <div class="ranking-header">
+      <h2>🏆 Tabela aktywności</h2>
+      <p class="ranking-sub">Ranking wszystkich użytkowników platformy</p>
+    </div>
+    <div class="ranking-tabs" id="ranking-tabs">
+      <button class="ranking-tab active" data-tab="tasks">📊 Zadania</button>
+      <button class="ranking-tab" data-tab="accuracy">🎯 Skuteczność</button>
+      <button class="ranking-tab" data-tab="streak">🔥 Streak</button>
+    </div>
+    <div class="ranking-body" id="ranking-body">
+      <div class="ranking-loading">Ładowanie danych…</div>
     </div>
   </div>
 </div>

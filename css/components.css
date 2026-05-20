@@ -1184,3 +1184,139 @@
 .btn-danger:hover {
   background: rgba(242,95,95,0.25);
 }
+
+/* ===== RANKING MODAL ===== */
+.ranking-modal {
+  max-width: 560px;
+  width: 96%;
+  padding: 28px 28px 24px;
+}
+.ranking-header { text-align: center; margin-bottom: 20px; }
+.ranking-header h2 { font-size: 1.4rem; font-weight: 700; }
+.ranking-sub { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+/* Zakładki */
+.ranking-tabs {
+  display: flex;
+  gap: 4px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 4px;
+  margin-bottom: 20px;
+}
+.ranking-tab {
+  flex: 1;
+  padding: 8px 6px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  border-radius: calc(var(--radius-md) - 2px);
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.ranking-tab:hover { color: var(--text-secondary); }
+.ranking-tab.active {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.35);
+}
+
+/* Lista */
+.ranking-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ranking-row {
+  display: grid;
+  grid-template-columns: 36px 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition);
+}
+.ranking-row--me {
+  border-color: var(--accent-blue);
+  background: rgba(91,141,238,0.07);
+}
+.ranking-pos {
+  font-size: 18px;
+  text-align: center;
+  line-height: 1;
+  width: 36px;
+}
+.ranking-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ranking-you {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent-blue);
+  margin-left: 4px;
+}
+.ranking-val {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+}
+.ranking-val span {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+.ranking-val small {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Plan badge w rankingu */
+.rb-plan {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.rb-plan--free { background: rgba(255,255,255,0.06); color: var(--text-muted); }
+.rb-plan--pro  { background: rgba(91,141,238,0.15);  color: var(--accent-blue); }
+.rb-plan--max  { background: rgba(167,139,250,0.15); color: var(--accent-purple); }
+
+.ranking-separator {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 18px;
+  letter-spacing: 6px;
+  padding: 4px 0;
+}
+.ranking-note {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 8px;
+  font-style: italic;
+}
+.ranking-loading,
+.ranking-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+  font-size: 14px;
+}

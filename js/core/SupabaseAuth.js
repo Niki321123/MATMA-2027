@@ -44,8 +44,17 @@ window.SupabaseAuth = (() => {
     if (!currentUser) return;
     const today = new Date().toISOString().slice(0, 10);
 
+    // Synchronizuj display_name z Google OAuth (przy każdym logowaniu)
+    const meta = currentUser.user_metadata || {};
+    const displayName = meta.full_name || meta.name || (currentUser.email || '').split('@')[0];
+    const avatarUrl   = meta.avatar_url || null;
+    if (displayName) {
+      sb.from('profiles').update({ display_name: displayName, avatar_url: avatarUrl })
+        .eq('id', currentUser.id).then(() => {}); // fire-and-forget
+    }
+
     const [{ data: profile }, { data: daily }] = await Promise.all([
-      sb.from('profiles').select('plan').eq('id', currentUser.id).single(),
+      sb.from('profiles').select('plan, display_name, avatar_url').eq('id', currentUser.id).single(),
       sb.from('user_daily')
         .select('tasks_generated, matura_started')
         .eq('user_id', currentUser.id)
@@ -264,6 +273,13 @@ window.SupabaseAuth = (() => {
     // handled by ProgressTracker
   }
 
+  // === Leaderboard ===
+  async function fetchLeaderboard() {
+    const { data, error } = await sb.rpc('get_leaderboard');
+    if (error) { console.error('fetchLeaderboard:', error); return []; }
+    return data || [];
+  }
+
   return {
     init, getUser, isLoggedIn,
     getPlan, fetchProfile, getTasksRemaining, getMaturaRemaining,
@@ -272,5 +288,6 @@ window.SupabaseAuth = (() => {
     signInWithGoogle, signOut, redeemPromoCode,
     fetchProgress, fetchDailyStats, recordAnswer,
     loadFromCloud, loadDailyFromCloud,
+    fetchLeaderboard,
   };
 })();
