@@ -132,13 +132,13 @@ window.SupabaseAuth = (() => {
   }
 
   // === Auth actions ===
-  async function signInEmail(email, password) {
-    const { error } = await sb.auth.signInWithPassword({ email, password });
-    if (error) throw error;
-  }
-
-  async function signUpEmail(email, password) {
-    const { error } = await sb.auth.signUp({ email, password });
+  async function signInWithGoogle() {
+    const { error } = await sb.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo: window.location.href.split('?')[0],
+      },
+    });
     if (error) throw error;
   }
 
@@ -239,7 +239,7 @@ window.SupabaseAuth = (() => {
     getPlan, fetchProfile, getTasksRemaining, getMaturaRemaining,
     canGenerateTask, canStartMatura, trackTaskGenerated, trackMaturaStarted,
     createCheckoutSession,
-    signInEmail, signUpEmail, signOut,
+    signInWithGoogle, signOut,
     fetchProgress, fetchDailyStats, recordAnswer,
     loadFromCloud, loadDailyFromCloud,
   };

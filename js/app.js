@@ -663,17 +663,10 @@
   const elModalUser    = $('modal-user');
   const elBtnUserClose = $('btn-user-close');
   const elBtnLogout    = $('btn-logout');
-  const elAuthForm     = $('auth-form');
-  const elAuthEmail    = $('auth-email');
-  const elAuthPassword = $('auth-password');
-  const elAuthSubmit   = $('auth-submit');
   const elAuthError    = $('auth-error');
-  const elAuthTabs     = document.querySelectorAll('.auth-tab');
-  let authMode = 'login';
 
   function openAuthModal() {
     elModalAuth?.classList.remove('hidden');
-    elAuthEmail?.focus();
   }
 
   function onAuthChange(user) {
@@ -749,33 +742,14 @@
       openPricingModal();
     });
 
-    elAuthTabs.forEach(t => t.addEventListener('click', () => setAuthTab(t.dataset.tab)));
-
-    elAuthForm?.addEventListener('submit', async e => {
-      e.preventDefault();
-      hideAuthError();
-      const email = elAuthEmail?.value.trim();
-      const pass  = elAuthPassword?.value;
-      if (!email || !pass) return;
-      elAuthSubmit?.classList.add('loading');
-      elAuthSubmit.textContent = 'Ładowanie…';
+    $('btn-google-login')?.addEventListener('click', async () => {
       try {
-        if (authMode === 'login') {
-          await SA.signInEmail(email, pass);
-        } else {
-          await SA.signUpEmail(email, pass);
-          showToast('Sprawdź email, żeby potwierdzić konto!', 'info');
-        }
-        elModalAuth?.classList.add('hidden');
+        await SA.signInWithGoogle();
       } catch (err) {
-        const msg = err.message?.includes('Invalid login')       ? 'Błędny email lub hasło.'
-          : err.message?.includes('already registered')          ? 'Ten email jest już zarejestrowany.'
-          : err.message?.includes('Password should')             ? 'Hasło musi mieć min. 6 znaków.'
-          : err.message || 'Coś poszło nie tak.';
-        showAuthError(msg);
-      } finally {
-        elAuthSubmit?.classList.remove('loading');
-        setAuthTab(authMode);
+        if (elAuthError) {
+          elAuthError.textContent = err.message || 'Błąd logowania.';
+          elAuthError.classList.remove('hidden');
+        }
       }
     });
 

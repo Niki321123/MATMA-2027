@@ -1089,6 +1089,28 @@
 .btn-outline:hover {
   background: rgba(91,141,238,0.1);
 }
+.btn-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 20px;
+  background: #fff;
+  color: #3c4043;
+  border: 1px solid #dadce0;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: box-shadow var(--transition), background var(--transition);
+  margin-top: 8px;
+}
+.btn-google:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  background: #f8f9fa;
+}
 .btn-danger {
   background: rgba(242,95,95,0.15);
   color: var(--accent-red);
