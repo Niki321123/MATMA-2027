@@ -1417,3 +1417,71 @@
 .level-card-icon { font-size: 32px; }
 .level-card-name { font-size: 1rem; font-weight: 700; color: var(--text); }
 .level-card-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+
+/* ===== MODAL BOX (glass) ===== */
+.modal-box {
+  background: rgba(10, 13, 30, 0.85);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.05);
+  position: relative;
+  animation: modalIn 0.22s cubic-bezier(.34,1.2,.64,1);
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.94) translateY(12px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Task card — glass */
+.task-card, .solution-panel {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.task-header, .solution-header {
+  background: rgba(255,255,255,0.03);
+}
+
+/* Select — glass */
+.select {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-primary);
+}
+.select:focus { border-color: var(--accent-blue); box-shadow: 0 0 0 3px rgba(96,151,255,0.15); }
+
+/* Landing card — glass */
+.landing-card {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Pricing cards — glass */
+.pricing-card {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.pricing-card--featured {
+  background: rgba(96,151,255,0.07);
+  border-color: rgba(96,151,255,0.4);
+  box-shadow: 0 0 0 1px rgba(96,151,255,0.2), 0 0 30px rgba(96,151,255,0.12);
+}
+
+/* Ranking rows — glass */
+.ranking-row {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+}
+.ranking-row--me {
+  background: rgba(96,151,255,0.07);
+  border-color: rgba(96,151,255,0.3);
+}
