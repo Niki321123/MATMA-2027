@@ -115,6 +115,54 @@ window.cat05 = (() => {
         { level: 2, text: 'Zostaje $(a+2b)^2 - 8ab = (a-2b)^2$.' },
         { level: 3, text: '$(a+2b)(a-2b)^2$: pierwszy czynnik $> 0$, drugi $> 0$ bo $b \\neq a/2$.' }
       ]
+    },
+    {
+      difficulty: 'hard',
+      statement: 'Wykaż, że dla każdych dodatnich liczb rzeczywistych $a$ i $b$ prawdziwa jest nierówność\n$$\\frac{a^2}{b} + \\frac{b^2}{a} \\geq a + b$$',
+      method: 'Wspólny mianownik $ab$ + rozkład licznika $(a+b)(a-b)^2$',
+      solution: [
+        { step: 1, title: 'Przeniesienie na jedną stronę', content: '\\frac{a^2}{b} + \\frac{b^2}{a} - a - b \\geq 0', explanation: '' },
+        { step: 2, title: 'Wspólny mianownik $ab$', content: '\\frac{a^3 + b^3 - a^2b - ab^2}{ab} \\geq 0', explanation: 'Mianownik $ab > 0$, więc wystarczy wykazać, że licznik $\\geq 0$.' },
+        { step: 3, title: 'Rozkład licznika', content: 'a^3 + b^3 - a^2b - ab^2 = a^2(a-b) - b^2(a-b) = (a^2-b^2)(a-b) = (a+b)(a-b)^2', explanation: 'Wyłączamy $(a-b)$, a następnie korzystamy z $a^2-b^2=(a+b)(a-b)$.' },
+        { step: 4, title: 'Wniosek', content: '\\dfrac{(a+b)(a-b)^2}{ab} \\geq 0', explanation: '$a+b > 0$ (bo $a,b>0$), $(a-b)^2 \\geq 0$, $ab > 0$. Nierówność udowodniona. $\\blacksquare$' }
+      ],
+      hints: [
+        { level: 1, text: 'Przenieś $a+b$ na lewą stronę i sprowadź do jednego ułamka z mianownikiem $ab$.' },
+        { level: 2, text: 'Licznik to $a^3+b^3-a^2b-ab^2$. Wyłącz $(a-b)$.' },
+        { level: 3, text: 'Rozkład: $(a+b)(a-b)^2 \\geq 0$. Mianownik $ab>0$.' }
+      ]
+    },
+    {
+      difficulty: 'hard',
+      statement: 'Wykaż, że dla każdych dodatnich liczb rzeczywistych $m$ i $n$ prawdziwa jest nierówność\n$$(m + n)\\left(\\frac{1}{m} + \\frac{1}{n} + \\frac{4}{m+n}\\right) \\geq 8$$',
+      method: 'Rozwinięcie iloczynu + nierówność AM-GM: $\\frac{n}{m}+\\frac{m}{n} \\geq 2$',
+      solution: [
+        { step: 1, title: 'Rozwinięcie nawiasów', content: '(m+n)\\!\\left(\\frac{1}{m}+\\frac{1}{n}+\\frac{4}{m+n}\\right) = \\frac{m+n}{m}+\\frac{m+n}{n}+4', explanation: 'Mnożymy $(m+n)$ przez każdy składnik sumy.' },
+        { step: 2, title: 'Uproszczenie ułamków', content: '\\frac{m+n}{m}+\\frac{m+n}{n}+4 = \\left(1+\\frac{n}{m}\\right)+\\left(1+\\frac{m}{n}\\right)+4 = 6+\\frac{n}{m}+\\frac{m}{n}', explanation: '' },
+        { step: 3, title: 'Nierówność AM-GM', content: '\\frac{n}{m}+\\frac{m}{n} \\geq 2\\sqrt{\\frac{n}{m}\\cdot\\frac{m}{n}} = 2', explanation: 'Dla dowolnych $x,y>0$: $x+y\\geq 2\\sqrt{xy}$ (nierówność AM-GM).' },
+        { step: 4, title: 'Wniosek', content: '6 + \\frac{n}{m}+\\frac{m}{n} \\geq 6 + 2 = 8\\quad\\blacksquare', explanation: '' }
+      ],
+      hints: [
+        { level: 1, text: 'Rozwiń iloczyn: $(m+n)\\cdot\\frac{1}{m} = 1+\\frac{n}{m}$ itd.' },
+        { level: 2, text: 'Po uproszczeniu otrzymasz $6+\\frac{n}{m}+\\frac{m}{n}$.' },
+        { level: 3, text: 'Zastosuj AM-GM: $\\frac{n}{m}+\\frac{m}{n} \\geq 2$.' }
+      ]
+    },
+    {
+      difficulty: 'hard',
+      statement: 'Wykaż, że dla każdych liczb rzeczywistych $a$ i $b$ takich, że $0 < a < b$, prawdziwa jest nierówność\n$$\\frac{b}{a} + \\frac{a}{b} > 2 + \\frac{(b-a)^2}{2ab}$$',
+      method: 'Przeniesienie na jedną stronę + (a-b)² > 0',
+      solution: [
+        { step: 1, title: 'Przeniesienie', content: 'D = \\frac{b}{a}+\\frac{a}{b} - 2 - \\frac{(b-a)^2}{2ab}', explanation: 'Wystarczy wykazać, że $D > 0$.' },
+        { step: 2, title: 'Wspólny mianownik $2ab$', content: 'D = \\frac{2b^2 + 2a^2 - 4ab - (b-a)^2}{2ab} = \\frac{2(a^2-2ab+b^2)-(b-a)^2}{2ab}', explanation: '' },
+        { step: 3, title: 'Uproszczenie licznika', content: '2(a-b)^2 - (b-a)^2 = 2(a-b)^2 - (a-b)^2 = (a-b)^2', explanation: '$(b-a)^2=(a-b)^2$.' },
+        { step: 4, title: 'Wniosek', content: 'D = \\dfrac{(a-b)^2}{2ab} > 0', explanation: '$(a-b)^2 > 0$ bo $a \\neq b$ (gdyż $a < b$), $ab > 0$ bo $a,b > 0$. $\\blacksquare$' }
+      ],
+      hints: [
+        { level: 1, text: 'Przenieś $2+\\frac{(b-a)^2}{2ab}$ na lewą i sprowadź do mianownika $2ab$.' },
+        { level: 2, text: 'Licznik: $2b^2+2a^2-4ab-(b-a)^2$. Pamiętaj, że $(b-a)^2=(a-b)^2=a^2-2ab+b^2$.' },
+        { level: 3, text: 'Licznik upraszcza się do $(a-b)^2 > 0$ (bo $a\\neq b$).' }
+      ]
     }
   ];
 

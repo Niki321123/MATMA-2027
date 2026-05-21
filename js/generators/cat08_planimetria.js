@@ -128,6 +128,48 @@ window.cat08 = (() => {
         { level: 2, text: 'Kąt prosty jest przy C. Pole = $\\frac{1}{2}\\cdot|BC|\\cdot|AC|$.' },
         { level: 3, text: '$P = \\frac{1}{2}\\cdot|AB|\\cdot h_c$, więc $h_c = \\frac{2P}{|AB|}$.' }
       ]
+    },
+    // === Trapez równoramienny: wysokość, pole, przekątna, kąt ===
+    {
+      difficulty: 'hard',
+      statement:
+        'Trapez $ABCD$ jest równoramienny z podstawami $AB \\parallel CD$. ' +
+        'Dane są: $|AB| = 12$, $|CD| = 8$, $|AD| = |BC| = 5$.\n\n' +
+        '**a)** Oblicz wysokość trapezu.\n\n' +
+        '**b)** Oblicz pole trapezu.\n\n' +
+        '**c)** Oblicz długość przekątnej $|AC|$.\n\n' +
+        '**d)** Oblicz $\\cos\\angle ABC$.\n\nZapisz obliczenia.',
+      solution: [
+        { step: 1, title: 'Wysokość trapezu', content: 'h = \\sqrt{|BC|^2 - \\left(\\frac{|AB|-|CD|}{2}\\right)^2} = \\sqrt{25-4} = \\sqrt{21}', explanation: 'Rzut każdego ramienia na podstawę wynosi $\\frac{12-8}{2}=2$.' },
+        { step: 2, title: 'Pole trapezu', content: 'P = \\frac{|AB|+|CD|}{2}\\cdot h = \\frac{20}{2}\\cdot\\sqrt{21} = 10\\sqrt{21}', explanation: '' },
+        { step: 3, title: 'Przekątna |AC|', content: 'A=(0,0),\\ B=(12,0),\\ C=(10,\\sqrt{21})\\\\ |AC| = \\sqrt{10^2+(\\sqrt{21})^2} = \\sqrt{100+21} = \\sqrt{121} = 11', explanation: 'Układ: $A=(0,0)$, $D=(2,\\sqrt{21})$, $C=(10,\\sqrt{21})$.' },
+        { step: 4, title: 'Cosinus kąta ABC', content: '\\cos\\angle ABC = \\frac{|AB|^2+|BC|^2-|AC|^2}{2|AB||BC|} = \\frac{144+25-121}{2\\cdot12\\cdot5} = \\frac{48}{120} = \\frac{2}{5}', explanation: 'Twierdzenie cosinusów w trójkącie $ABC$.' }
+      ],
+      hints: [
+        { level: 1, text: 'Rzut ramienia na podstawę: $\\frac{|AB|-|CD|}{2} = 2$. Wysokość z tw. Pitagorasa.' },
+        { level: 2, text: 'Ustaw współrzędne: $A=(0,0)$, $B=(12,0)$, $C=(10,\\sqrt{21})$, $D=(2,\\sqrt{21})$.' },
+        { level: 3, text: 'Do obliczenia $\\cos\\angle ABC$ zastosuj twierdzenie cosinusów w trójkącie $ABC$.' }
+      ]
+    },
+    // === Dowód: punkt środkowy boku + mediana trójkąta ===
+    {
+      difficulty: 'hard',
+      statement:
+        'W trójkącie $ABC$ punkt $M$ jest środkiem boku $BC$, a punkt $N$ jest środkiem boku $AC$. ' +
+        'Przekątne $AM$ i $BN$ trójkąta przecinają się w punkcie $G$.\n\n' +
+        '**Wykaż, że** $|AG| = \\dfrac{2}{3}|AM|$.\n\nZapisz obliczenia.',
+      solution: [
+        { step: 1, title: 'Układ współrzędnych', content: 'A=(0,0),\\ B=(2b,0),\\ C=(2c,2d)', explanation: 'Ogólne współrzędne — bez utraty ogólności $A$ w początku układu.' },
+        { step: 2, title: 'Środki M i N', content: 'M = \\left(\\frac{2b+2c}{2},\\frac{2d}{2}\\right) = (b+c,\\ d)\\\\ N = \\left(\\frac{2c}{2},\\frac{2d}{2}\\right) = (c,\\ d)', explanation: 'Środek odcinka = średnia współrzędnych.' },
+        { step: 3, title: 'Punkt G na prostej AM', content: 'G = t\\cdot(b+c,d) = (t(b+c),\\ td)$ dla pewnego $t\\in(0,1)$', explanation: 'Parametryczna postać prostej $AM$.' },
+        { step: 4, title: 'G leży też na prostej BN', content: 'G = (2b,0) + s\\cdot(c-2b,\\ d)\\\\ td = sd \\implies t = s\\\\ t(b+c) = 2b+t(c-2b) = 2b+tc-2tb\\\\ 3tb = 2b \\implies t = \\tfrac{2}{3}', explanation: 'Porównując parametryczne opisy obu median.' },
+        { step: 5, title: 'Wniosek', content: 'G = \\tfrac{2}{3}(b+c,\\ d),\\quad |AG| = \\tfrac{2}{3}\\sqrt{(b+c)^2+d^2} = \\tfrac{2}{3}|AM|\\quad\\blacksquare', explanation: '$|AM| = \\sqrt{(b+c)^2+d^2}$.' }
+      ],
+      hints: [
+        { level: 1, text: 'Wprowadź układ: $A=(0,0)$, $B=(2b,0)$, $C=(2c,2d)$. Wyznacz $M$ i $N$.' },
+        { level: 2, text: 'Zapisz $G$ na prostej $AM$ parametrycznie: $G = t\\cdot M$.' },
+        { level: 3, text: 'Z warunku $G \\in BN$ otrzymasz $t = \\tfrac{2}{3}$, co daje $|AG| = \\tfrac{2}{3}|AM|$.' }
+      ]
     }
   ];
 
@@ -421,15 +463,13 @@ window.cat08 = (() => {
   }
 
   function generate() {
-    const pool = TASKS.filter(t => t.difficulty === 'medium' || t.difficulty === 'hard');
+    const pool = TASKS.filter(t => t.difficulty === 'hard');
     const fromPool = M.choose(pool.length > 0 ? pool : TASKS);
 
-    // 80% szans na schematy parametryczne (trudniejsze), 20% na bank
+    // Parametryczne schematy wysokiej trudności: okrąg opisany, okrąg wpisany
     const r = Math.random();
-    if (r < 0.20) return cosineRuleCalc();
-    if (r < 0.40) return triangleAreaAngle();
-    if (r < 0.60) return circumscribedCircle();
-    if (r < 0.80) return inscribedCircleRight();
+    if (r < 0.33) return circumscribedCircle();
+    if (r < 0.66) return inscribedCircleRight();
 
     return {
       id: M.makeId('cat08'),

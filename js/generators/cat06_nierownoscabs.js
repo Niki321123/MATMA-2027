@@ -129,6 +129,41 @@ window.cat06 = (() => {
     },
     {
       difficulty: 'hard',
+      statement: 'Rozwiąż nierówność\n$$|3x - 2| > 2|x + 4|$$\nZapisz obliczenia.',
+      solution_set: 'x \\in \\left(-\\infty,\\, -\\dfrac{6}{5}\\right) \\cup (10,\\, +\\infty)',
+      solution: [
+        { step: 1, title: 'Punkty podziału', content: 'x_1 = -4,\\quad x_2 = \\tfrac{2}{3}', explanation: 'Zerują wartości bezwzględne: $x+4=0\\to x=-4$, $3x-2=0\\to x=\\tfrac{2}{3}$.' },
+        { step: 2, title: 'Przypadek 1: $x < -4$', content: '-(3x-2) > 2\\cdot(-(x+4))\\\\ -3x+2 > -2x-8\\\\ -x > -10\\\\ x < 10', explanation: 'W tym przedziale: $3x-2<0$ i $x+4<0$. Połączenie z $x<-4$: cały przedział $(-\\infty,-4)$.' },
+        { step: 3, title: 'Przypadek 2: $-4 \\leq x < \\frac{2}{3}$', content: '-(3x-2) > 2(x+4)\\\\ -3x+2 > 2x+8\\\\ -5x > 6\\\\ x < -\\tfrac{6}{5}', explanation: 'Połączenie z $-4\\leq x<\\tfrac{2}{3}$: $x\\in\\left[-4,\\,-\\tfrac{6}{5}\\right)$.' },
+        { step: 4, title: 'Przypadek 3: $x \\geq \\frac{2}{3}$', content: '(3x-2) > 2(x+4)\\\\ 3x-2 > 2x+8\\\\ x > 10', explanation: 'Połączenie z $x\\geq\\tfrac{2}{3}$: $x\\in(10,+\\infty)$.' },
+        { step: 5, title: 'Suma rozwiązań', content: '(-\\infty,-4)\\cup\\left[-4,-\\tfrac{6}{5}\\right)\\cup(10,+\\infty) = \\left(-\\infty,-\\tfrac{6}{5}\\right)\\cup(10,+\\infty)', explanation: 'Pierwsze dwa przedziały łączą się.' }
+      ],
+      hints: [
+        { level: 1, text: 'Podziel na przypadki: $x<-4$, $-4\\leq x<\\tfrac{2}{3}$, $x\\geq\\tfrac{2}{3}$.' },
+        { level: 2, text: 'W każdym przedziale opuść znaki wartości bezwzględnych, uwzględniając ich znak na tym przedziale.' },
+        { level: 3, text: 'Przypadek 2 daje $x<-\\tfrac{6}{5}$, stąd $x\\in[-4,-\\tfrac{6}{5})$.' }
+      ]
+    },
+    {
+      difficulty: 'hard',
+      statement: 'Rozwiąż nierówność\n$$|x^2 - 5x + 4| \\leq x - 1$$\nZapisz obliczenia.',
+      solution_set: 'x \\in \\{1\\} \\cup [3,\\, 5]',
+      solution: [
+        { step: 1, title: 'Warunek konieczny i rozkład', content: 'x^2-5x+4 = (x-1)(x-4)\\\\ \\text{Prawa strona } x-1 \\geq 0 \\implies x \\geq 1', explanation: 'Wartość bezwzględna $\\geq 0$, więc prawa strona też musi być $\\geq 0$.' },
+        { step: 2, title: 'Przedział $1 \\leq x \\leq 4$', content: '(x-1)(x-4) \\leq 0$, więc $|(x-1)(x-4)| = (x-1)(4-x)$\\\\ (x-1)(4-x) \\leq x-1', explanation: '' },
+        { step: 3, title: 'Podprzedział $x > 1$', content: '\\text{Dzielimy przez } (x-1) > 0\\text{:}\\\\ 4-x \\leq 1 \\implies x \\geq 3\\\\ \\text{Połączenie z } 1<x\\leq 4\\text{: } x\\in[3,4]', explanation: '' },
+        { step: 4, title: 'Przypadek $x = 1$', content: '|(1-1)(1-4)| = 0 \\leq 1-1 = 0\\quad\\checkmark', explanation: '$x=1$ jest rozwiązaniem.' },
+        { step: 5, title: 'Przedział $x > 4$', content: '(x-1)(x-4) > 0$, więc $|(x-1)(x-4)| = (x-1)(x-4)$\\\\ (x-1)(x-4) \\leq x-1\\\\ \\text{Dzielimy przez }(x-1)>0\\text{:} \\quad x-4\\leq 1 \\implies x\\leq 5\\\\ \\text{Połączenie z } x>4\\text{: } x\\in(4,5]', explanation: '' },
+        { step: 6, title: 'Odpowiedź', content: '\\{1\\}\\cup[3,4]\\cup(4,5] = \\{1\\}\\cup[3,5]', explanation: 'Przedziały $[3,4]$ i $(4,5]$ łączą się w $[3,5]$.' }
+      ],
+      hints: [
+        { level: 1, text: 'Rozłóż: $x^2-5x+4=(x-1)(x-4)$. Warunek konieczny: prawa strona $x-1\\geq 0$.' },
+        { level: 2, text: 'Na $[1,4]$: $(x-1)(x-4)\\leq 0$, więc $|(\\ldots)|=(x-1)(4-x)$. Dla $x>1$ dzielisz przez $x-1>0$.' },
+        { level: 3, text: 'Na $(4,+\\infty)$: $|(\\ldots)|=(x-1)(x-4)$. Podziel przez $x-1>0$ i dostaniesz $x\\leq 5$.' }
+      ]
+    },
+    {
+      difficulty: 'hard',
       statement: 'Rozwiąż nierówność\n$$\\sqrt{x^2 + 4x + 4} < \\frac{1}{3}\\left(25 - \\sqrt{x^2 - 6x + 9}\\right)$$\nWskazówka: $\\sqrt{a^2} = |a|$.',
       solution_set: 'x \\in \\left(-2,\\, \\frac{19}{4}\\right)',
       solution: [
@@ -147,7 +182,7 @@ window.cat06 = (() => {
   ];
 
   function generate() {
-    const pool = MATURA_TASKS.filter(t => t.difficulty === 'medium' || t.difficulty === 'hard');
+    const pool = MATURA_TASKS.filter(t => t.difficulty === 'hard');
     const task = M.choose(pool.length > 0 ? pool : MATURA_TASKS);
     return {
       id: M.makeId('cat06'),
