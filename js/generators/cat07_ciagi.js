@@ -623,12 +623,151 @@ window.cat07 = (() => {
     };
   }
 
+  // === SCHEMAT I: Ciąg geometryczny z warunkiem progowym i sumą nieskończoną ===
+  // Warunki dają układ z parametrem q → równanie kwadratowe → a₁, q
+  // Następnie: znajdź n (nierówność wykładnicza), suma częściowa, suma nieskończona
+  const GEOM_THRESHOLD_CONFIGS = [
+    {
+      // a₁=1024, q=1/2
+      // Dane: S₂ = a₁(1+q) = 1536  oraz  S₃ = a₁(1+q+q²) = 1792
+      // S₃/S₂ = (1+q+q²)/(1+q) = 7/6 → 6q²-q-1=0 → (3q+1)(2q-1)=0 → q=1/2, a₁=1024
+      story: 'Firma technologiczna sprzedaje licencje na swoje oprogramowanie. ' +
+        'Roczny przychód ze sprzedaży maleje geometrycznie z roku na rok.',
+      context_item: 'roczny przychód', unit: 'tys. zł', period: 'rok',
+      cond1_text: 'Łączny przychód z pierwszych dwóch lat wyniósł $1536$ tys. zł',
+      cond2_text: 'Łączny przychód z pierwszych trzech lat wyniósł $1792$ tys. zł',
+      cond1_math: 'S_2 = a_1(1+q) = 1536',
+      cond2_math: 'S_3 = a_1(1+q+q^2) = 1792',
+      system_step: '\\frac{S_3}{S_2} = \\frac{1+q+q^2}{1+q} = \\frac{1792}{1536} = \\frac{7}{6}',
+      quad_eq: '6q^2 - q - 1 = 0',
+      quad_factor: '(3q+1)(2q-1) = 0',
+      q_n: 1, q_d: 2,
+      q_latex: '\\frac{1}{2}',
+      a1_calc: 'a_1 = \\dfrac{1536}{1 + \\frac{1}{2}} = \\dfrac{1536 \\cdot 2}{3} = 1024',
+      a1: 1024,
+      threshold: 10,
+      n_last: 7, // a₇=16≥10
+      n_min: 8,  // a₈=8<10
+      a_nLast: 16, a_nMin: 8,
+      ineq_step: '1024 \\cdot \\left(\\tfrac{1}{2}\\right)^{n-1} < 10',
+      ineq_simp: '\\left(\\tfrac{1}{2}\\right)^{n-1} < \\dfrac{10}{1024} = \\dfrac{5}{512}',
+      ineq_log: '-(n-1)\\log 2 < \\log 5 - 9\\log 2 \\implies n - 1 > 9 - \\log_2 5 \\approx 6{,}68',
+      S_nLast: 2032,
+      S_nLast_formula: 'S_7 = \\dfrac{1024\\left(1-\\left(\\frac{1}{2}\\right)^7\\right)}{1-\\frac{1}{2}} = 2048 \\cdot \\dfrac{127}{128} = 2048 - 16 = 2032',
+      S_inf: 2048,
+      S_inf_formula: 'S_{\\infty} = \\dfrac{1024}{1 - \\frac{1}{2}} = 2048',
+      tail: 16,
+      tail_formula: 'S_{\\infty} - S_7 = 2048 - 2032 = 16 \\text{ tys. zł}',
+      tail_latex: '16',
+      question_d: 'Oblicz, ile tys. zł przychodu firma otrzyma łącznie od 8. roku wzwyż (tj. $S_{\\infty} - S_7$).'
+    },
+    {
+      // a₁=243, q=1/3
+      // Dane: a₁+a₂ = 324  oraz  a₃ = 27
+      // a₁(1+q)=324, a₁q²=27 → a₁=27/q² → (27/q²)(1+q)=324 → 12q²-q-1=0
+      // (4q+1)(3q-1)=0 → q=1/3, a₁=243
+      story: 'Poziom skażenia gleby na terenie przemysłowym maleje geometrycznie. ' +
+        'Stężenie substancji toksycznej w kolejnych latach mierzy się w mg/kg.',
+      context_item: 'stężenie substancji', unit: 'mg/kg', period: 'rok',
+      cond1_text: 'Suma stężeń w roku 1. i 2. wynosiła $324$ mg/kg',
+      cond2_text: 'Stężenie w 3. roku wynosiło $27$ mg/kg',
+      cond1_math: 'a_1 + a_2 = a_1(1+q) = 324',
+      cond2_math: 'a_3 = a_1 q^2 = 27',
+      system_step: 'Z drugiego warunku: $a_1 = \\dfrac{27}{q^2}$. Podstawiamy do pierwszego:\\\\ \\dfrac{27}{q^2}(1+q) = 324 \\implies 27(1+q) = 324q^2',
+      quad_eq: '12q^2 - q - 1 = 0',
+      quad_factor: '(4q+1)(3q-1) = 0',
+      q_n: 1, q_d: 3,
+      q_latex: '\\frac{1}{3}',
+      a1_calc: 'a_1 = \\dfrac{27}{\\left(\\frac{1}{3}\\right)^2} = 27 \\cdot 9 = 243',
+      a1: 243,
+      threshold: 1,
+      n_last: 6, // a₆=1 (=threshold, NIE <)
+      n_min: 7,  // a₇=1/3<1
+      a_nLast: 1, a_nMin: '\\tfrac{1}{3}',
+      ineq_step: '243 \\cdot \\left(\\tfrac{1}{3}\\right)^{n-1} < 1',
+      ineq_simp: '\\left(\\tfrac{1}{3}\\right)^{n-1} < \\dfrac{1}{243} = \\left(\\tfrac{1}{3}\\right)^5',
+      ineq_log: '\\text{Ponieważ } \\tfrac{1}{3} < 1\\text{: } n-1 > 5 \\implies n > 6',
+      S_nLast: 364,
+      S_nLast_formula: 'S_6 = \\dfrac{243\\left(1-\\left(\\frac{1}{3}\\right)^6\\right)}{1-\\frac{1}{3}} = \\dfrac{3}{2} \\cdot 243 \\cdot \\dfrac{728}{729} = \\dfrac{728}{2} = 364',
+      S_inf: '\\tfrac{729}{2}',
+      S_inf_formula: 'S_{\\infty} = \\dfrac{243}{1-\\frac{1}{3}} = \\dfrac{243}{\\,\\frac{2}{3}\\,} = \\dfrac{729}{2} = 364{,}5',
+      tail: '\\tfrac{1}{2}',
+      tail_formula: 'S_{\\infty} - S_6 = \\dfrac{729}{2} - 364 = \\dfrac{1}{2} \\text{ mg/kg}',
+      tail_latex: '\\frac{1}{2}',
+      question_d: 'Oblicz całkowite stężenie od 7. roku wzwyż (tj. $S_{\\infty} - S_6$) i oceń, czy jest ono poniżej $1$ mg/kg.'
+    }
+  ];
+
+  function geomThresholdSum() {
+    const cfg = M.choose(GEOM_THRESHOLD_CONFIGS);
+    const q_latex = cfg.q_latex;
+
+    return {
+      id: M.makeId('cat07_thresh'),
+      category: 7,
+      categoryName: 'Ciągi liczbowe',
+      type: 'geom_threshold_sum',
+      points: 5,
+      params: { a1: cfg.a1, q_n: cfg.q_n, q_d: cfg.q_d, threshold: cfg.threshold, n_min: cfg.n_min },
+      statement:
+        `${cfg.story}\n\n` +
+        `${cfg.cond1_text}. ${cfg.cond2_text}.\n\n` +
+        `**a)** Wyznacz pierwszy wyraz $a_1$ i iloraz $q$ ciągu. Zapisz obliczenia.\n\n` +
+        `**b)** Znajdź najmniejsze $n$, dla którego ${cfg.context_item} w $n$-tym ${cfg.period}u będzie mniejszy niż $${cfg.threshold}$ ${cfg.unit}.\n\n` +
+        `**c)** Oblicz łączny ${cfg.context_item} przez pierwsze $${cfg.n_last}$ lat ($S_{${cfg.n_last}}$).\n\n` +
+        `**d)** ${cfg.question_d}\n\nZapisz obliczenia.`,
+      answer: {
+        type: 'multipart',
+        display: `a_1=${cfg.a1},\\ q=${q_latex},\\ n_{\\min}=${cfg.n_min},\\ S_{${cfg.n_last}}=${cfg.S_nLast},\\ S_\\infty - S_{${cfg.n_last}}=${cfg.tail_latex}`,
+        description: `a₁=${cfg.a1}, q=${cfg.q_n}/${cfg.q_d}, n_min=${cfg.n_min}, S${cfg.n_last}=${cfg.S_nLast}`
+      },
+      hints: [
+        { level: 1, text: `Podziel $${cfg.cond2_math}$ przez $${cfg.cond1_math}$, żeby wyeliminować $a_1$ i otrzymać równanie wyłącznie w $q$.` },
+        { level: 2, text: `Otrzymujesz $${cfg.quad_eq}$. Rozwiąż i wybierz $q > 0$: $q = ${q_latex}$.` },
+        { level: 3, text: `b) Nierówność $${cfg.ineq_simp}$ — logarytmuj, pamiętaj o kierunku nierówności (${q_latex} < 1).` }
+      ],
+      solution: [
+        {
+          step: 1, title: 'a) Układ warunków',
+          content: `\\begin{cases}${cfg.cond1_math}\\\\${cfg.cond2_math}\\end{cases}`,
+          explanation: 'Dwa warunki dają układ na dwie niewiadome a₁ i q.'
+        },
+        {
+          step: 2, title: 'Wyznaczenie q',
+          content: `${cfg.system_step}\\\\ 6(1+q+q^2) = 7(1+q)\\text{ (lub analogicznie)}\\\\ ${cfg.quad_eq}\\\\ ${cfg.quad_factor}\\\\ q = ${q_latex}\\text{ (q > 0, więc odrzucamy ujemne)}`,
+          explanation: `Równanie ${cfg.quad_eq} ma jeden dodatni pierwiastek.`
+        },
+        {
+          step: 3, title: 'Wyznaczenie a₁',
+          content: cfg.a1_calc,
+          explanation: ''
+        },
+        {
+          step: 4, title: 'b) Nierówność wykładnicza',
+          content: `${cfg.ineq_step}\\\\ ${cfg.ineq_simp}\\\\ ${cfg.ineq_log}\\\\ \\implies n_{\\min} = ${cfg.n_min}`,
+          explanation: `Sprawdzenie: $a_{${cfg.n_last}} = ${cfg.a_nLast}$ (nie spełnia), $a_{${cfg.n_min}} = ${cfg.a_nMin} < ${cfg.threshold}$ ✓`
+        },
+        {
+          step: 5, title: `c) Suma S_{${cfg.n_last}}`,
+          content: cfg.S_nLast_formula,
+          explanation: 'Wzór na sumę skończoną ciągu geometrycznego.'
+        },
+        {
+          step: 6, title: 'd) Ogon sumy nieskończonej',
+          content: `${cfg.S_inf_formula}\\\\ ${cfg.tail_formula}`,
+          explanation: `Suma ogona: $S_\\infty - S_{${cfg.n_last}} = \\dfrac{a_{${cfg.n_min}}}{1-q}$ (suma od wyrazu $a_{${cfg.n_min}}$ do nieskończoności).`
+        }
+      ]
+    };
+  }
+
   function generate() {
     // arithFromTerms usunięty — prosty (podaj wyraz z ogólnego wzoru)
     // pozostałe wymagają układów równań, sum, wzrostu eksponencjalnego — poziom 8/10
     return M.choose([
       arithGeomCombo, geomInfinite, geomTwoConditions,
       arithGeomCross, loanRepayment, geometricProductionGrowth,
+      geomThresholdSum,
     ])();
   }
 

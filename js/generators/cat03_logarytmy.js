@@ -183,8 +183,9 @@ window.cat03 = (() => {
     // Typ 3: log_a(x²-k) = c  →  oba rozwiązania w dziedzinie (pułapka)
     // Typ 4: log_a x + log_(a²) x = c  →  podstawienie t = log_a x (dwie podstawy)
     // Typ 5: log_a(x-p) + log_a(x+q) = log_a(R)  →  kwadratowe, jedno odpada z dziedziny
+    // Typ 6: (log_a x)² + p·log_a x + q = 0  →  kwadratowe w t=log_a x, dwa rozwiązania
 
-    const TYPE = M.choose([2, 3, 4, 4, 5, 5]);
+    const TYPE = M.choose([2, 3, 4, 4, 5, 5, 6, 6]);
 
     if (TYPE === 1) {
       const base = M.choose([2, 3, 4, 5]);
@@ -335,7 +336,7 @@ window.cat03 = (() => {
 
     // TYPE === 5: log_a(x-p) + log_a(x+q) = log_a(R)  →  kwadratowe, jedno rozwiązanie poza dziedziną
     // Klasyczny maturalny pułapka: algebraicznie dwa rozwiązania, jedno odpada
-    {
+    if (TYPE === 5) {
       const TEMPLATES5 = [
         // log₃(x-1)·(x+1) = log₃8 → x²-1=8 → x=±3, dom: x>1 → x=3
         { base: 3, p: 1, q: -1, rhs: 8, rhsLog: 'log_3 8',
@@ -395,6 +396,118 @@ window.cat03 = (() => {
           { step: 2, title: 'Łączenie logarytmów', content: `${tpl5.prodEq}`, explanation: `$\\log_a A + \\log_a B = \\log_a(A \\cdot B)$` },
           { step: 3, title: 'Równanie kwadratowe', content: tpl5.quadStr, explanation: '' },
           { step: 4, title: 'Weryfikacja dziedziny', content: `x = ${tpl5.keep}: \\quad ${tpl5.domStr}\\checkmark\\\\ x = ${tpl5.reject}: \\quad ${tpl5.rejectReason} \\implies \\text{ODRZUĆ}`, explanation: 'Rozwiązanie algebraiczne nie zawsze jest rozwiązaniem równania logarytmicznego!' }
+        ]
+      };
+    }
+
+    // TYPE === 6: (log_a x)² + p·log_a x + q = 0  →  podstawienie t = log_a x → kwadratowe
+    // Dwa rozwiązania — obydwa należy podać i zweryfikować w dziedzinie.
+    // Klucz: cofnięcie podstawienia x = a^t; gdy t ułamkowy, x = a^(p/q) = ∜a itp.
+    if (TYPE === 6) {
+      const TEMPLATES6 = [
+        {
+          base: 2,
+          eq: '(\\log_2 x)^2 + \\log_2 x - 2 = 0',
+          sub_eq: 't^2 + t - 2 = 0',
+          factor: '(t + 2)(t - 1) = 0',
+          t_vals: ['-2', '1'],
+          x_latex: ['\\dfrac{1}{4}', '2'],
+          x_calc: ['2^{-2} = \\dfrac{1}{4}', '2^1 = 2'],
+          domain_check: 'Oba: $\\dfrac{1}{4} > 0$ i $2 > 0$ ✓'
+        },
+        {
+          base: 3,
+          eq: '(\\log_3 x)^2 - 4\\log_3 x + 3 = 0',
+          sub_eq: 't^2 - 4t + 3 = 0',
+          factor: '(t - 1)(t - 3) = 0',
+          t_vals: ['1', '3'],
+          x_latex: ['3', '27'],
+          x_calc: ['3^1 = 3', '3^3 = 27'],
+          domain_check: 'Oba: $3 > 0$ i $27 > 0$ ✓'
+        },
+        {
+          base: 2,
+          eq: '2(\\log_2 x)^2 - 7\\log_2 x + 3 = 0',
+          sub_eq: '2t^2 - 7t + 3 = 0',
+          factor: '(2t - 1)(t - 3) = 0',
+          t_vals: ['\\dfrac{1}{2}', '3'],
+          x_latex: ['\\sqrt{2}', '8'],
+          x_calc: ['2^{1/2} = \\sqrt{2}', '2^3 = 8'],
+          domain_check: 'Oba: $\\sqrt{2} > 0$ i $8 > 0$ ✓'
+        },
+        {
+          base: 5,
+          eq: '(\\log_5 x)^2 - 4\\log_5 x - 5 = 0',
+          sub_eq: 't^2 - 4t - 5 = 0',
+          factor: '(t - 5)(t + 1) = 0',
+          t_vals: ['5', '-1'],
+          x_latex: ['3125', '\\dfrac{1}{5}'],
+          x_calc: ['5^5 = 3125', '5^{-1} = \\dfrac{1}{5}'],
+          domain_check: 'Oba: $3125 > 0$ i $\\dfrac{1}{5} > 0$ ✓'
+        },
+        {
+          // log₂x · log₂(2x) = 6 → t(1+t)=6 → t²+t-6=0 → (t+3)(t-2)=0
+          base: 2,
+          eq: '\\log_2 x \\cdot \\log_2(2x) = 6',
+          note: 'Krok pomocniczy: $\\log_2(2x) = \\log_2 2 + \\log_2 x = 1 + t$.',
+          sub_eq: 't(1 + t) = 6 \\implies t^2 + t - 6 = 0',
+          factor: '(t + 3)(t - 2) = 0',
+          t_vals: ['-3', '2'],
+          x_latex: ['\\dfrac{1}{8}', '4'],
+          x_calc: ['2^{-3} = \\dfrac{1}{8}', '2^2 = 4'],
+          domain_check: 'Oba: $\\dfrac{1}{8} > 0$ i $4 > 0$ ✓ (sprawdź też $2x > 0$: zawsze)'
+        }
+      ];
+
+      const tpl6 = M.choose(TEMPLATES6);
+      const x_both = `x_1 = ${tpl6.x_latex[0]},\\quad x_2 = ${tpl6.x_latex[1]}`;
+
+      return {
+        id: M.makeId('cat03_log_eq6'),
+        category: 3, categoryName: 'Logarytmy',
+        type: 'log_equation_quadratic', points: 4,
+        params: tpl6,
+        statement:
+          `Rozwiąż równanie\n$$${tpl6.eq}$$\n` +
+          `Zapisz obliczenia. Podaj dziedzinę, zastosuj podstawienie pomocnicze i sprawdź oba rozwiązania.`,
+        answer: {
+          type: 'set',
+          display: x_both,
+          description: `$${x_both}$`
+        },
+        hints: [
+          { level: 1, text: `Dziedzina: $x > 0$. Wprowadź podstawienie $t = \\log_{${tpl6.base}} x$.` },
+          { level: 2, text: tpl6.note
+              ? tpl6.note + ` Równanie w $t$: $${tpl6.sub_eq}$.`
+              : `Równanie przyjmuje postać $${tpl6.sub_eq}$. Rozwiąż kwadratowe.` },
+          { level: 3, text: `Rozkład: $${tpl6.factor}$. Cofnij podstawienie: $x = ${tpl6.base}^t$ dla każdego $t$. Oba rozwiązania należy podać.` }
+        ],
+        solution: [
+          {
+            step: 1, title: 'Dziedzina',
+            content: 'x > 0',
+            explanation: 'Argument każdego logarytmu musi być dodatni.'
+          },
+          {
+            step: 2, title: `Podstawienie $t = \\log_{${tpl6.base}} x$`,
+            content: (tpl6.note ? tpl6.note + '\\\\ ' : '') + tpl6.sub_eq,
+            explanation: tpl6.note ? '' : 'Każdy składnik wyrażamy przez $t$.'
+          },
+          {
+            step: 3, title: 'Rozwiązanie kwadratowego',
+            content: `${tpl6.factor} \\implies t = ${tpl6.t_vals[0]}\\text{ lub }t = ${tpl6.t_vals[1]}`,
+            explanation: ''
+          },
+          {
+            step: 4, title: 'Cofnięcie podstawienia',
+            content: `t = ${tpl6.t_vals[0]} \\implies x_1 = ${tpl6.base}^{${tpl6.t_vals[0]}} = ${tpl6.x_latex[0]}\\\\ t = ${tpl6.t_vals[1]} \\implies x_2 = ${tpl6.base}^{${tpl6.t_vals[1]}} = ${tpl6.x_latex[1]}`,
+            explanation: 'Cofnięcie: $t = \\log_a x \\iff x = a^t$.'
+          },
+          {
+            step: 5, title: 'Weryfikacja dziedziny',
+            content: tpl6.domain_check,
+            explanation: 'Obydwa rozwiązania są poprawne — żadne nie odpada z dziedziny.'
+          }
         ]
       };
     }
