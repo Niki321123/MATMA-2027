@@ -218,8 +218,63 @@ Oblicz energię wiązania tego jądra.`,
     };
   }
 
+  // Schemat E (TRUDNY ~7/10): czas połowicznego rozpadu z pomiaru mocy — wymaga logarytmów
+  // (matura: 2025 zad.12.3, 2026 zad.11.3 — zadanie wymagające kalkulatora naukowego)
+  function schemeE() {
+    const T_half = M.choose([14, 24, 30, 50, 88]);   // lata — wartość docelowa
+    const t = M.choose([3, 5, 10]);                  // czas obserwacji w latach
+    const P0 = M.choose([100, 200]);                 // moc cieplna początkowa J/s
+    const P = Math.round(P0 * Math.pow(0.5, t / T_half) * 100) / 100;
+    // wynik odtworzony przez zdającego (z logarytmów)
+    const T_result = Math.round(t * Math.LN2 / Math.log(P0 / P) * 10) / 10;
+
+    return {
+      id: M.makeId('fiz14_log_rozpad'),
+      category: 'fiz14',
+      categoryName: 'Fizyka jądrowa',
+      type: 'fizyka_jadrowa_log_rozpad',
+      points: 4,
+      params: { T_half, t, P0, P, T_result },
+      statement: `Próbka zawiera izotop promieniotwórczy. Moc cieplna generowana przez próbkę jest wprost proporcjonalna do liczby nierozpadniętych jąder.
+W chwili początkowej moc wynosiła $P_0 = ${P0}\\,\\text{J/s}$, a po czasie $t = ${t}\\,\\text{lat}$ spadła do $P = ${P}\\,\\text{J/s}$.
+
+Oblicz $T_{1/2}$ — czas połowicznego rozpadu tego izotopu. Wynik podaj w latach, zaokrąglony do dwóch cyfr znaczących.`,
+      answer: {
+        type: 'numeric',
+        display: `T_{1/2} = \\dfrac{t\\ln 2}{\\ln(P_0/P)} \\approx ${T_result}\\,\\text{lat}`,
+        description: `Czas połowicznego rozpadu: T₁/₂ ≈ ${T_result} lat.`
+      },
+      hints: [
+        { level: 1, text: 'Moc cieplna maleje tak jak liczba jąder: $P = P_0\\left(\\frac{1}{2}\\right)^{t/T_{1/2}}$.' },
+        { level: 2, text: 'Zlogarytmuj obie strony równania: $\\ln\\dfrac{P_0}{P} = \\dfrac{t}{T_{1/2}}\\ln 2$.' },
+        { level: 3, text: 'Wyznacz: $T_{1/2} = \\dfrac{t\\ln 2}{\\ln(P_0/P)}$.' }
+      ],
+      solution: [
+        {
+          step: 1,
+          title: 'Prawo rozpadu dla mocy cieplnej',
+          content: `P = P_0\\left(\\tfrac{1}{2}\\right)^{t/T_{1/2}}`,
+          explanation: 'Moc ∝ liczba nierozpadniętych jąder, a ta maleje wykładniczo z czasem.'
+        },
+        {
+          step: 2,
+          title: 'Logarytmowanie',
+          content: `\\frac{P}{P_0} = \\left(\\tfrac{1}{2}\\right)^{t/T_{1/2}} \\implies \\ln\\frac{P_0}{P} = \\frac{t}{T_{1/2}}\\ln 2`,
+          explanation: 'Logarytmujemy obie strony i korzystamy z własności logarytmu potęgi.'
+        },
+        {
+          step: 3,
+          title: 'Czas połowicznego rozpadu',
+          content: `T_{1/2} = \\frac{t\\ln 2}{\\ln(P_0/P)} = \\frac{${t}\\cdot\\ln 2}{\\ln(${P0}/${P})} \\approx ${T_result}\\,\\text{lat}`,
+          explanation: ''
+        }
+      ]
+    };
+  }
+
   function generate() {
-    return M.choose([schemeA, schemeB, schemeC, schemeD])();
+    // schemE (trudny) wymieniony dwukrotnie — pojawia się częściej, by podnieść poziom trudności
+    return M.choose([schemeA, schemeB, schemeC, schemeD, schemeE, schemeE])();
   }
 
   return { generate };

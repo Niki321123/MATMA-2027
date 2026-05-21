@@ -216,8 +216,64 @@ Oblicz $Q$ — ciepło dostarczone do gazu.`,
     };
   }
 
+  // Schemat E (TRUDNY ~7/10): wyprowadzenie wzoru na ciepło w przemianie izobarycznej
+  // (matura: 2024 zad.8.2, 2025 zad.6.3 — zadanie typu „wyprowadź wzór")
+  function schemeE() {
+    const p_kPa = M.choose([100, 150, 200, 250]);   // ciśnienie kPa
+    const dV_L = M.choose([2, 3, 4, 5, 8]);         // przyrost objętości w litrach
+    const p = p_kPa * 1000;       // Pa
+    const dV = dV_L * 1e-3;       // m³
+    const W = Math.round(p * dV);             // praca = pΔV
+    const dU = Math.round(1.5 * p * dV);      // ΔU = (3/2)pΔV
+    const Q = Math.round(2.5 * p * dV);       // Q = (5/2)pΔV
+
+    return {
+      id: M.makeId('fiz05_wyprow_izobara'),
+      category: 'fiz05',
+      categoryName: 'Termodynamika',
+      type: 'termodynamika_wyprowadzenie',
+      points: 4,
+      params: { p_kPa, dV_L, W, dU, Q },
+      statement: `Jednoatomowy gaz doskonały ($C_V = \\frac{3}{2}R$) jest ogrzewany pod stałym ciśnieniem $p = ${p_kPa}\\,\\text{kPa}$.
+Objętość gazu zwiększa się o $\\Delta V = ${dV_L}\\,\\text{l}$.
+
+Wyprowadź wzór na ciepło $Q$ pobrane przez gaz w tej przemianie izobarycznej — wyrażone tylko przez $p$ i $\\Delta V$. Następnie oblicz $Q$.`,
+      answer: {
+        type: 'derivation',
+        display: `Q = \\tfrac{5}{2}\\,p\\,\\Delta V = ${Q}\\,\\text{J}`,
+        description: `Praca W = pΔV = ${W} J, przyrost energii wewnętrznej ΔU = (3/2)pΔV = ${dU} J, ciepło Q = (5/2)pΔV = ${Q} J.`
+      },
+      hints: [
+        { level: 1, text: 'I zasada termodynamiki: $Q = \\Delta U + W$.' },
+        { level: 2, text: 'Praca w przemianie izobarycznej: $W = p\\,\\Delta V$. Z równania $pV = nRT$ wynika, że przy stałym $p$: $nR\\,\\Delta T = p\\,\\Delta V$.' },
+        { level: 3, text: 'Przyrost energii wewnętrznej: $\\Delta U = nC_V\\Delta T = \\frac{3}{2}nR\\Delta T = \\frac{3}{2}p\\,\\Delta V$.' }
+      ],
+      solution: [
+        {
+          step: 1,
+          title: 'Praca siły parcia gazu',
+          content: `W = p\\,\\Delta V`,
+          explanation: 'W przemianie izobarycznej ciśnienie jest stałe, więc praca = p·ΔV.'
+        },
+        {
+          step: 2,
+          title: 'Przyrost energii wewnętrznej',
+          content: `\\Delta U = nC_V\\Delta T = \\tfrac{3}{2}nR\\,\\Delta T = \\tfrac{3}{2}p\\,\\Delta V`,
+          explanation: 'Korzystamy z równania stanu gazu: przy stałym ciśnieniu nRΔT = pΔV.'
+        },
+        {
+          step: 3,
+          title: 'Ciepło — I zasada termodynamiki',
+          content: `Q = \\Delta U + W = \\tfrac{3}{2}p\\,\\Delta V + p\\,\\Delta V = \\tfrac{5}{2}p\\,\\Delta V = \\tfrac{5}{2}\\cdot${p}\\cdot${dV} = ${Q}\\,\\text{J}`,
+          explanation: ''
+        }
+      ]
+    };
+  }
+
   function generate() {
-    return M.choose([schemeA, schemeB, schemeC, schemeD])();
+    // schemE (trudny) wymieniony dwukrotnie — pojawia się częściej, by podnieść poziom trudności
+    return M.choose([schemeA, schemeB, schemeC, schemeD, schemeE, schemeE])();
   }
 
   return { generate };

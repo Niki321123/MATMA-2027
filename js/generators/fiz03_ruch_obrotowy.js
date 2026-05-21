@@ -190,8 +190,8 @@ Wyznacz $a$ — wartość przyspieszenia liniowego walca — w zależności od $
     const m = M.choose([0.5, 1, 2, 5]);   // masa kg
     const L = M.choose([0.5, 1, 1.5, 2]); // długość nici m
     const g = 10;
-    // Prędkość w punkcie najwyższym: v_top (zadana)
-    const v_top = M.choose([3, 4, 5, 6, 8]); // m/s
+    // Prędkość w najwyższym punkcie musi zapewniać napięty sznurek: v_top²/L - g ≥ 4 (z zapasem)
+    const v_top = M.choose([3, 4, 5, 6, 8].filter(v => v * v / L - g >= 4)); // m/s
 
     // v_bottom² = v_top² + 4gL (zasada zachowania energii, h=2L)
     const v_bot_sq = v_top * v_top + 4 * g * L;

@@ -210,8 +210,68 @@ Oblicz iloraz masy centralnego obiektu $M_X$ do masy Słońca $M_S$.`,
     };
   }
 
+  // Schemat E (TRUDNY ~7/10): wyprowadzenie III prawa Keplera dla orbity kołowej + obliczenie okresu
+  // (matura: 2021 zad.4.3, 2023 zad.5.4 — zadanie typu „wyprowadź wzór")
+  function schemeE() {
+    const planets = [
+      { name: 'Ziemi',   M: 5.97e24, R: 6.37e6 },
+      { name: 'Marsa',   M: 6.42e23, R: 3.39e6 },
+      { name: 'Jowisza', M: 1.90e27, R: 6.99e7 }
+    ];
+    const planet = M.choose(planets);
+    const G = 6.674e-11;
+    const hMul = M.choose([1.05, 1.2, 1.5, 2]);   // promień orbity = hMul × promień planety
+    const r = planet.R * hMul;
+    const T = 2 * Math.PI * Math.sqrt(r * r * r / (G * planet.M));
+    const T_min = Math.round(T / 60 * 10) / 10;   // minuty
+
+    return {
+      id: M.makeId('fiz04_wyprow_kepler'),
+      category: 'fiz04',
+      categoryName: 'Grawitacja i astronomia',
+      type: 'grawitacja_wyprowadzenie_okresu',
+      points: 4,
+      params: { planet: planet.name, r, M_planet: planet.M, T_min },
+      statement: `Satelita krąży wokół ${planet.name} po orbicie kołowej o promieniu $r = ${r.toExponential(2)}\\,\\text{m}$.
+Masa planety wynosi $M = ${planet.M.toExponential(2)}\\,\\text{kg}$, a stała grawitacji $G = 6{,}674\\cdot10^{-11}\\,\\frac{\\text{N·m}^2}{\\text{kg}^2}$.
+
+Wyprowadź wzór na okres obiegu $T$ satelity po orbicie kołowej (w zależności od $r$, $M$ i $G$), korzystając z II zasady dynamiki. Następnie oblicz $T$.`,
+      answer: {
+        type: 'derivation',
+        display: `T = 2\\pi\\sqrt{\\dfrac{r^3}{GM}} \\approx ${T_min}\\,\\text{min}`,
+        description: `Okres obiegu satelity: T = 2π√(r³/GM) ≈ ${T_min} min.`
+      },
+      hints: [
+        { level: 1, text: 'Siła grawitacji pełni rolę siły dośrodkowej: $\\dfrac{GMm}{r^2} = \\dfrac{mv^2}{r}$.' },
+        { level: 2, text: 'Prędkość na orbicie kołowej wyraź przez okres: $v = \\dfrac{2\\pi r}{T}$.' },
+        { level: 3, text: 'Podstaw $v$ do równania ruchu po okręgu i wyznacz $T$.' }
+      ],
+      solution: [
+        {
+          step: 1,
+          title: 'Siła grawitacji jako siła dośrodkowa',
+          content: `\\frac{GMm}{r^2} = \\frac{mv^2}{r} \\implies v^2 = \\frac{GM}{r}`,
+          explanation: 'Satelita porusza się ruchem jednostajnym po okręgu — wypadkowa siła jest dośrodkowa.'
+        },
+        {
+          step: 2,
+          title: 'Podstawienie prędkości orbitalnej',
+          content: `v = \\frac{2\\pi r}{T} \\implies \\frac{4\\pi^2 r^2}{T^2} = \\frac{GM}{r}`,
+          explanation: 'W ruchu jednostajnym po okręgu prędkość = obwód orbity / okres.'
+        },
+        {
+          step: 3,
+          title: 'Wzór na okres i wartość liczbowa',
+          content: `T^2 = \\frac{4\\pi^2 r^3}{GM} \\implies T = 2\\pi\\sqrt{\\frac{r^3}{GM}} \\approx ${T_min}\\,\\text{min}`,
+          explanation: 'Otrzymany wzór to III prawo Keplera: T² ∝ r³.'
+        }
+      ]
+    };
+  }
+
   function generate() {
-    return M.choose([schemeA, schemeB, schemeC, schemeD])();
+    // schemE (trudny) wymieniony dwukrotnie — pojawia się częściej, by podnieść poziom trudności
+    return M.choose([schemeA, schemeB, schemeC, schemeD, schemeE, schemeE])();
   }
 
   return { generate };

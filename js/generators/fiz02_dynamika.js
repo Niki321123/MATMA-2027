@@ -229,8 +229,70 @@ Oblicz $a$ — wartość przyspieszenia ciała.`,
     };
   }
 
+  // Schemat E (TRUDNY ~7/10): wyprowadzenie wzoru — ciało na równi + ciężarek przez bloczek
+  // (matura: zadania typu „wyprowadź wzór" — 2023 zad.3.2, 2024 zad.1.3)
+  function schemeE() {
+    const m1 = M.choose([1, 2, 3]);          // masa ciała na równi kg
+    const angleDeg = M.choose([30, 45]);     // kąt równi
+    const mu = M.choose([0.1, 0.2, 0.3]);    // współczynnik tarcia kinetycznego
+    const m2 = M.choose([4, 5, 6, 8]);       // masa wiszącego ciężarka kg
+    const g = 10;
+
+    const sinA = Math.round(Math.sin(angleDeg * Math.PI / 180) * 1000) / 1000;
+    const cosA = Math.round(Math.cos(angleDeg * Math.PI / 180) * 1000) / 1000;
+
+    // m2 g - T = m2 a ;  T - m1 g sinα - μ m1 g cosα = m1 a
+    const a = Math.round(g * (m2 - m1 * sinA - mu * m1 * cosA) / (m1 + m2) * 100) / 100;
+    const T = Math.round(m2 * (g - a) * 100) / 100;
+
+    return {
+      id: M.makeId('fiz02_uklad_rownia_bloczek'),
+      category: 'fiz02',
+      categoryName: 'Dynamika',
+      type: 'dynamika_wyprowadzenie_uklad',
+      points: 4,
+      params: { m1, m2, angleDeg, mu, a, T },
+      statement: `Ciało o masie $m_1 = ${m1}\\,\\text{kg}$ leży na równi pochyłej o kącie $\\alpha = ${angleDeg}°$.
+Jest połączone nierozciągliwą linką przerzuconą przez nieważki bloczek z ciężarkiem o masie $m_2 = ${m2}\\,\\text{kg}$, który zwisa swobodnie.
+Współczynnik tarcia kinetycznego między ciałem a równią wynosi $\\mu = ${mu}$. Przyjmij $g = ${g}\\,\\text{m/s}^2$.
+
+Wyprowadź wzór na wartość przyspieszenia $a$ układu (w zależności od $m_1$, $m_2$, $\\alpha$, $\\mu$ i $g$), zapisując odpowiednie równania dynamiki. Następnie oblicz $a$.`,
+      answer: {
+        type: 'derivation',
+        display: `a = \\dfrac{g(m_2 - m_1\\sin\\alpha - \\mu m_1\\cos\\alpha)}{m_1 + m_2} \\approx ${a}\\,\\text{m/s}^2`,
+        description: `Przyspieszenie układu: a = g(m₂ − m₁sinα − μm₁cosα)/(m₁+m₂) ≈ ${a} m/s². Siła naciągu linki T ≈ ${T} N.`
+      },
+      hints: [
+        { level: 1, text: 'Zapisz II zasadę dynamiki osobno dla ciężarka (ruch pionowy) oraz dla ciała na równi (ruch wzdłuż równi).' },
+        { level: 2, text: 'Ciężarek: $m_2 g - T = m_2 a$. Ciało na równi: $T - m_1 g\\sin\\alpha - \\mu m_1 g\\cos\\alpha = m_1 a$.' },
+        { level: 3, text: 'Dodaj równania stronami, aby wyeliminować siłę naciągu $T$, i wyznacz $a$.' }
+      ],
+      solution: [
+        {
+          step: 1,
+          title: 'Równania dynamiki',
+          content: `m_2 g - T = m_2 a \\quad (1) \\qquad T - m_1 g\\sin\\alpha - \\mu m_1 g\\cos\\alpha = m_1 a \\quad (2)`,
+          explanation: 'Linka jest nierozciągliwa → oba ciała mają tę samą wartość przyspieszenia. Tarcie działa przeciwnie do ruchu ciała w górę równi.'
+        },
+        {
+          step: 2,
+          title: 'Eliminacja siły naciągu',
+          content: `m_2 g - m_1 g\\sin\\alpha - \\mu m_1 g\\cos\\alpha = (m_1 + m_2)a`,
+          explanation: 'Dodajemy równania (1) i (2) stronami — siła naciągu T się skraca.'
+        },
+        {
+          step: 3,
+          title: 'Wzór na przyspieszenie i wartość liczbowa',
+          content: `a = \\frac{g(m_2 - m_1\\sin\\alpha - \\mu m_1\\cos\\alpha)}{m_1 + m_2} = \\frac{${g}(${m2} - ${m1}\\cdot${sinA} - ${mu}\\cdot${m1}\\cdot${cosA})}{${m1}+${m2}} \\approx ${a}\\,\\text{m/s}^2`,
+          explanation: ''
+        }
+      ]
+    };
+  }
+
   function generate() {
-    return M.choose([schemeA, schemeB, schemeC, schemeD])();
+    // schemE (trudny) wymieniony dwukrotnie — pojawia się częściej, by podnieść poziom trudności
+    return M.choose([schemeA, schemeB, schemeC, schemeD, schemeE, schemeE])();
   }
 
   return { generate };

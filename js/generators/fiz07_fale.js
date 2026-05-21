@@ -179,15 +179,14 @@ b) Ile razy mniejsze jest natężenie w punkcie $B$ odległym o $r_2 = ${r2}\\,\
 
   // Schemat D: Prawo Snella dla fal dźwiękowych / dyfrakcja (2025 zad.3)
   function schemeD() {
-    const v1 = M.choose([340, 300, 350]);    // prędkość w powietrzu m/s
-    const v2 = M.choose([1450, 1500, 1200]); // prędkość w wodzie/cieczy m/s
+    const v1 = M.choose([1450, 1500, 1200]); // prędkość w wodzie m/s
+    const v2 = M.choose([340, 300, 350]);    // prędkość w powietrzu m/s
     const angleDeg1 = M.choose([30, 45, 60]); // kąt padania
 
     // Prawo Snella: sin(θ1)/v1 = sin(θ2)/v2
+    // Fala biegnie z wody (szybciej) do powietrza (wolniej) → sinθ2 < sinθ1, brak całkowitego odbicia
     const sinT1 = Math.sin(angleDeg1 * Math.PI / 180);
     const sinT2 = sinT1 * v2 / v1;
-
-    if (sinT2 > 1) return schemeD(); // TIR — retry
 
     const angleDeg2 = Math.round(Math.asin(sinT2) * 180 / Math.PI * 10) / 10;
 
@@ -198,8 +197,8 @@ b) Ile razy mniejsze jest natężenie w punkcie $B$ odległym o $r_2 = ${r2}\\,\
       type: 'fale_snell_dzwiek',
       points: 3,
       params: { v1, v2, angleDeg1, angleDeg2, sinT2: Math.round(sinT2 * 1000) / 1000 },
-      statement: `Wiązka ultradźwięków biegnie w powietrzu ($v_1 = ${v1}\\,\\text{m/s}$)
-i pada na taflę wody ($v_2 = ${v2}\\,\\text{m/s}$) pod kątem $\\theta_1 = ${angleDeg1}°$.
+      statement: `Wiązka ultradźwięków biegnie w wodzie ($v_1 = ${v1}\\,\\text{m/s}$)
+i pada na granicę z powietrzem ($v_2 = ${v2}\\,\\text{m/s}$) pod kątem $\\theta_1 = ${angleDeg1}°$.
 
 Oblicz kąt załamania $\\theta_2$.`,
       answer: {
@@ -217,7 +216,7 @@ Oblicz kąt załamania $\\theta_2$.`,
           step: 1,
           title: 'Prawo Snella dla fal',
           content: `\\frac{\\sin${angleDeg1}°}{${v1}} = \\frac{\\sin\\theta_2}{${v2}} \\implies \\sin\\theta_2 = ${Math.round(sinT2 * 1000) / 1000}`,
-          explanation: 'Fala przechodzi do ośrodka o większej prędkości → zakrzywia się od normalnej.'
+          explanation: 'Fala przechodzi do ośrodka o mniejszej prędkości → załamuje się ku normalnej.'
         },
         {
           step: 2,
