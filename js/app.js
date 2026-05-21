@@ -45,7 +45,8 @@
   function rebuildCategorySelect() {
     if (!elCatSelect) return;
     elCatSelect.innerHTML = '<option value="0">🎲 Losowa kategoria</option>';
-    const cats = getMathLevel() === 'PP' ? G.getAllPP() : G.getAll();
+    const lvl = getMathLevel();
+    const cats = lvl === 'PP' ? G.getAllPP() : lvl === 'FIZ' ? G.getAllFiz() : G.getAll();
     cats.forEach(cat => {
       const opt = document.createElement('option');
       opt.value = cat.id;
@@ -56,21 +57,28 @@
 
   function updateLogoSubtitle() {
     const sub = document.querySelector('.logo-sub');
-    if (sub) sub.textContent = getMathLevel() === 'PP'
+    const lvl = getMathLevel();
+    if (sub) sub.textContent = lvl === 'PP'
       ? 'Matematyka podstawowa'
-      : 'Matematyka rozszerzona';
+      : lvl === 'FIZ'
+        ? 'Fizyka rozszerzona'
+        : 'Matematyka rozszerzona';
   }
 
   function updateLevelRow() {
     const row = $('um-level-row');
-    if (row) row.textContent = getMathLevel() === 'PP'
+    const lvl = getMathLevel();
+    if (row) row.textContent = lvl === 'PP'
       ? 'Poziom: Matematyka podstawowa'
-      : 'Poziom: Matematyka rozszerzona';
+      : lvl === 'FIZ'
+        ? 'Przedmiot: Fizyka rozszerzona'
+        : 'Poziom: Matematyka rozszerzona';
   }
 
   function initLevelEvents() {
     $('btn-level-pp')?.addEventListener('click', () => chooseMathLevel('PP'));
     $('btn-level-pr')?.addEventListener('click', () => chooseMathLevel('PR'));
+    $('btn-level-fiz')?.addEventListener('click', () => chooseMathLevel('FIZ'));
     $('btn-um-change-level')?.addEventListener('click', () => {
       $('modal-user')?.classList.add('hidden');
       openLevelModal(() => {
@@ -204,7 +212,8 @@
     const catVal = elCatSelect.value;
     try {
       if (catVal === '0') {
-        currentTask = getMathLevel() === 'PP' ? G.generateRandomPP() : G.generateRandom();
+        const _lvl = getMathLevel();
+        currentTask = _lvl === 'PP' ? G.generateRandomPP() : _lvl === 'FIZ' ? G.generateRandomFiz() : G.generateRandom();
       } else {
         const id = /^\d+$/.test(catVal) ? parseInt(catVal) : catVal;
         currentTask = G.generate(id);
@@ -443,7 +452,8 @@
   function updateSidebar() {
     if (!elProgressSidebar) return;
     const today = PT.getTodayStats();
-    const cats  = G.getAll();
+    const _lvl  = getMathLevel();
+    const cats  = _lvl === 'PP' ? G.getAllPP() : _lvl === 'FIZ' ? G.getAllFiz() : G.getAll();
     const accuracyPct = today.attempted > 0 ? Math.round(100 * today.correct / today.attempted) : 0;
 
     let html = `
@@ -689,7 +699,8 @@
   }
 
   function _renderStatsTab() {
-    const cats  = G.getAll();
+    const _lvl  = getMathLevel();
+    const cats  = _lvl === 'PP' ? G.getAllPP() : _lvl === 'FIZ' ? G.getAllFiz() : G.getAll();
     const stats = PT.getStats();
     let h = `
       <div class="modal-stats-grid">
