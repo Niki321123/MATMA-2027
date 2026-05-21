@@ -379,12 +379,9 @@ window.cat03 = (() => {
   }
 
   function generate() {
-    // Tylko expressLog (8/10) + najtrudniejszy wariant logInequality (malejąca lub złożona)
-    // logEquation TYPE 1 za prosty — zostawiamy tylko expressLog jako dominujący
-    const r = Math.random();
-    if (r < 0.70) return expressLog();      // 8/10 — dowód z zamianą podstawy
-    if (r < 0.85) return logInequality();   // 6-8/10 — nierówności
-    return logEquation();                    // 5-7/10 — równania, jako uzupełnienie
+    // expressLog i computeLog usunięte — zbyt proste (1 krok, poziom zamkniętego)
+    // logEquation i logInequality wymagają zamiany podstaw i dziedziny — poziom 8/10
+    return M.choose([logEquation, logInequality, logEquation, logInequality])();
   }
 
   return { generate };

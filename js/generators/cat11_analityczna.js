@@ -375,16 +375,9 @@ window.cat11 = (() => {
   }
 
   function generate() {
-    // Tylko schematy 7/10+ — pomijamy lineThrough (3/10), pointLineDistance (4/10), circleFromEquation (5/10)
-    // circleTangent (7/10) — styczna do okręgu w punkcie P, standardowy wzorzec maturalny
-    return M.choose([
-      twoCirclesParam,       // 8/10 — dwa okręgi z parametrem, warunek styczny
-      circleThroughPoints,   // 7/10 — okrąg przez 2 punkty i środek
-      circleTangent,         // 7/10 — styczna do okręgu w punkcie P (wzorzec maturalny)
-      twoCirclesParam,       // (podwojony priorytet)
-      circleThroughPoints,
-      twoCirclesParam,
-    ])();
+    // lineThrough i circleFromEquation usunięte — prosta prosta / odczyt równania okręgu
+    // circleTangent, circleThroughPoints, twoCirclesParam, pointLineDistance — poziom 8/10
+    return M.choose([circleTangent, pointLineDistance, circleThroughPoints, twoCirclesParam])();
   }
 
   return { generate };

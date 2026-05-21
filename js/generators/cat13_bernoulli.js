@@ -417,15 +417,9 @@ window.cat13 = (() => {
   }
 
   function generate() {
-    // Tylko schematy 8/10+ — hardBernoulli + bayesThreeHypotheses
-    // Pomijamy bernoulli (6/10), conditional (6/10), totalProbability (7/10)
-    return M.choose([
-      hardBernoulli,           // 8/10 — P(X≥k), P(X≤k), złożone Bernoulliego
-      bayesThreeHypotheses,    // 9/10 — wzór Bayesa, 3 hipotezy
-      hardBernoulli,
-      bayesThreeHypotheses,
-      hardBernoulli,
-    ])();
+    // bernoulli i conditional usunięte — podstawowe schematy, P(A|B) w 1 kroku
+    // totalProbability, hardBernoulli, bayesThreeHypotheses — poziom 8-9/10
+    return M.choose([totalProbability, hardBernoulli, bayesThreeHypotheses])();
   }
 
   return { generate };

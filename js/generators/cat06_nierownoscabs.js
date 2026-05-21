@@ -147,7 +147,7 @@ window.cat06 = (() => {
   ];
 
   function generate() {
-    const pool = MATURA_TASKS.filter(t => t.difficulty === 'hard');
+    const pool = MATURA_TASKS.filter(t => t.difficulty === 'medium' || t.difficulty === 'hard');
     const task = M.choose(pool.length > 0 ? pool : MATURA_TASKS);
     return {
       id: M.makeId('cat06'),

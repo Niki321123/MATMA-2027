@@ -421,16 +421,15 @@ window.cat08 = (() => {
   }
 
   function generate() {
-    // hard (8/10): trapez-podobieństwo, stosunek pól przekątnych
-    // medium (7/10): tw. cosinusów dowód, kwadrat |AP| dowód, kwadrat pola obszarów
-    // Te medium zadania to rzeczywiste wzorce z matur 2024-2026 (7-8/10)
-    const pool = TASKS.filter(t => t.difficulty === 'hard' || t.difficulty === 'medium');
+    const pool = TASKS.filter(t => t.difficulty === 'medium' || t.difficulty === 'hard');
     const fromPool = M.choose(pool.length > 0 ? pool : TASKS);
 
-    // Tylko najtrudniejsze schematy parametryczne (7-8/10)
+    // 80% szans na schematy parametryczne (trudniejsze), 20% na bank
     const r = Math.random();
-    if (r < 0.30) return circumscribedCircle();     // 7/10 — tw. sinusów + cosinusów
-    if (r < 0.55) return inscribedCircleRight();    // 7/10 — okrąg wpisany
+    if (r < 0.20) return cosineRuleCalc();
+    if (r < 0.40) return triangleAreaAngle();
+    if (r < 0.60) return circumscribedCircle();
+    if (r < 0.80) return inscribedCircleRight();
 
     return {
       id: M.makeId('cat08'),
