@@ -324,10 +324,97 @@ window.cat04 = (() => {
     };
   }
 
+  // === SCHEMAT E: styczna do paraboli z zewnętrznego punktu ===
+  // Wzorzec maturalny 9/10: dany punkt P nie leży na krzywej → znajdź WSZYSTKIE styczne
+  // Wymaga: podstawienia warunku przynależności P do stycznej, rozwiązania kwadratowego w x₀
+  function tangentFromExternal() {
+    // f(x) = x², styczna w (x₀, x₀²): y = 2x₀·x − x₀²
+    // Przez P(a, b): b = 2a·x₀ − x₀²  →  x₀² − 2a·x₀ + b = 0
+    // Rozwiąż: x₀ = a ± √(a² − b)
+    const TEMPLATES = [
+      // P(1, -3): x₀²-2x₀-3=0 → (x₀-3)(x₀+1)=0 → x₀=3 lub x₀=-1
+      { fStr: 'x^2', fpStr: '2x', a: 1, b: -3, disc: 4, sqDisc: 2,
+        x0s: [3, -1], tangs: ['y = 6x - 9', 'y = -2x - 1'],
+        tangLatex: ['6x - 9', '-2x - 1'],
+        checkMsg: 'P(1,-3): $6·1-9=-3\\checkmark$; $-2·1-1=-3\\checkmark$' },
+      // P(3, 5): x₀²-6x₀+5=0 → (x₀-5)(x₀-1)=0 → x₀=5 lub x₀=1
+      { fStr: 'x^2', fpStr: '2x', a: 3, b: 5, disc: 4, sqDisc: 2,
+        x0s: [5, 1], tangs: ['y = 10x - 25', 'y = 2x - 1'],
+        tangLatex: ['10x - 25', '2x - 1'],
+        checkMsg: 'P(3,5): $10·3-25=5\\checkmark$; $2·3-1=5\\checkmark$' },
+      // P(2, -5): x₀²-4x₀-5=0 → (x₀-5)(x₀+1)=0 → x₀=5 lub x₀=-1
+      { fStr: 'x^2', fpStr: '2x', a: 2, b: -5, disc: 9, sqDisc: 3,
+        x0s: [5, -1], tangs: ['y = 10x - 25', 'y = -2x - 1'],
+        tangLatex: ['10x - 25', '-2x - 1'],
+        checkMsg: 'P(2,-5): $10·2-25=-5\\checkmark$; $-2·2-1=-5\\checkmark$' },
+      // P(3, 7) dla f(x)=(x+1)²: tangent y=(2x₀+2)x-x₀²+1; przez (3,7): x₀²-6x₀=0 → x₀=0 lub x₀=6
+      { fStr: '(x+1)^2', fpStr: '2(x+1)', a: 3, b: 7, disc: 9, sqDisc: 3,
+        x0s: [0, 6], tangs: ['y = 2x + 1', 'y = 14x - 35'],
+        tangLatex: ['2x + 1', '14x - 35'],
+        fExplain: 'f(x) = x^2+2x+1,\\; f\'(x) = 2x+2',
+        tangDerive: 'y - (x_0^2+2x_0+1) = (2x_0+2)(x-x_0) \\implies y = (2x_0+2)x - x_0^2+1',
+        checkMsg: 'P(3,7): $2·3+1=7\\checkmark$; $14·3-35=7\\checkmark$' },
+    ];
+
+    const tpl = M.choose(TEMPLATES);
+    const isQuadratic = !tpl.fExplain; // f(x) = x² przypadek
+
+    const tangDisp = tpl.tangs[0] + '\\text{ oraz }' + tpl.tangs[1];
+
+    return {
+      id: M.makeId('cat04_ext_tang'),
+      category: 4,
+      categoryName: 'Styczna do wykresu',
+      type: 'tangent_from_external',
+      points: 5,
+      params: tpl,
+      statement:
+        `Funkcja $f$ jest określona wzorem\n$$f(x) = ${tpl.fStr}$$\n\n` +
+        `Punkt $P = (${tpl.a},\\ ${tpl.b})$ **nie leży** na wykresie funkcji $f$.\n\n` +
+        `**Wyznacz równania wszystkich prostych stycznych do wykresu $f$ przechodzących przez punkt $P$.** Zapisz obliczenia.`,
+      answer: {
+        type: 'set',
+        display: tangDisp,
+        description: `Dwie styczne: $${tpl.tangs[0]}$ i $${tpl.tangs[1]}$`
+      },
+      hints: [
+        { level: 1, text: `Styczna do $f$ w punkcie $(x_0, f(x_0))$ ma równanie $y - f(x_0) = f'(x_0)(x - x_0)$. Zakładamy, że przechodzi przez $P = (${tpl.a}, ${tpl.b})$.` },
+        { level: 2, text: `Podstaw $P$ do równania stycznej: ${isQuadratic ? `$${tpl.b} = 2x_0 \\cdot ${tpl.a} - x_0^2$, czyli $x_0^2 - ${2*tpl.a}x_0 + (${tpl.b}) = 0$.` : `otrzymujesz równanie kwadratowe w $x_0$.`}` },
+        { level: 3, text: `Wyróżnik $\\Delta = ${tpl.disc}$, $\\sqrt{\\Delta} = ${tpl.sqDisc}$. Punkty styczności: $x_0 = ${tpl.x0s[0]}$ i $x_0 = ${tpl.x0s[1]}$.` }
+      ],
+      solution: [
+        {
+          step: 1, title: 'Ogólna styczna w punkcie $(x_0, f(x_0))$',
+          content: isQuadratic
+            ? `f(x_0) = x_0^2,\\quad f'(x_0) = 2x_0\\\\ \\text{Styczna: } y = 2x_0 \\cdot x - x_0^2`
+            : `${tpl.fExplain}\\\\ ${tpl.tangDerive}`,
+          explanation: 'Styczna w punkcie $x_0$ to $y - f(x_0) = f\'(x_0)(x - x_0)$.'
+        },
+        {
+          step: 2, title: `Warunek przechodzenia przez $P = (${tpl.a}, ${tpl.b})$`,
+          content: isQuadratic
+            ? `${tpl.b} = 2x_0 \\cdot ${tpl.a} - x_0^2 \\implies x_0^2 - ${2*tpl.a}x_0 + (${tpl.b}) = 0`
+            : `${tpl.b} = (2x_0+2)\\cdot${tpl.a} - x_0^2+1 \\implies x_0^2 - ${2*tpl.a}x_0 = 0`,
+          explanation: 'Podstawiamy $x = ' + tpl.a + ', y = ' + tpl.b + '$ do równania stycznej.'
+        },
+        {
+          step: 3, title: 'Rozwiązanie kwadratowego w $x_0$',
+          content: `\\Delta = ${tpl.disc},\\quad \\sqrt{\\Delta} = ${tpl.sqDisc}\\\\ x_0 = ${tpl.x0s[0]}\\text{ lub }x_0 = ${tpl.x0s[1]}`,
+          explanation: ''
+        },
+        {
+          step: 4, title: 'Równania stycznych',
+          content: `x_0 = ${tpl.x0s[0]}: \\quad ${tpl.tangs[0]}\\\\ x_0 = ${tpl.x0s[1]}: \\quad ${tpl.tangs[1]}`,
+          explanation: tpl.checkMsg
+        }
+      ]
+    };
+  }
+
   function generate() {
-    // polyTangent i rationalTangent usunięte — prosta styczna, 1 krok
-    // parallelTangent i tangentAtAngle wymagają układu równań / kąta nachylenia — poziom 8/10
-    return M.choose([parallelTangent, tangentAtAngle, parallelTangent, tangentAtAngle])();
+    // parallelTangent, tangentAtAngle i tangentFromExternal — poziom 8-9/10
+    // tangentFromExternal to klasyczny schemat maturalny: styczna z zewnętrznego punktu
+    return M.choose([parallelTangent, tangentAtAngle, tangentFromExternal, tangentFromExternal, parallelTangent])();
   }
 
   return { generate };

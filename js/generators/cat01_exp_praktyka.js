@@ -147,10 +147,12 @@ window.cat01 = (() => {
     const m0 = M.choose([4,8,10,16,20,25,32,50]);
     const losePercent = chosen.lose;
     const q = chosen.q;
-    const target = m0 * q.p * q.p / (q.q * q.q);
-    const threshold = m0 / 8;
+    // Próg: losuj spośród m0/4, m0/8, m0/16 — trudniejszy próg wymaga więcej kroków logarytmu
+    const thresholdOptions = [m0/4, m0/8, m0/16].filter(v => v > 0 && Number.isInteger(v));
+    const threshold = M.choose(thresholdOptions.length > 0 ? thresholdOptions : [m0/8]);
     // m0 · (p/q)^t < threshold  → t > log(threshold/m0) / log(p/q)
     const tMin = Math.ceil(Math.log(threshold / m0) / Math.log(q.p / q.q));
+    const tExact = (Math.log(threshold / m0) / Math.log(q.p / q.q)).toFixed(3);
 
     return {
       id: M.makeId('cat01_decay_sub'),
@@ -187,9 +189,14 @@ window.cat01 = (() => {
           explanation: 'Szukamy najmniejszego całkowitego t spełniającego nierówność.'
         },
         {
-          step: 3, title: 'Rozwiązanie nierówności',
-          content: `Logarytmując: $t \\cdot \\log\\left(${M.latexFrac(q.p, q.q)}\\right) < \\log\\left(${M.latexFrac(threshold, m0)}\\right)$. Po podzieleniu przez liczbę ujemną i odwróceniu nierówności: $t > ${(tMin - 1).toFixed(2)}\\ldots$, więc $\\mathbf{t_{\\min} = ${tMin}}$.`,
-          explanation: 'Pamiętaj: dzielenie przez liczbę ujemną odwraca nierówność!'
+          step: 3, title: 'Rozwiązanie nierówności logarytmicznej',
+          content: `t \\cdot \\log\\!\\left(${M.latexFrac(q.p, q.q)}\\right) < \\log\\!\\left(${M.latexFrac(threshold, m0)}\\right)\\\\ \\log\\!\\left(${M.latexFrac(q.p, q.q)}\\right) < 0 \\implies \\text{odwróć nierówność przy dzieleniu:}\\\\ t > \\frac{\\log(${threshold}/${m0})}{\\log(${q.p}/${q.q})} \\approx ${tExact}`,
+          explanation: 'Kluczowa pułapka: dzielenie przez liczbę ujemną ODWRACA kierunek nierówności!'
+        },
+        {
+          step: 4, title: 'Odpowiedź',
+          content: `t > ${tExact}\\ldots \\implies \\mathbf{t_{\\min} = ${tMin}}`,
+          explanation: `Weryfikacja: $m(${tMin}) = ${m0}\\cdot\\left(${M.latexFrac(q.p,q.q)}\\right)^{${tMin}} \\approx ${(m0*Math.pow(q.p/q.q,tMin)).toFixed(2)} < ${threshold}\\checkmark$`
         }
       ]
     };

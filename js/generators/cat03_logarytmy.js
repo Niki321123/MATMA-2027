@@ -179,11 +179,12 @@ window.cat03 = (() => {
 
   // ── SCHEMAT C: Równanie logarytmiczne ─────────────────────────────────
   function logEquation() {
-    // Typ 1: log_a(x + b) = c  →  x = a^c - b
-    // Typ 2: log_a(x^2 + bx) = c  →  kwadratowe
-    // Typ 3: log_a(x) + log_a(x+k) = c  →  kwadratowe
+    // Typ 2: log_a(x) + log_a(x+k) = c  →  kwadratowe, obie dziedziny
+    // Typ 3: log_a(x²-k) = c  →  oba rozwiązania w dziedzinie (pułapka)
+    // Typ 4: log_a x + log_(a²) x = c  →  podstawienie t = log_a x (dwie podstawy)
+    // Typ 5: log_a(x-p) + log_a(x+q) = log_a(R)  →  kwadratowe, jedno odpada z dziedziny
 
-    const TYPE = M.choose([1, 1, 2, 3]);
+    const TYPE = M.choose([2, 3, 4, 4, 5, 5]);
 
     if (TYPE === 1) {
       const base = M.choose([2, 3, 4, 5]);
@@ -252,33 +253,151 @@ window.cat03 = (() => {
       };
     }
 
-    // TYPE === 3: log_a(x^2 - k) = c
-    const base = M.choose([2, 3]);
-    const c    = M.choose([1, 2]);
-    const val  = Math.pow(base, c);
-    // x^2 = val + k, pick k so x_ans is nice integer
-    const x_ans = M.choose([3, 4, 5, 6, 7]);
-    const k = x_ans * x_ans - val;
-    if (k <= 0 || k > 30) return logEquation();
+    // TYPE === 3: log_a(x^2 - k) = c  →  oba rozwiązania ±x_ans są w dziedzinie (pułapka: oba poprawne)
+    if (TYPE === 3) {
+      const base3 = M.choose([2, 3]);
+      const c3    = M.choose([1, 2]);
+      const val3  = Math.pow(base3, c3);
+      const x_ans3 = M.choose([3, 4, 5, 6, 7]);
+      const k3 = x_ans3 * x_ans3 - val3;
+      if (k3 <= 0 || k3 > 30) return logEquation();
 
-    return {
-      id: M.makeId('cat03_log_eq3'),
-      category: 3, categoryName: 'Logarytmy',
-      type: 'log_equation', points: 3,
-      params: { base, c, k, x_ans, val },
-      statement: `Rozwiąż równanie\n$$\\log_{${base}}(x^2 - ${k}) = ${c}$$\nZapisz obliczenia. Podaj dziedzinę.`,
-      answer: { type: 'set', display: `x = ${x_ans} \\text{ lub } x = -${x_ans}`, description: `$x = \\pm${x_ans}$` },
-      hints: [
-        { level: 1, text: `Dziedzina: $x^2 - ${k} > 0 \\iff |x| > \\sqrt{${k}}$.` },
-        { level: 2, text: `$x^2 - ${k} = ${base}^{${c}} = ${val}$, więc $x^2 = ${val+k} = ${x_ans*x_ans}$.` },
-        { level: 3, text: `$x = \\pm${x_ans}$. Sprawdź dziedzinę: $${x_ans}^2 - ${k} = ${val} > 0\\checkmark$.` }
-      ],
-      solution: [
-        { step: 1, title: 'Dziedzina', content: `x^2 - ${k} > 0 \\implies |x| > \\sqrt{${k}} \\approx ${Math.sqrt(k).toFixed(2)}`, explanation: '' },
-        { step: 2, title: 'Rozwiązanie', content: `x^2 - ${k} = ${base}^{${c}} = ${val} \\implies x^2 = ${val+k} \\implies x = \\pm${x_ans}`, explanation: '' },
-        { step: 3, title: 'Sprawdzenie', content: `${x_ans}^2 - ${k} = ${val} > 0\\checkmark,\\quad (-${x_ans})^2 - ${k} = ${val} > 0\\checkmark`, explanation: '' }
-      ]
-    };
+      return {
+        id: M.makeId('cat03_log_eq3'),
+        category: 3, categoryName: 'Logarytmy',
+        type: 'log_equation', points: 3,
+        params: { base: base3, c: c3, k: k3, x_ans: x_ans3, val: val3 },
+        statement: `Rozwiąż równanie\n$$\\log_{${base3}}(x^2 - ${k3}) = ${c3}$$\nZapisz obliczenia. Podaj dziedzinę.`,
+        answer: { type: 'set', display: `x = ${x_ans3} \\text{ lub } x = -${x_ans3}`, description: `$x = \\pm${x_ans3}$` },
+        hints: [
+          { level: 1, text: `Dziedzina: $x^2 - ${k3} > 0 \\iff |x| > \\sqrt{${k3}}$.` },
+          { level: 2, text: `$x^2 - ${k3} = ${base3}^{${c3}} = ${val3}$, więc $x^2 = ${val3+k3} = ${x_ans3*x_ans3}$.` },
+          { level: 3, text: `$x = \\pm${x_ans3}$. Sprawdź: oba spełniają $|x|>\\sqrt{${k3}}\\checkmark$.` }
+        ],
+        solution: [
+          { step: 1, title: 'Dziedzina', content: `x^2 - ${k3} > 0 \\implies |x| > \\sqrt{${k3}} \\approx ${Math.sqrt(k3).toFixed(2)}`, explanation: '' },
+          { step: 2, title: 'Rozwiązanie równania', content: `x^2 - ${k3} = ${base3}^{${c3}} = ${val3} \\implies x^2 = ${val3+k3} \\implies x = \\pm${x_ans3}`, explanation: '' },
+          { step: 3, title: 'Weryfikacja dziedziny', content: `(${x_ans3})^2 - ${k3} = ${val3} > 0\\checkmark,\\quad (-${x_ans3})^2 - ${k3} = ${val3} > 0\\checkmark`, explanation: 'Oba rozwiązania należą do dziedziny.' }
+        ]
+      };
+    }
+
+    // TYPE === 4: log_a x + log_(a^k) x = c  →  podstawienie t = log_a x
+    // Przykład: log₂x + log₄x = 6  →  t + t/2 = 6  →  t = 4  →  x = 16
+    if (TYPE === 4) {
+      const TEMPLATES4 = [
+        { base: 2, sqBase: 4, sqStr: '4', eq: '\\log_2 x + \\log_4 x = 6',
+          sub: 't + \\dfrac{t}{2} = 6', combined: '\\dfrac{3t}{2} = 6',
+          t: 4, x: 16, domain: 'x > 0' },
+        { base: 3, sqBase: 9, sqStr: '9', eq: '\\log_3 x + \\log_9 x = 3',
+          sub: 't + \\dfrac{t}{2} = 3', combined: '\\dfrac{3t}{2} = 3',
+          t: 2, x: 9, domain: 'x > 0' },
+        { base: 2, sqBase: 4, sqStr: '4', eq: '\\log_4 x + \\log_2 x = 9',
+          sub: '\\dfrac{t}{2} + t = 9', combined: '\\dfrac{3t}{2} = 9',
+          t: 6, x: 64, domain: 'x > 0' },
+        { base: 2, sqBase: 4, sqStr: '4', eq: '\\log_2 x - \\log_4 x = 2',
+          sub: 't - \\dfrac{t}{2} = 2', combined: '\\dfrac{t}{2} = 2',
+          t: 4, x: 16, domain: 'x > 0' },
+        { base: 3, sqBase: 27, sqStr: '27', eq: '\\log_3 x - \\log_{27} x = \\dfrac{4}{3}',
+          sub: 't - \\dfrac{t}{3} = \\dfrac{4}{3}', combined: '\\dfrac{2t}{3} = \\dfrac{4}{3}',
+          t: 2, x: 9, domain: 'x > 0' },
+        { base: 5, sqBase: 25, sqStr: '25', eq: '\\log_5 x + \\log_{25} x = \\dfrac{3}{2}',
+          sub: 't + \\dfrac{t}{2} = \\dfrac{3}{2}', combined: '\\dfrac{3t}{2} = \\dfrac{3}{2}',
+          t: 1, x: 5, domain: 'x > 0' },
+        { base: 2, sqBase: 8, sqStr: '8', eq: '\\log_8 x + \\log_2 x = \\dfrac{8}{3}',
+          sub: '\\dfrac{t}{3} + t = \\dfrac{8}{3}', combined: '\\dfrac{4t}{3} = \\dfrac{8}{3}',
+          t: 2, x: 4, domain: 'x > 0' },
+      ];
+      const tpl4 = M.choose(TEMPLATES4);
+
+      return {
+        id: M.makeId('cat03_log_eq4'),
+        category: 3, categoryName: 'Logarytmy',
+        type: 'log_equation_subst', points: 4,
+        params: tpl4,
+        statement:
+          `Rozwiąż równanie\n$$${tpl4.eq}$$\n` +
+          `Zapisz obliczenia. Podaj dziedzinę i zastosuj podstawienie pomocnicze.`,
+        answer: { type: 'number', value: tpl4.x, display: `x = ${tpl4.x}`, description: `$x = ${tpl4.x}$` },
+        hints: [
+          { level: 1, text: `Dziedzina: $x > 0$. Wprowadź podstawienie $t = \\log_{${tpl4.base}} x$.` },
+          { level: 2, text: `Korzystając ze wzoru zmiany podstawy: $\\log_{${tpl4.sqStr}} x = \\dfrac{\\log_{${tpl4.base}} x}{\\log_{${tpl4.base}} ${tpl4.sqStr}} = \\dfrac{t}{\\log_{${tpl4.base}} ${tpl4.sqStr}}$.` },
+          { level: 3, text: `Równanie przyjmuje postać ${tpl4.sub}. Rozwiąż i cofnij podstawienie: $t = \\log_{${tpl4.base}} x = ${tpl4.t}$, więc $x = ${tpl4.base}^{${tpl4.t}} = ${tpl4.x}$.` }
+        ],
+        solution: [
+          { step: 1, title: 'Dziedzina', content: `x > 0`, explanation: 'Argument logarytmu musi być dodatni.' },
+          { step: 2, title: `Podstawienie $t = \\log_{${tpl4.base}} x$`, content: `\\log_{${tpl4.sqStr}} x = \\frac{\\log_{${tpl4.base}} x}{\\log_{${tpl4.base}} ${tpl4.sqStr}} = \\frac{t}{\\log_{${tpl4.base}} ${tpl4.sqStr}}`, explanation: 'Wzór zmiany podstawy logarytmu.' },
+          { step: 3, title: 'Równanie w t', content: `${tpl4.sub} \\implies ${tpl4.combined} \\implies t = ${tpl4.t}`, explanation: '' },
+          { step: 4, title: 'Cofnięcie podstawienia', content: `\\log_{${tpl4.base}} x = ${tpl4.t} \\implies x = ${tpl4.base}^{${tpl4.t}} = \\mathbf{${tpl4.x}}`, explanation: `Sprawdzenie: $x = ${tpl4.x} > 0 \\checkmark$.` }
+        ]
+      };
+    }
+
+    // TYPE === 5: log_a(x-p) + log_a(x+q) = log_a(R)  →  kwadratowe, jedno rozwiązanie poza dziedziną
+    // Klasyczny maturalny pułapka: algebraicznie dwa rozwiązania, jedno odpada
+    {
+      const TEMPLATES5 = [
+        // log₃(x-1)·(x+1) = log₃8 → x²-1=8 → x=±3, dom: x>1 → x=3
+        { base: 3, p: 1, q: -1, rhs: 8, rhsLog: 'log_3 8',
+          xPos: 3, xNeg: -3,
+          domStr: 'x > 1',
+          eqStr: '\\log_3(x-1) + \\log_3(x+1) = \\log_3 8',
+          prodEq: '(x-1)(x+1) = 8',
+          quadStr: 'x^2 - 1 = 8 \\implies x^2 = 9 \\implies x = \\pm 3',
+          reject: '-3', keep: '3',
+          rejectReason: 'x = -3$ nie spełnia warunku $x > 1$' },
+        // log₄(x+3)·(x-3) = log₄7 → x²-9=7 → x=±4, dom: x>3 → x=4
+        { base: 4, p: -3, q: 3, rhs: 7, rhsLog: 'log_4 7',
+          xPos: 4, xNeg: -4,
+          domStr: 'x > 3',
+          eqStr: '\\log_4(x+3) + \\log_4(x-3) = \\log_4 7',
+          prodEq: '(x+3)(x-3) = 7',
+          quadStr: 'x^2 - 9 = 7 \\implies x^2 = 16 \\implies x = \\pm 4',
+          reject: '-4', keep: '4',
+          rejectReason: 'x = -4$ nie spełnia warunku $x > 3$' },
+        // log₂(x+1)·(x-3) = 5 → (x+1)(x-3)=32 → x²-2x-35=0 → x=7 or x=-5, dom: x>3 → x=7
+        { base: 2, p: -1, q: 3, rhs: 32, rhsLog: '5',
+          xPos: 7, xNeg: -5,
+          domStr: 'x > 3',
+          eqStr: '\\log_2(x+1) + \\log_2(x-3) = 5',
+          prodEq: '(x+1)(x-3) = 2^5 = 32',
+          quadStr: 'x^2 - 2x - 35 = 0 \\implies (x-7)(x+5) = 0 \\implies x = 7 \\text{ lub } x = -5',
+          reject: '-5', keep: '7',
+          rejectReason: 'x = -5$ nie spełnia warunku $x > 3$' },
+        // log₅(x-2)·(x+2) = log₅(21) → x²-4=21 → x²=25 → x=±5, dom: x>2 → x=5
+        { base: 5, p: 2, q: -2, rhs: 21, rhsLog: 'log_5 21',
+          xPos: 5, xNeg: -5,
+          domStr: 'x > 2',
+          eqStr: '\\log_5(x-2) + \\log_5(x+2) = \\log_5 21',
+          prodEq: '(x-2)(x+2) = 21',
+          quadStr: 'x^2 - 4 = 21 \\implies x^2 = 25 \\implies x = \\pm 5',
+          reject: '-5', keep: '5',
+          rejectReason: 'x = -5$ nie spełnia warunku $x > 2$' },
+      ];
+      const tpl5 = M.choose(TEMPLATES5);
+
+      return {
+        id: M.makeId('cat03_log_eq5'),
+        category: 3, categoryName: 'Logarytmy',
+        type: 'log_equation_domain', points: 4,
+        params: tpl5,
+        statement:
+          `Rozwiąż równanie\n$$${tpl5.eqStr}$$\n` +
+          `Zapisz obliczenia. Podaj dziedzinę i sprawdź każde rozwiązanie.`,
+        answer: { type: 'number', value: tpl5.xPos, display: `x = ${tpl5.keep}`, description: `$x = ${tpl5.keep}$ (jedno rozwiązanie odrzucone z powodu dziedziny)` },
+        hints: [
+          { level: 1, text: `Wyznacz dziedzinę: oba argumenty muszą być dodatnie. Stąd $${tpl5.domStr}$.` },
+          { level: 2, text: `Skorzystaj z $\\log_a A + \\log_a B = \\log_a(AB)$ i doprowadź do $${tpl5.prodEq}$.` },
+          { level: 3, text: `${tpl5.quadStr}. Sprawdź dziedzinę: $${tpl5.rejectReason}$ — odrzuć!` }
+        ],
+        solution: [
+          { step: 1, title: 'Dziedzina', content: `\\text{Oba argumenty } > 0 \\implies ${tpl5.domStr}`, explanation: 'To jest kluczowy krok — bez niego nie można sprawdzić rozwiązań.' },
+          { step: 2, title: 'Łączenie logarytmów', content: `${tpl5.prodEq}`, explanation: `$\\log_a A + \\log_a B = \\log_a(A \\cdot B)$` },
+          { step: 3, title: 'Równanie kwadratowe', content: tpl5.quadStr, explanation: '' },
+          { step: 4, title: 'Weryfikacja dziedziny', content: `x = ${tpl5.keep}: \\quad ${tpl5.domStr}\\checkmark\\\\ x = ${tpl5.reject}: \\quad ${tpl5.rejectReason} \\implies \\text{ODRZUĆ}`, explanation: 'Rozwiązanie algebraiczne nie zawsze jest rozwiązaniem równania logarytmicznego!' }
+        ]
+      };
+    }
   }
 
   // ── SCHEMAT D: Nierówność logarytmiczna ──────────────────────────────

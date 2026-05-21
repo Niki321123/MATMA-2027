@@ -272,10 +272,78 @@ window.cat02 = (() => {
     };
   }
 
+  // === SCHEMAT E: granica √(an²+bn) − √(an²+cn) — sprzężenie z dwoma pierwiastkami ===
+  // Wzorzec maturalny 8/10: lim (√(4n²+3n) − 2n) = 3/4, lub ogólnie lim (√(k²n²+an) − kn)
+  // Wymaga: mnożenia przez sprzężone, wyłączenia n z pod pierwiastka
+  function sqrtLimitCompound() {
+    const TEMPLATES = [
+      // lim (√(4n²+6n) − 2n) = 6/4 = 3/2
+      { kStr: '2', k: 2, a: 6, expr: '\\sqrt{4n^2 + 6n} - 2n',
+        result: '\\dfrac{3}{2}', resultVal: 3/2,
+        conj: '\\sqrt{4n^2+6n}+2n',
+        step2: '\\frac{4n^2+6n-4n^2}{\\sqrt{4n^2+6n}+2n} = \\frac{6n}{\\sqrt{4n^2+6n}+2n}',
+        step3: '\\frac{6}{\\sqrt{4+\\frac{6}{n}}+2} \\xrightarrow{n\\to\\infty} \\frac{6}{2+2} = \\frac{6}{4} = \\frac{3}{2}' },
+      // lim (√(9n²+12n) − 3n) = 12/6 = 2
+      { kStr: '3', k: 3, a: 12, expr: '\\sqrt{9n^2 + 12n} - 3n',
+        result: '2', resultVal: 2,
+        conj: '\\sqrt{9n^2+12n}+3n',
+        step2: '\\frac{9n^2+12n-9n^2}{\\sqrt{9n^2+12n}+3n} = \\frac{12n}{\\sqrt{9n^2+12n}+3n}',
+        step3: '\\frac{12}{\\sqrt{9+\\frac{12}{n}}+3} \\xrightarrow{n\\to\\infty} \\frac{12}{3+3} = \\frac{12}{6} = 2' },
+      // lim (√(4n²+n+3) − √(4n²+3n+1)) = (1−3)/(2·2) = −1/2
+      { kStr: null, a: 1, b: 3, c: 3, d: 1,
+        expr: '\\sqrt{4n^2+n+3} - \\sqrt{4n^2+3n+1}',
+        result: '-1', resultVal: -1,
+        conj: '\\sqrt{4n^2+n+3}+\\sqrt{4n^2+3n+1}',
+        step2: '\\frac{(4n^2+n+3)-(4n^2+3n+1)}{\\sqrt{4n^2+n+3}+\\sqrt{4n^2+3n+1}} = \\frac{-2n+2}{\\sqrt{4n^2+n+3}+\\sqrt{4n^2+3n+1}}',
+        step3: '\\frac{-2+\\frac{2}{n}}{\\sqrt{4+\\frac{1}{n}+\\frac{3}{n^2}}+\\sqrt{4+\\frac{3}{n}+\\frac{1}{n^2}}} \\xrightarrow{n\\to\\infty} \\frac{-2}{2+2} = -\\frac{1}{2}',
+        result: '-\\dfrac{1}{2}', resultVal: -0.5 },
+      // lim n·(√(1+3/n) − 1) = 3/2 (rozwinięcie √(1+x)≈1+x/2)
+      { kStr: 'lin', a: 3, expr: 'n\\left(\\sqrt{1+\\dfrac{3}{n}}-1\\right)',
+        result: '\\dfrac{3}{2}', resultVal: 1.5,
+        conj: '\\sqrt{1+\\frac{3}{n}}+1',
+        step2: 'n \\cdot \\frac{1+\\frac{3}{n}-1}{\\sqrt{1+\\frac{3}{n}}+1} = n \\cdot \\frac{\\frac{3}{n}}{\\sqrt{1+\\frac{3}{n}}+1} = \\frac{3}{\\sqrt{1+\\frac{3}{n}}+1}',
+        step3: '\\frac{3}{\\sqrt{1+0}+1} = \\frac{3}{2}' },
+    ];
+
+    const tpl = M.choose(TEMPLATES);
+
+    return {
+      id: M.makeId('cat02_sqrt2'),
+      category: 2,
+      categoryName: 'Granica',
+      type: 'sqrt_limit_compound',
+      points: 4,
+      params: tpl,
+      statement:
+        `Oblicz granicę\n$$\\lim_{n \\to +\\infty} ${tpl.expr}$$\nZapisz obliczenia.`,
+      answer: {
+        type: 'expression',
+        value: tpl.resultVal,
+        display: tpl.result,
+        description: `$\\lim = ${tpl.result}$`
+      },
+      hints: [
+        { level: 1, text: `Zastosuj technikę sprzężenia: pomnóż licznik i mianownik przez $${tpl.conj}$.` },
+        { level: 2, text: `Po pomnożeniu: $${tpl.step2}$.` },
+        { level: 3, text: `Podziel przez $n$ i oblicz granicę: $${tpl.step3}$.` }
+      ],
+      solution: [
+        {
+          step: 1, title: 'Mnożenie przez sprzężone',
+          content: `${tpl.expr} = \\frac{\\left(${tpl.expr.replace(/^n\\left\\(/, '').replace(/\\right\\)$/, '')}\\right)\\cdot\\left(${tpl.conj}\\right)}{${tpl.conj}}`,
+          explanation: 'Technika sprzężenia eliminuje różnicę pierwiastków.'
+        },
+        { step: 2, title: 'Uproszczenie', content: tpl.step2, explanation: '$(A-B)(A+B) = A^2 - B^2$.' },
+        { step: 3, title: 'Granica', content: tpl.step3, explanation: 'Wyrazy postaci $\\frac{c}{n^k} \\to 0$.' }
+      ]
+    };
+  }
+
   function generate() {
-    // seqLimit (prosta granica ciągu) i expVsPolyLimit (łatwe porównanie) usunięte
-    // funcLimit i sqrtLimit wymagają nieoznaczoności i przekształceń — poziom 7-8/10
-    return M.choose([funcLimit, sqrtLimit, funcLimit, sqrtLimit])();
+    // funcLimit (rozkład na czynniki, nieoznaczoność 0/0)
+    // sqrtLimit (sprzężenie — klasyczne)
+    // sqrtLimitCompound (sprzężenie z trudniejszą strukturą — 8/10)
+    return M.choose([funcLimit, sqrtLimit, sqrtLimitCompound, sqrtLimitCompound, funcLimit])();
   }
 
   return { generate };

@@ -7,46 +7,46 @@ window.cat11 = (() => {
 
   // === Okrąg i prosta styczna ===
   function circleTangent() {
-    const cx = M.choose([-4,-3,-2,-1,0,1,2,3,4]);
-    const cy = M.choose([-4,-3,-2,-1,0,1,2,3,4]);
-    const r = M.choose([2,3,4,5,6,7]);
+    const cx = M.choose([-3,-2,-1,0,1,2,3]);
+    const cy = M.choose([-3,-2,-1,0,1,2,3]);
 
-    // Punkt na okręgu - wybieramy tak, żeby styczna miała ładne równanie
-    // Punkt P = (cx + r, cy) - prawa część okręgu
-    // Styczna w tym punkcie: x = cx + r (pionowa)
-    // Lub P = (cx, cy+r) - górna
-    const useHoriz = M.choose([true, false]);
-    const px = useHoriz ? cx + r : cx;
-    const py = useHoriz ? cy : cy + r;
+    // Trójki pitagorejskie skalowane do różnych promieni — dają ukośne styczne (nie poziome/pionowe)
+    // (a,b,r) gdzie a²+b²=r², P = (cx+a, cy+b)
+    const PYTH = [
+      { a: 3, b: 4, r: 5 }, { a: -3, b: 4, r: 5 }, { a: 3, b: -4, r: 5 }, { a: -3, b: -4, r: 5 },
+      { a: 4, b: 3, r: 5 }, { a: -4, b: 3, r: 5 }, { a: 4, b: -3, r: 5 }, { a: -4, b: -3, r: 5 },
+      { a: 5, b: 12, r: 13 }, { a: -5, b: 12, r: 13 }, { a: 5, b: -12, r: 13 }, { a: -5, b: -12, r: 13 },
+      { a: 12, b: 5, r: 13 }, { a: -12, b: 5, r: 13 }, { a: 12, b: -5, r: 13 },
+      { a: 6, b: 8, r: 10 }, { a: -6, b: 8, r: 10 }, { a: 6, b: -8, r: 10 }, { a: -6, b: -8, r: 10 },
+      { a: 8, b: 6, r: 10 }, { a: -8, b: 6, r: 10 },
+    ];
+    const pyth = M.choose(PYTH);
+    const r = pyth.r;
+    const px = cx + pyth.a;
+    const py_pt = cy + pyth.b;   // py_pt by not shadow outer py
 
-    // Styczna w P = (px, py):
-    // Równanie okręgu: (x-cx)² + (y-cy)² = r²
-    // Styczna: (px-cx)(x-cx) + (py-cy)(y-cy) = r²
-    // czyli: (px-cx)·x + (py-cy)·y = r² + (px-cx)·cx + (py-cy)·cy
-    const A = px - cx;
-    const B = py - cy;
+    // Styczna w P = (px, py_pt):
+    // (px-cx)(x-cx) + (py_pt-cy)(y-cy) = r²
+    // A·x + B·y = r² + A·cx + B·cy
+    const A = pyth.a;  // = px - cx
+    const B = pyth.b;  // = py_pt - cy
     const C = r * r + A * cx + B * cy;
 
-    let tangentStr = '';
-    if (A === 0) {
-      // pozioma: By = C → y = C/B
-      tangentStr = `y = ${C / B}`;
-    } else if (B === 0) {
-      // pionowa: Ax = C → x = C/A
-      tangentStr = `x = ${C / A}`;
-    } else {
-      // ogólna: Ax + By = C → y = (C - Ax)/B
-      const b_val = C / B;
-      const a_val = -A / B;
-      const b_int = Number.isInteger(b_val) && Number.isInteger(a_val);
-      if (b_int) {
-        tangentStr = `y = ${a_val === 1 ? '' : a_val === -1 ? '-' : a_val}x${b_val >= 0 ? '+' + b_val : b_val}`;
-      } else {
-        tangentStr = `${A}x + ${B}y = ${C}`;
-      }
-    }
+    // Zawsze ukośna (A≠0 i B≠0 z definicji trójki pitagorejskiej)
+    const tangentStr = `${A}x ${B >= 0 ? '+ ' + B : '- ' + Math.abs(B)}y = ${C}`;
 
-    const circleEq = `(x ${cx >= 0 ? '-' + cx : '+' + Math.abs(cx)})^2 + (y ${cy >= 0 ? '-' + cy : '+' + Math.abs(cy)})^2 = ${r*r}`;
+    // Dla pytania: napisz w postaci y = mx + n gdy wygodne, ale tu pozostawiamy Ax+By=C
+    // bo jest czytelniejsza i bardziej maturalna
+    const gcdAB = M.gcd(Math.abs(A), Math.abs(M.gcd(Math.abs(B), Math.abs(C))));
+    const canSimplify = gcdAB > 1;
+    const tangentDisplay = canSimplify
+      ? `${A/gcdAB}x ${B/gcdAB >= 0 ? '+ ' + B/gcdAB : '- ' + Math.abs(B/gcdAB)}y = ${C/gcdAB}`
+      : tangentStr;
+
+    const circleEq = `(x ${cx > 0 ? '- ' + cx : cx < 0 ? '+ ' + Math.abs(cx) : ''})^2 + (y ${cy > 0 ? '- ' + cy : cy < 0 ? '+ ' + Math.abs(cy) : ''})^2 = ${r*r}`;
+    const circleEqClean = cx === 0 && cy === 0 ? `x^2 + y^2 = ${r*r}` : circleEq;
+
+    // Sprawdzenie: A·px + B·py_pt = A(cx+A) + B(cy+B) = A·cx + A²+ B·cy + B² = C ✓ (bo A²+B²=r²)
 
     return {
       id: M.makeId('cat11_tangent'),
@@ -54,25 +54,31 @@ window.cat11 = (() => {
       categoryName: 'Geometria analityczna',
       type: 'circle_tangent',
       points: 4,
-      params: { cx, cy, r, px, py },
+      params: { cx, cy, r, px, py: py_pt, A, B, C },
       statement:
-        `Dany jest okrąg o równaniu\n$$${circleEq}$$\n` +
-        `Punkt $P = (${px},\\ ${py})$ leży na tym okręgu.\n\n` +
+        `Dany jest okrąg o równaniu\n$$${circleEqClean}$$\n` +
+        `Punkt $P = (${px},\\ ${py_pt})$ leży na tym okręgu.\n\n` +
         `**Wyznacz równanie prostej stycznej do okręgu w punkcie $P$.** Zapisz obliczenia.`,
       answer: {
         type: 'expression',
-        display: tangentStr,
-        description: `Równanie stycznej: $${tangentStr}$`
+        display: tangentDisplay,
+        description: `Równanie stycznej: $${tangentDisplay}$`
       },
       hints: [
-        { level: 1, text: `Styczna do okręgu $(x-a)^2+(y-b)^2=r^2$ w punkcie $(x_0,y_0)$: $(x_0-a)(x-a)+(y_0-b)(y-b)=r^2$.` },
-        { level: 2, text: `Środek okręgu $S = (${cx}, ${cy})$. Promień do $P$: kierunek $(${A}, ${B})$. Styczna jest prostopadła do promienia.` },
-        { level: 3, text: `Równanie stycznej: $${A}(x-${cx})+${B}(y-${cy})=${r*r}$, czyli $${tangentStr}$.` }
+        { level: 1, text: `Sprawdź, że $P$ leży na okręgu: $(${px}-${cx})^2+(${py_pt}-${cy})^2 = ${A*A}+${B*B} = ${r*r}\\checkmark$.` },
+        { level: 2, text: `Styczna w punkcie $(x_0,y_0)$ do okręgu $(x-a)^2+(y-b)^2=r^2$:\n$(x_0-a)(x-a)+(y_0-b)(y-b)=r^2$.` },
+        { level: 3, text: `Podstaw $x_0 = ${px}$, $y_0 = ${py_pt}$, $a = ${cx}$, $b = ${cy}$: $${A}(x ${cx > 0 ? '- '+cx : cx < 0 ? '+ '+Math.abs(cx) : ''})+${B}(y ${cy > 0 ? '- '+cy : cy < 0 ? '+ '+Math.abs(cy) : ''})=${r*r}$.` }
       ],
       solution: [
-        { step: 1, title: 'Sprawdzenie punktu', content: `(${px}-${cx})^2+(${py}-${cy})^2 = ${A*A}+${B*B} = ${A*A+B*B} = ${r*r}\\checkmark`, explanation: 'P leży na okręgu.' },
-        { step: 2, title: 'Wzór na styczną', content: `(x_0-a)(x-a)+(y_0-b)(y-b) = r^2\\\\ ${A}\\cdot(x-${cx})+${B}\\cdot(y-${cy}) = ${r*r}`, explanation: 'Styczna prostopadła do promienia w punkcie P.' },
-        { step: 3, title: 'Uproszczenie', content: `${A}x ${-A*cx >= 0 ? '+' : ''}${-A*cx}+${B}y ${-B*cy >= 0 ? '+' : ''}${-B*cy} = ${r*r}\\\\ ${tangentStr}`, explanation: '' }
+        { step: 1, title: 'Weryfikacja: P na okręgu',
+          content: `(${px} ${cx >= 0 ? '-' + cx : '+' + Math.abs(cx)})^2+(${py_pt} ${cy >= 0 ? '-' + cy : '+' + Math.abs(cy)})^2 = ${A}^2+${B}^2 = ${A*A+B*B} = ${r*r}\\checkmark`,
+          explanation: '' },
+        { step: 2, title: 'Wzór na równanie stycznej',
+          content: `(x_0-a)(x-a)+(y_0-b)(y-b) = r^2\\\\ ${A}\\cdot(x ${cx > 0 ? '- '+cx : cx < 0 ? '+ '+Math.abs(cx) : ''}) + ${B}\\cdot(y ${cy > 0 ? '- '+cy : cy < 0 ? '+ '+Math.abs(cy) : ''}) = ${r*r}`,
+          explanation: 'Styczna do okręgu jest prostopadła do promienia w punkcie P.' },
+        { step: 3, title: 'Uproszczenie',
+          content: `${A}x ${B >= 0 ? '+ ' + B + 'y' : '- ' + Math.abs(B) + 'y'} = ${C}${canSimplify ? `\\\\ \\div ${gcdAB}: \\quad ${tangentDisplay}` : ''}`,
+          explanation: '' }
       ]
     };
   }
