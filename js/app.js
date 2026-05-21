@@ -1095,7 +1095,9 @@
   }
 
   // === Symulacja matury ===
-  const EXAM_CATS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  const EXAM_CATS_PR  = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  const EXAM_CATS_FIZ = ['fiz01','fiz02','fiz03','fiz04','fiz05','fiz06','fiz07',
+                          'fiz08','fiz09','fiz10','fiz11','fiz12','fiz13','fiz14'];
 
   async function generateExam() {
     const SA = window.SupabaseAuth;
@@ -1105,16 +1107,21 @@
     examTasks   = [];
     examResults = [];
 
-    if (getMathLevel() === 'PP') {
+    const lvl = getMathLevel();
+
+    if (lvl === 'PP') {
       examTasks = G.generatePPExam();
       examResults = new Array(examTasks.length).fill(null);
-    } else {
-      const cats = [...EXAM_CATS].sort(() => Math.random() - 0.5).slice(0, 12);
+    } else if (lvl === 'FIZ') {
+      // Fizyka rozszerzona: 11 zadań (jak prawdziwa matura)
+      const cats = [...EXAM_CATS_FIZ].sort(() => Math.random() - 0.5).slice(0, 11);
       cats.forEach(catId => {
-        try {
-          examTasks.push(G.generate(catId));
-          examResults.push(null);
-        } catch (e) { /* skip */ }
+        try { examTasks.push(G.generate(catId)); examResults.push(null); } catch (e) { /* skip */ }
+      });
+    } else {
+      const cats = [...EXAM_CATS_PR].sort(() => Math.random() - 0.5).slice(0, 12);
+      cats.forEach(catId => {
+        try { examTasks.push(G.generate(catId)); examResults.push(null); } catch (e) { /* skip */ }
       });
     }
 
