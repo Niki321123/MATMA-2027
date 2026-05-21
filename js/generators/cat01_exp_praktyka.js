@@ -301,31 +301,63 @@ window.cat01 = (() => {
   // Wymaga: zalogowania obu stron, obsługi log < 0 lub log > 0
   function twoModelsComparison() {
     const templates = [
-      // N1 = 100·3^t, N2 = 900·(3/2)^t; N1 = N2 → 100·3^t = 900·(3/2)^t
-      // (3/(3/2))^t = 900/100 → 2^t = 9 → t = log₂9 ≈ 3.17 → t_min = 4
+      // N1 = 100·3^t, N2 = 900·(3/2)^t
+      // N1 = N2 → 2^t = 9 → t = log₂9 ≈ 3,17 → t_min = 4 (ceil)
       {
         N1_0: 100, k1_str: '3', k1: 3,
         N2_0: 900, k2_str: '\\dfrac{3}{2}', k2: 1.5,
-        ratio_str: '2^t = 9', t_exact: 'log_2 9 \\approx 3{,}17',
-        t_min: 4, unit: 'roku',
-        context: 'Firma A produkuje $100 \\cdot 3^t$ jednostek po $t$ latach, firma B produkuje $900 \\cdot \\left(\\frac{3}{2}\\right)^t$ jednostek.'
+        ratio_str: '2^t = 9', t_exact: '\\log_2 9 \\approx 3{,}17',
+        t_min: 4,
+        unitQ: 'roku', unitB: 'Od którego roku', unitBracket: 'pełny rok',
+        context:
+          'Dwie firmy produkują podzespoły elektroniczne. Na początku pierwszego roku ' +
+          'firma A wyprodukowała $100$ sztuk miesięcznie, a firma B — $900$ sztuk miesięcznie. ' +
+          'Firma A trzykrotnie zwiększa produkcję co roku, firma B zwiększa ją każdego roku ' +
+          '$\\dfrac{3}{2}$-krotnie. ' +
+          'Liczbę sztuk produkowanych przez firmę A i firmę B po $t$ pełnych latach opisują odpowiednio wzory ' +
+          '$N_A(t) = 100 \\cdot 3^t$ oraz $N_B(t) = 900 \\cdot \\left(\\dfrac{3}{2}\\right)^t$.',
+        label_A: 'firmy A', label_B: 'firmy B',
+        step4_explain: 'Ponieważ $\\log_2 9 \\approx 3{,}17$, pierwsza całkowita wartość $t$ spełniająca nierówność $N_A > N_B$ to $t = 4$.'
       },
-      // N1 = 200·2^t, N2 = 1600·(4/3)^t; N1=N2 → 2^t/(4/3)^t = 8 → (3/2)^t = 8 → t·log(3/2) = log8
-      // t = log8/log(3/2) ≈ 5.13 → t_min = 6
+      // N1 = 200·2^t, N2 = 1600·(4/3)^t
+      // N1 = N2 → (3/2)^t = 8 → t = log(8)/log(3/2) ≈ 5,13 → t_min = 6
       {
         N1_0: 200, k1_str: '2', k1: 2,
         N2_0: 1600, k2_str: '\\dfrac{4}{3}', k2: 4/3,
-        ratio_str: '\\left(\\dfrac{3}{2}\\right)^t = 8', t_exact: '\\dfrac{\\log 8}{\\log \\frac{3}{2}} \\approx 5{,}13',
-        t_min: 6, unit: 'roku',
-        context: 'Kolonia X liczy $200 \\cdot 2^t$ bakterii, kolonia Y liczy $1600 \\cdot \\left(\\frac{4}{3}\\right)^t$ bakterii po $t$ godzinach.'
+        ratio_str: '\\left(\\dfrac{3}{2}\\right)^t = 8',
+        t_exact: '\\dfrac{\\log 8}{\\log \\frac{3}{2}} \\approx 5{,}13',
+        t_min: 6,
+        unitQ: 'godziny', unitB: 'Od której godziny', unitBracket: 'pełna godzina',
+        context:
+          'W laboratorium prowadzono obserwację dwóch kolonii bakterii. ' +
+          'Na początku obserwacji kolonia A liczyła $200$ tysięcy komórek i podwajała się co godzinę, ' +
+          'a kolonia B liczyła $1600$ tysięcy komórek i wzrastała $\\dfrac{4}{3}$-krotnie co godzinę. ' +
+          'Liczba komórek (w tys.) po $t$ pełnych godzinach wyraża się wzorami ' +
+          '$N_A(t) = 200 \\cdot 2^t$ oraz $N_B(t) = 1600 \\cdot \\left(\\dfrac{4}{3}\\right)^t$.',
+        label_A: 'kolonii A', label_B: 'kolonii B',
+        step4_explain: 'Ponieważ $\\frac{\\log 8}{\\log \\frac{3}{2}} \\approx 5{,}13$, pierwsza całkowita wartość $t$ spełniająca nierówność $N_A > N_B$ to $t = 6$.'
       },
-      // N1 = 500·4^t, N2 = 4000·2^t; N1=N2 → 500·4^t = 4000·2^t → 2^t = 8 → t=3
+      // N1 = 500·4^t, N2 = 4000·2^t
+      // N1 = N2 → 2^t = 8 = 2^3 → t = 3 (równość!)
+      // t_min = 4, bo przy t = 3 są RÓWNE, A > B dopiero dla t > 3
       {
         N1_0: 500, k1_str: '4', k1: 4,
         N2_0: 4000, k2_str: '2', k2: 2,
         ratio_str: '2^t = 8 = 2^3', t_exact: 't = 3',
-        t_min: 3, unit: 'godziny', exact: true,
-        context: 'Populacja A: $500 \\cdot 4^t$ osobników, populacja B: $4000 \\cdot 2^t$ osobników po $t$ godzinach.'
+        t_min: 4,
+        unitQ: 'godziny', unitB: 'Od której godziny', unitBracket: 'pełna godzina',
+        exact: true,
+        context:
+          'Biolog obserwuje dwie populacje owadów na izolowanej wyspie. ' +
+          'Na początku obserwacji populacja A liczyła $500$ osobników i wzrastała $4$-krotnie co godzinę, ' +
+          'a populacja B liczyła $4000$ osobników i wzrastała $2$-krotnie co godzinę. ' +
+          'Liczba osobników po $t$ pełnych godzinach wyraża się wzorami ' +
+          '$N_A(t) = 500 \\cdot 4^t$ oraz $N_B(t) = 4000 \\cdot 2^t$.',
+        label_A: 'populacji A', label_B: 'populacji B',
+        step4_explain:
+          'Przy $t = 3$ obie populacje są równe ($N_A(3) = 32000 = N_B(3)$). ' +
+          'Populacja A jest większa niż B dopiero dla $t > 3$, ' +
+          'więc pierwsza pełna godzina, w której $N_A > N_B$, to $t_{\\min} = 4$.'
       },
     ];
 
@@ -342,37 +374,37 @@ window.cat01 = (() => {
       statement:
         `${tpl.context}\n\n` +
         `**a)** Dla jakiej wartości $t$ obie wielkości są równe? Zapisz obliczenia.\n\n` +
-        `**b)** Od której ${tpl.unit} (pełna ${tpl.unit}) wielkość populacji A po raz pierwszy przekroczy populację B?`,
+        `**b)** ${tpl.unitB} (${tpl.unitBracket}) wielkość ${tpl.label_A} po raz pierwszy przekroczy wielkość ${tpl.label_B}?`,
       answer: {
         type: 'multipart',
         display: `t = ${tpl.t_exact},\\quad t_{\\min} = ${tpl.t_min}`,
-        description: `Równość przy $${tpl.t_exact}$; po raz pierwszy pełna ${tpl.unit}: $t = ${tpl.t_min}$`
+        description: `Równość przy $${tpl.t_exact}$; pierwsza pełna ${tpl.unitQ}: $t = ${tpl.t_min}$`
       },
       hints: [
-        { level: 1, text: `Przyrównaj wzory: $${tpl.N1_0} \\cdot ${tpl.k1_str}^t = ${tpl.N2_0} \\cdot ${tpl.k2_str}^t$. Podziel obie strony przez ${tpl.N2_0} i przez $${tpl.k2_str}^t$.` },
+        { level: 1, text: `Przyrównaj wzory: $${tpl.N1_0} \\cdot ${tpl.k1_str}^t = ${tpl.N2_0} \\cdot ${tpl.k2_str}^t$. Podziel obie strony przez $${tpl.N2_0}$ i przez $${tpl.k2_str}^t$.` },
         { level: 2, text: `Uprość lewą stronę do postaci potęgi jednej podstawy: $${tpl.ratio_str}$.` },
-        { level: 3, text: `Stąd $${tpl.t_exact}$. Pełna ${tpl.unit}: $t_{\\min} = ${tpl.t_min}$.` }
+        { level: 3, text: `Stąd $${tpl.t_exact}$. ${tpl.step4_explain}` }
       ],
       solution: [
         {
-          step: 1, title: 'Równanie N₁ = N₂',
+          step: 1, title: 'Równanie $N_A = N_B$',
           content: `${tpl.N1_0} \\cdot ${tpl.k1_str}^t = ${tpl.N2_0} \\cdot ${tpl.k2_str}^t`,
-          explanation: ''
+          explanation: 'Szukamy $t$, dla którego obie funkcje przyjmują tę samą wartość.'
         },
         {
-          step: 2, title: 'Przekształcenie',
-          content: `\\frac{${tpl.k1_str}^t}{${tpl.k2_str}^t} = \\frac{${tpl.N2_0}}{${tpl.N1_0}} \\implies ${tpl.ratio_str}`,
-          explanation: `$\\left(\\frac{k_1}{k_2}\\right)^t = \\frac{N_{2,0}}{N_{1,0}}$`
+          step: 2, title: 'Przekształcenie do jednej podstawy',
+          content: `\\left(\\frac{${tpl.k1_str}}{${tpl.k2_str}}\\right)^t = \\frac{${tpl.N2_0}}{${tpl.N1_0}} \\implies ${tpl.ratio_str}`,
+          explanation: `Dzielimy obie strony przez $${tpl.N1_0} \\cdot ${tpl.k2_str}^t$.`
         },
         {
           step: 3, title: isExact ? 'Dokładne rozwiązanie' : 'Rozwiązanie logarytmiczne',
           content: `t = ${tpl.t_exact}`,
-          explanation: isExact ? '' : 'Logarytmujemy obie strony i korzystamy z własności logarytmów.'
+          explanation: isExact ? 'Obie strony są potęgami tej samej podstawy.' : 'Logarytmujemy obie strony i korzystamy z własności logarytmów.'
         },
         {
-          step: 4, title: 'Pierwsza pełna ' + tpl.unit,
-          content: `t_{\\min} = ${tpl.t_min} \\text{ (pierwsze całkowite } t \\text{ spełniające nierówność)}`,
-          explanation: `Dla $t \\geq ${tpl.t_min}$ populacja A przewyższa B.`
+          step: 4, title: 'Pierwsza pełna ' + tpl.unitQ,
+          content: `t_{\\min} = ${tpl.t_min}`,
+          explanation: tpl.step4_explain
         }
       ]
     };
