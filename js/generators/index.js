@@ -37,7 +37,25 @@ window.Generators = (() => {
     { id: 'pp14', name: 'Geometria analityczna (PP)', color: '#a55eea', icon: '⊙',   level: 'PP', gen: () => window.pp14 },
   ];
 
-  const ALL_CATEGORIES = [...CATEGORIES, ...PP_CATEGORIES];
+  // ── Kategorie Fizyka ──────────────────────────────────────────────────────
+  const FIZ_CATEGORIES = [
+    { id: 'fiz01', name: 'Kinematyka',               color: '#f7b731', icon: '→',   level: 'FIZ', gen: () => window.fiz01 },
+    { id: 'fiz02', name: 'Dynamika',                  color: '#fd9644', icon: 'F',   level: 'FIZ', gen: () => window.fiz02 },
+    { id: 'fiz03', name: 'Ruch obrotowy',             color: '#fc5c65', icon: '↻',   level: 'FIZ', gen: () => window.fiz03 },
+    { id: 'fiz04', name: 'Grawitacja',                color: '#eb3b5a', icon: '🪐',  level: 'FIZ', gen: () => window.fiz04 },
+    { id: 'fiz05', name: 'Termodynamika',             color: '#a55eea', icon: '♨',   level: 'FIZ', gen: () => window.fiz05 },
+    { id: 'fiz06', name: 'Drgania',                   color: '#4b7bec', icon: '≈',   level: 'FIZ', gen: () => window.fiz06 },
+    { id: 'fiz07', name: 'Fale i dźwięk',            color: '#2d98da', icon: '〜',  level: 'FIZ', gen: () => window.fiz07 },
+    { id: 'fiz08', name: 'Optyka',                    color: '#26de81', icon: '🔍',  level: 'FIZ', gen: () => window.fiz08 },
+    { id: 'fiz09', name: 'Elektryczność',             color: '#20bf6b', icon: '⚡',  level: 'FIZ', gen: () => window.fiz09 },
+    { id: 'fiz10', name: 'Elektrostatyka',            color: '#0fb9b1', icon: '⊕',   level: 'FIZ', gen: () => window.fiz10 },
+    { id: 'fiz11', name: 'Pole magnetyczne',          color: '#45aaf2', icon: 'B',   level: 'FIZ', gen: () => window.fiz11 },
+    { id: 'fiz12', name: 'Szczególna teoria względności', color: '#778ca3', icon: 'γ', level: 'FIZ', gen: () => window.fiz12 },
+    { id: 'fiz13', name: 'Fizyka atomowa',            color: '#fd9644', icon: 'hν',  level: 'FIZ', gen: () => window.fiz13 },
+    { id: 'fiz14', name: 'Fizyka jądrowa',           color: '#e74c3c', icon: '☢',   level: 'FIZ', gen: () => window.fiz14 },
+  ];
+
+  const ALL_CATEGORIES = [...CATEGORIES, ...PP_CATEGORIES, ...FIZ_CATEGORIES];
 
   function getMeta(id) {
     return ALL_CATEGORIES.find(c => c.id === id) || null;
@@ -51,8 +69,13 @@ window.Generators = (() => {
     return PP_CATEGORIES;
   }
 
+  function getAllFiz() {
+    return FIZ_CATEGORIES;
+  }
+
   function getByLevel(level) {
     if (level === 'PP') return PP_CATEGORIES;
+    if (level === 'FIZ') return FIZ_CATEGORIES;
     return CATEGORIES;
   }
 
@@ -71,6 +94,11 @@ window.Generators = (() => {
 
   function generateRandomPP() {
     const meta = PP_CATEGORIES[Math.floor(Math.random() * PP_CATEGORIES.length)];
+    return generate(meta.id);
+  }
+
+  function generateRandomFiz() {
+    const meta = FIZ_CATEGORIES[Math.floor(Math.random() * FIZ_CATEGORIES.length)];
     return generate(meta.id);
   }
 
@@ -125,5 +153,5 @@ window.Generators = (() => {
     return tasks;
   }
 
-  return { getMeta, getAll, getAllPP, getByLevel, generate, generateRandom, generateRandomPP, generatePPExam };
+  return { getMeta, getAll, getAllPP, getAllFiz, getByLevel, generate, generateRandom, generateRandomPP, generateRandomFiz, generatePPExam };
 })();

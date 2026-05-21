@@ -308,14 +308,128 @@ window.cat08 = (() => {
     };
   }
 
+  // === SCHEMAT: Promień okręgu opisanego — twierdzenie sinusów ===
+  // Wzorzec maturalny: R = a/(2sinA), wymaga tw. cosinusów + sinusów
+  function circumscribedCircle() {
+    const configs = [
+      {
+        stmt: 'W trójkącie $ABC$ dane są: $|BC|=7$, $\\angle BAC=60°$.\n\n**Oblicz promień okręgu opisanego na trójkącie $ABC$.** Zapisz obliczenia.',
+        // 2R = |BC|/sin(∠BAC) = 7/(√3/2) = 14/√3 = 14√3/3 → R = 7√3/3
+        ans: '\\dfrac{7\\sqrt{3}}{3}',
+        solution: [
+          { step: 1, title: 'Twierdzenie sinusów', content: '\\frac{|BC|}{\\sin\\angle BAC}=2R', explanation: '$|BC|$ jest bokiem naprzeciwko kąta $A$.' },
+          { step: 2, title: 'Obliczenie', content: '2R=\\frac{7}{\\sin60°}=\\frac{7}{\\frac{\\sqrt{3}}{2}}=\\frac{14}{\\sqrt{3}}=\\frac{14\\sqrt{3}}{3}\\\\ R=\\frac{7\\sqrt{3}}{3}', explanation: '' }
+        ],
+        hints: [
+          { level: 1, text: 'Tw. sinusów: $\\frac{a}{\\sin A}=2R$, gdzie $R$ — promień okręgu opisanego.' },
+          { level: 2, text: '$\\sin60°=\\frac{\\sqrt{3}}{2}$, więc $2R=\\frac{7}{\\sqrt{3}/2}=\\frac{14}{\\sqrt{3}}$.' },
+          { level: 3, text: '$R=\\frac{7\\sqrt{3}}{3}$.' }
+        ]
+      },
+      {
+        stmt: 'Trójkąt $ABC$ ma kąt $\\angle BAC=30°$ i $|BC|=6$.\n\n**Oblicz promień okręgu opisanego na trójkącie $ABC$.** Zapisz obliczenia.',
+        // 2R = 6/sin30° = 6/(1/2) = 12 → R=6
+        ans: '6',
+        solution: [
+          { step: 1, title: 'Twierdzenie sinusów', content: '2R=\\frac{|BC|}{\\sin\\angle BAC}=\\frac{6}{\\sin30°}', explanation: '' },
+          { step: 2, title: 'Obliczenie', content: '2R=\\frac{6}{\\frac{1}{2}}=12 \\implies R=6', explanation: '' }
+        ],
+        hints: [
+          { level: 1, text: '$\\frac{|BC|}{\\sin\\angle BAC}=2R$.' },
+          { level: 2, text: '$\\sin30°=\\frac{1}{2}$, więc $2R=\\frac{6}{1/2}=12$.' },
+          { level: 3, text: '$R=6$.' }
+        ]
+      },
+      {
+        stmt: 'W trójkącie $ABC$: $|AB|=5$, $|BC|=6$, $|AC|=7$.\n\n**Oblicz $\\cos\\angle ABC$ oraz promień okręgu opisanego na tym trójkącie.** Zapisz obliczenia.',
+        // cos B = (36+25-49)/(2·6·5) = 12/60 = 1/5
+        // sin B = √(1-1/25) = √(24/25) = 2√6/5
+        // 2R = |AC|/sinB = 7/(2√6/5) = 35/(2√6) = 35√6/12 → R = 35√6/12
+        ans: '\\cos\\angle ABC=\\dfrac{1}{5},\\quad R=\\dfrac{35\\sqrt{6}}{12}',
+        solution: [
+          { step: 1, title: 'cos∠ABC (tw. cosinusów)', content: '\\cos\\angle ABC=\\frac{|AB|^2+|BC|^2-|AC|^2}{2|AB||BC|}=\\frac{25+36-49}{60}=\\frac{12}{60}=\\frac{1}{5}', explanation: '' },
+          { step: 2, title: 'sin∠ABC', content: '\\sin\\angle ABC=\\sqrt{1-\\frac{1}{25}}=\\sqrt{\\frac{24}{25}}=\\frac{2\\sqrt{6}}{5}', explanation: '' },
+          { step: 3, title: 'Promień okręgu opisanego', content: '2R=\\frac{|AC|}{\\sin\\angle ABC}=\\frac{7}{\\frac{2\\sqrt{6}}{5}}=\\frac{35}{2\\sqrt{6}}=\\frac{35\\sqrt{6}}{12}\\\\ R=\\frac{35\\sqrt{6}}{12}', explanation: '' }
+        ],
+        hints: [
+          { level: 1, text: 'Oblicz $\\cos\\angle ABC$ z tw. cosinusów: $\\cos B=\\frac{a^2+c^2-b^2}{2ac}$.' },
+          { level: 2, text: '$\\cos B=\\frac{1}{5}$, więc $\\sin B=\\frac{2\\sqrt{6}}{5}$.' },
+          { level: 3, text: '$2R=\\frac{|AC|}{\\sin B}=\\frac{7\\cdot5}{2\\sqrt{6}}=\\frac{35\\sqrt{6}}{12}$.' }
+        ]
+      }
+    ];
+    const cfg = M.choose(configs);
+    return {
+      id: M.makeId('cat08_circumcircle'),
+      category: 8,
+      categoryName: 'Planimetria',
+      type: 'circumscribed_circle',
+      points: 4,
+      params: {},
+      statement: cfg.stmt,
+      answer: { type: 'expression', display: cfg.ans, description: `$${cfg.ans}$` },
+      hints: cfg.hints,
+      solution: cfg.solution
+    };
+  }
+
+  // === SCHEMAT: Okrąg wpisany w trójkąt prostokątny ===
+  // Wzorzec maturalny: r = (a+b-c)/2 lub r = P/s
+  function inscribedCircleRight() {
+    // Trójkąt prostokątny: a, b — ramiona, c — przeciwprostokątna
+    const TRIPLES = [
+      [3,4,5],    // r=(3+4-5)/2=1,  P=6,  s=6
+      [5,12,13],  // r=(5+12-13)/2=2, P=30, s=15
+      [8,15,17],  // r=(8+15-17)/2=3, P=60, s=20
+      [7,24,25],  // r=(7+24-25)/2=3, P=84, s=28
+      [6,8,10],   // r=(6+8-10)/2=2,  P=24, s=12
+      [9,12,15],  // r=(9+12-15)/2=3, P=54, s=18
+    ];
+    const [a, b, c] = M.choose(TRIPLES);
+    const area = a * b / 2;
+    const s = (a + b + c) / 2;
+    const r = (a + b - c) / 2;
+
+    return {
+      id: M.makeId('cat08_incircle'),
+      category: 8,
+      categoryName: 'Planimetria',
+      type: 'inscribed_circle_right',
+      points: 4,
+      params: { a, b, c, r },
+      statement:
+        `Trójkąt $ABC$ jest prostokątny z kątem prostym przy wierzchołku $C$. ` +
+        `Dane są: $|BC|=${a}$, $|AC|=${b}$, $|AB|=${c}$.\n\n` +
+        `**Oblicz promień okręgu wpisanego w ten trójkąt.** Zapisz obliczenia.`,
+      answer: {
+        type: 'number', value: r,
+        display: String(r),
+        description: `$r=${r}$`
+      },
+      hints: [
+        { level: 1, text: 'Wzór: $r=\\frac{P}{s}$, gdzie $P$ — pole trójkąta, $s$ — półobwód.' },
+        { level: 2, text: `Pole $P=\\frac{1}{2}\\cdot${a}\\cdot${b}=${area}$. Półobwód $s=\\frac{${a}+${b}+${c}}{2}=${s}$.` },
+        { level: 3, text: `$r=\\frac{${area}}{${s}}=${r}$.` }
+      ],
+      solution: [
+        { step: 1, title: 'Pole trójkąta', content: `P=\\frac{1}{2}\\cdot${a}\\cdot${b}=${area}`, explanation: 'Kąt prosty przy $C$ — ramiona są zarazem podstawą i wysokością.' },
+        { step: 2, title: 'Półobwód', content: `s=\\frac{${a}+${b}+${c}}{2}=${s}`, explanation: '' },
+        { step: 3, title: 'Promień okręgu wpisanego', content: `r=\\frac{P}{s}=\\frac{${area}}{${s}}=${r}`, explanation: '' },
+        { step: 4, title: 'Sprawdzenie (wzór skrócony)', content: `r=\\frac{a+b-c}{2}=\\frac{${a}+${b}-${c}}{2}=\\frac{${a+b-c}}{2}=${r}`, explanation: 'Dla trójkąta prostokątnego: $r=\\frac{\\text{suma ramion}-\\text{przeciwprostokątna}}{2}$.' }
+      ]
+    };
+  }
+
   function generate() {
     const pool = TASKS.filter(t => t.difficulty === 'medium' || t.difficulty === 'hard');
     const fromPool = M.choose(pool.length > 0 ? pool : TASKS);
 
-    // 40% szans na nowy schemat parametryczny, 60% na bank
+    // 50% szans na nowy schemat parametryczny, 50% na bank
     const r = Math.random();
-    if (r < 0.25) return cosineRuleCalc();
-    if (r < 0.4) return triangleAreaAngle();
+    if (r < 0.20) return cosineRuleCalc();
+    if (r < 0.35) return triangleAreaAngle();
+    if (r < 0.50) return circumscribedCircle();
+    if (r < 0.65) return inscribedCircleRight();
 
     return {
       id: M.makeId('cat08'),

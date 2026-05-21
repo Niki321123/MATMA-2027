@@ -45,7 +45,8 @@
   function rebuildCategorySelect() {
     if (!elCatSelect) return;
     elCatSelect.innerHTML = '<option value="0">🎲 Losowa kategoria</option>';
-    const cats = getMathLevel() === 'PP' ? G.getAllPP() : G.getAll();
+    const lvl = getMathLevel();
+    const cats = lvl === 'PP' ? G.getAllPP() : lvl === 'FIZ' ? G.getAllFiz() : G.getAll();
     cats.forEach(cat => {
       const opt = document.createElement('option');
       opt.value = cat.id;
@@ -56,21 +57,28 @@
 
   function updateLogoSubtitle() {
     const sub = document.querySelector('.logo-sub');
-    if (sub) sub.textContent = getMathLevel() === 'PP'
-      ? 'Matematyka Podstawowa 2027'
-      : 'Matematyka Rozszerzona 2027';
+    const lvl = getMathLevel();
+    if (sub) sub.textContent = lvl === 'PP'
+      ? 'Matematyka podstawowa'
+      : lvl === 'FIZ'
+        ? 'Fizyka rozszerzona'
+        : 'Matematyka rozszerzona';
   }
 
   function updateLevelRow() {
     const row = $('um-level-row');
-    if (row) row.textContent = getMathLevel() === 'PP'
+    const lvl = getMathLevel();
+    if (row) row.textContent = lvl === 'PP'
       ? 'Poziom: Matematyka podstawowa'
-      : 'Poziom: Matematyka rozszerzona';
+      : lvl === 'FIZ'
+        ? 'Przedmiot: Fizyka rozszerzona'
+        : 'Poziom: Matematyka rozszerzona';
   }
 
   function initLevelEvents() {
     $('btn-level-pp')?.addEventListener('click', () => chooseMathLevel('PP'));
     $('btn-level-pr')?.addEventListener('click', () => chooseMathLevel('PR'));
+    $('btn-level-fiz')?.addEventListener('click', () => chooseMathLevel('FIZ'));
     $('btn-um-change-level')?.addEventListener('click', () => {
       $('modal-user')?.classList.add('hidden');
       openLevelModal(() => {
@@ -189,13 +197,10 @@
     elPanelMatura?.classList.toggle('hidden', mode !== 'matura');
     elPanelExam?.classList.toggle('hidden',  mode !== 'symulacja');
     elExamNav?.classList.toggle('hidden',    mode !== 'symulacja' || examTasks.length === 0);
-    $('wzory-panel')?.classList.toggle('hidden', mode !== 'wzory');
-    document.querySelector('.main-layout')?.classList.toggle('hidden', mode === 'wzory');
-    elTaskCard.classList.add('hidden');
-    elSolutionPanel.classList.add('hidden');
-    $('exam-summary')?.remove();
-    currentTask = null;
-    if (mode !== 'symulacja') { examTasks = []; examResults = []; }
+    $('wzory-panel')?.classList.toggle('hidden',   mode !== 'wzory');
+    $('calc-panel')?.classList.toggle('hidden',    mode !== 'kalkulator');
+    document.querySelector('.main-layout')?.classList.toggle('hidden', mode === 'wzory' || mode === 'kalkulator');
+    // Stan zadania/matury NIE jest resetowany — wraca po powrocie do zakładki
   }
 
   // === Generowanie ===
@@ -207,7 +212,8 @@
     const catVal = elCatSelect.value;
     try {
       if (catVal === '0') {
-        currentTask = getMathLevel() === 'PP' ? G.generateRandomPP() : G.generateRandom();
+        const _lvl = getMathLevel();
+        currentTask = _lvl === 'PP' ? G.generateRandomPP() : _lvl === 'FIZ' ? G.generateRandomFiz() : G.generateRandom();
       } else {
         const id = /^\d+$/.test(catVal) ? parseInt(catVal) : catVal;
         currentTask = G.generate(id);
@@ -416,6 +422,19 @@
     PT.record(currentTask.category, effectiveCorrect);
     SA?.recordAnswer(currentTask.category, effectiveCorrect);
 
+    // Zapisz do historii zadań
+    const catId = currentTask.categoryId ?? currentTask.category;
+    const meta  = G.getMeta(catId);
+    PT.recordTask({
+      catId,
+      catName:  meta?.name || currentTask.categoryName || `Kat. ${catId}`,
+      points:   currentTask.points,
+      result:   hintPenalty ? 'hint' : (correct ? 'correct' : 'wrong'),
+      mode:     currentMode === 'matura' ? 'matura' : 'generator',
+      year:     currentTask.year   || null,
+      taskNo:   currentTask.number || null,
+    });
+
     if (hintPenalty) {
       showToast('Zadanie niezaliczone — użyto wskazówki lub rozwiązania.', 'warning');
     } else {
@@ -433,7 +452,8 @@
   function updateSidebar() {
     if (!elProgressSidebar) return;
     const today = PT.getTodayStats();
-    const cats  = G.getAll();
+    const _lvl  = getMathLevel();
+    const cats  = _lvl === 'PP' ? G.getAllPP() : _lvl === 'FIZ' ? G.getAllFiz() : G.getAll();
     const accuracyPct = today.attempted > 0 ? Math.round(100 * today.correct / today.attempted) : 0;
 
     let html = `
@@ -666,33 +686,110 @@
   }
 
   // === Modal statystyk ===
-  function openProgressModal() {
-    if (!elModalProgress) return;
-    const cats  = G.getAll();
+  let _progressTab = 'stats';
+
+  function _formatAgo(ts) {
+    const d = Math.floor((Date.now() - ts) / 86400000);
+    const h = Math.floor((Date.now() - ts) / 3600000);
+    const m = Math.floor((Date.now() - ts) / 60000);
+    if (d > 0)  return `${d} d. temu`;
+    if (h > 0)  return `${h} godz. temu`;
+    if (m > 0)  return `${m} min temu`;
+    return 'przed chwilą';
+  }
+
+  function _renderStatsTab() {
+    const _lvl  = getMathLevel();
+    const cats  = _lvl === 'PP' ? G.getAllPP() : _lvl === 'FIZ' ? G.getAllFiz() : G.getAll();
     const stats = PT.getStats();
-    let html = `
+    let h = `
       <div class="modal-stats-grid">
         <div class="modal-stat-card"><div class="stat-num">${stats.totalAttempted||0}</div><div class="stat-label">Zadań</div></div>
         <div class="modal-stat-card"><div class="stat-num">${stats.totalCorrect||0}</div><div class="stat-label">Poprawnych</div></div>
-        <div class="modal-stat-card"><div class="stat-num">${stats.streak||0}</div><div class="stat-label">Dni z rzędu</div></div>
+        <div class="modal-stat-card"><div class="stat-num">${stats.streak||0} 🔥</div><div class="stat-label">Dni z rzędu</div></div>
         <div class="modal-stat-card"><div class="stat-num">${stats.totalAttempted ? Math.round(100*stats.totalCorrect/stats.totalAttempted) : 0}%</div><div class="stat-label">Skuteczność</div></div>
       </div>
       <h3 style="margin:1.5rem 0 1rem; color:var(--text-secondary)">Postęp per kategoria</h3>
     `;
     cats.forEach(cat => {
-      const pct  = PT.getCategoryPercent(cat.id);
+      const pct = PT.getCategoryPercent(cat.id);
       const fill = pct !== null ? pct : 0;
-      const cs   = PT.getCategoryStats(cat.id);
-      html += `
+      const cs = PT.getCategoryStats(cat.id);
+      h += `
         <div class="modal-cat-row">
           <div class="modal-cat-info"><span style="color:${cat.color}">${cat.icon}</span> ${cat.id}. ${cat.name}</div>
           <div class="modal-cat-bar"><div class="modal-cat-fill" style="width:${fill}%; background:${cat.color}"></div></div>
           <div class="modal-cat-pct">${pct !== null ? pct+'%' : '—'} <small>(${cs?.attempted||0})</small></div>
-        </div>
-      `;
+        </div>`;
     });
-    elModalBody.innerHTML = html;
+    return h;
+  }
+
+  function _renderTaskHistTab() {
+    const hist = PT.getTaskHistory();
+    if (!hist.length) return '<div class="hist-empty">Brak rozwiązanych zadań.</div>';
+    return '<div class="hist-list">' + hist.map(h => {
+      const icon  = h.result === 'correct' ? '✅' : h.result === 'hint' ? '💡' : '❌';
+      const label = h.result === 'correct' ? 'Poprawnie' : h.result === 'hint' ? 'Ze wskazówką' : 'Błędnie';
+      const src   = h.mode === 'matura' && h.year ? `📜 Matura ${h.year} z.${h.taskNo}` :
+                    h.mode === 'symulacja' ? `🎓 Symulacja zad. ${h.taskNo}` : '🎲 Generator';
+      return `
+        <div class="hist-item">
+          <span class="hist-icon">${icon}</span>
+          <div class="hist-info">
+            <div class="hist-cat">${h.catName}</div>
+            <div class="hist-sub">${src} · ${h.points} pkt · ${label}</div>
+          </div>
+          <span class="hist-time">${_formatAgo(h.ts)}</span>
+        </div>`;
+    }).join('') + '</div>';
+  }
+
+  function _renderExamHistTab() {
+    const hist = PT.getExamHistory();
+    if (!hist.length) return '<div class="hist-empty">Brak ukończonych symulacji matury.</div>';
+    return '<div class="hist-list">' + hist.map(h => {
+      const icon  = h.pass ? '✅' : '❌';
+      const label = h.pass ? 'Zdany' : 'Niezdany';
+      const lvl   = h.level === 'PP' ? 'Podstawowa' : 'Rozszerzona';
+      return `
+        <div class="hist-exam-item">
+          <div class="hist-exam-score ${h.pass ? 'pass' : 'fail'}">${h.pts}/${h.maxPts}</div>
+          <div class="hist-info">
+            <div class="hist-cat">${icon} ${h.pct}% — ${label}</div>
+            <div class="hist-sub">Matematyka ${lvl} · ${h.taskCount} zadań</div>
+          </div>
+          <span class="hist-time">${_formatAgo(h.ts)}</span>
+        </div>`;
+    }).join('') + '</div>';
+  }
+
+  function _renderProgressModal(tab) {
+    _progressTab = tab;
+    const tabs = [
+      { id: 'stats', label: '📊 Statystyki' },
+      { id: 'tasks', label: '📝 Historia zadań' },
+      { id: 'exams', label: '🎓 Historia matur' },
+    ];
+    const tabsHtml = `<div class="hist-tabs">${tabs.map(t =>
+      `<button class="hist-tab${tab === t.id ? ' active' : ''}" data-prog-tab="${t.id}">${t.label}</button>`
+    ).join('')}</div>`;
+
+    const content = tab === 'stats' ? _renderStatsTab()
+                  : tab === 'tasks' ? _renderTaskHistTab()
+                  : _renderExamHistTab();
+
+    elModalBody.innerHTML = tabsHtml + content;
+  }
+
+  function openProgressModal() {
+    if (!elModalProgress) return;
+    _renderProgressModal(_progressTab);
     elModalProgress.classList.remove('hidden');
+    elModalBody.onclick = e => {
+      const btn = e.target.closest('[data-prog-tab]');
+      if (btn) _renderProgressModal(btn.dataset.progTab);
+    };
   }
 
   // === Pricing modal ===
@@ -916,6 +1013,20 @@
     taskAnswered = true;
     examResults[examIndex] = correct ? 'correct' : 'wrong';
     PT.record(currentTask.category, correct);
+
+    // Zapisz do historii zadań (w kontekście symulacji)
+    const catId = currentTask.categoryId ?? currentTask.category;
+    const meta  = G.getMeta(catId);
+    PT.recordTask({
+      catId,
+      catName: meta?.name || currentTask.categoryName || `Kat. ${catId}`,
+      points:  currentTask.points,
+      result:  correct ? 'correct' : 'wrong',
+      mode:    'symulacja',
+      year:    null,
+      taskNo:  examIndex + 1,
+    });
+
     renderExamNav();
     showToast(correct ? 'Dobrze! ✓' : 'Zaznaczono jako błędne.', correct ? 'success' : 'warning');
     elBtnSelfCorrect?.classList.add('hidden');
@@ -946,6 +1057,13 @@
     const pct    = Math.round(100 * pts / maxPts);
     const pass   = pct >= 30;
 
+    // Zapisz arkusz do historii matur
+    PT.recordExam({
+      pts, maxPts, pct, pass,
+      taskCount: examTasks.length,
+      level: getMathLevel(),
+    });
+
     const breakdownHtml = examTasks.map((t, i) => {
       const r   = examResults[i];
       const cls = r === 'correct' ? 'correct-row' : r === 'wrong' ? 'wrong-row' : 'skip-row';
@@ -971,6 +1089,106 @@
     summaryEl.scrollIntoView({ behavior: 'smooth' });
     $('btn-new-exam')?.addEventListener('click', () => { summaryEl.remove(); generateExam(); });
     if (elExamNavScore) elExamNavScore.textContent = `${pts}/${maxPts} pkt (${pct}%)`;
+  }
+
+  // === Kalkulator ===
+  let _cDisp    = '0';   // wyświetlany string
+  let _cOp      = null;  // oczekiwana operacja: 'add'|'sub'|'mul'|'div'
+  let _cOperand = null;  // lewy argument operacji
+  let _cMem     = 0;     // pamięć
+  let _cNewNum  = true;  // następna cyfra zaczyna nową liczbę
+  let _cMrcHit  = false; // śledzenie podwójnego naciśnięcia MRC
+
+  function _cFmt(n) {
+    if (!isFinite(n) || isNaN(n)) return 'E';
+    if (Math.abs(n) >= 1e9) return 'E';
+    const r = parseFloat(n.toPrecision(10));
+    const s = String(r);
+    if (s.replace('-','').replace('.','').length <= 8) return s;
+    return parseFloat(r.toPrecision(8)).toString();
+  }
+
+  function _cCompute(a, b, op) {
+    if (op === 'add') return a + b;
+    if (op === 'sub') return a - b;
+    if (op === 'mul') return a * b;
+    if (op === 'div') return b !== 0 ? a / b : NaN;
+    return b;
+  }
+
+  function _cRefresh() {
+    const el  = document.getElementById('calc-display');
+    const min = document.getElementById('calc-ind-minus');
+    const mem = document.getElementById('calc-ind-memory');
+    if (el) {
+      el.textContent = _cDisp;
+      el.classList.toggle('calc-error', _cDisp === 'E');
+    }
+    if (min) min.classList.toggle('active', _cDisp.startsWith('-'));
+    if (mem) mem.classList.toggle('active', _cMem !== 0);
+  }
+
+  function _cKey(key) {
+    if (key >= '0' && key <= '9') {
+      if (_cDisp === 'E') { _cDisp = key; _cNewNum = false; }
+      else if (_cNewNum) { _cDisp = key === '0' ? '0' : key; _cNewNum = false; }
+      else if (_cDisp === '0') _cDisp = key;
+      else if (_cDisp.replace('-','').replace('.','').length < 8) _cDisp += key;
+    } else if (key === 'dot') {
+      if (_cDisp === 'E') { _cDisp = '0.'; _cNewNum = false; }
+      else if (_cNewNum) { _cDisp = '0.'; _cNewNum = false; }
+      else if (!_cDisp.includes('.')) _cDisp += '.';
+    } else if (['add','sub','mul','div'].includes(key)) {
+      if (_cOperand !== null && !_cNewNum) {
+        const r = _cFmt(_cCompute(_cOperand, parseFloat(_cDisp), _cOp));
+        _cDisp = r; _cOperand = parseFloat(r);
+      } else {
+        _cOperand = parseFloat(_cDisp);
+      }
+      _cOp = key; _cNewNum = true;
+    } else if (key === 'eq') {
+      if (_cOperand !== null && _cOp !== null) {
+        _cDisp = _cFmt(_cCompute(_cOperand, parseFloat(_cDisp), _cOp));
+        _cOperand = null; _cOp = null; _cNewNum = true;
+      }
+    } else if (key === 'ac') {
+      _cDisp = '0'; _cOperand = null; _cOp = null; _cNewNum = true;
+    } else if (key === 'c') {
+      _cDisp = '0'; _cNewNum = true;
+    } else if (key === 'sign') {
+      if (_cDisp !== '0' && _cDisp !== 'E') {
+        _cDisp = _cDisp.startsWith('-') ? _cDisp.slice(1) : '-' + _cDisp;
+      }
+    } else if (key === 'pct') {
+      let v = parseFloat(_cDisp);
+      _cDisp = _cFmt(_cOperand !== null ? (_cOperand * v) / 100 : v / 100);
+      _cNewNum = true;
+    } else if (key === 'sqrt') {
+      const v = parseFloat(_cDisp);
+      _cDisp = v < 0 ? 'E' : _cFmt(Math.sqrt(v));
+      _cNewNum = true;
+    } else if (key === 'mplus') {
+      _cMem += parseFloat(_cDisp) || 0; _cNewNum = true; _cMrcHit = false;
+    } else if (key === 'mminus') {
+      _cMem -= parseFloat(_cDisp) || 0; _cNewNum = true; _cMrcHit = false;
+    } else if (key === 'mrc') {
+      if (_cMrcHit) { _cMem = 0; _cMrcHit = false; }
+      else { _cDisp = _cFmt(_cMem); _cNewNum = true; _cMrcHit = true; }
+      _cRefresh(); return;
+    } else if (key === 'off') {
+      return; // OFF nie ma sensu w przeglądarce
+    }
+    _cMrcHit = false;
+    _cRefresh();
+  }
+
+  function initCalc() {
+    const panel = document.getElementById('calc-panel');
+    if (!panel) return;
+    panel.addEventListener('click', e => {
+      const btn = e.target.closest('[data-calc]');
+      if (btn) _cKey(btn.dataset.calc);
+    });
   }
 
   // === Events ===
@@ -1065,6 +1283,19 @@
 
     document.addEventListener('keydown', e => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
+
+      // Kalkulator — przejmuje klawiaturę gdy aktywny
+      if (currentMode === 'kalkulator') {
+        const km = { '0':'0','1':'1','2':'2','3':'3','4':'4','5':'5','6':'6','7':'7','8':'8','9':'9',
+          '.':'dot',',':'dot',
+          '+':'add','-':'sub','*':'mul','/':'div',
+          'Enter':'eq','=':'eq',
+          'Escape':'ac','Delete':'ac','Backspace':'c',
+          'q':'sqrt','Q':'sqrt' };
+        if (km[e.key]) { e.preventDefault(); _cKey(km[e.key]); }
+        return;
+      }
+
       if (e.key === 'Enter' && (!currentTask || taskAnswered)) {
         if (currentMode === 'symulacja') { if (taskAnswered) advanceExam(); else if (!examTasks.length) generateExam(); }
         else if (currentMode === 'matura') loadRandomMatura();
@@ -1251,6 +1482,7 @@
     initUsernameEvents();
     initRankingEvents();
     initLevelEvents();
+    initCalc();
 
     updateLogoSubtitle();
     updateLevelRow();

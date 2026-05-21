@@ -293,8 +293,131 @@ window.cat13 = (() => {
     };
   }
 
+  // === Schemat Bernoulliego — co najmniej k sukcesów ===
+  // Wzorzec maturalny: P(X ≥ k) — wymaga zsumowania P(X=k)+P(X=k+1)+...+P(X=n)
+  function hardBernoulli() {
+    const configs = [
+      {
+        scenario: 'Rzucamy symetryczną monetą 5 razy.',
+        event: 'orzeł wypadnie co najmniej 4 razy',
+        k: 4, n: 5,
+        solution: [
+          { step: 1, title: 'P(X=4)', content: 'P(X=4)=\\binom{5}{4}\\left(\\frac{1}{2}\\right)^5=5\\cdot\\frac{1}{32}=\\frac{5}{32}', explanation: '' },
+          { step: 2, title: 'P(X=5)', content: 'P(X=5)=\\binom{5}{5}\\left(\\frac{1}{2}\\right)^5=\\frac{1}{32}', explanation: '' },
+          { step: 3, title: 'P(X≥4)', content: 'P(X\\geq4)=\\frac{5}{32}+\\frac{1}{32}=\\frac{6}{32}=\\frac{3}{16}', explanation: '' }
+        ],
+        ans: '\\dfrac{3}{16}',
+        hints: [
+          { level: 1, text: '"Co najmniej 4 razy": $P(X\\geq4)=P(X=4)+P(X=5)$.' },
+          { level: 2, text: '$P(X=4)=\\binom{5}{4}(\\frac{1}{2})^5=\\frac{5}{32}$, $P(X=5)=(\\frac{1}{2})^5=\\frac{1}{32}$.' },
+          { level: 3, text: '$P(X\\geq4)=\\frac{5+1}{32}=\\frac{3}{16}$.' }
+        ]
+      },
+      {
+        scenario: 'W doświadczeniu losowym prawdopodobieństwo sukcesu wynosi $\\dfrac{1}{3}$. Doświadczenie powtarzamy 4 razy niezależnie.',
+        event: 'sukces zajdzie co najmniej 3 razy',
+        k: 3, n: 4,
+        solution: [
+          { step: 1, title: 'P(X=3)', content: 'P(X=3)=\\binom{4}{3}\\left(\\frac{1}{3}\\right)^3\\cdot\\frac{2}{3}=4\\cdot\\frac{1}{27}\\cdot\\frac{2}{3}=\\frac{8}{81}', explanation: '' },
+          { step: 2, title: 'P(X=4)', content: 'P(X=4)=\\left(\\frac{1}{3}\\right)^4=\\frac{1}{81}', explanation: '' },
+          { step: 3, title: 'P(X≥3)', content: 'P(X\\geq3)=\\frac{8}{81}+\\frac{1}{81}=\\frac{9}{81}=\\frac{1}{9}', explanation: '' }
+        ],
+        ans: '\\dfrac{1}{9}',
+        hints: [
+          { level: 1, text: '"Co najmniej 3": $P(X\\geq3)=P(X=3)+P(X=4)$.' },
+          { level: 2, text: '$P(X=3)=\\binom{4}{3}\\left(\\frac{1}{3}\\right)^3\\cdot\\left(\\frac{2}{3}\\right)=\\frac{8}{81}$.' },
+          { level: 3, text: '$P(X\\geq3)=\\frac{9}{81}=\\frac{1}{9}$.' }
+        ]
+      },
+      {
+        scenario: 'Strzelec trafia w tarczę z prawdopodobieństwem $\\dfrac{2}{3}$. Oddaje 5 strzałów.',
+        event: 'trafi co najmniej 4 razy',
+        k: 4, n: 5,
+        solution: [
+          { step: 1, title: 'P(X=4)', content: 'P(X=4)=\\binom{5}{4}\\left(\\frac{2}{3}\\right)^4\\cdot\\frac{1}{3}=5\\cdot\\frac{16}{81}\\cdot\\frac{1}{3}=\\frac{80}{243}', explanation: '' },
+          { step: 2, title: 'P(X=5)', content: 'P(X=5)=\\left(\\frac{2}{3}\\right)^5=\\frac{32}{243}', explanation: '' },
+          { step: 3, title: 'P(X≥4)', content: 'P(X\\geq4)=\\frac{80}{243}+\\frac{32}{243}=\\frac{112}{243}', explanation: '' }
+        ],
+        ans: '\\dfrac{112}{243}',
+        hints: [
+          { level: 1, text: '"Co najmniej 4": $P(X\\geq4)=P(X=4)+P(X=5)$.' },
+          { level: 2, text: '$P(X=4)=\\binom{5}{4}\\left(\\frac{2}{3}\\right)^4\\cdot\\frac{1}{3}=\\frac{80}{243}$.' },
+          { level: 3, text: '$P(X\\geq4)=\\frac{112}{243}$.' }
+        ]
+      }
+    ];
+    const cfg = M.choose(configs);
+    return {
+      id: M.makeId('cat13_bernoulli_ge'),
+      category: 13,
+      categoryName: 'Prawdopodobieństwo',
+      type: 'bernoulli_atleast',
+      points: 5,
+      params: {},
+      statement: `${cfg.scenario}\n\n**Oblicz prawdopodobieństwo, że ${cfg.event}.** Zapisz obliczenia.`,
+      answer: { type: 'expression', display: cfg.ans, description: `$P(X\\geq${cfg.k})=${cfg.ans}$` },
+      hints: cfg.hints,
+      solution: cfg.solution
+    };
+  }
+
+  // === Wzór Bayesa — 3 hipotezy ===
+  // Wzorzec maturalny: prawdopodobieństwo całkowite + wnioskowanie wsteczne
+  function bayesThreeHypotheses() {
+    const configs = [
+      {
+        stmt:
+          'Firma kupuje towar od trzech dostawców: $A$ dostarcza $50\\%$ towaru (wadliwość $2\\%$), ' +
+          '$B$ dostarcza $30\\%$ (wadliwość $4\\%$), $C$ dostarcza $20\\%$ (wadliwość $5\\%$).\n\n' +
+          '**a)** Oblicz prawdopodobieństwo $P(W)$, że losowo wybrany towar jest wadliwy.\n\n' +
+          '**b)** Wadliwy towar trafił do kontroli. Oblicz prawdopodobieństwo, że pochodzi od dostawcy $B$. Zapisz obliczenia.',
+        ans: 'P(W)=0{,}032,\\quad P(B|W)=\\dfrac{3}{8}',
+        solution: [
+          { step: 1, title: 'a) Hipotezy', content: 'P(A)=0{,}5,\\ P(B)=0{,}3,\\ P(C)=0{,}2\\\\ P(W|A)=0{,}02,\\ P(W|B)=0{,}04,\\ P(W|C)=0{,}05', explanation: '' },
+          { step: 2, title: 'Prawdopodobieństwo całkowite', content: 'P(W)=0{,}5\\cdot0{,}02+0{,}3\\cdot0{,}04+0{,}2\\cdot0{,}05\\\\ =0{,}010+0{,}012+0{,}010=0{,}032', explanation: '' },
+          { step: 3, title: 'b) Wzór Bayesa', content: 'P(B|W)=\\frac{P(W|B)\\cdot P(B)}{P(W)}=\\frac{0{,}04\\cdot0{,}3}{0{,}032}=\\frac{0{,}012}{0{,}032}=\\frac{12}{32}=\\frac{3}{8}', explanation: '' }
+        ],
+        hints: [
+          { level: 1, text: 'a) $P(W)=P(W|A)P(A)+P(W|B)P(B)+P(W|C)P(C)$.' },
+          { level: 2, text: '$P(W)=0{,}5\\cdot0{,}02+0{,}3\\cdot0{,}04+0{,}2\\cdot0{,}05=0{,}032$.' },
+          { level: 3, text: 'b) Wzór Bayesa: $P(B|W)=\\frac{0{,}04\\cdot0{,}3}{0{,}032}=\\frac{3}{8}$.' }
+        ]
+      },
+      {
+        stmt:
+          'W szufladzie leżą żarówki z trzech fabryk: fabryka $F_1$ dostarczyła $50\\%$ żarówek (defektowość $1\\%$), ' +
+          'fabryka $F_2$ — $30\\%$ (defektowość $2\\%$), fabryka $F_3$ — $20\\%$ (defektowość $5\\%$).\n\n' +
+          '**a)** Oblicz prawdopodobieństwo, że losowo wybrana żarówka jest defektowa.\n\n' +
+          '**b)** Defektowa żarówka pochodzi — z jakim prawdopodobieństwem — z fabryki $F_3$? Zapisz obliczenia.',
+        ans: 'P(D)=0{,}02,\\quad P(F_3|D)=\\dfrac{1}{2}',
+        solution: [
+          { step: 1, title: 'a) Prawdopodobieństwo całkowite', content: 'P(D)=0{,}5\\cdot0{,}01+0{,}3\\cdot0{,}02+0{,}2\\cdot0{,}05\\\\ =0{,}005+0{,}006+0{,}010=0{,}021', explanation: '' },
+          { step: 2, title: 'b) Wzór Bayesa', content: 'P(F_3|D)=\\frac{P(D|F_3)\\cdot P(F_3)}{P(D)}=\\frac{0{,}05\\cdot0{,}2}{0{,}021}=\\frac{0{,}010}{0{,}021}=\\frac{10}{21}', explanation: '' }
+        ],
+        hints: [
+          { level: 1, text: '$P(D)=P(D|F_1)P(F_1)+P(D|F_2)P(F_2)+P(D|F_3)P(F_3)$.' },
+          { level: 2, text: '$P(D)=0{,}005+0{,}006+0{,}010=0{,}021$.' },
+          { level: 3, text: '$P(F_3|D)=\\frac{0{,}010}{0{,}021}=\\frac{10}{21}$.' }
+        ]
+      }
+    ];
+    const cfg = M.choose(configs);
+    return {
+      id: M.makeId('cat13_bayes3'),
+      category: 13,
+      categoryName: 'Prawdopodobieństwo',
+      type: 'bayes_three',
+      points: 5,
+      params: {},
+      statement: cfg.stmt,
+      answer: { type: 'expression', display: cfg.ans, description: `$${cfg.ans}$` },
+      hints: cfg.hints,
+      solution: cfg.solution
+    };
+  }
+
   function generate() {
-    return M.choose([bernoulli, conditional, totalProbability])();
+    return M.choose([bernoulli, conditional, totalProbability, hardBernoulli, bayesThreeHypotheses])();
   }
 
   return { generate };

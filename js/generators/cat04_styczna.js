@@ -106,7 +106,7 @@ window.cat04 = (() => {
     const b = M.choose([-4, -3, -2, -1, 0, 1, 2, 3, 4]);
     const c = M.choose([-6, -4, -3, -2, -1, 1, 2, 3, 4, 6]);
     const x0 = M.choose([1, 2, -1, -2, 3, -3]);
-    if (x0 === 0) return rationalTangent(diff); // unikaj dzielenia przez 0
+    if (x0 === 0) return rationalTangent(); // unikaj dzielenia przez 0
 
     const f_x0 = a * x0 * x0 + b * x0 + c; // f(x₀) = ax₀² + bx₀ + c gdy f(x)=(ax²+bx+c)/x·x
     // Uproszczenie: f(x) = ax + b + c/x
@@ -117,7 +117,7 @@ window.cat04 = (() => {
 
     // Upewnij się że wyniki są ładne
     if (!Number.isInteger(f_x0) || !Number.isInteger(fp_x0) || !Number.isInteger(tangent_b * x0 * x0)) {
-      return polyTangent(diff); // fallback
+      return polyTangent(); // fallback
     }
 
     const f_display = `\\dfrac{${M.latexPoly3(a, 0, b, c)}}{x}`;
@@ -316,7 +316,7 @@ window.cat04 = (() => {
         { level: 3, text: `Punkt(y) styczności: $x_0 = ${cfg.x0}$. Oblicz $f(x_0)$ i napisz równanie prostej.` }
       ],
       solution: [
-        { step: 1, title: 'Nachylenie', content: `k = \\tan(${cfg.angle}°) = ${cfg.tg_val}`, explanation: '' },
+        { step: 1, title: 'Nachylenie', content: cfg.angle !== undefined ? `k = \\tan(${cfg.angle}°) = ${cfg.tg_val}` : `k = \\tan\\alpha = ${cfg.tg_val}`, explanation: '' },
         { step: 2, title: 'Pochodna', content: `f'(x) = ${cfg.fpStr}`, explanation: '' },
         { step: 3, title: 'f\'(x₀) = k', content: `${cfg.fpStr} = ${cfg.tg_val}`, explanation: '' },
         { step: 4, title: 'Równanie stycznej', content: cfg.tangStr, explanation: '' }
