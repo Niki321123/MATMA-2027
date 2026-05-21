@@ -400,14 +400,19 @@ window.cat10 = (() => {
       ],
       solution: [
         {
-          step: 1, title: 'Przekątna przestrzenna',
-          content: `|AC'|=\\sqrt{${cfg.a}^2+${cfg.b}^2+${cfg.c}^2}=\\sqrt{${cfg.a*cfg.a}+${cfg.b*cfg.b}+${cfg.c*cfg.c}}=\\sqrt{${cfg.diag_sq}}=${cfg.diag_str}`,
-          explanation: 'Twierdzenie Pitagorasa w 3D.'
+          step: 1, title: 'Przekątna podstawy |AC|',
+          content: `|AC|=\\sqrt{${cfg.a}^2+${cfg.b}^2}=\\sqrt{${cfg.a*cfg.a+cfg.b*cfg.b}}`,
+          explanation: 'Tw. Pitagorasa w prostokącie $ABCD$ (podstawa prostopadłościanu).'
         },
         {
-          step: 2, title: 'Promień kuli opisanej',
+          step: 2, title: 'Przekątna przestrzenna |AC\'|',
+          content: `|AC'|=\\sqrt{|AC|^2+|AA'|^2}=\\sqrt{${cfg.a*cfg.a+cfg.b*cfg.b}+${cfg.c*cfg.c}}=\\sqrt{${cfg.diag_sq}}=${cfg.diag_str}`,
+          explanation: `Trójkąt $ACC'$ jest prostokątny przy $C$, bo $|CC'|=|AA'|=${cfg.c}$ i $CC' \\perp$ podstawa.`
+        },
+        {
+          step: 3, title: 'Promień kuli opisanej',
           content: `R=\\frac{|AC'|}{2}=\\frac{${cfg.diag_str}}{2}=${cfg.R_str}`,
-          explanation: 'Kula opisana na prostopadłościanie ma środek w punkcie przecięcia przekątnych, a każdy z 8 wierzchołków leży na kuli. Przekątna $|AC\'|$ jest średnicą tej kuli.'
+          explanation: `Kula opisana na prostopadłościanie ma środek w środku każdej z czterech przekątnych przestrzennych. Przekątna $|AC'|$ jest średnicą tej kuli, więc $R = \\tfrac{1}{2}|AC'|$.`
         }
       ]
     };

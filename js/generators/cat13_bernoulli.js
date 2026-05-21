@@ -389,15 +389,16 @@ window.cat13 = (() => {
           'fabryka $F_2$ — $30\\%$ (defektowość $2\\%$), fabryka $F_3$ — $20\\%$ (defektowość $5\\%$).\n\n' +
           '**a)** Oblicz prawdopodobieństwo, że losowo wybrana żarówka jest defektowa.\n\n' +
           '**b)** Defektowa żarówka pochodzi — z jakim prawdopodobieństwem — z fabryki $F_3$? Zapisz obliczenia.',
-        ans: 'P(D)=0{,}02,\\quad P(F_3|D)=\\dfrac{1}{2}',
+        ans: 'P(D)=0{,}021,\\quad P(F_3|D)=\\dfrac{10}{21}',
         solution: [
-          { step: 1, title: 'a) Prawdopodobieństwo całkowite', content: 'P(D)=0{,}5\\cdot0{,}01+0{,}3\\cdot0{,}02+0{,}2\\cdot0{,}05\\\\ =0{,}005+0{,}006+0{,}010=0{,}021', explanation: '' },
-          { step: 2, title: 'b) Wzór Bayesa', content: 'P(F_3|D)=\\frac{P(D|F_3)\\cdot P(F_3)}{P(D)}=\\frac{0{,}05\\cdot0{,}2}{0{,}021}=\\frac{0{,}010}{0{,}021}=\\frac{10}{21}', explanation: '' }
+          { step: 1, title: 'a) Hipotezy i dane', content: 'P(F_1)=0{,}5,\\ P(F_2)=0{,}3,\\ P(F_3)=0{,}2\\\\ P(D|F_1)=0{,}01,\\ P(D|F_2)=0{,}02,\\ P(D|F_3)=0{,}05', explanation: 'Trzy hipotezy wykluczające i wyczerpujące; $P(F_1)+P(F_2)+P(F_3)=1$.' },
+          { step: 2, title: 'a) Prawdopodobieństwo całkowite', content: 'P(D)=P(D|F_1)P(F_1)+P(D|F_2)P(F_2)+P(D|F_3)P(F_3)\\\\ =0{,}5\\cdot0{,}01+0{,}3\\cdot0{,}02+0{,}2\\cdot0{,}05\\\\ =0{,}005+0{,}006+0{,}010=0{,}021', explanation: '' },
+          { step: 3, title: 'b) Wzór Bayesa', content: 'P(F_3|D)=\\frac{P(D|F_3)\\cdot P(F_3)}{P(D)}=\\frac{0{,}05\\cdot0{,}2}{0{,}021}=\\frac{0{,}010}{0{,}021}=\\frac{10}{21}', explanation: '' }
         ],
         hints: [
-          { level: 1, text: '$P(D)=P(D|F_1)P(F_1)+P(D|F_2)P(F_2)+P(D|F_3)P(F_3)$.' },
-          { level: 2, text: '$P(D)=0{,}005+0{,}006+0{,}010=0{,}021$.' },
-          { level: 3, text: '$P(F_3|D)=\\frac{0{,}010}{0{,}021}=\\frac{10}{21}$.' }
+          { level: 1, text: 'a) $P(D)=P(D|F_1)P(F_1)+P(D|F_2)P(F_2)+P(D|F_3)P(F_3)$.' },
+          { level: 2, text: '$P(D)=0{,}5\\cdot0{,}01+0{,}3\\cdot0{,}02+0{,}2\\cdot0{,}05=0{,}005+0{,}006+0{,}010=0{,}021$.' },
+          { level: 3, text: 'b) Wzór Bayesa: $P(F_3|D)=\\frac{0{,}010}{0{,}021}=\\frac{10}{21}$.' }
         ]
       }
     ];

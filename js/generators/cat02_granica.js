@@ -158,11 +158,18 @@ window.cat02 = (() => {
           explanation: 'Wzór na rozkład różnicy potęg lub suma/różnica kwadratów.'
         },
         {
-          step: 2, title: 'Skrócenie i obliczenie granicy',
+          step: 2, title: 'Skrócenie czynnika $(x - a)$',
           content: k === 1
-            ? `Po skróceniu $(x - ${a})$: $\\lim_{x \\to ${a}} (x^{${n - 1}} + \\ldots + ${Math.pow(a, n - 1)}) = ${n} \\cdot ${a}^{${n - 1}} = \\mathbf{${limit_val}}$`
-            : `Po skróceniu: $\\lim_{x \\to ${a}^{${dir}}} \\frac{x + ${a}}{x - ${a}} = \\mathbf{${limitDisplay}}$ (mianownik dąży do $0^{${dir}}$)`,
-          explanation: 'Podstawiamy x = a do uproszczonego wyrażenia lub badamy znak.'
+            ? `\\frac{${numStr}}{x - ${a}} = x^{${n - 1}} + ${a > 0 ? a : '(' + a + ')'}x^{${n - 2}} + \\ldots + ${Math.pow(a, n - 1)}`
+            : `\\frac{${numStr}}{(x-${a})^2} = \\frac{x + ${a}}{x - ${a}}`,
+          explanation: 'Skracamy czynnik $(x-a)$ z licznika i mianownika — dopuszczalne dla $x \\neq a$.'
+        },
+        {
+          step: 3, title: 'Obliczenie granicy',
+          content: k === 1
+            ? `\\lim_{x \\to ${a}} \\left(x^{${n - 1}} + \\ldots + ${Math.pow(a, n - 1)}\\right) = ${n} \\cdot ${a}^{${n - 1}} = \\mathbf{${limit_val}}`
+            : `\\lim_{x \\to ${a}^{${dir}}} \\frac{x + ${a}}{x - ${a}} = \\mathbf{${limitDisplay}} \\;(\\text{mianownik} \\to 0^{${dir}})`,
+          explanation: 'Podstawiamy wartość graniczną do uproszczonego wyrażenia lub badamy znak mianownika.'
         }
       ]
     };

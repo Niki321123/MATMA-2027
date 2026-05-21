@@ -105,8 +105,9 @@ window.cat14 = (() => {
       answer_display: '24',
       answer_val: 24,
       solution: [
-        { step: 1, title: 'Pierwsza pozycja', content: '\\text{Ustalona: } A', explanation: '' },
-        { step: 2, title: 'Pozostałe 3 pozycje', content: 'P(4,3) = 4\\cdot3\\cdot2 = 24', explanation: '4 litery do rozłożenia na 3 miejsca.' }
+        { step: 1, title: 'Pierwsza pozycja ustalona', content: '\\text{Litera } A \\text{ zajmuje pozycję 1} \\implies 1 \\text{ sposób}', explanation: 'Warunek narzuca literę — brak wyboru na pierwszej pozycji.' },
+        { step: 2, title: 'Wzór na pozostałe 3 pozycje', content: 'P(4,3) = \\frac{4!}{(4-3)!} = \\frac{4!}{1!} = 4\\cdot3\\cdot2', explanation: 'Z 4 pozostałych liter (B, C, D, E) wybieramy i ustawiamy 3 — kolejność ma znaczenie.' },
+        { step: 3, title: 'Łączna liczba słów', content: '1 \\cdot P(4,3) = 1 \\cdot 24 = \\mathbf{24}', explanation: 'Reguła mnożenia: wybór pierwszej pozycji × ustawienia pozostałych.' }
       ],
       hints: [
         { level: 1, text: 'Pierwsza litera jest ustalona (A). Pozostałe 3 miejsca — permutacje 4 pozostałych liter.' },
@@ -123,8 +124,9 @@ window.cat14 = (() => {
       answer_display: '\\dfrac{7!}{2!} = 2520',
       answer_val: 2520,
       solution: [
-        { step: 1, title: 'Permutacja z powtórzeniami', content: '\\frac{n!}{k_1!\\cdot k_2!\\cdots} = \\frac{7!}{2!}', explanation: '7 liter, litera A powtarza się 2 razy.' },
-        { step: 2, title: 'Obliczenie', content: '\\frac{7!}{2!} = \\frac{5040}{2} = 2520', explanation: '' }
+        { step: 1, title: 'Analiza powtórzeń w słowie ALGEBRA', content: '\\text{Litery: A, L, G, E, B, R, A} \\implies n = 7\\\\ \\text{Litera A pojawia się } k_1 = 2 \\text{ razy; pozostałe po 1 razie}', explanation: '' },
+        { step: 2, title: 'Wzór na permutacje z powtórzeniami', content: '\\frac{n!}{k_1! \\cdot k_2! \\cdots} = \\frac{7!}{2! \\cdot 1! \\cdot 1! \\cdot 1! \\cdot 1! \\cdot 1!} = \\frac{7!}{2!}', explanation: 'Dzielimy przez silnię liczby powtórzeń każdej litery.' },
+        { step: 3, title: 'Obliczenie', content: '\\frac{7!}{2!} = \\frac{5040}{2} = \\mathbf{2520}', explanation: '$7! = 5040$, $2! = 2$.' }
       ],
       hints: [
         { level: 1, text: 'Wzór: $\\frac{n!}{k_1!\\cdot k_2!\\cdots}$, gdzie $k_i$ — ile razy $i$-ta litera się powtarza.' },
@@ -182,8 +184,9 @@ window.cat14 = (() => {
       answer_display: '(6-1)! = 5! = 120',
       answer_val: 120,
       solution: [
-        { step: 1, title: 'Permutacje cykliczne', content: '\\text{Liczba permutacji cyklicznych }n\\text{ elementów} = (n-1)!', explanation: 'Ustalamy jedną osobę jako punkt odniesienia. Pozostałe $n-1$ ustawiamy dowolnie.' },
-        { step: 2, title: 'Obliczenie', content: '(6-1)! = 5! = 5\\cdot4\\cdot3\\cdot2\\cdot1 = 120', explanation: '' }
+        { step: 1, title: 'Zasada permutacji cyklicznych', content: '\\text{Ustalamy jedną osobę jako punkt odniesienia (eliminuje obroty)}\\\\ \\text{Pozostałe } n-1 \\text{ osób ustawiamy na } (n-1)! \\text{ sposobów}', explanation: 'Bez ustalenia punktu odniesienia każde $n$ obrotów danego ustawienia wyglądałoby inaczej, a są równoważne.' },
+        { step: 2, title: 'Podstawienie $n = 6$', content: '(n-1)! = (6-1)! = 5!', explanation: '' },
+        { step: 3, title: 'Obliczenie', content: '5! = 5\\cdot4\\cdot3\\cdot2\\cdot1 = \\mathbf{120}', explanation: '' }
       ],
       hints: [
         { level: 1, text: 'Przy stole okrągłym jedna osoba może być ustalona na stałe (punkt odniesienia).' },
