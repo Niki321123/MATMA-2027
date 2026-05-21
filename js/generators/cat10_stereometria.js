@@ -276,8 +276,145 @@ window.cat10 = (() => {
     };
   }
 
+  // === Ostrosłup prawidłowy trójkątny ===
+  // Wzorzec maturalny: krawędź boczna, kąt krawędzi z podstawą — wymaga znajomości środka ciężkości
+  function regularTriangularPyramid() {
+    const configs = [
+      {
+        a: 6, H: 4,
+        // |GA| = a√3/3 = 6√3/3 = 2√3
+        // |SA|² = (2√3)²+4² = 12+16 = 28 → |SA|=2√7
+        // tg α = H/|GA| = 4/(2√3) = 2/√3 = 2√3/3
+        GA_str: '2\\sqrt{3}',
+        SA_sq_str: '(2\\sqrt{3})^2+4^2=12+16=28',
+        SA_str: '2\\sqrt{7}',
+        tan_str: '\\dfrac{4}{2\\sqrt{3}}=\\dfrac{2\\sqrt{3}}{3}',
+        vol_str: '\\dfrac{36\\cdot4\\cdot\\sqrt{3}}{12}=12\\sqrt{3}'
+      },
+      {
+        a: 6, H: 6,
+        // |GA| = 2√3, |SA|²=12+36=48 → 4√3, tg=6/(2√3)=√3
+        GA_str: '2\\sqrt{3}',
+        SA_sq_str: '(2\\sqrt{3})^2+6^2=12+36=48',
+        SA_str: '4\\sqrt{3}',
+        tan_str: '\\dfrac{6}{2\\sqrt{3}}=\\sqrt{3}',
+        vol_str: '\\dfrac{36\\cdot6\\cdot\\sqrt{3}}{12}=18\\sqrt{3}'
+      },
+      {
+        a: 6, H: 3,
+        // |GA| = 2√3, |SA|²=12+9=21 → √21, tg=3/(2√3)=√3/2
+        GA_str: '2\\sqrt{3}',
+        SA_sq_str: '(2\\sqrt{3})^2+3^2=12+9=21',
+        SA_str: '\\sqrt{21}',
+        tan_str: '\\dfrac{3}{2\\sqrt{3}}=\\dfrac{\\sqrt{3}}{2}',
+        vol_str: '\\dfrac{36\\cdot3\\cdot\\sqrt{3}}{12}=9\\sqrt{3}'
+      },
+    ];
+    const cfg = M.choose(configs);
+
+    return {
+      id: M.makeId('cat10_tri_pyramid'),
+      category: 10,
+      categoryName: 'Stereometria',
+      type: 'regular_triangular_pyramid',
+      points: 5,
+      params: { a: cfg.a, H: cfg.H },
+      statement:
+        `Ostrosłup prawidłowy trójkątny $ABCS$ ma podstawę będącą trójkątem równobocznym o boku $a = ${cfg.a}$ ` +
+        `i wysokość $H = ${cfg.H}$ (wierzchołek $S$, środek ciężkości podstawy $G$, $|SG| = H$).\n\n` +
+        `**a)** Oblicz objętość ostrosłupa.\n\n` +
+        `**b)** Oblicz długość krawędzi bocznej $|SA|$.\n\n` +
+        `**c)** Oblicz $\\tg$ kąta między krawędzią boczną $SA$ a płaszczyzną podstawy $ABC$.\n\nZapisz obliczenia.`,
+      answer: {
+        type: 'multipart',
+        display: `V=${cfg.vol_str},\\; |SA|=${cfg.SA_str},\\; \\tg\\alpha=${cfg.tan_str}`,
+        description: `$V=${cfg.vol_str}$, $|SA|=${cfg.SA_str}$, $\\tg\\alpha=${cfg.tan_str}$`
+      },
+      hints: [
+        { level: 1, text: `Pole podstawy: $P=\\frac{\\sqrt{3}}{4}\\cdot${cfg.a}^2=\\frac{${cfg.a*cfg.a}\\sqrt{3}}{4}$. Środek ciężkości od wierzchołka: $|GA|=\\frac{a\\sqrt{3}}{3}=${cfg.GA_str}$.` },
+        { level: 2, text: `Krawędź boczna: $|SA|=\\sqrt{|GA|^2+H^2}=\\sqrt{${cfg.SA_sq_str}}=${cfg.SA_str}$.` },
+        { level: 3, text: `Kąt $\\alpha$ między $SA$ a podstawą: $\\tg\\alpha=\\frac{H}{|GA|}=${cfg.tan_str}$.` }
+      ],
+      solution: [
+        {
+          step: 1, title: 'Pole podstawy',
+          content: `P_{ABC}=\\frac{\\sqrt{3}}{4}\\cdot${cfg.a}^2=\\frac{${cfg.a*cfg.a}\\sqrt{3}}{4}`,
+          explanation: 'Wzór na pole trójkąta równobocznego.'
+        },
+        {
+          step: 2, title: 'Objętość',
+          content: `V=\\frac{1}{3}\\cdot\\frac{${cfg.a*cfg.a}\\sqrt{3}}{4}\\cdot${cfg.H}=${cfg.vol_str}`,
+          explanation: ''
+        },
+        {
+          step: 3, title: 'Odległość środka ciężkości od wierzchołka',
+          content: `|GA|=\\frac{a\\sqrt{3}}{3}=\\frac{${cfg.a}\\sqrt{3}}{3}=${cfg.GA_str}`,
+          explanation: 'Środek ciężkości dzieli medianę w stosunku 2:1 od wierzchołka; mediana $=\\frac{a\\sqrt{3}}{2}$, więc $|GA|=\\frac{2}{3}\\cdot\\frac{a\\sqrt{3}}{2}=\\frac{a\\sqrt{3}}{3}$.'
+        },
+        {
+          step: 4, title: 'Krawędź boczna |SA|',
+          content: `|SA|=\\sqrt{|GA|^2+H^2}=\\sqrt{${cfg.SA_sq_str}}=${cfg.SA_str}`,
+          explanation: 'Trójkąt $SGA$ jest prostokątny przy $G$: $|GA|$ i $H$ to przyprostokątne.'
+        },
+        {
+          step: 5, title: 'Kąt krawędzi bocznej z podstawą',
+          content: `\\tg\\alpha=\\frac{H}{|GA|}=${cfg.tan_str}`,
+          explanation: 'Rzut $SA$ na płaszczyznę podstawy to $GA$. Kąt $\\alpha$ leży w trójkącie $SGA$.'
+        }
+      ]
+    };
+  }
+
+  // === Kula opisana na prostopadłościanie ===
+  // Wzorzec maturalny: związek między przekątną przestrzenną a promieniem kuli
+  function sphereOnCuboid() {
+    const configs = [
+      { a:2, b:2, c:1, diag_sq:9, diag_str:'3', R_str:'\\dfrac{3}{2}' },
+      { a:4, b:4, c:2, diag_sq:36, diag_str:'6', R_str:'3' },
+      { a:2, b:3, c:6, diag_sq:49, diag_str:'7', R_str:'\\dfrac{7}{2}' },
+      { a:6, b:6, c:7, diag_sq:121, diag_str:'11', R_str:'\\dfrac{11}{2}' },
+      { a:1, b:2, c:2, diag_sq:9, diag_str:'3', R_str:'\\dfrac{3}{2}' },
+    ];
+    const cfg = M.choose(configs);
+
+    return {
+      id: M.makeId('cat10_sphere'),
+      category: 10,
+      categoryName: 'Stereometria',
+      type: 'sphere_circumscribed',
+      points: 4,
+      params: { a: cfg.a, b: cfg.b, c: cfg.c },
+      statement:
+        `Prostopadłościan $ABCDA'B'C'D'$ ma krawędzie $|AB|=${cfg.a}$, $|BC|=${cfg.b}$, $|AA'|=${cfg.c}$.\n\n` +
+        `**a)** Oblicz długość przestrzennej przekątnej $|AC'|$.\n\n` +
+        `**b)** Wyznacz promień kuli opisanej na tym prostopadłościanie.\n\nZapisz obliczenia.`,
+      answer: {
+        type: 'multipart',
+        display: `|AC'|=${cfg.diag_str},\\quad R=${cfg.R_str}`,
+        description: `$|AC'|=${cfg.diag_str}$, $R=${cfg.R_str}$`
+      },
+      hints: [
+        { level: 1, text: `Przekątna przestrzenna: $|AC'|=\\sqrt{a^2+b^2+c^2}=\\sqrt{${cfg.a}^2+${cfg.b}^2+${cfg.c}^2}$.` },
+        { level: 2, text: `$|AC'|=\\sqrt{${cfg.diag_sq}}=${cfg.diag_str}$.` },
+        { level: 3, text: `Środek kuli opisanej leży w środku przekątnej, więc $R=\\frac{|AC'|}{2}=${cfg.R_str}$.` }
+      ],
+      solution: [
+        {
+          step: 1, title: 'Przekątna przestrzenna',
+          content: `|AC'|=\\sqrt{${cfg.a}^2+${cfg.b}^2+${cfg.c}^2}=\\sqrt{${cfg.a*cfg.a}+${cfg.b*cfg.b}+${cfg.c*cfg.c}}=\\sqrt{${cfg.diag_sq}}=${cfg.diag_str}`,
+          explanation: 'Twierdzenie Pitagorasa w 3D.'
+        },
+        {
+          step: 2, title: 'Promień kuli opisanej',
+          content: `R=\\frac{|AC'|}{2}=\\frac{${cfg.diag_str}}{2}=${cfg.R_str}`,
+          explanation: 'Kula opisana na prostopadłościanie ma środek w punkcie przecięcia przekątnych, a każdy z 8 wierzchołków leży na kuli. Przekątna $|AC\'|$ jest średnicą tej kuli.'
+        }
+      ]
+    };
+  }
+
   function generate() {
-    return M.choose([cuboid, prismAngle, pyramid, regularTriangularPrism, cylinderWithAngle])();
+    return M.choose([cuboid, prismAngle, pyramid, regularTriangularPrism, cylinderWithAngle, regularTriangularPyramid, sphereOnCuboid])();
   }
 
   return { generate };

@@ -114,6 +114,83 @@ window.cat14 = (() => {
         { level: 3, text: 'Odpowiedź: 24.' }
       ]
     },
+    // Permutacje z powtórzeniami (anagramy)
+    {
+      difficulty: 'hard',
+      statement:
+        'Ile różnych anagramów (niekoniecznie sensownych) można ułożyć ze wszystkich liter słowa $\\text{ALGEBRA}$?\n\n' +
+        '(Słowo ALGEBRA zawiera: A, L, G, E, B, R, A — 7 liter, litera A powtarza się 2 razy.)\n\nZapisz obliczenia.',
+      answer_display: '\\dfrac{7!}{2!} = 2520',
+      answer_val: 2520,
+      solution: [
+        { step: 1, title: 'Permutacja z powtórzeniami', content: '\\frac{n!}{k_1!\\cdot k_2!\\cdots} = \\frac{7!}{2!}', explanation: '7 liter, litera A powtarza się 2 razy.' },
+        { step: 2, title: 'Obliczenie', content: '\\frac{7!}{2!} = \\frac{5040}{2} = 2520', explanation: '' }
+      ],
+      hints: [
+        { level: 1, text: 'Wzór: $\\frac{n!}{k_1!\\cdot k_2!\\cdots}$, gdzie $k_i$ — ile razy $i$-ta litera się powtarza.' },
+        { level: 2, text: 'ALGEBRA: 7 liter, A powtarza się 2 razy: $\\frac{7!}{2!}$.' },
+        { level: 3, text: '$\\frac{5040}{2} = 2520$.' }
+      ]
+    },
+    // Kombinacje z warunkiem "co najmniej k z grupy"
+    {
+      difficulty: 'hard',
+      statement:
+        'W komisji konkursowej zasiada 5 mężczyzn i 4 kobiety. ' +
+        'Wybieramy 4-osobowy podkomitet.\n\n' +
+        '**Ile jest sposobów wyboru, jeśli podkomitet musi zawierać co najmniej 2 kobiety?** Zapisz obliczenia.',
+      answer_display: '81',
+      answer_val: 81,
+      solution: [
+        { step: 1, title: 'Przypadek: dokładnie 2 kobiety', content: '\\binom{4}{2}\\cdot\\binom{5}{2} = 6\\cdot10 = 60', explanation: '2 kobiety z 4, 2 mężczyzn z 5.' },
+        { step: 2, title: 'Przypadek: dokładnie 3 kobiety', content: '\\binom{4}{3}\\cdot\\binom{5}{1} = 4\\cdot5 = 20', explanation: '' },
+        { step: 3, title: 'Przypadek: dokładnie 4 kobiety', content: '\\binom{4}{4}\\cdot\\binom{5}{0} = 1\\cdot1 = 1', explanation: '' },
+        { step: 4, title: 'Łącznie', content: '60+20+1 = 81', explanation: 'Reguła sumy (przypadki rozłączne).' }
+      ],
+      hints: [
+        { level: 1, text: 'Rozdziel na przypadki: dokładnie 2, 3 lub 4 kobiety w podkomitecie.' },
+        { level: 2, text: '$\\binom{4}{2}\\binom{5}{2}+\\binom{4}{3}\\binom{5}{1}+\\binom{4}{4}\\binom{5}{0}$.' },
+        { level: 3, text: '$60+20+1=81$.' }
+      ]
+    },
+    // Parzyste czterocyfrowe liczby
+    {
+      difficulty: 'hard',
+      statement:
+        'Ile czterocyfrowych liczb parzystych można ułożyć z cyfr $1, 2, 3, 4, 5, 6$, ' +
+        'jeśli każda cyfra może wystąpić co najwyżej raz?\n\nZapisz obliczenia.',
+      answer_display: '180',
+      answer_val: 180,
+      solution: [
+        { step: 1, title: 'Ostatnia cyfra (parzysta)', content: '\\text{Cyfry parzyste: } 2, 4, 6 \\implies 3 \\text{ możliwości}', explanation: 'Liczba parzysta kończy się na parzystej cyfrze.' },
+        { step: 2, title: 'Pozostałe 3 pozycje', content: 'P(5,3) = 5\\cdot4\\cdot3 = 60', explanation: 'Z pozostałych 5 cyfr układamy 3 na 3 pozycjach.' },
+        { step: 3, title: 'Łącznie', content: '3\\cdot60 = 180', explanation: 'Reguła mnożenia.' }
+      ],
+      hints: [
+        { level: 1, text: 'Parzysta liczba: ostatnia cyfra musi być 2, 4 lub 6.' },
+        { level: 2, text: 'Ustal ostatnią cyfrę (3 opcje), potem ułóż 3 z pozostałych 5: $P(5,3) = 60$.' },
+        { level: 3, text: '$3\\cdot60 = 180$.' }
+      ]
+    },
+    // Permutacje cykliczne
+    {
+      difficulty: 'hard',
+      statement:
+        'Przy okrągłym stole zasiada 6 gości.\n\n' +
+        '**Ile jest różnych ustawień**, jeśli przyjmujemy, że dwa ustawienia są takie same, gdy jedno można ' +
+        'obrócić do drugiego?\n\nZapisz obliczenia.',
+      answer_display: '(6-1)! = 5! = 120',
+      answer_val: 120,
+      solution: [
+        { step: 1, title: 'Permutacje cykliczne', content: '\\text{Liczba permutacji cyklicznych }n\\text{ elementów} = (n-1)!', explanation: 'Ustalamy jedną osobę jako punkt odniesienia. Pozostałe $n-1$ ustawiamy dowolnie.' },
+        { step: 2, title: 'Obliczenie', content: '(6-1)! = 5! = 5\\cdot4\\cdot3\\cdot2\\cdot1 = 120', explanation: '' }
+      ],
+      hints: [
+        { level: 1, text: 'Przy stole okrągłym jedna osoba może być ustalona na stałe (punkt odniesienia).' },
+        { level: 2, text: 'Permutacje cykliczne $n$ elementów: $(n-1)!$.' },
+        { level: 3, text: '$(6-1)! = 5! = 120$.' }
+      ]
+    },
     // Kombinacje z podziałem
     {
       difficulty: 'hard',
