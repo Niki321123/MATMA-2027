@@ -48,6 +48,11 @@
   </div>
 </header>
 
+<!-- PASEK PRZEDMIOTÓW (po onboardingu) -->
+<div class="subject-tabs-strip hidden" id="subject-tabs-strip">
+  <!-- wypełniane przez JS -->
+</div>
+
 <!-- PANEL TRYBÓW -->
 <div class="mode-tabs-wrapper">
   <div class="mode-tabs" id="mode-tabs">
@@ -359,6 +364,22 @@
   </div>
 </div>
 
+<!-- MODAL: ONBOARDING — wybór przedmiotów -->
+<div class="modal-overlay hidden" id="modal-onboarding">
+  <div class="modal-box onboarding-modal">
+    <div class="ob-icon">🎓</div>
+    <h2 class="ob-title">Wybierz swoje przedmioty</h2>
+    <p class="ob-desc">Zaznacz rozszerzenia, do których się przygotowujesz.<br>Możesz to zmienić w dowolnym momencie w ustawieniach konta.</p>
+    <div class="ob-grid" id="ob-grid">
+      <!-- wypełniane przez JS -->
+    </div>
+    <div class="ob-auto-note" id="ob-auto-note" style="display:none">
+      💡 Matematyka podstawowa zostanie dodana automatycznie — jest wymagana do matury.
+    </div>
+    <button class="btn btn-primary ob-btn-confirm" id="btn-ob-confirm">Zapisz i zacznij ćwiczyć →</button>
+  </div>
+</div>
+
 <!-- MODAL: WYBÓR POZIOMU MATEMATYKI -->
 <div class="modal-overlay hidden" id="modal-level">
   <div class="modal-box level-modal">
@@ -378,11 +399,6 @@
       </button>
       <button class="level-card" id="btn-level-fiz">
         <div class="level-card-icon">⚛️</div>
-        <div class="level-card-name">Fizyka</div>
-        <div class="level-card-desc">Matura rozszerzona<br>14 kategorii zadań</div>
-      </button>
-      <button class="level-card" id="btn-level-fiz">
-        <div class="level-card-icon">⚛</div>
         <div class="level-card-name">Fizyka</div>
         <div class="level-card-desc">Matura z fizyki<br>14 kategorii zadań</div>
       </button>

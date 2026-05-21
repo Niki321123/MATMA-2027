@@ -16,6 +16,7 @@ window.SupabaseAuth = (() => {
   let onAuthChangeCallback = null;
   let userPlan = 'free';
   let userUsername = null;
+  let userSubjects = null;   // null = nie ustawione, [] = ustawione (nawet puste)
   let todayUsage = { tasks_generated: 0, matura_started: 0 };
   let maturaLastStartedAt = null; // tylko dla planu standard (dwutygodniowy reset)
 
@@ -38,10 +39,20 @@ window.SupabaseAuth = (() => {
     });
   }
 
-  function getUser()     { return currentUser; }
-  function isLoggedIn()  { return !!currentUser; }
-  function getPlan()     { return userPlan; }
-  function getUsername() { return userUsername; }
+  function getUser()      { return currentUser; }
+  function isLoggedIn()   { return !!currentUser; }
+  function getPlan()      { return userPlan; }
+  function getUsername()  { return userUsername; }
+  function getSubjects()  { return userSubjects; }  // null = onboarding nie zrobiony
+
+  async function setSubjects(arr) {
+    userSubjects = arr;
+    if (currentUser) {
+      await sb.from('profiles').update({ subjects: arr }).eq('id', currentUser.id);
+    }
+    // Zawsze zapisuj też lokalnie jako fallback
+    localStorage.setItem('userSubjects', JSON.stringify(arr));
+  }
 
   // === Plan & usage ===
   async function fetchProfile() {
@@ -58,7 +69,7 @@ window.SupabaseAuth = (() => {
     }
 
     const [{ data: profile }, { data: daily }] = await Promise.all([
-      sb.from('profiles').select('plan, display_name, avatar_url, username, matura_last_started_at').eq('id', currentUser.id).single(),
+      sb.from('profiles').select('plan, display_name, avatar_url, username, matura_last_started_at, subjects').eq('id', currentUser.id).single(),
       sb.from('user_daily')
         .select('tasks_generated, matura_started')
         .eq('user_id', currentUser.id)
@@ -74,6 +85,7 @@ window.SupabaseAuth = (() => {
     } else {
       userPlan     = rawPlan;
     userUsername = profile?.username ?? null;
+    userSubjects = profile?.subjects ?? null;
     maturaLastStartedAt = profile?.matura_last_started_at ?? null;
     }
     todayUsage = {
@@ -338,6 +350,7 @@ window.SupabaseAuth = (() => {
     fetchProgress, fetchDailyStats, recordAnswer,
     loadFromCloud, loadDailyFromCloud,
     getUsername, setUsername, checkUsernameAvailable,
+    getSubjects, setSubjects,
     fetchLeaderboard,
   };
 })();

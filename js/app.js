@@ -15,7 +15,33 @@
   let currentMode    = 'generator';
   let firstTaskShown = false;
 
-  // === Poziom matematyki (PP / PR) ===
+  // === Definicja przedmiotów ===
+  const SUBJECTS_DEF = [
+    { id: 'PR',   name: 'Matematyka',  sub: 'Rozszerzona', icon: '📕', color: '#e74c3c', available: true },
+    { id: 'PP',   name: 'Matematyka',  sub: 'Podstawowa',  icon: '📗', color: '#26de81', available: true },
+    { id: 'FIZ',  name: 'Fizyka',      sub: 'Rozszerzona', icon: '⚛️', color: '#45aaf2', available: true },
+    { id: 'POL',  name: 'Polski',      sub: 'Rozszerzona', icon: '📖', color: '#fd9644', available: false },
+    { id: 'BIO',  name: 'Biologia',    sub: 'Rozszerzona', icon: '🧬', color: '#20bf6b', available: false },
+    { id: 'HIST', name: 'Historia',    sub: 'Rozszerzona', icon: '📜', color: '#778ca3', available: false },
+    { id: 'CHEM', name: 'Chemia',      sub: 'Rozszerzona', icon: '🧪', color: '#a55eea', available: false },
+    { id: 'GEO',  name: 'Geografia',   sub: 'Rozszerzona', icon: '🌍', color: '#2bcbba', available: false },
+  ];
+
+  // Załaduj zapisane przedmioty (localStorage jako fallback)
+  function getLocalSubjects() {
+    try { return JSON.parse(localStorage.getItem('userSubjects')); } catch { return null; }
+  }
+
+  // Ostateczne subjects — z SA jeśli zalogowany, inaczej localStorage
+  function getEffectiveSubjects() {
+    if (SA?.isLoggedIn()) {
+      const s = SA.getSubjects();
+      if (s !== null) return s;
+    }
+    return getLocalSubjects();
+  }
+
+  // === Poziom matematyki (PP / PR / FIZ) ===
   let levelModalCallback = null;
 
   function getMathLevel() { return localStorage.getItem('mathLevel') || 'PR'; }
@@ -67,12 +93,20 @@
 
   function updateLevelRow() {
     const row = $('um-level-row');
-    const lvl = getMathLevel();
-    if (row) row.textContent = lvl === 'PP'
-      ? 'Poziom: Matematyka podstawowa'
-      : lvl === 'FIZ'
-        ? 'Przedmiot: Fizyka rozszerzona'
+    if (!row) return;
+    const subjects = getEffectiveSubjects();
+    if (subjects && subjects.length > 0) {
+      const names = subjects.map(id => {
+        const def = SUBJECTS_DEF.find(s => s.id === id);
+        return def ? `${def.icon} ${def.name}` : id;
+      });
+      row.textContent = 'Przedmioty: ' + names.join(', ');
+    } else {
+      const lvl = getMathLevel();
+      row.textContent = lvl === 'PP' ? 'Poziom: Matematyka podstawowa'
+        : lvl === 'FIZ' ? 'Przedmiot: Fizyka rozszerzona'
         : 'Poziom: Matematyka rozszerzona';
+    }
   }
 
   function initLevelEvents() {
@@ -81,12 +115,151 @@
     $('btn-level-fiz')?.addEventListener('click', () => chooseMathLevel('FIZ'));
     $('btn-um-change-level')?.addEventListener('click', () => {
       $('modal-user')?.classList.add('hidden');
-      openLevelModal(() => {
-        updateLogoSubtitle();
-        updateLevelRow();
-        rebuildCategorySelect();
+      const cur = getEffectiveSubjects() || [];
+      _obSelected = new Set(cur);
+      _renderObGrid();
+      cur.forEach(id => {
+        const card = document.querySelector(`.ob-card[data-id="${id}"]`);
+        if (card) {
+          card.classList.add('ob-card--selected');
+          const check = card.querySelector('.ob-card-check');
+          if (check) check.textContent = '✓';
+        }
       });
+      $('modal-onboarding')?.classList.remove('hidden');
     });
+  }
+
+  // ===== ONBOARDING =====
+
+  let _obSelected = new Set();
+
+  function openOnboarding() {
+    _obSelected = new Set();
+    _renderObGrid();
+    $('modal-onboarding')?.classList.remove('hidden');
+  }
+
+  function closeOnboarding() {
+    $('modal-onboarding')?.classList.add('hidden');
+  }
+
+  function _renderObGrid() {
+    const grid = $('ob-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    SUBJECTS_DEF.forEach(s => {
+      const card = document.createElement('div');
+      card.className = 'ob-card' + (s.available ? '' : ' ob-card--soon');
+      card.dataset.id = s.id;
+      card.innerHTML = `
+        ${s.available ? '<div class="ob-card-check"></div>' : `<div class="ob-soon-badge">WKRÓTCE</div>`}
+        <div class="ob-card-icon">${s.icon}</div>
+        <div class="ob-card-name">${s.name}</div>
+        <div class="ob-card-sub">${s.sub}</div>
+      `;
+      if (s.available) {
+        card.addEventListener('click', () => _obToggle(s.id));
+      }
+      grid.appendChild(card);
+    });
+    _obUpdateNote();
+  }
+
+  function _obToggle(id) {
+    if (_obSelected.has(id)) _obSelected.delete(id);
+    else _obSelected.add(id);
+    // Sync visual
+    document.querySelectorAll('.ob-card').forEach(c => {
+      const sel = _obSelected.has(c.dataset.id);
+      c.classList.toggle('ob-card--selected', sel);
+      const check = c.querySelector('.ob-card-check');
+      if (check) check.textContent = sel ? '✓' : '';
+    });
+    _obUpdateNote();
+  }
+
+  function _obUpdateNote() {
+    const note = $('ob-auto-note');
+    if (!note) return;
+    const hasMatma = _obSelected.has('PR') || _obSelected.has('PP');
+    note.style.display = (!hasMatma && _obSelected.size > 0) ? 'block' : 'none';
+  }
+
+  async function _obConfirm() {
+    let subjects = [..._obSelected];
+    // Auto-dodaj PP jeśli brak jakiejkolwiek matematyki
+    if (!subjects.includes('PR') && !subjects.includes('PP')) {
+      subjects = ['PP', ...subjects];
+    }
+    // Zapisz
+    await SA?.setSubjects(subjects);
+    localStorage.setItem('userSubjects', JSON.stringify(subjects));
+    // Ustaw domyślny poziom = pierwszy dostępny przedmiot
+    const first = subjects[0];
+    if (first) setMathLevel(first);
+    closeOnboarding();
+    buildSubjectTabs();
+    generateTask();
+  }
+
+  function initOnboardingEvents() {
+    $('btn-ob-confirm')?.addEventListener('click', _obConfirm);
+    $('modal-onboarding')?.addEventListener('click', e => {
+      if (e.target === $('modal-onboarding')) { /* nie zamykaj klikając tło */ }
+    });
+  }
+
+  // ===== SUBJECT TABS =====
+
+  function buildSubjectTabs() {
+    const strip = $('subject-tabs-strip');
+    if (!strip) return;
+    const subjects = getEffectiveSubjects();
+    if (!subjects || subjects.length === 0) { strip.classList.add('hidden'); return; }
+
+    strip.innerHTML = '';
+    const currentLvl = getMathLevel();
+
+    subjects.forEach(id => {
+      const def = SUBJECTS_DEF.find(s => s.id === id);
+      if (!def || !def.available) return;
+      const btn = document.createElement('button');
+      btn.className = 'subject-tab-btn' + (id === currentLvl ? ' active' : '');
+      btn.dataset.level = id;
+      btn.style.cssText = id === currentLvl
+        ? `background: ${def.color}22; border-color: ${def.color}; color: #fff;`
+        : '';
+      btn.innerHTML = `<span class="stb-icon">${def.icon}</span>${def.name} <span style="opacity:.7;font-weight:400">${def.sub}</span>`;
+      btn.addEventListener('click', () => {
+        setMathLevel(id);
+        buildSubjectTabs(); // przebuduj aktywny tab
+      });
+      strip.appendChild(btn);
+    });
+
+    // Przycisk edycji
+    const editBtn = document.createElement('button');
+    editBtn.className = 'subject-tabs-edit';
+    editBtn.textContent = '✏️ Zmień';
+    editBtn.addEventListener('click', () => {
+      // Wypełnij onboarding bieżącymi zaznaczeniami
+      const cur = getEffectiveSubjects() || [];
+      _obSelected = new Set(cur);
+      _renderObGrid();
+      cur.forEach(id => {
+        const card = document.querySelector(`.ob-card[data-id="${id}"]`);
+        if (card) {
+          card.classList.add('ob-card--selected');
+          const check = card.querySelector('.ob-card-check');
+          if (check) check.textContent = '✓';
+        }
+      });
+      $('modal-onboarding')?.classList.remove('hidden');
+    });
+    strip.appendChild(editBtn);
+
+    strip.classList.remove('hidden');
   }
 
   const HINT_BTN_LABELS = ['ogólna', 'wzór', 'podstawienie'];
@@ -626,8 +799,8 @@
       updateUserModalUsername(name);
       showToast(`Witaj, ${name}! 🎉`, 'success');
       if (!firstTaskShown) {
-        if (!localStorage.getItem('mathLevel')) openLevelModal(() => generateTask());
-        else generateTask();
+        if (!getEffectiveSubjects()) openOnboarding();
+        else { buildSubjectTabs(); generateTask(); }
       }
     } catch (err) {
       if (errEl) { errEl.textContent = err.message; errEl.classList.remove('hidden'); }
@@ -661,8 +834,8 @@
     $('btn-username-skip')?.addEventListener('click', () => {
       hideUsernameModal();
       if (!firstTaskShown) {
-        if (!localStorage.getItem('mathLevel')) openLevelModal(() => generateTask());
-        else generateTask();
+        if (!getEffectiveSubjects()) openOnboarding();
+        else { buildSubjectTabs(); generateTask(); }
       }
     });
     // "Zmień" w user modal
@@ -1354,12 +1527,14 @@
       if (!firstTaskShown) {
         if (!SA?.getUsername()) {
           showUsernameModal();
-        } else if (!localStorage.getItem('mathLevel')) {
-          openLevelModal(() => generateTask());
+        } else if (!getEffectiveSubjects()) {
+          openOnboarding();
         } else {
+          buildSubjectTabs();
           generateTask();
         }
       } else {
+        buildSubjectTabs();
         syncProgressFromCloud();
       }
     } else {
@@ -1482,6 +1657,7 @@
     initUsernameEvents();
     initRankingEvents();
     initLevelEvents();
+    initOnboardingEvents();
     initCalc();
 
     updateLogoSubtitle();
@@ -1490,8 +1666,8 @@
     // Pokaż landing dopóki nie znamy stanu auth
     showLanding();
 
-    // Przy pierwszym odwiedzeniu zapytaj o poziom matematyki
-    if (!localStorage.getItem('mathLevel')) openLevelModal();
+    // Zakładki przedmiotów jeśli już spersonalizowane (np. powrót bez logowania)
+    if (getLocalSubjects()) buildSubjectTabs();
 
     SA?.init(onAuthChange);
     updateSidebar();

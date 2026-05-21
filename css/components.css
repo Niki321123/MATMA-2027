@@ -1825,6 +1825,161 @@
   .modal-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
 }
 
+/* ===== ONBOARDING MODAL ===== */
+.onboarding-modal {
+  max-width: 620px;
+  padding: 36px 32px 32px;
+  text-align: center;
+}
+.ob-icon  { font-size: 44px; margin-bottom: 10px; }
+.ob-title { font-size: 1.45rem; font-weight: 700; margin: 0 0 6px; }
+.ob-desc  { color: var(--text-muted); font-size: 0.9rem; margin: 0 0 28px; line-height: 1.5; }
+
+.ob-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.ob-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 18px 10px 14px;
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,0.05);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+  user-select: none;
+}
+.ob-card:hover:not(.ob-card--soon) {
+  border-color: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
+}
+.ob-card--selected {
+  border-color: var(--accent-blue) !important;
+  background: rgba(69,170,242,0.15) !important;
+}
+.ob-card--soon {
+  opacity: 0.45;
+  cursor: default;
+}
+.ob-card-icon { font-size: 30px; line-height: 1; }
+.ob-card-name { font-size: 0.82rem; font-weight: 700; color: var(--text-primary); }
+.ob-card-sub  { font-size: 0.72rem; color: var(--text-muted); }
+.ob-card-check {
+  position: absolute;
+  top: 7px; right: 7px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--border-light);
+  background: transparent;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px;
+  transition: all 0.15s;
+}
+.ob-card--selected .ob-card-check {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: #fff;
+}
+.ob-soon-badge {
+  position: absolute;
+  top: 6px; left: 50%; transform: translateX(-50%);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: rgba(255,255,255,0.12);
+  color: var(--text-muted);
+  padding: 2px 6px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.ob-auto-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--accent-blue);
+  text-align: left;
+}
+.ob-btn-confirm {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+}
+
+/* ===== SUBJECT TABS STRIP ===== */
+.subject-tabs-strip {
+  display: flex;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-light);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.subject-tabs-strip::-webkit-scrollbar { display: none; }
+.subject-tabs-strip.hidden { display: none; }
+
+.subject-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border-light);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+.subject-tab-btn:hover {
+  border-color: rgba(255,255,255,0.3);
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.06);
+}
+.subject-tab-btn.active {
+  color: #fff;
+  border-color: transparent;
+}
+.subject-tab-btn .stb-icon { font-size: 14px; }
+
+.subject-tabs-edit {
+  margin-left: auto;
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border-light);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.subject-tabs-edit:hover {
+  color: var(--text-primary);
+  border-color: rgba(255,255,255,0.3);
+}
+
+@media (max-width: 600px) {
+  .ob-grid { grid-template-columns: repeat(2, 1fr); }
+  .onboarding-modal { padding: 28px 16px 24px; }
+}
+
 /* Toast — na dole, pełna szerokość na mobile */
 @media (max-width: 480px) {
   .toast {
