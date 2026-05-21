@@ -234,10 +234,84 @@ window.cat01 = (() => {
     };
   }
 
+  // === SCHEMAT D: model dwufazowy — dwa różne środowiska ===
+  // Faza 1: t ∈ [0, T1], masa spada o p1% / jednostkę → m1 = m0·q1^T1
+  // Faza 2: t ∈ [T1, T1+T2], masa spada o p2% / jednostkę → mF = m1·q2^T2
+  // Konfiguracje dobrane tak, by m1 i mF były liczbami całkowitymi:
+  // m1 = m0·q1^T1,  mFinal = m1·q2^T2  — wszystkie wyniki całkowite
+  const TWO_PHASE_CONFIGS = [
+    { m0: 100, T1: 2, q1: {p:4,q:5}, lose1: 20, m1:  64, T2: 3, q2: {p:3,q:4}, lose2: 25, mFinal:  27, pct: 27, unit: 'g',  timeUnit: 'dni'    },
+    { m0: 400, T1: 2, q1: {p:4,q:5}, lose1: 20, m1: 256, T2: 2, q2: {p:3,q:4}, lose2: 25, mFinal: 144, pct: 36, unit: 'g',  timeUnit: 'dni'    },
+    { m0: 500, T1: 2, q1: {p:4,q:5}, lose1: 20, m1: 320, T2: 3, q2: {p:3,q:4}, lose2: 25, mFinal: 135, pct: 27, unit: 'mg', timeUnit: 'godzin' },
+  ];
+
+  function twoPhaseMass() {
+    const cfg = M.choose(TWO_PHASE_CONFIGS);
+    const { m0, T1, q1, lose1, m1, T2, q2, lose2, mFinal, pct, unit, timeUnit } = cfg;
+    const q1_lat = M.latexFrac(q1.p, q1.q);
+    const q2_lat = M.latexFrac(q2.p, q2.q);
+    const pct_remaining = pct;
+
+    const contexts = [
+      {
+        intro: `Próbka substancji aktywnej o masie $${m0}\\,${unit}$ jest przechowywana w dwóch różnych środowiskach.`,
+        phase1: `W pierwszym środowisku przez $${T1}\\,${timeUnit}$ substancja traci $${lose1}\\%$ masy na każdą jednostkę czasu (${timeUnit === 'godzin' ? 'godzinę' : timeUnit.slice(0,-1)}).`,
+        phase2: `Następnie w drugim środowisku przez kolejne $${T2}\\,${timeUnit}$ substancja traci $${lose2}\\%$ masy na każdą jednostkę czasu.`,
+      },
+      {
+        intro: `Lek o masie $${m0}\\,${unit}$ podany pacjentowi ulega degradacji w dwóch fazach.`,
+        phase1: `W fazie I (pierwsze $${T1}\\,${timeUnit}$) metabolizm pochłania $${lose1}\\%$ masy leku na jednostkę czasu.`,
+        phase2: `W fazie II (kolejne $${T2}\\,${timeUnit}$) szybkość degradacji zmienia się i wynosi $${lose2}\\%$ masy na jednostkę czasu.`,
+      },
+    ];
+    const ctx = M.choose(contexts);
+
+    return {
+      id: M.makeId('cat01_two_phase'),
+      category: 1,
+      categoryName: 'Funkcja wykładnicza w praktyce',
+      type: 'two_phase_mass',
+      points: 3,
+      params: { m0, T1, q1, m1, T2, q2, mFinal, pct_remaining },
+      statement:
+        `${ctx.intro}\n\n${ctx.phase1}\n\n${ctx.phase2}\n\n` +
+        `**a)** Oblicz masę substancji po zakończeniu fazy I (po $${T1}\\,${timeUnit}$).\n\n` +
+        `**b)** Oblicz masę substancji po zakończeniu fazy II (po łącznie $${T1 + T2}\\,${timeUnit}$).\n\n` +
+        `**c)** Jaki procent masy początkowej pozostał po obu fazach? Zapisz obliczenia.`,
+      answer: {
+        type: 'multipart',
+        display: `m_1 = ${m1}\\,${unit};\\quad m_F = ${mFinal}\\,${unit};\\quad ${pct_remaining}\\%`,
+        description: `a) m₁ = ${m1} ${unit}, b) mF = ${mFinal} ${unit}, c) ${pct_remaining}%`
+      },
+      hints: [
+        { level: 1, text: `Faza I: co jednostkę czasu pozostaje $${100-lose1}\\% = ${q1_lat}$ masy. Po $${T1}$ jednostkach: $m_1 = ${m0} \\cdot \\left(${q1_lat}\\right)^{${T1}}$.` },
+        { level: 2, text: `$m_1 = ${m0} \\cdot \\left(${q1_lat}\\right)^{${T1}} = ${m1}\\,${unit}$. Faza II startuje od $m_1 = ${m1}$.` },
+        { level: 3, text: `Faza II: $m_F = ${m1} \\cdot \\left(${q2_lat}\\right)^{${T2}} = ${mFinal}\\,${unit}$. Procent: $\\dfrac{${mFinal}}{${m0}} \\cdot 100\\% = ${pct_remaining}\\%$.` }
+      ],
+      solution: [
+        {
+          step: 1, title: 'a) Masa po fazie I',
+          content: `m_1 = ${m0} \\cdot \\left(${q1_lat}\\right)^{${T1}} = ${m0} \\cdot ${M.latexFrac(q1.p**T1, q1.q**T1)} = \\mathbf{${m1}\\,${unit}}`,
+          explanation: `Co jednostkę czasu pozostaje $(1-${lose1}\\%) = ${q1_lat}$ masy.`
+        },
+        {
+          step: 2, title: 'b) Masa po fazie II',
+          content: `m_F = m_1 \\cdot \\left(${q2_lat}\\right)^{${T2}} = ${m1} \\cdot ${M.latexFrac(q2.p**T2, q2.q**T2)} = \\mathbf{${mFinal}\\,${unit}}`,
+          explanation: `Faza II zaczyna się od masy $m_1 = ${m1}$, iloraz ${q2_lat} przez $${T2}$ jednostek.`
+        },
+        {
+          step: 3, title: 'c) Procent pozostałej masy',
+          content: `\\frac{m_F}{m_0} \\cdot 100\\% = \\frac{${mFinal}}{${m0}} \\cdot 100\\% = \\mathbf{${pct_remaining}\\%}`,
+          explanation: ''
+        }
+      ]
+    };
+  }
+
   function generate() {
     // growthModel usunięty — 1 krok, poziom zamkniętego
-    // substanceDecay (2 pkt A+B) i decayModel (złożone k⁻ᵗ) — poziom 7-8/10
-    return M.choose([decayModel, substanceDecay, substanceDecay])();
+    // substanceDecay (2 pkt), decayModel (4 pkt, logarytm), twoPhaseMass (3 pkt)
+    return M.choose([decayModel, substanceDecay, twoPhaseMass])();
   }
 
   return { generate };

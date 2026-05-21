@@ -121,6 +121,8 @@ window.cat15 = (() => {
     const f = (x) => x*x*x + p*x*x + q*x;
     const f_x1 = f(x1);
     const f_x2 = f(x2);
+    const x0 = (x1 + x2) / 2; // inflection point: f''=0 → x0=(x1+x2)/2
+    const f_x0 = f(x0);        // always equals (f_x1+f_x2)/2 for cubics
 
     const fDisplay = `x^3 ${p >= 0 ? '+' + p : p}x^2 ${q >= 0 ? '+' + q : q}x`;
     const fpDisplay = `3x^2 ${2*p >= 0 ? '+' + 2*p : 2*p}x ${q >= 0 ? '+' + q : q}`;
@@ -149,13 +151,14 @@ window.cat15 = (() => {
       category: 15,
       categoryName: 'Optymalizacja',
       type: 'polynomial_extreme',
-      points: 4,
-      params: { p, q, x1, x2, f_x1, f_x2 },
+      points: 5,
+      params: { p, q, x1, x2, f_x1, f_x2, x0, f_x0 },
       statement:
         `${polyCtx.intro}\n\n` +
         `**a)** Oblicz pochodną $f'(x)$.\n\n` +
         `**b)** Wyznacz przedziały monotoniczności funkcji $f$.\n\n` +
-        `**c)** Wyznacz wartości ekstremalne funkcji $f$ (jeśli istnieją) i podaj ich interpretację.\n\nZapisz obliczenia.`,
+        `**c)** Wyznacz wartości ekstremalne funkcji $f$ (jeśli istnieją) i podaj ich interpretację.\n\n` +
+        `**d)** Znajdź punkt przegięcia wykresu $f$ i wykaż, że $f(x_0) = \\dfrac{f(x_1)+f(x_2)}{2}$, gdzie $x_1, x_2$ są punktami ekstremalnymi.\n\nZapisz obliczenia.`,
       answer: {
         type: 'multipart',
         display: `f'(x)=${fpDisplay},\\ x_{\\min}=${Math.max(x1,x2)},\\ x_{\\max}=${Math.min(x1,x2)}`,
@@ -163,8 +166,8 @@ window.cat15 = (() => {
       },
       hints: [
         { level: 1, text: `Oblicz pochodną: $f'(x) = 3x^2 + ${2*p}x + ${q}$.` },
-        { level: 2, text: `Rozwiąż $f'(x)=0$: pierwiastki to $x_1=${x1}$ i $x_2=${x2}$.` },
-        { level: 3, text: `Analizuj znak $f'$: rosnąca gdy $f'>0$, malejąca gdy $f'<0$. Oblicz $f(${x1})$ i $f(${x2})$.` }
+        { level: 2, text: `Rozwiąż $f'(x)=0$: pierwiastki to $x_1=${x1}$ i $x_2=${x2}$. Dla d): punkt przegięcia: $f''(x)=0$.` },
+        { level: 3, text: `Analizuj znak $f'$. Dla d): $f''(x)=6x+${2*p}=0 \\implies x_0=${x0}$. Oblicz $f(${x0})$ i porównaj z $\\frac{f(${x1})+f(${x2})}{2}$.` }
       ],
       solution: [
         { step: 1, title: 'Pochodna', content: `f'(x) = 3x^2 ${2*p >= 0 ? '+' + 2*p : 2*p}x + ${q}`, explanation: '' },
@@ -176,7 +179,10 @@ window.cat15 = (() => {
           explanation: '' },
         { step: 4, title: 'Ekstrema', content:
           `f(${x1}) = ${f_x1}\\text{ — ekstremum lokalne (max dla }a>0\\text{)}\\\\ f(${x2}) = ${f_x2}\\text{ — ekstremum lokalne (min dla }a>0\\text{)}`,
-          explanation: '' }
+          explanation: '' },
+        { step: 5, title: 'd) Punkt przegięcia', content:
+          `f''(x) = 6x ${2*p >= 0 ? '+' + 2*p : 2*p} = 0 \\implies x_0 = ${x0}\\\\ f(${x0}) = ${f_x0}\\\\ \\frac{f(${x1})+f(${x2})}{2} = \\frac{${f_x1}+${f_x2}}{2} = ${f_x0} \\checkmark`,
+          explanation: 'Własność trójmianów sześciennych: wartość funkcji w punkcie przegięcia jest średnią arytmetyczną wartości ekstremalnych.' }
       ]
     };
   }

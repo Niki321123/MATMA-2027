@@ -500,10 +500,75 @@ window.cat12 = (() => {
     };
   }
 
+  // === Pełne zadanie Viète'a: pierwiastek jawny + warunek na m ===
+  // x²-(m+4)x+(m+3)=0: zawsze ma x₁=1 (sprawdź: 1-(m+4)+(m+3)=0), x₂=m+3
+  // Δ=(m+4)²-4(m+3)=(m+2)²; Δ=0 gdy m=-2 (x₁=x₂=1)
+  // Podpunkt c): x₂=4x₁ → m+3=4 → m=1
+  // Podpunkt d): x₁²+x₂²=1+16=17
+  function vietaFull() {
+    return {
+      id: M.makeId('cat12_vieta_full'),
+      category: 12,
+      categoryName: 'Parametr w równaniu',
+      type: 'vieta_full',
+      points: 4,
+      params: {},
+      statement:
+        `Dane jest równanie z parametrem $m \\in \\mathbb{R}$:\n` +
+        `$$x^2 - (m+4)x + (m+3) = 0$$\n\n` +
+        `**a)** Oblicz wyróżnik $\\Delta$ i wyraź go w postaci kwadratu. Podaj, dla jakiej wartości $m$ równanie ma dokładnie jeden pierwiastek.\n\n` +
+        `**b)** Wykaż, że $x_1 = 1$ jest pierwiastkiem dla każdego $m$. Znajdź drugi pierwiastek $x_2$ w zależności od $m$.\n\n` +
+        `**c)** Znajdź wartość $m$, dla której $x_2 = 4x_1$.\n\n` +
+        `**d)** Dla wartości $m$ z podpunktu **c)** oblicz $x_1^2 + x_2^2$.`,
+      answer: {
+        type: 'multi',
+        display: '\\Delta=(m+2)^2,\\ x_2=m+3,\\ m=1,\\ x_1^2+x_2^2=17',
+        description: 'a) Δ=(m+2)², m=−2; b) x₂=m+3; c) m=1; d) 17'
+      },
+      hints: [
+        { level: 1, text: 'Wyróżnik: $\\Delta = (m+4)^2 - 4(m+3)$. Rozwiń i spróbuj wyrazić jako pełny kwadrat.' },
+        { level: 2, text: 'Aby wykazać, że $x=1$ jest pierwiastkiem, podstaw $x=1$ do równania i sprawdź, czy daje $0$. Następnie skorzystaj ze wzorów Viète\'a: $x_1+x_2 = m+4$.' },
+        { level: 3, text: 'Dla c): $x_2 = 4x_1 = 4 \\cdot 1 = 4$. Skoro $x_2 = m+3$, masz $m+3=4$, czyli $m=1$. Wtedy $x_1^2+x_2^2 = 1^2+4^2$.' }
+      ],
+      solution: [
+        {
+          step: 1,
+          title: 'a) Wyróżnik',
+          content: '\\Delta = (m+4)^2 - 4(m+3) = m^2+8m+16-4m-12 = m^2+4m+4 = (m+2)^2',
+          explanation: 'Δ ≥ 0 dla każdego m (kwadrat), Δ = 0 gdy m = −2.'
+        },
+        {
+          step: 2,
+          title: 'b) Weryfikacja x₁ = 1',
+          content: '1^2 - (m+4)\\cdot 1 + (m+3) = 1 - m - 4 + m + 3 = 0 \\checkmark',
+          explanation: 'Wyrazy z m znoszą się — $x=1$ jest pierwiastkiem dla każdego $m$.'
+        },
+        {
+          step: 3,
+          title: 'b) Drugi pierwiastek',
+          content: 'x_1 + x_2 = m+4 \\implies 1 + x_2 = m+4 \\implies x_2 = m+3',
+          explanation: 'Ze wzoru Viète\'a na sumę pierwiastków (przy a=1).'
+        },
+        {
+          step: 4,
+          title: 'c) Warunek x₂ = 4x₁',
+          content: 'x_2 = 4x_1 \\implies m+3 = 4\\cdot 1 = 4 \\implies m = 1',
+          explanation: ''
+        },
+        {
+          step: 5,
+          title: 'd) x₁² + x₂² dla m = 1',
+          content: 'x_1 = 1,\\quad x_2 = 1+3 = 4\\\\ x_1^2 + x_2^2 = 1 + 16 = \\boxed{17}',
+          explanation: ''
+        }
+      ]
+    };
+  }
+
   function generate() {
     // vieta i paramDiscriminant usunięte — proste zastosowanie wzorów Viète'a / delta
-    // newtonSum, diffSquared, rootsInInterval wymagają kombinacji warunków — poziom 8/10
-    return M.choose([newtonSum, diffSquared, rootsInInterval])();
+    // newtonSum, diffSquared, rootsInInterval, vietaFull wymagają kombinacji warunków — poziom 8/10
+    return M.choose([newtonSum, diffSquared, rootsInInterval, vietaFull])();
   }
 
   return { generate };
