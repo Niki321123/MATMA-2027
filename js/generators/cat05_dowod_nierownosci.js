@@ -119,7 +119,7 @@ window.cat05 = (() => {
   ];
 
   function generate() {
-    const pool = PROOFS.filter(p => p.difficulty === 'medium' || p.difficulty === 'hard');
+    const pool = PROOFS.filter(p => p.difficulty === 'hard');
     const task = M.choose(pool.length > 0 ? pool : PROOFS);
     return {
       id: M.makeId('cat05_proof'),

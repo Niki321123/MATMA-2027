@@ -624,10 +624,18 @@ window.cat07 = (() => {
   }
 
   function generate() {
+    // Schematy 7/10+ — pomijamy arithSimple (4/10) i arithFromTerms (5/10)
+    // geomInfinite (7/10)  — suma nieskończona ciągu geom, wzorzec 2023 z.10 i 2025 z.6
+    // geometricProductionGrowth (7/10) — ciąg geom z praktycznym kontekstem (wzrost produkcji)
     return M.choose([
-      arithGeomCombo, geomInfinite, arithGeomCombo,
-      arithFromTerms, geomTwoConditions, arithGeomCross,
-      loanRepayment, geometricProductionGrowth,
+      arithGeomCombo,              // 7/10 — ciąg geom+aryt kombinowany
+      geomTwoConditions,           // 8/10 — ciąg geom z dwoma warunkami sumy
+      arithGeomCross,              // 8/10 — ciąg aryt z warunkiem geom
+      loanRepayment,               // 8/10 — spłata kredytu (ciąg aryt odsetek)
+      geomInfinite,                // 7/10 — suma nieskończona szeregu geom (wzorzec 2023, 2025)
+      geometricProductionGrowth,   // 7/10 — ciąg geom: wzrost produkcji, sumy S_n
+      geomTwoConditions,           // (podwojony priorytet)
+      arithGeomCross,
     ])();
   }
 

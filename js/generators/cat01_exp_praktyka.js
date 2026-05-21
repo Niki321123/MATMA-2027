@@ -195,8 +195,193 @@ window.cat01 = (() => {
     };
   }
 
+  // === SCHEMAT D: równanie wykładnicze przez podstawienie (t = a^x) ===
+  // Wzorzec maturalny 8/10: a^(2x) − k·a^x + m = 0, zamiana na kwadratowe
+  function expEquationSubst() {
+    const templates = [
+      {
+        eq: '4^x - 5 \\cdot 2^x + 4 = 0',
+        base: '2', squareBase: '4',
+        sqEq: 't^2 - 5t + 4 = 0',
+        factored: '(t - 1)(t - 4) = 0',
+        t_vals: [1, 4], x_vals: [0, 2],
+        x_display: 'x = 0 \\text{ lub } x = 2'
+      },
+      {
+        eq: '9^x - 4 \\cdot 3^x + 3 = 0',
+        base: '3', squareBase: '9',
+        sqEq: 't^2 - 4t + 3 = 0',
+        factored: '(t - 1)(t - 3) = 0',
+        t_vals: [1, 3], x_vals: [0, 1],
+        x_display: 'x = 0 \\text{ lub } x = 1'
+      },
+      {
+        eq: '4^x - 10 \\cdot 2^x + 16 = 0',
+        base: '2', squareBase: '4',
+        sqEq: 't^2 - 10t + 16 = 0',
+        factored: '(t - 2)(t - 8) = 0',
+        t_vals: [2, 8], x_vals: [1, 3],
+        x_display: 'x = 1 \\text{ lub } x = 3'
+      },
+      {
+        eq: '25^x - 6 \\cdot 5^x + 5 = 0',
+        base: '5', squareBase: '25',
+        sqEq: 't^2 - 6t + 5 = 0',
+        factored: '(t - 1)(t - 5) = 0',
+        t_vals: [1, 5], x_vals: [0, 1],
+        x_display: 'x = 0 \\text{ lub } x = 1'
+      },
+      {
+        eq: '9^x - 12 \\cdot 3^x + 27 = 0',
+        base: '3', squareBase: '9',
+        sqEq: 't^2 - 12t + 27 = 0',
+        factored: '(t - 3)(t - 9) = 0',
+        t_vals: [3, 9], x_vals: [1, 2],
+        x_display: 'x = 1 \\text{ lub } x = 2'
+      },
+      {
+        eq: '4^x - 20 \\cdot 2^x + 64 = 0',
+        base: '2', squareBase: '4',
+        sqEq: 't^2 - 20t + 64 = 0',
+        factored: '(t - 4)(t - 16) = 0',
+        t_vals: [4, 16], x_vals: [2, 4],
+        x_display: 'x = 2 \\text{ lub } x = 4'
+      },
+    ];
+
+    const tpl = M.choose(templates);
+
+    return {
+      id: M.makeId('cat01_eq_subst'),
+      category: 1,
+      categoryName: 'Funkcja wykładnicza w praktyce',
+      type: 'exp_equation_subst',
+      points: 4,
+      params: tpl,
+      statement:
+        `Rozwiąż równanie\n$$${tpl.eq}$$\nZapisz obliczenia.`,
+      answer: {
+        type: 'set',
+        value: tpl.x_vals,
+        display: tpl.x_display,
+        description: `$${tpl.x_display}$`
+      },
+      hints: [
+        { level: 1, text: `Podstaw $t = ${tpl.base}^x$ (gdzie $t > 0$). Zauważ, że $${tpl.squareBase}^x = (${tpl.base}^x)^2 = t^2$.` },
+        { level: 2, text: `Otrzymujesz równanie kwadratowe: $${tpl.sqEq}$. Rozłóż na czynniki: $${tpl.factored}$.` },
+        { level: 3, text: `Z $t = ${tpl.t_vals[0]}$ i $t = ${tpl.t_vals[1]}$ dostajesz $${tpl.base}^x = ${tpl.t_vals[0]}$ i $${tpl.base}^x = ${tpl.t_vals[1]}$. Stąd $${tpl.x_display}$.` }
+      ],
+      solution: [
+        {
+          step: 1, title: 'Podstawienie $t = ' + tpl.base + '^x$',
+          content: `\\text{Niech } t = ${tpl.base}^x,\\; t > 0.\\quad ${tpl.squareBase}^x = (${tpl.base}^2)^x = (${tpl.base}^x)^2 = t^2`,
+          explanation: 'Redukcja do równania kwadratowego.'
+        },
+        {
+          step: 2, title: 'Równanie kwadratowe',
+          content: `${tpl.sqEq}`,
+          explanation: ''
+        },
+        {
+          step: 3, title: 'Rozkład na czynniki',
+          content: `${tpl.factored} \\implies t = ${tpl.t_vals[0]} \\text{ lub } t = ${tpl.t_vals[1]}`,
+          explanation: 'Oba rozwiązania dodatnie ($t > 0$) — oba dopuszczalne.'
+        },
+        {
+          step: 4, title: 'Powrót do $x$',
+          content: `${tpl.base}^x = ${tpl.t_vals[0]} \\implies x = \\log_{${tpl.base}} ${tpl.t_vals[0]} = ${tpl.x_vals[0]}\\\\ ${tpl.base}^x = ${tpl.t_vals[1]} \\implies x = \\log_{${tpl.base}} ${tpl.t_vals[1]} = ${tpl.x_vals[1]}`,
+          explanation: ''
+        }
+      ]
+    };
+  }
+
+  // === SCHEMAT E: dwie populacje — kiedy pierwsza prześciga drugą? ===
+  // Wzorzec maturalny 8/10: N₁(t) = A·k₁^t, N₂(t) = B·k₂^t, kiedy N₁ > N₂?
+  // Wymaga: zalogowania obu stron, obsługi log < 0 lub log > 0
+  function twoModelsComparison() {
+    const templates = [
+      // N1 = 100·3^t, N2 = 900·(3/2)^t; N1 = N2 → 100·3^t = 900·(3/2)^t
+      // (3/(3/2))^t = 900/100 → 2^t = 9 → t = log₂9 ≈ 3.17 → t_min = 4
+      {
+        N1_0: 100, k1_str: '3', k1: 3,
+        N2_0: 900, k2_str: '\\dfrac{3}{2}', k2: 1.5,
+        ratio_str: '2^t = 9', t_exact: 'log_2 9 \\approx 3{,}17',
+        t_min: 4, unit: 'roku',
+        context: 'Firma A produkuje $100 \\cdot 3^t$ jednostek po $t$ latach, firma B produkuje $900 \\cdot \\left(\\frac{3}{2}\\right)^t$ jednostek.'
+      },
+      // N1 = 200·2^t, N2 = 1600·(4/3)^t; N1=N2 → 2^t/(4/3)^t = 8 → (3/2)^t = 8 → t·log(3/2) = log8
+      // t = log8/log(3/2) ≈ 5.13 → t_min = 6
+      {
+        N1_0: 200, k1_str: '2', k1: 2,
+        N2_0: 1600, k2_str: '\\dfrac{4}{3}', k2: 4/3,
+        ratio_str: '\\left(\\dfrac{3}{2}\\right)^t = 8', t_exact: '\\dfrac{\\log 8}{\\log \\frac{3}{2}} \\approx 5{,}13',
+        t_min: 6, unit: 'roku',
+        context: 'Kolonia X liczy $200 \\cdot 2^t$ bakterii, kolonia Y liczy $1600 \\cdot \\left(\\frac{4}{3}\\right)^t$ bakterii po $t$ godzinach.'
+      },
+      // N1 = 500·4^t, N2 = 4000·2^t; N1=N2 → 500·4^t = 4000·2^t → 2^t = 8 → t=3
+      {
+        N1_0: 500, k1_str: '4', k1: 4,
+        N2_0: 4000, k2_str: '2', k2: 2,
+        ratio_str: '2^t = 8 = 2^3', t_exact: 't = 3',
+        t_min: 3, unit: 'godziny', exact: true,
+        context: 'Populacja A: $500 \\cdot 4^t$ osobników, populacja B: $4000 \\cdot 2^t$ osobników po $t$ godzinach.'
+      },
+    ];
+
+    const tpl = M.choose(templates);
+    const isExact = !!tpl.exact;
+
+    return {
+      id: M.makeId('cat01_two_models'),
+      category: 1,
+      categoryName: 'Funkcja wykładnicza w praktyce',
+      type: 'two_models_comparison',
+      points: 4,
+      params: tpl,
+      statement:
+        `${tpl.context}\n\n` +
+        `**a)** Dla jakiej wartości $t$ obie wielkości są równe? Zapisz obliczenia.\n\n` +
+        `**b)** Od której ${tpl.unit} (pełna ${tpl.unit}) wielkość populacji A po raz pierwszy przekroczy populację B?`,
+      answer: {
+        type: 'multipart',
+        display: `t = ${tpl.t_exact},\\quad t_{\\min} = ${tpl.t_min}`,
+        description: `Równość przy $${tpl.t_exact}$; po raz pierwszy pełna ${tpl.unit}: $t = ${tpl.t_min}$`
+      },
+      hints: [
+        { level: 1, text: `Przyrównaj wzory: $${tpl.N1_0} \\cdot ${tpl.k1_str}^t = ${tpl.N2_0} \\cdot ${tpl.k2_str}^t$. Podziel obie strony przez ${tpl.N2_0} i przez $${tpl.k2_str}^t$.` },
+        { level: 2, text: `Uprość lewą stronę do postaci potęgi jednej podstawy: $${tpl.ratio_str}$.` },
+        { level: 3, text: `Stąd $${tpl.t_exact}$. Pełna ${tpl.unit}: $t_{\\min} = ${tpl.t_min}$.` }
+      ],
+      solution: [
+        {
+          step: 1, title: 'Równanie N₁ = N₂',
+          content: `${tpl.N1_0} \\cdot ${tpl.k1_str}^t = ${tpl.N2_0} \\cdot ${tpl.k2_str}^t`,
+          explanation: ''
+        },
+        {
+          step: 2, title: 'Przekształcenie',
+          content: `\\frac{${tpl.k1_str}^t}{${tpl.k2_str}^t} = \\frac{${tpl.N2_0}}{${tpl.N1_0}} \\implies ${tpl.ratio_str}`,
+          explanation: `$\\left(\\frac{k_1}{k_2}\\right)^t = \\frac{N_{2,0}}{N_{1,0}}$`
+        },
+        {
+          step: 3, title: isExact ? 'Dokładne rozwiązanie' : 'Rozwiązanie logarytmiczne',
+          content: `t = ${tpl.t_exact}`,
+          explanation: isExact ? '' : 'Logarytmujemy obie strony i korzystamy z własności logarytmów.'
+        },
+        {
+          step: 4, title: 'Pierwsza pełna ' + tpl.unit,
+          content: `t_{\\min} = ${tpl.t_min} \\text{ (pierwsze całkowite } t \\text{ spełniające nierówność)}`,
+          explanation: `Dla $t \\geq ${tpl.t_min}$ populacja A przewyższa B.`
+        }
+      ]
+    };
+  }
+
   function generate() {
-    return M.choose([growthModel, decayModel, substanceDecay])();
+    // expEquationSubst (8/10) i twoModelsComparison (8/10) — nowe schematy maturalne
+    // substanceDecay (6/10) pozostawiony dla różnorodności
+    return M.choose([expEquationSubst, twoModelsComparison, expEquationSubst, twoModelsComparison, substanceDecay])();
   }
 
   return { generate };

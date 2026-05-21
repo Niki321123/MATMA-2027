@@ -417,7 +417,15 @@ window.cat13 = (() => {
   }
 
   function generate() {
-    return M.choose([bernoulli, conditional, totalProbability, hardBernoulli, bayesThreeHypotheses])();
+    // Tylko schematy 8/10+ — hardBernoulli + bayesThreeHypotheses
+    // Pomijamy bernoulli (6/10), conditional (6/10), totalProbability (7/10)
+    return M.choose([
+      hardBernoulli,           // 8/10 — P(X≥k), P(X≤k), złożone Bernoulliego
+      bayesThreeHypotheses,    // 9/10 — wzór Bayesa, 3 hipotezy
+      hardBernoulli,
+      bayesThreeHypotheses,
+      hardBernoulli,
+    ])();
   }
 
   return { generate };

@@ -310,13 +310,13 @@ window.cat09 = (() => {
   }
 
   function generate() {
-    // Pool: wszystkie medium/hard z banku + parametryczny typ cos2xLinear
-    const pool = TASKS.filter(t => t.difficulty === 'medium' || t.difficulty === 'hard');
-    const taskFromPool = M.choose(pool);
+    // Tylko 'hard' z banku maturalnego (8-9/10)
+    const pool = TASKS.filter(t => t.difficulty === 'hard');
+    const taskFromPool = M.choose(pool.length > 0 ? pool : TASKS);
 
-    // 20% szans na cos2xLinear (parametryczny), reszta z banku maturalnego
+    // 15% szans na cos2xLinear (7-8/10), reszta z banku hard
     const r = Math.random();
-    if (r < 0.20) return cos2xLinear();
+    if (r < 0.15) return cos2xLinear();
 
     return {
       id: M.makeId('cat09'),

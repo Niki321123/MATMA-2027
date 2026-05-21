@@ -258,7 +258,7 @@ window.cat14 = (() => {
 
   function generate() {
     // simpleCount usunięty — "ile jest C(n,k) podzbiorów" to poziom zadania zamkniętego
-    const pool = TASKS.filter(t => t.difficulty === 'medium' || t.difficulty === 'hard');
+    const pool = TASKS.filter(t => t.difficulty === 'hard');
     const task = M.choose(pool.length > 0 ? pool : TASKS);
     return {
       id: M.makeId('cat14'),

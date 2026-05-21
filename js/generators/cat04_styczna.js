@@ -325,7 +325,10 @@ window.cat04 = (() => {
   }
 
   function generate() {
-    return M.choose([polyTangent, rationalTangent, parallelTangent, tangentAtAngle])();
+    // polyTangent (5-6/10) i rationalTangent (6-7/10) usunięte z rotacji
+    // parallelTangent (8/10) — styczna równoległa do danej prostej, dwa punkty
+    // tangentAtAngle (7-8/10) — styczna pod danym kątem, wymaga rozwiązania f'(x)=tg(α)
+    return M.choose([parallelTangent, tangentAtAngle, parallelTangent, tangentAtAngle, parallelTangent])();
   }
 
   return { generate };

@@ -501,7 +501,14 @@ window.cat12 = (() => {
   }
 
   function generate() {
-    return M.choose([vieta, paramDiscriminant, newtonSum, diffSquared, rootsInInterval])();
+    // Tylko schematy 8/10+ — pomijamy vieta (5/10) i paramDiscriminant (6/10)
+    return M.choose([
+      newtonSum,           // 8/10 — tożsamość Newtona x₁³+x₂³
+      diffSquared,         // 8/10 — (x₁-x₂)², oba pierwiastki tego samego znaku
+      rootsInInterval,     // 9/10 — pierwiastki w przedziale
+      newtonSum,           // (podwojony priorytet)
+      rootsInInterval,
+    ])();
   }
 
   return { generate };
