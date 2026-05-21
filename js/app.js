@@ -218,8 +218,15 @@
     const subjects = getEffectiveSubjects();
     if (!subjects || subjects.length === 0) { strip.classList.add('hidden'); return; }
 
+    // Jeśli aktywny poziom nie należy do wybranych przedmiotów — ustaw pierwszy dostępny
+    let currentLvl = getMathLevel();
+    const availableIds = subjects.filter(id => SUBJECTS_DEF.find(s => s.id === id && s.available));
+    if (!availableIds.includes(currentLvl)) {
+      currentLvl = availableIds[0] || currentLvl;
+      setMathLevel(currentLvl);
+    }
+
     strip.innerHTML = '';
-    const currentLvl = getMathLevel();
 
     subjects.forEach(id => {
       const def = SUBJECTS_DEF.find(s => s.id === id);
