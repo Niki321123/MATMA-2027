@@ -33,6 +33,7 @@ mx
 ,m  dla których równanie
 
 -`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -68,6 +69,7 @@ AP
 .
 
 £`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -129,6 +131,7 @@ x
 
 -
 -`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -187,6 +190,7 @@ Napisz równania osi symetrii figury F.
 ˛
 
 ˛`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -202,6 +206,7 @@ Napisz równania osi symetrii figury F.
 p250 cm3. Przedstaw pole powierzchni ca‡kowitej tego walca jako
 funkcjŒ  d‡ugoci  promienia  jego  podstawy  i  okrel  dziedzinŒ  tej  funkcji.  Wyznacz  d‡ugo
 promienia takiego walca, którego pole powierzchni ca‡kowitej jest najmniejsze.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -246,6 +251,7 @@ xg
 xf
 
 =`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -293,6 +299,7 @@ p
 2
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -334,6 +341,7 @@ x
 ,  gdzie  lewa  strona  tej  nierwnoci  jest
 
 -`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -350,6 +358,7 @@ x
 wyrazami  ci„gu  arytmetycznego,  ktrego  suma  wynosi  30.  Wyznacz  stosunek  d‡ugoci
 promienia okrŒgu opisanego na tym trjk„cie do d‡ugoci promienia okrŒgu wpisanego w ten
 trjk„t.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -396,6 +405,7 @@ x
 )4
 
   i  zapisz  ją  w  postaci  sumy`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -432,6 +442,7 @@ a) Naszkicuj wykres funkcji f.
 b) Rozwiąż równanie:
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -452,6 +463,7 @@ mniejsze od
 1296
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -493,6 +505,7 @@ n
 )3
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -629,6 +642,7 @@ uuur
 Rys. 2
 
 Podaj interpretację otrzymanego wyniku.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -650,6 +664,7 @@ Oblicz pole otrzymanego przekroju.
 3
 
 . Sporządź odpowiedni rysunek.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -679,6 +694,7 @@ Oblicz pole otrzymanego przekroju.
 7
 
 jest liczbą całkowitą.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -739,6 +755,7 @@ są współrzędnymi wierzchołków czworokąta wypukłego ABCD.
 a)  Wyznacz współrzędne punktów: A, B, C, D.
 b)  Wykaż, że czworokąt ABCD jest trapezem równoramiennym.
 c)  Wyznacz równanie okręgu opisanego na czworokącie ABCD.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -785,6 +802,7 @@ m
 5
 
 x`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -854,6 +872,7 @@ n⎡
 ⎦
 
 1≥n`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Spróbuj przekształcić algebraicznie do oczywistej nierówności`},
       {level:2,text:`Szukaj wzorów skróconego mnożenia lub AM-GM`},
@@ -1092,6 +1111,7 @@ n
 .
 ≤
 b`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -1335,6 +1355,7 @@ x
 0
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -1521,6 +1542,7 @@ gdy  prowadzi  kierowca  B  w  20%  jego  kursów,  a  gdy  prowadzi  kierowca  
 kursów.  W  ciągu  5-dniowego  tygodnia  nauki  dwa  razy  prowadzi  autobus  kierowca  A,  dwa
 razy  kierowca  B  i  jeden  raz  kierowca  C.  Oblicz  prawdopodobieństwo  spóźnienia  się
 szkolnego autobusu w losowo wybrany dzień nauki.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -1543,6 +1565,7 @@ szkolnego autobusu w l`,explanation:``}]
 kątów i ich wyniki przedstawiono na rysunku. Odległość między obiektami B i C jest równa
 400 m. Oblicz odległość w linii prostej między obiektami A i B i podaj wynik, zaokrąglając
 go do jednego metra.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`owiednich`,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -1611,6 +1634,7 @@ a)  Wyznacz długość ramienia tego trapezu.
 b)  Oblicz cosinus  CBD
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -1716,6 +1740,7 @@ Korzystając z własności czworokąta opisanego na okręgu otrzymuję:`,explana
     statement:`Wśród  wszystkich  graniastosłupów  prawidłowych  trójkątnych  o  objętości  równej  2 m3
 istnieje  taki,  którego  pole  powierzchni  całkowitej  jest  najmniejsze.  Wyznacz  długości
 krawędzi tego graniastosłupa.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -1832,6 +1857,7 @@ n
 2
 
 )na .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -2001,6 +2027,7 @@ x
 2
 
 .g`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -2295,6 +2322,7 @@ y
 1
 
 x`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -2408,6 +2436,7 @@ m=
   nie  ma
 
 rozwiązania.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -2586,6 +2615,7 @@ x
 )
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyznacz dziedzinę: argumenty logarytmów muszą być > 0`},
       {level:2,text:`Wzory: log(ab) = log a + log b, log(a^n) = n*log a`},
@@ -2735,6 +2765,7 @@ półkuli.  Objętość  stożka  stanowi
 lądownika.
 
   objętości  całej  kapsuły.  Oblicz  objętość  kapsuły`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj bryłę i zaznacz wszystkie dane`},
       {level:2,text:`Szukaj użytecznych przekrojów osiowych lub środkowych`},
@@ -2826,6 +2857,7 @@ najkrótszego boku tego trójkąta.
 2
 
 , 2. Oblicz cosinus i sinus kąta leżącego naprzeciw`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -2964,6 +2996,7 @@ x
 
 2 6
 +`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyznacz równanie prostej przez dwa punkty`},
       {level:2,text:`Odległość punktu (x0,y0) od prostej ax+by+c=0: d = |ax0+by0+c|/sqrt(a^2+b^2)`},
@@ -3074,6 +3107,7 @@ P B =
 ) 0, 75
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -3230,6 +3264,7 @@ m ∈
 2, 4
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -3410,6 +3445,7 @@ y
 2π
 
 x`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -3594,6 +3630,7 @@ x
 
 stopnia  drugiego  o  współczynnikach  całkowitych  i  takich,  że  współczynniki  przy  drugich
 potęgach są równe jeden.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -3760,6 +3797,7 @@ x
 . Wyznacz miarę
 
 kąta ostrego rombu.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyznacz równanie prostej przez dwa punkty`},
       {level:2,text:`Odległość punktu (x0,y0) od prostej ax+by+c=0: d = |ax0+by0+c|/sqrt(a^2+b^2)`},
@@ -3912,6 +3950,7 @@ n
 .
 
 tego  ciągu  o  numerach  parzystych:`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -4117,6 +4156,7 @@ f
 1
 
 x`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -4267,6 +4307,7 @@ x
 x
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -4513,6 +4554,7 @@ p q
 
 =
 0`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`owiednie  współczynniki  obu  postaci  równania  i  stwierdzam,  że`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -4671,6 +4713,7 @@ x
 +  w przedziale  0, 2π .
 
 1`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -4812,6 +4855,7 @@ x
 p
 
 w zależności od parametru p.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -4952,6 +4996,7 @@ a b c   jest  jednocześnie  arytmetyczny  i  geometryczny,
 ,
 
 )`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -5081,6 +5126,7 @@ punktu
 )2,0(=F
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -5274,6 +5320,7 @@ y
 2
 
 2`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -5509,6 +5556,7 @@ x
 
 2
 2`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -5626,6 +5674,7 @@ Obliczam wartość funkcji f dla argumentu 16, kor`,explanation:``}]
     statement:`Z  pewnej  grupy  osób,  w  której  jest  dwa  razy  więcej  mężczyzn  niż  kobiet,  wybrano  losowo
 dwuosobową  delegację.  Prawdopodobieństwo  tego,  że  w  delegacji  znajdą  się  tylko  kobiety
 jest równe 0,1. Oblicz, ile kobiet i ilu mężczyzn jest w tej grupie.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -5714,6 +5763,7 @@ H . Wynik
 H
 
 α`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj bryłę i zaznacz wszystkie dane`},
       {level:2,text:`Szukaj użytecznych przekrojów osiowych lub środkowych`},
@@ -5787,6 +5837,7 @@ CA =
 12
 
 9`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -5928,6 +5979,7 @@ b
 ⎫
 ⎬
 ⎭`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`2008 2009 2009`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -6018,6 +6070,7 @@ x
   otrzymujemy
 
 iloraz`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -6156,6 +6209,7 @@ xf
   i  podaj  wszystkie  wartości  parametru
 
 Rm ∈ ,`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -6258,6 +6312,7 @@ a każdego następnego ranka dorzucał o 2 monety więcej niż dnia poprzedniego
 ze skarbca król zabierał w południe każdego dnia 50 monet. Oblicz najmniejszą liczbę k, dla
 której w każdym dniu w skarbcu była co najmniej jedna moneta, a następnie dla tej wartości k
 oblicz, w którym dniu w skarbcu była najmniejsza liczba monet.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`Liczby  monet  wkładanych  przez  kolejne  dni  przez  skarbnika  tworzą`,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -6329,6 +6384,7 @@ Poziom rozszerzony
 A
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -6454,6 +6510,7 @@ x
 cos
 
   i  zapisz  ją  w  postaci  sumy  przedziałów`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`0, 2 cos`,description:``},
     hints:[{level:1,text:`Wyznacz dziedzinę: argumenty logarytmów muszą być > 0`},
       {level:2,text:`Wzory: log(ab) = log a + log b, log(a^n) = n*log a`},
@@ -6545,6 +6602,7 @@ S
 ,  gdzie
 
 nS   oznacza  sumę`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -6610,6 +6668,7 @@ większego z tych okręgów do promienia mniejszego jest równy
 B
 
 A`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`Zdający  otrzymuje  1  punkt,  jeśli  zapisze  długość  przeciwprostokątnej  trójkąta  prostokątnego`,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -6706,6 +6765,7 @@ x
 2
 
 2`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`01 =−− y`,description:``},
     hints:[{level:1,text:`Oblicz pochodną f'(x)`},
       {level:2,text:`Podstaw x0 do f'(x0) — to nachylenie stycznej`},
@@ -6782,6 +6842,7 @@ prawdopodobieństwo otrzymania kul o różnych kolorach jest większe od
 22
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -6895,6 +6956,7 @@ Zdający otrzymuje 1 punkt, jeśli zapisze tylko liczbę wszystkich zdarzeń ele
 i krawędź boczna jest od niej dwa razy dłuższa. Oblicz cosinus kąta między krawędzią boczną
 i krawędzią  podstawy  ostrosłupa.  Narysuj  przekrój  ostrosłupa  płaszczyzną  przechodzącą
 przez krawędź podstawy i środek przeciwległej krawędzi bocznej i oblicz pole tego przekroju.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -6960,6 +7022,7 @@ x
 1 6
 
 x`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -7041,6 +7104,7 @@ x
 − =   należące  do  przedziału
 
 4 0`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -7168,6 +7232,7 @@ x
 |
 
 jest najmniejsze.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -7379,6 +7444,7 @@ bx
 1
 
  jest równa 10.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -7561,6 +7627,7 @@ a c+ =
 10
 
 ,  zaś  ciąg`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`owiedzi – poziom rozszerzony`,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -7669,6 +7736,7 @@ m −
 13
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -7803,6 +7871,7 @@ ABC   w  którym
  Pole tego trójkąta jest równe 15. Bok  BC  jest zawarty w prostej o równaniu
 
 ,`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyznacz równanie prostej przez dwa punkty`},
       {level:2,text:`Odległość punktu (x0,y0) od prostej ax+by+c=0: d = |ax0+by0+c|/sqrt(a^2+b^2)`},
@@ -7959,6 +8028,7 @@ y
 4
 
 x`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -8090,6 +8160,7 @@ D
 A
 
 B`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -8201,6 +8272,7 @@ więc trójkąty ABC i FCG są`,explanation:``}]
     image:`img/tasks_cke/cke_2010_10.jpg`,
     statement:`Oblicz prawdopodobieństwo tego, że w trzech rzutach symetryczną sześcienną kostką do gry suma
 kwadratów liczb uzyskanych oczek będzie podzielna przez 3.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -8228,6 +8300,7 @@ Kwadraty liczb 3 i 6 są liczba`,explanation:``}]
     statement:`W ostrosłupie prawidłowym trójkątnym krawędź podstawy ma długość a. Ściany boczne są
 trójkątami  ostrokątnymi.  Miara  kąta  między  sąsiednimi  ścianami  bocznymi  jest  równa  2α.
 Wyznacz objętość tego ostrosłupa.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj bryłę i zaznacz wszystkie dane`},
       {level:2,text:`Szukaj użytecznych przekrojów osiowych lub środkowych`},
@@ -8268,6 +8341,7 @@ x
 12
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -8320,6 +8394,7 @@ m
 −
 .
 25`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -8353,6 +8428,7 @@ b c
 ,
 
   jest  arytmetyczny  i  suma  jego`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -8389,6 +8465,7 @@ x
 0, 2
 
 π .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -8452,6 +8529,7 @@ A
 c
 
 B`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -8479,6 +8557,7 @@ który spełnia warunki:
 2 =
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -8501,6 +8580,7 @@ AB = .  Pole  tego  trójkąta  jest
 8
 
 równe 10 3 . Oblicz promień okręgu opisanego na tym trójkącie.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyznacz równanie prostej przez dwa punkty`},
       {level:2,text:`Odległość punktu (x0,y0) od prostej ax+by+c=0: d = |ax0+by0+c|/sqrt(a^2+b^2)`},
@@ -8540,6 +8620,7 @@ y
   są  przeciwległymi  wierzchołkami  trapezu  równoramiennego
 
  jest osią symetrii tego trapezu. Oblicz`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -8558,6 +8639,7 @@ Wykaż, że  MP
 NP=
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -8578,6 +8660,7 @@ punkty  E  i F,  różne  od  wierzchołków  kwadratu,  takie że  CE DF
 x
 
 dla której pole trójkąta AEF jest najmniejsze i oblicz to pole.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -8596,6 +8679,7 @@ wylosowanej liczby jest równa 7.
 1, 2, 3   losujemy  jedną.
 
 }`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -8636,6 +8720,7 @@ AS
 . Oblicz objętość tego ostrosłupa.
 
 i  wierzchołku  S  dane  są:`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj bryłę i zaznacz wszystkie dane`},
       {level:2,text:`Szukaj użytecznych przekrojów osiowych lub środkowych`},
@@ -8668,6 +8753,7 @@ k
 k
 
  jest podzielna przez 36.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -8802,6 +8888,7 @@ cb
 2=
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -8993,6 +9080,7 @@ których
 równanie
 x   takie,  że
 2`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -9171,6 +9259,7 @@ x
  w przedziale  0, 2π .
 
 Odpowiedź: ................................................................................................................................ .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -9372,6 +9461,7 @@ q =
 27
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -9499,6 +9589,7 @@ BAC =
 .  Oblicz
 
 długość środkowej AD tego trójkąta.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`owiedzi`,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -9658,6 +9749,7 @@ y
 0
 
   poprowadzonymi`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -9778,6 +9870,7 @@ kierunkowym prostej stycznej).`,explanation:``}]
     statement:`Wśród  wszystkich  graniastosłupów prawidłowych  sześciokątnych,  w  których  suma  długości
 wszystkich krawędzi jest równa 24, jest taki, który ma największe pole powierzchni bocznej.
 Oblicz długość krawędzi podstawy tego graniastosłupa.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -9844,6 +9937,7 @@ Aby  wyznaczyć  długość  krawędzi  podstawy  graniastosłupa,  które`,expl
 występują dwie dwójki i występują trzy trójki.
 
 Odpowiedź: ................................................................................................................................ .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Licz możliwości krok po kroku, mnożąc liczby wyborów`},
       {level:2,text:`Permutacje n elementów: n!; kombinacje: C(n,k) = n!/(k!(n-k)!)`},
@@ -9913,6 +10007,7 @@ odpowiednio środkami boków AB i CD. Punkty P, Q są odpowiednio środkami prze
 AC i BD. Uzasadnij, że  MQ PN
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -9947,6 +10042,7 @@ AC AS =
 . Oblicz sinus kąta nachylenia ściany bocznej do płaszczyzny podstawy.
 
 6 : 5`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -10184,6 +10280,7 @@ P B =
 ,
 
 Odpowiedź: ................................................................................................................................ .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -10280,6 +10377,7 @@ x
 
  .
 3`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -10339,6 +10437,7 @@ cx d
  .
 
 Odpowiedź: ................................................................................................................................ .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -10367,6 +10466,7 @@ sin 
 .
 
 Odpowiedź: ................................................................................................................................ .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -10411,6 +10511,7 @@ m x m
 1 0
 
 `,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -10456,6 +10557,7 @@ r  .  Oblicz
 .
 
 Odpowiedź: ................................................................................................................................ .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -10497,6 +10599,7 @@ c
 d
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Spróbuj przekształcić algebraicznie do oczywistej nierówności`},
       {level:2,text:`Szukaj wzorów skróconego mnożenia lub AM-GM`},
@@ -10537,6 +10640,7 @@ A 
 
 
  oraz jest`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -10567,6 +10671,7 @@ AD  . Ponadto kąty
 7
 
 DAB oraz BCD są proste. Oblicz pole tego czworokąta oraz długości jego przekątnych.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -10582,6 +10687,7 @@ DAB oraz BCD są proste. Oblicz pole tego czworokąta oraz długości jego przek
 przez 15.
 
 Odpowiedź: ................................................................................................................................ .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -10639,6 +10745,7 @@ BP
  jest najmniejsza.
 
 Odpowiedź: ................................................................................................................................ .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -10670,6 +10777,7 @@ AC
 
 ściany  bocznej  poprowadzona  z  wierzchołka  S  ma  długość  26.  Oblicz  objętość  tego
 ostrosłupa.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj bryłę i zaznacz wszystkie dane`},
       {level:2,text:`Szukaj użytecznych przekrojów osiowych lub środkowych`},
@@ -10712,6 +10820,7 @@ przeciwne do zdarzenia B).
   ( A oznacza  zdarzenie  przeciwne  do  zdarzenia  A ,
 
 B oznacza  zdarzenie`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -10725,6 +10834,7 @@ przeciwne do zdarzenia B).
     image:`img/tasks_cke/cke_2012_1.jpg`,
     statement:`Wyznacz  cztery  kolejne  liczby  całkowite  takie,  że  największa  z  nich  jest  równa  sumie
 kwadratów trzech pozostałych liczb.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -10828,6 +10938,7 @@ x
 .
 
 Odpowiedź: ................................................................................................................................ .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -10900,6 +11011,7 @@ x
 .
 
 Odpowiedź: ................................................................................................................................ .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -11051,6 +11163,7 @@ x m
 12
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -11305,6 +11418,7 @@ m
 się w arytmetyczny. Jeżeli zaś do ostatniej liczby nowego ciągu arytmetycznego dodamy 64,
 to  tak  otrzymany  ciąg  będzie  znów  geometryczny.  Znajdź  te  liczby.  Uwzględnij  wszystkie
 możliwości.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`owiednio pierwszy wyraz i iloraz tego ciągu geometrycznego.`,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -11425,6 +11539,7 @@ m
 
 55
 2`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -11608,6 +11723,7 @@ a b ab
 2
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`owiedzi – poziom rozszerzony`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -11735,6 +11851,7 @@ Schemat oceniania rozwiązania`,explanation:``}]
 dziesiętnym jest równy 12.
 
 Odpowiedź: ................................................................................................................................ .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Licz możliwości krok po kroku, mnożąc liczby wyborów`},
       {level:2,text:`Permutacje n elementów: n!; kombinacje: C(n,k) = n!/(k!(n-k)!)`},
@@ -11783,6 +11900,7 @@ sposobów.
 trójkąta DAB opuszczoną na jego bok BD. Wyraź pole trójkąta AED za pomocą a i b.
 
 b . Odcinek AE jest wysokością`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -11937,6 +12055,7 @@ AS 
 ,
 
 ,`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj bryłę i zaznacz wszystkie dane`},
       {level:2,text:`Szukaj użytecznych przekrojów osiowych lub środkowych`},
@@ -12030,6 +12149,7 @@ P A B
 B  
 
   ( A  oznacza  zdarzenie`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -12139,6 +12259,7 @@ x
 .
 
 Odpowiedź: ................................................................................................................................ .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -12236,6 +12357,7 @@ r
 
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -12327,6 +12449,7 @@ Kryteria ocenia`,explanation:``}]
     image:`img/tasks_cke/cke_2013_3.jpg`,
     statement:`Oblicz,  ile  jest  liczb  naturalnych  sześciocyfrowych,  w  zapisie  których  występuje  dokładnie
 trzy razy cyfra 0 i dokładnie raz występuje cyfra 5.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Licz możliwości krok po kroku, mnożąc liczby wyborów`},
       {level:2,text:`Permutacje n elementów: n!; kombinacje: C(n,k) = n!/(k!(n-k)!)`},
@@ -12370,6 +12493,7 @@ x   .
 0, 2
 
 Odpowiedź: ................................................................................................................................ .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -12524,6 +12648,7 @@ c
 
 
 Odpowiedź: ................................................................................................................................ .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -12671,6 +12796,7 @@ x
 2
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -12839,6 +12965,7 @@ S 
 
 
   w  punktach  A  i  B.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`owiedzi – poziom rozszerzony`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -12950,6 +13077,7 @@ x
 1x   jest równa  20.
 
 Odpowiedź: ..................................................................................................................................`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -13055,6 +13183,7 @@ DC 
 . Oblicz pole trójkąta ABC.
 
 Odpowiedź: ................................................................................................................................ .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -13155,6 +13284,7 @@ h
     statement:`W  ostrosłupie  ABCS  podstawa  ABC  jest  trójkątem  równobocznym  o  boku  długości  a.
 Krawędź  AS  jest  prostopadła  do  płaszczyzny  podstawy.  Odległość  wierzchołka  A  od ściany
 BCS jest równa d. Wyznacz objętość tego ostrosłupa.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`owiedzi – poziom rozsz`,description:``},
     hints:[{level:1,text:`Narysuj bryłę i zaznacz wszystkie dane`},
       {level:2,text:`Szukaj użytecznych przekrojów osiowych lub środkowych`},
@@ -13259,6 +13389,7 @@ Kryteria oceniania odpowiedzi – poziom rozsz`,explanation:``}]
     statement:`Rzucamy  cztery  razy  symetryczną  sześcienną  kostką  do  gry.  Oblicz  prawdopodobieństwo
 zdarzenia polegającego na tym, że iloczyn liczb oczek otrzymanych we wszystkich czterech
 rzutach będzie równy  60 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -13353,6 +13484,7 @@ m
   ma  dwa
 
 rozwiązania o przeciwnych znakach.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`owiedzi – poziom rozszerzony`,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -13478,6 +13610,7 @@ x
 3
 
   dla  każdej  liczby  rzeczywistej`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -13587,6 +13720,7 @@ funkcja  kwadratowa
 01  y
 
 x`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -13679,6 +13813,7 @@ x
  w przedziale  0, 2 .
 
 Odpowiedź: ................................................................................................................................. .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -13845,6 +13980,7 @@ x
 
  .
 2`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Spróbuj przekształcić algebraicznie do oczywistej nierówności`},
       {level:2,text:`Szukaj wzorów skróconego mnożenia lub AM-GM`},
@@ -13964,6 +14100,7 @@ xy
 dwa z tych okręgów są zewnętrznie styczne: pierwszy z drugim w punkcie K, drugi z trzecim
 w punkcie L i trzeci z pierwszym w punkcie M. Oblicz stosunek pola trójkąta KLM do pola
 trójkąta ABC.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`owiednio r, 2r, 3r. Każde`,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -13990,6 +14127,7 @@ umieszczonych w kontekście praktycznym. (III.7.`,explanation:``}]
 trójkąta  są  równe,  odpowiednio,  ,  2  i  4 .  Wykaż,  że  trójkąt  ABC  jest  rozwartokątny,
 i udowodnij,  że  miary  wypukłych  kątów  środkowych  ASB,  ASC  i  BSC  tworzą  w  podanej
 kolejności ciąg arytmetyczny.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`owiednio  ,  2  i  4 .  Wykaż,  że  trójkąt  ABC  jest  rozwartokątny`,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -14058,6 +14196,7 @@ a
 
 
 Odpowiedź: ................................................................................................................................. .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -14133,6 +14272,7 @@ opisanego na tym sześciokącie przechodzącej przez wierzchołek E.
 ,
 
 Odpowiedź: ................................................................................................................................. .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Oblicz pochodną f'(x)`},
       {level:2,text:`Podstaw x0 do f'(x0) — to nachylenie stycznej`},
@@ -14206,6 +14346,7 @@ A
 B
 
 65`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`owiedzi – poziom rozszerzony`,description:``},
     hints:[{level:1,text:`Narysuj bryłę i zaznacz wszystkie dane`},
       {level:2,text:`Szukaj użytecznych przekrojów osiowych lub środkowych`},
@@ -14316,6 +14457,7 @@ x
 
 równanie
 różne,  pierwiastki`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -14403,6 +14545,7 @@ jednocześnie  trzy  kule.  Oblicz  prawdopodobieństwo  zdarzenia  A  polegają
 numer jednej z wylosowanych kul jest równy sumie numerów dwóch pozostałych kul.
 
 Odpowiedź: ................................................................................................................................. .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -14471,7 +14614,8 @@ k =
 2
 
 A.`,
-    answer:{type:`open`,display:`(1 p.)`,description:``},
+    options:{A:``,B:`k = 4`,C:`k = 5`,D:`k = 9 Stąd wynika, że k = 2`},correctAnswer:`D`,
+    answer:{type:`closed`,display:`D`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -14565,7 +14709,8 @@ B. dwa rozwiązania.
 C. cztery rozwiązania.
 
 D. pięć rozwiązań.`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`jedno rozwiązanie.`,B:`dwa rozwiązania.`,C:`cztery rozwiązania.`,D:`pięć rozwiązań.`},correctAnswer:`A`,
+    answer:{type:`closed`,display:`A`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -14618,7 +14763,8 @@ D.
 30
 
 3`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`323 − 24 3 jest równa`,B:`27 − 30 3`,C:`135 − 78 3`,D:`135 − 30 3`},correctAnswer:`C`,
+    answer:{type:`closed`,display:`C`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -14656,7 +14802,8 @@ B. ma dokładnie jedno rozwiązanie rzeczywiste.
 C. ma dokładnie dwa rozwiązania rzeczywiste.
 
 D. ma więcej niż dwa rozwiązania rzeczywiste.`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`nie ma rozwiązań rzeczywistych.`,B:`ma dokładnie jedno rozwiązanie rzeczywiste.`,C:`ma dokładnie dwa rozwiązania rzeczywiste.`,D:`ma więcej niż dwa rozwiązania rzeczywiste.`},correctAnswer:`A`,
+    answer:{type:`closed`,display:`A`,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
       {level:3,text:`Wzory: sin(pi-x)=sin x, cos(pi+x)=-cos x`}],
@@ -14698,7 +14845,8 @@ C.
 5
 
 D.  4`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`5 5`,B:`54 5`,C:`4 5`,D:`4`},correctAnswer:`B`,
+    answer:{type:`closed`,display:`B`,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
       {level:3,text:`Wzory: sin(pi-x)=sin x, cos(pi+x)=-cos x`}],
@@ -14785,6 +14933,7 @@ n
 +
 
 +`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`5. Ciągi. Zdający oblicza granice ciągów, korzystając z granic`,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -14888,6 +15037,7 @@ f
 .
 
 Odpowiedź:  ................................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -14992,6 +15142,7 @@ x
 
 + > .
 3 0`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Spróbuj przekształcić algebraicznie do oczywistej nierówności`},
       {level:2,text:`Szukaj wzorów skróconego mnożenia lub AM-GM`},
@@ -15105,6 +15256,7 @@ B
 Wykaż, że na czworokącie PQRS można opisać okrąg.
 
 C`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -15225,6 +15377,7 @@ DA = .
 Na czworokącie  ABCD  opisano okrąg. Oblicz długość przekątnej  AC  tego czworokąta.
 
 Odpowiedź:  ................................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -15296,6 +15449,7 @@ wylosowana kula. Następnie losujemy dwie kule z urny drugiej. Oblicz prawdopodo
 zdarzenia polegającego na tym, że obie kule wylosowane z drugiej urny będą białe.
 
 Odpowiedź:  ................................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -15350,6 +15504,7 @@ y
   dla  każdej  liczby  rzeczywistej  x.
 ,f
   które  są  równoległe  do prostej`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Oblicz pochodną f'(x)`},
       {level:2,text:`Podstaw x0 do f'(x0) — to nachylenie stycznej`},
@@ -15471,6 +15626,7 @@ x
 2
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -15583,6 +15739,7 @@ m ≠ − .
     statement:`Podstawą  ostrosłupa  ABCDS   jest  kwadrat  ABCD.  Krawędź  boczna  SD   jest  wysokością
 ostrosłupa, a jej długość jest dwa razy większa od długości krawędzi podstawy. Oblicz sinus
 kąta między ścianami bocznymi ABS i CBS tego ostrosłupa.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -15659,6 +15816,7 @@ c
 
 równa 0.  Trzy  pierwiastki  tego  wielomianu  tworzą  ciąg  arytmetyczny  o  różnicy  równej  3.
 Oblicz współczynniki  a ,  b  i  c . Rozważ wszystkie możliwe przypadki.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -15738,6 +15896,7 @@ x`,explanation:``}]
     statement:`Rozpatrujemy  wszystkie  stożki,  których  przekrojem  osiowym  jest  trójkąt  o  obwodzie  20.
 Oblicz  wysokość  i  promień  podstawy  tego  stożka,  którego  objętość  jest  największa.  Oblicz
 objętość tego stożka.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -15822,7 +15981,8 @@ D.
 
 )
 0, +∞`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`( ) 2, +∞`,B:`1,3`,C:`) 1,− +∞`,D:`( ) 0, +∞`},correctAnswer:`A`,
+    answer:{type:`closed`,display:`A`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -15867,7 +16027,8 @@ D.
 
 3
 2`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`1 − 2`,B:`1 2`,C:`− 3 2`,D:`3 2`},correctAnswer:`D`,
+    answer:{type:`closed`,display:`D`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -15950,7 +16111,8 @@ D.
 AB =
 
 24`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`AB = 18`,B:`AB = 20`,C:`AB = 22`,D:`AB = 24`},correctAnswer:`B`,
+    answer:{type:`closed`,display:`B`,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
       {level:3,text:`Pamiętaj własności okręgu wpisanego/opisanego w wielokąt`}],
@@ -15984,7 +16146,8 @@ D.
 
 1
 3`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`3 3`,B:`3 2`,C:`1 2`,D:`1 3`},correctAnswer:`A`,
+    answer:{type:`closed`,display:`A`,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
       {level:3,text:`Wzory: sin(pi-x)=sin x, cos(pi+x)=-cos x`}],
@@ -16041,7 +16204,8 @@ B.
 C.  0
 
 D.  + ∞`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`−∞ 3 − 7 n + n n 3 + 3 n 2 + + 1 2 jest równa 5 4 n`,B:`7 − 4`,C:`0`,D:`+ ∞`},correctAnswer:`C`,
+    answer:{type:`closed`,display:`C`,description:``},
     hints:[{level:1,text:`Sprawdź czy granica ma postać nieskonczonosc/nieskonczonosc lub 0/0`},
       {level:2,text:`Podziel licznik i mianownik przez najwyższą potęgę x`},
       {level:3,text:`Ciąg geometryczny zbiega gdy |q| < 1`}],
@@ -16062,6 +16226,7 @@ wyniku.
   określony  dla
 
 )`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -16102,6 +16267,7 @@ P B A ,
 
 gdzie zdarzenie
 po przecinku rozwinięcia dziesiętnego otrzymanego wyniku.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -16135,6 +16301,7 @@ ac
 bd
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -16168,6 +16335,7 @@ x
 1
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -16217,6 +16385,7 @@ a =  oraz dla
 4
 
 4`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -16258,6 +16427,7 @@ BP HP =
  B
 
  C`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -16305,6 +16475,7 @@ m
 2
 
 Odpowiedź:  ................................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -16343,6 +16514,7 @@ x ∈
 (0, 2π)
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -16362,6 +16534,7 @@ przeciwprostokątnej jest równy
 2
 
 . Oblicz cosinusy kątów ostrych tego trójkąta.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -16375,6 +16548,7 @@ przeciwprostokątnej jest równy
     image:`img/tasks_cke/cke_2016_dod_15.jpg`,
     statement:`Oblicz,  ile  jest  wszystkich  liczb  naturalnych  pięciocyfrowych,  w  których  zapisie  występują
 dokładnie trzy cyfry nieparzyste.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -16421,6 +16595,7 @@ y
 = . Oblicz współrzędne wierzchołka C.
 
 0`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -16434,6 +16609,7 @@ y
     image:`img/tasks_cke/cke_2016_dod_17.jpg`,
     statement:`Rozpatrujemy  wszystkie  walce,  których  pole  powierzchni  całkowitej  jest  równe  2π .  Oblicz
 promień podstawy tego walca, który ma największą objętość. Podaj tę największą objętość.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -16473,7 +16649,8 @@ C.
 3
 
 D.  144`,
-    answer:{type:`open`,display:`(1 p.)`,description:``},
+    options:{A:`32 3`,B:`48`,C:`96 3`,D:`144`},correctAnswer:`C`,
+    answer:{type:`closed`,display:`C`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -16535,7 +16712,8 @@ C.  2
 D.
 
 4−`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`4`,B:`2−`,C:`2`,D:`4−`},correctAnswer:`D`,
+    answer:{type:`closed`,display:`D`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -16645,7 +16823,8 @@ D.
 .
 
 Funkcja`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`w dwóch przypadkach:`,B:``,C:`tylko wtedy, gdy 3p = . 0=p lub 3=p . B. w dwóch przypadkach: p = . 2 tylko wtedy, gdy`,D:`0=p lub 2=p . Funkcja`},correctAnswer:`B`,
+    answer:{type:`closed`,display:`B`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -16836,7 +17015,8 @@ x
 12
 )
 2`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`′ ( ) x f = − 2 + x 3 ( 2 x 2 + + x ) 2 4 12`,B:`′ ( ) x f = − 9 12 2 + x ( 2 x 2 + − x ) 2 4`,C:`′ ( ) x f = 3 x ( 2 − 2 x x 2 + 4 − 12 ) 2`,D:`′ ( ) x f = 9 x ( 2 − 2 x x 2 + 4 + 12 ) 2`},correctAnswer:`A`,
+    answer:{type:`closed`,display:`A`,description:``},
     hints:[{level:1,text:`Oblicz pochodną f'(x)`},
       {level:2,text:`Podstaw x0 do f'(x0) — to nachylenie stycznej`},
       {level:3,text:`Równanie stycznej: y = f'(x0)*(x - x0) + f(x0)`}],
@@ -16903,7 +17083,8 @@ D.
 
 p = −
 2`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`)3 n + 4 − 6 4 = − 8 5 . Wynika stąd, że`,B:`p = 4`,C:`p = 2`,D:`p = − 2`},correctAnswer:`D`,
+    answer:{type:`closed`,display:`D`,description:``},
     hints:[{level:1,text:`Sprawdź czy granica ma postać nieskonczonosc/nieskonczonosc lub 0/0`},
       {level:2,text:`Podziel licznik i mianownik przez najwyższą potęgę x`},
       {level:3,text:`Ciąg geometryczny zbiega gdy |q| < 1`}],
@@ -16939,6 +17120,7 @@ Oblicz  prawdopodobieństwo  zdarzenia  polegającego  na  tym,  że  losowo  wy
 spośród  ankietowanych,  popiera  budowę  przedszkola,  jeśli  wiadomo,  że  jest  mężczyzną.
 Zakoduj  trzy  pierwsze  cyfry  po  przecinku  nieskończonego  rozwinięcia  dziesiętnego
 otrzymanego wyniku.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -17018,6 +17200,7 @@ a
 3
 
 Odpowiedź:  ................................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -17152,6 +17335,7 @@ y+
 
 = ,
 2`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Spróbuj przekształcić algebraicznie do oczywistej nierówności`},
       {level:2,text:`Szukaj wzorów skróconego mnożenia lub AM-GM`},
@@ -17318,6 +17502,7 @@ Wykaż, że  MN
 AD=
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`owiednio  z  przekątną  BD  i  bokiem  AB  prostokąta.  Niech  G  będzie  rzutem  punktu  N  na`,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -17398,6 +17583,7 @@ ax
 dodatnich.
 
 Odpowiedź:  ................................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -17498,6 +17684,7 @@ x
 0
 
 Odpowiedź:  ................................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -17652,6 +17839,7 @@ x−
 
 < .
 3`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -17698,6 +17886,7 @@ x
 
  są sąsiednimi wierzchołkami czworokąta  ABCD wpisanego
 y− + =  jest jedyną osią symetrii tego czworokąta i zawiera`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -17725,6 +17914,7 @@ i  ADC  są prostokątne. Obliczymy`,explanation:``}]
     statement:`Rozpatrujemy  wszystkie  liczby  naturalne  dziesięciocyfrowe,  w  zapisie  których  mogą
 występować  wyłącznie  cyfry  1,  2,  3,  przy  czym  cyfra  1  występuje  dokładnie  trzy  razy.
 Uzasadnij, że takich liczb jest 15 360.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Licz możliwości krok po kroku, mnożąc liczby wyborów`},
       {level:2,text:`Permutacje n elementów: n!; kombinacje: C(n,k) = n!/(k!(n-k)!)`},
@@ -17778,6 +17968,7 @@ różnych  lic`,explanation:``}]
     statement:`W ostrosłupie prawidłowym czworokątnym ABCDS o podstawie ABCD wysokość jest równa 5,
 a kąt między sąsiednimi ścianami bocznymi ostrosłupa ma miarę  120° . Oblicz objętość tego
 ostrosłupa.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj bryłę i zaznacz wszystkie dane`},
       {level:2,text:`Szukaj użytecznych przekrojów osiowych lub środkowych`},
@@ -17891,6 +18082,7 @@ x
 
 Wyznacz pole trapezu ABCD w zależności od pierwszej współrzędnej wierzchołka C. Oblicz
 współrzędne wierzchołka C tego z rozpatrywanych trapezów, którego pole jest największe.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -18082,7 +18274,8 @@ jedno rozwiązanie rzeczywiste.
 B.
 C.  cztery rozwiązania rzeczywiste.
 D.  trzy rozwiązania rzeczywiste.`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`dwa rozwiązania rzeczywiste. jedno rozwiązanie rzeczywiste.`,B:`C. cztery rozwiązania rzeczywiste.`,C:``,D:`trzy rozwiązania rzeczywiste.`},correctAnswer:`D`,
+    answer:{type:`closed`,display:`D`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -18122,7 +18315,8 @@ D.
 
 log 635
 2`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`jest równa`,B:`log 50 2`,C:`log 210 2`,D:`log 635 2`},correctAnswer:`B`,
+    answer:{type:`closed`,display:`B`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -18168,7 +18362,8 @@ B.
 C.  2
 
 D.   3`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`3 5`,B:`5 3`,C:`2`,D:`3`},correctAnswer:`B`,
+    answer:{type:`closed`,display:`B`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -18221,7 +18416,8 @@ C.
 1−
 
 D.  2 2`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`1 − 6`,B:`+ 2 2 2`,C:`1−`,D:`2 2`},correctAnswer:`C`,
+    answer:{type:`closed`,display:`C`,description:``},
     hints:[{level:1,text:`Oblicz pochodną f'(x)`},
       {level:2,text:`Podstaw x0 do f'(x0) — to nachylenie stycznej`},
       {level:3,text:`Równanie stycznej: y = f'(x0)*(x - x0) + f(x0)`}],
@@ -18259,7 +18455,8 @@ C.
 3
 
 D.  7`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`3 7`,B:`1 7`,C:`7 3`,D:`7`},correctAnswer:`B`,
+    answer:{type:`closed`,display:`B`,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
       {level:3,text:`Geometryczny: an = a1*q^(n-1), Sn = a1(q^n-1)/(q-1)`}],
@@ -18303,6 +18500,7 @@ x =
 
 największą wartość tej funkcji. Zakoduj kolejno, od lewej do prawej, cyfrę jedności i pierwsze
 dwie cyfry po przecinku rozwinięcia dziesiętnego otrzymanego wyniku.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -18343,6 +18541,7 @@ x
 
 + ≥ .
 9 0`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Spróbuj przekształcić algebraicznie do oczywistej nierówności`},
       {level:2,text:`Szukaj wzorów skróconego mnożenia lub AM-GM`},
@@ -18399,6 +18598,7 @@ Wykaż, że jeżeli α β γ
 +
 
 = 2 , to na czworokącie DCES można opisać okrąg.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -18414,6 +18614,7 @@ Wykaż, że jeżeli α β γ
 ile możemy utworzyć takich liczb.
 
 Odpowiedź:  ................................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -18454,6 +18655,7 @@ nb  jest równa 18. Wyznacz te ciągi.
 )
 
 Odpowiedź:  ................................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -18510,6 +18712,7 @@ x
  w przedziale  0, 2π .
 
 Odpowiedź:  ................................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -18538,6 +18741,7 @@ P =
 ,
 
 )`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -18577,6 +18781,7 @@ m
 + =   ma
 
 1 0`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -18591,6 +18796,7 @@ m
     statement:`Trapez  równoramienny  ABCD  o  ramieniu  długości  6  wpisany  jest  w  okrąg,  przy  czym
 dłuższa  podstawa  AB  trapezu,  o  długości  12,  jest  średnicą  tego  okręgu.  Przekątne  AC  i  BD
 trapezu przecinają się w punkcie P. Oblicz pole koła wpisanego w trójkąt ABP.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -18608,6 +18814,7 @@ wszystkich  dwunastu  krawędzi  jest  mniejsza  od  28.  Wyznacz  pole  powierz
 prostopadłościanu  jako  funkcję  długości  jednej  z  jego  krawędzi.  Wyznacz  dziedzinę  tej
 funkcji.  Oblicz  wymiary  tego  spośród  rozpatrywanych  prostopadłościanów,  którego  pole
 powierzchni całkowitej jest najmniejsze.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -18648,7 +18855,8 @@ C.
 3
 
 D.  2 3`,
-    answer:{type:`open`,display:`(1 p.)`,description:``},
+    options:{A:`2`,B:`4`,C:`3`,D:`2 3`},correctAnswer:`A`,
+    answer:{type:`closed`,display:`A`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -18745,7 +18953,8 @@ n
 1
 =
 2`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`lim →∞ n a n 1 = 2`,B:`lim →∞ n a n = 0`,C:`Wtedy`,D:``},correctAnswer:`D`,
+    answer:{type:`closed`,display:`D`,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
       {level:3,text:`Geometryczny: an = a1*q^(n-1), Sn = a1(q^n-1)/(q-1)`}],
@@ -18822,7 +19031,8 @@ A.  37,5°
 B.  45°
 
 D.  60°`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`37,5°`,B:`45°`,C:`52,5°`,D:`60°`},correctAnswer:`C`,
+    answer:{type:`closed`,display:`C`,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
       {level:3,text:`Pamiętaj własności okręgu wpisanego/opisanego w wielokąt`}],
@@ -18902,7 +19112,8 @@ A =
 12, 24
 
 )`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`A = ( ) − 5, 8`,B:`( A = − 13, 22 ]3,5 ) . Punkt A, taki, że  AB  = − u 3 , ma współrzędne`,C:`A = ( − 9, 15 )`,D:`A = ( 12, 24 )`},correctAnswer:`B`,
+    answer:{type:`closed`,display:`B`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -18949,6 +19160,7 @@ ax
 Oblicz wartość współczynnika a.
 W poniższe kratki wpisz kolejno trzy pierwsze cyfry po przecinku rozwinięcia dziesiętnego
 otrzymanego wyniku.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -19005,6 +19217,7 @@ P =
 .
 
 Odpowiedź:  ................................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Oblicz pochodną f'(x)`},
       {level:2,text:`Podstaw x0 do f'(x0) — to nachylenie stycznej`},
@@ -19154,6 +19367,7 @@ x
 2
 
 2`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Spróbuj przekształcić algebraicznie do oczywistej nierówności`},
       {level:2,text:`Szukaj wzorów skróconego mnożenia lub AM-GM`},
@@ -19310,6 +19524,7 @@ cos
 
 +
 a c`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -19357,6 +19572,7 @@ kuli od płaszczyzny  π, tj. długość najkrótszego spośród odcinków SP, g
 płaszczyzny π.
 
 Odpowiedź:  ................................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj bryłę i zaznacz wszystkie dane`},
       {level:2,text:`Szukaj użytecznych przekrojów osiowych lub środkowych`},
@@ -19397,6 +19613,7 @@ x
  w przedziale  0, 2π .
 
 Odpowiedź:  ................................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -19511,6 +19728,7 @@ zapisane  trzy  liczby.  Oblicz  prawdopodobieństwo  wylosowania  takich  piłe
 trzech zapisanych liczb jest podzielny przez 4. Wynik podaj w postaci ułamka zwykłego.
 
 Odpowiedź:  ................................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -19608,6 +19826,7 @@ x
 
 x , spełniające warunek
 2`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -19772,6 +19991,7 @@ y−
 
 + = .
 1 0`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -19813,6 +20033,7 @@ b c
 −
 
 a`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -19857,6 +20078,7 @@ b r b b r
     statement:`Rozpatrujemy  wszystkie  walce  o  danym  polu  powierzchni  całkowitej  P.  Oblicz  wysokość
 i promień  podstawy  tego  walca,  którego  objętość  jest  największa.  Oblicz  tę  największą
 objętość.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`owiednio, promień podstawy walca i wysokość walca. Pole P`,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -20008,7 +20230,8 @@ C.
 D.
 
 4L =`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`1=L`,B:`2L =`,C:`3L =`,D:`4L =`},correctAnswer:`D`,
+    answer:{type:`closed`,display:`D`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -20080,7 +20303,8 @@ D.
 r =
 
 20`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`r = 5`,B:`r = 15`,C:`r = 10`,D:`r = 20`},correctAnswer:`C`,
+    answer:{type:`closed`,display:`C`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -20128,7 +20352,8 @@ B.
 C.  3 2 2
 
 D.  2 2 1+`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`1`,B:`1− −`,C:`3 2 2`,D:`2 2 1+`},correctAnswer:`A`,
+    answer:{type:`closed`,display:`A`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -20177,7 +20402,8 @@ x + <
 
 4
 5`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`3 4 x + < 5 2`,B:`x + < 5 2 4 3`,C:`x + < 4 2 3 5`,D:`x + < 2 3 4 5`},correctAnswer:`B`,
+    answer:{type:`closed`,display:`B`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -20218,6 +20444,7 @@ x
 
 W  poniższe  kratki  wpisz  kolejno  cyfrę  jedności  i  dwie  cyfry  po  przecinku  skończonego
 rozwinięcia dziesiętnego otrzymanego wyniku.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Oblicz pochodną f'(x)`},
       {level:2,text:`Podstaw x0 do f'(x0) — to nachylenie stycznej`},
@@ -20248,6 +20475,7 @@ BC
 2
 
 2`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -20289,6 +20517,7 @@ cosα
 4
 
  prawdziwa jest nierówność`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Spróbuj przekształcić algebraicznie do oczywistej nierówności`},
       {level:2,text:`Szukaj wzorów skróconego mnożenia lub AM-GM`},
@@ -20333,6 +20562,7 @@ ma tylko jedno rozwiązanie rzeczywiste
 1x =
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -20351,6 +20581,7 @@ występują tylko cyfry ze zbioru {
 zdarzenia polegającego na tym, że suma cyfr wylosowanej liczby jest równa 3.
 
 Odpowiedź:  ...............................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -20375,6 +20606,7 @@ a aq aq ,  którego  wszystkie  wyrazy  i  iloraz  są
 ,
 
 Odpowiedź:  ...............................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -20422,6 +20654,7 @@ n ≥ .  Niech  Pk
 ,
 
 Odpowiedź:  ...............................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -20436,6 +20669,7 @@ Odpowiedź:  ...................................................................
     statement:`Trapez prostokątny ABCD o podstawach AB i CD jest opisany na okręgu. Ramię BC ma długość
 10, a ramię AD jest wysokością trapezu. Podstawa AB jest 2 razy dłuższa od podstawy CD.
 Oblicz pole tego trapezu.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -20472,6 +20706,7 @@ R =
 (
 
 (`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -20535,6 +20770,7 @@ x
 2
 ≤ .
 3`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -20559,6 +20795,7 @@ b)  Wyznacz dziedzinę funkcji V.
 c)  Oblicz tę wartość x, dla której zbudowany szkielet jest możliwie najcięższy, czyli kiedy
 
 funkcja V osiąga wartość największą. Oblicz tę największą objętość.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -20620,7 +20857,8 @@ D.
 
 k =
 d`,
-    answer:{type:`open`,display:`II. Wykorzystanie`,description:``},
+    options:{A:`k = a`,B:`k = b`,C:`k = c`,D:`k = d`},correctAnswer:`A`,
+    answer:{type:`closed`,display:`A`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -20656,7 +20894,8 @@ B.  ma dokładnie jedno rozwiązanie.
 C.  ma dokładnie dwa rozwiązania.
 
 D.  ma dokładnie cztery rozwiązania.`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`nie ma rozwiązań.`,B:`ma dokładnie jedno rozwiązanie.`,C:`ma dokładnie dwa rozwiązania.`,D:`ma dokładnie cztery rozwiązania.`},correctAnswer:`B`,
+    answer:{type:`closed`,display:`B`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -20694,7 +20933,8 @@ B.  0
 C.  1
 
 D.  2`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`1−`,B:`0`,C:`1`,D:`2`},correctAnswer:`C`,
+    answer:{type:`closed`,display:`C`,description:``},
     hints:[{level:1,text:`Wyznacz dziedzinę: argumenty logarytmów muszą być > 0`},
       {level:2,text:`Wzory: log(ab) = log a + log b, log(a^n) = n*log a`},
       {level:3,text:`Zmiana podstawy: log_a(x) = ln x / ln a`}],
@@ -20757,7 +20997,8 @@ B.
 C.  0
 
 D.  +∞`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`−∞`,B:`1−`,C:`0`,D:`+∞`},correctAnswer:`D`,
+    answer:{type:`closed`,display:`D`,description:``},
     hints:[{level:1,text:`Sprawdź czy granica ma postać nieskonczonosc/nieskonczonosc lub 0/0`},
       {level:2,text:`Podziel licznik i mianownik przez najwyższą potęgę x`},
       {level:3,text:`Ciąg geometryczny zbiega gdy |q| < 1`}],
@@ -20798,6 +21039,7 @@ a
 
 W  poniższe  kratki  wpisz  kolejno  cyfrę  jedności  i  pierwsze  dwie  cyfry  po  przecinku
 nieskończonego rozwinięcia dziesiętnego otrzymanego wyniku.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -20861,6 +21103,7 @@ x
  jest nachylona do osi Ox
 
 Odpowiedź:  .................................................................................................................................`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Oblicz pochodną f'(x)`},
       {level:2,text:`Podstaw x0 do f'(x0) — to nachylenie stycznej`},
@@ -20930,6 +21173,7 @@ ABC (zobacz rysunek).
 .  Dwusieczna
 
 Udowodnij, że na czworokącie KNML można opisać okrąg.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`owiednio  przez`,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -21033,6 +21277,7 @@ mk
 3
 
 km`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Spróbuj przekształcić algebraicznie do oczywistej nierówności`},
       {level:2,text:`Szukaj wzorów skróconego mnożenia lub AM-GM`},
@@ -21113,6 +21358,7 @@ tym,  że  żadne  dwie  liczby  parzyste  nie  są  sąsiednimi  wyrazami  utwo
 przedstaw w postaci ułamka zwykłego nieskracalnego.
 
 Odpowiedź:  .................................................................................................................................`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -21173,6 +21419,7 @@ r = . Oblicz
 6
 
 Odpowiedź:  .................................................................................................................................`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -21263,6 +21510,7 @@ x
 1
 
 Odpowiedź:  .................................................................................................................................`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -21420,6 +21668,7 @@ x x
 1 2
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -21633,6 +21882,7 @@ Wyznacz liczbę  n
 początkowych wyrazów tego ciągu, których suma
 
 nS  jest równa 32769.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -21757,6 +22007,7 @@ y+
 x
 
 2`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyznacz równanie prostej przez dwa punkty`},
       {level:2,text:`Odległość punktu (x0,y0) od prostej ax+by+c=0: d = |ax0+by0+c|/sqrt(a^2+b^2)`},
@@ -21813,6 +22064,7 @@ a
 c)  Oblicz tangens kąta ostrego tego spośród rozpatrywanych trapezów, którego obwód jest
 
 najmniejszy.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -21891,7 +22143,8 @@ C.
 D.
 
 4m =`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`m = − 2`,B:`1m =`,C:`2m =`,D:`4m =`},correctAnswer:`C`,
+    answer:{type:`closed`,display:`C`,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
       {level:3,text:`Rozważ warunki na Delta i na pierwiastki osobno`}],
@@ -21936,7 +22189,8 @@ B.  2
 C. 3
 
 D. 4`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`1`,B:`2`,C:`3`,D:`4`},correctAnswer:`C`,
+    answer:{type:`closed`,display:`C`,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
       {level:3,text:`Pamiętaj własności okręgu wpisanego/opisanego w wielokąt`}],
@@ -22013,7 +22267,8 @@ C.
 
 D.  9
 5`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`6 5`,B:`7 6`,C:`8 7`,D:`9 5`},correctAnswer:`A`,
+    answer:{type:`closed`,display:`A`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -22080,7 +22335,8 @@ D.
 
 9
 5`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`5 3`,B:`10 9`,C:`9 10`,D:`9 5`},correctAnswer:`D`,
+    answer:{type:`closed`,display:`D`,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
       {level:3,text:`Geometryczny: an = a1*q^(n-1), Sn = a1(q^n-1)/(q-1)`}],
@@ -22096,6 +22352,7 @@ białych  i  6  kul  czarnych.  Z  tej  urny  losujemy  dwukrotnie  jedną  kul�
 prawdopodobieństwo wylosowania dwóch kul białych.
 Wpisz w poniższe kratki – od lewej do prawej – trzy kolejne cyfry po przecinku skończonego
 rozwinięcia dziesiętnego otrzymanego wyniku.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -22111,6 +22368,7 @@ rozwinięcia dziesiętnego otrzymanego wyniku.`,
 w zapisie dziesiętnym jest równy 28.
 
 Odpowiedź:  ...............................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -22155,6 +22413,7 @@ x
   dla  każdej  liczby  rzeczywistej  x.
 
 Odpowiedź:  ...............................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Oblicz pochodną f'(x)`},
       {level:2,text:`Podstaw x0 do f'(x0) — to nachylenie stycznej`},
@@ -22205,6 +22464,7 @@ AEC
 360
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -22234,6 +22494,7 @@ n
 19
 
   jest  podzielne`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Spróbuj przekształcić algebraicznie do oczywistej nierówności`},
       {level:2,text:`Szukaj wzorów skróconego mnożenia lub AM-GM`},
@@ -22252,6 +22513,7 @@ n
 - kąta foremnego. Oblicz n.
 
 Odpowiedź:  ...............................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -22299,6 +22561,7 @@ A
 B
 
 Oblicz objętość tego ostrosłupa.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj bryłę i zaznacz wszystkie dane`},
       {level:2,text:`Szukaj użytecznych przekrojów osiowych lub środkowych`},
@@ -22361,6 +22624,7 @@ x+
 4
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -22389,6 +22653,7 @@ y− − =
 5 0
 
 . Wyznacz długość boku tego rombu.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -22414,6 +22679,7 @@ x
 
 −  w przedziale  0,π .
 1`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -22485,6 +22751,7 @@ największe pole.
 
 SS S
 1 2`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -22536,7 +22803,8 @@ B.
 
 1
 yx ⋅`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`x y⋅`,B:`1 yx ⋅`,C:``,D:``},correctAnswer:`D`,
+    answer:{type:`closed`,display:`D`,description:``},
     hints:[{level:1,text:`Wyznacz dziedzinę: argumenty logarytmów muszą być > 0`},
       {level:2,text:`Wzory: log(ab) = log a + log b, log(a^n) = n*log a`},
       {level:3,text:`Zmiana podstawy: log_a(x) = ln x / ln a`}],
@@ -22596,7 +22864,8 @@ D.
 
 3
 2`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`− 3 2`,B:`1 − 2`,C:`1 2`,D:`3 2`},correctAnswer:`A`,
+    answer:{type:`closed`,display:`A`,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
       {level:3,text:`Wzory: sin(pi-x)=sin x, cos(pi+x)=-cos x`}],
@@ -22735,7 +23004,8 @@ D.
 C.
 
 B.`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`x x= Wzór funkcji f to ( ) f x ( ) f x ( ) f x ( ) f x + + − x 1 1 − − 1 2 − + x= 1 2 x= − + 1 2`,B:``,C:``,D:`C.`},correctAnswer:`B`,
+    answer:{type:`closed`,display:`B`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -22819,7 +23089,8 @@ P A B∩ =
 5
 
 )`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`P A B∩ = ) ( 1 20`,B:`( P A B∩ = ) 4 15`,C:`( P A B∩ = ) 3 20`,D:`( 4 P A B∩ = 5 )`},correctAnswer:`C`,
+    answer:{type:`closed`,display:`C`,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
       {level:3,text:`Prawdopodobieństwo warunkowe: P(A|B) = P(A∩B)/P(B)`}],
@@ -22900,6 +23171,7 @@ n
 
 Wpisz w poniższe kratki – od lewej do prawej – trzy kolejne cyfry po przecinku rozwinięcia
 dziesiętnego otrzymanego wyniku.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -23038,6 +23310,7 @@ n
 bez powtarzania jakiejkolwiek cyfry. Oblicz sumę wszystkich takich liczb.
 
 Odpowiedź:  ...............................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Licz możliwości krok po kroku, mnożąc liczby wyborów`},
       {level:2,text:`Permutacje n elementów: n!; kombinacje: C(n,k) = n!/(k!(n-k)!)`},
@@ -23089,6 +23362,7 @@ x
 .  Prosta  o  równaniu
 
 Odpowiedź:  ...............................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Oblicz pochodną f'(x)`},
       {level:2,text:`Podstaw x0 do f'(x0) — to nachylenie stycznej`},
@@ -23141,6 +23415,7 @@ x
 2
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Spróbuj przekształcić algebraicznie do oczywistej nierówności`},
       {level:2,text:`Szukaj wzorów skróconego mnożenia lub AM-GM`},
@@ -23221,6 +23496,7 @@ ST
 AB
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -23268,6 +23544,7 @@ CD =
 BD=
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -23370,6 +23647,7 @@ y
 2
 
 2`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -23432,6 +23710,7 @@ a b c   o  wyrazach  dodatnich  jest  arytmetyczny,  natomiast  ciąg
 )
 
  jest geometryczny. Oblicz iloraz ciągu geometrycznego.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -23507,6 +23786,7 @@ x
 3
 
 2`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -23604,6 +23884,7 @@ sin
 x
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -23693,6 +23974,7 @@ długości krawędzi tego z rozważanych graniastosłupów, którego pole powier
 jest najmniejsze. Oblicz to najmniejsze pole.
 
 2.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`owiednio przez a`,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -23791,7 +24073,8 @@ C.
 D.
 
 2x −`,
-    answer:{type:`open`,display:`II. Wykorzystanie`,description:``},
+    options:{A:`2x +`,B:`1x +`,C:`1x −`,D:`2x −`},correctAnswer:`D`,
+    answer:{type:`closed`,display:`D`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -23848,7 +24131,8 @@ C.  0
 D.
 
 2−`,
-    answer:{type:`open`,display:`II. Wykorzystanie`,description:``},
+    options:{A:`−∞`,B:`+∞`,C:`0`,D:`2−`},correctAnswer:`C`,
+    answer:{type:`closed`,display:`C`,description:``},
     hints:[{level:1,text:`Sprawdź czy granica ma postać nieskonczonosc/nieskonczonosc lub 0/0`},
       {level:2,text:`Podziel licznik i mianownik przez najwyższą potęgę x`},
       {level:3,text:`Ciąg geometryczny zbiega gdy |q| < 1`}],
@@ -24000,7 +24284,8 @@ x
 )
 2
 1`,
-    answer:{type:`open`,display:`III. Modelowanie`,description:``},
+    options:{A:`f ′ ( ) x =`,B:`f ′ ( ) x = 3 x 2 − 23 x`,C:`f ′ ( ) x = −`,D:`f ′ ( ) x = 9 x ( 2 + 2 x 2 + − 2 x 2 − 2 + 2 x 3 ( 2 x + 3 x 3 + 2 3 x ) 1 + x ) 2 1`},correctAnswer:`C`,
+    answer:{type:`closed`,display:`C`,description:``},
     hints:[{level:1,text:`Oblicz pochodną f'(x)`},
       {level:2,text:`Podstaw x0 do f'(x0) — to nachylenie stycznej`},
       {level:3,text:`Równanie stycznej: y = f'(x0)*(x - x0) + f(x0)`}],
@@ -24078,7 +24363,8 @@ D.
 2 1
 
 6`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`3 + − 2 1`,B:`− 6 2 4`,C:`1 4 + 2`,D:`+ 3 − 2 1 6`},correctAnswer:`B`,
+    answer:{type:`closed`,display:`B`,description:``},
     hints:[{level:1,text:`Licz możliwości krok po kroku, mnożąc liczby wyborów`},
       {level:2,text:`Permutacje n elementów: n!; kombinacje: C(n,k) = n!/(k!(n-k)!)`},
       {level:3,text:`Uważaj czy kolejność ma znaczenie (permutacja) czy nie (kombinacja)`}],
@@ -24150,6 +24436,7 @@ na .
 
 W  kratki  poniżej  wpisz  kolejno  –  od  lewej  do  prawej  –  cyfrę  jedności,  części  dziesiętnych
 i setnych otrzymanego wyniku.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`IV. Użycie i tworzenie`,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -24214,6 +24501,7 @@ a .
 3
 
 Odpowiedź:  ...............................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -24258,6 +24546,7 @@ ACB
 .
 
 =`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -24315,6 +24604,7 @@ n
 3
 
  jest podzielne przez 16.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Spróbuj przekształcić algebraicznie do oczywistej nierówności`},
       {level:2,text:`Szukaj wzorów skróconego mnożenia lub AM-GM`},
@@ -24405,6 +24695,7 @@ x
 1
 
 Odpowiedź:  ...............................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -24490,6 +24781,7 @@ a b
 N
 
 Wyznacz wszystkie wartości wyrażenia  log a b .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -24555,6 +24847,7 @@ m
 )
 
 jest prawdziwa dla każdej liczby rzeczywistej  x .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -24639,6 +24932,7 @@ x
 
 rombu zawiera się w prostej l o równaniu  2
 wierzchołków tego rombu.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -24689,6 +24983,7 @@ rozwiązanie tego etapu zda`,explanation:``}]
     image:`img/tasks_cke/cke_2020_dod_13.jpg`,
     statement:`Oblicz, ile jest siedmiocyfrowych liczb naturalnych takich, że w zapisie dziesiętnym iloczyn
 wszystkich cyfr każdej z tych liczb jest równy 28.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Licz możliwości krok po kroku, mnożąc liczby wyborów`},
       {level:2,text:`Permutacje n elementów: n!; kombinacje: C(n,k) = n!/(k!(n-k)!)`},
@@ -24736,6 +25031,7 @@ C
 N
 
 B`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -24766,6 +25062,7 @@ ABC`,explanation:``}]
 okręgu opisanego na podstawie i długości krawędzi bocznej jest równa d. Wyznacz długość
 krawędzi podstawy tego z rozpatrywanych ostrosłupów, który ma największą objętość. Oblicz
 tę największą objętość.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -24865,7 +25162,8 @@ D. nie jest podzielny ani przez (
 )1x − , ani przez (
 
 )1x + .`,
-    answer:{type:`open`,display:`II. Wykorzystanie`,description:``},
+    options:{A:`jest podzielny przez ( )1x − i z dzielenia przez ( )1x + daje resztę równą 6 .`,B:`jest podzielny przez ( )1x + i z dzielenia przez ( )1x − daje resztę równą 6 .`,C:`jest podzielny przez ( )1x − i jest podzielny przez ( )1x + .`,D:`nie jest podzielny ani przez ( )1x − , ani przez ( )1x + .`},correctAnswer:`B`,
+    answer:{type:`closed`,display:`B`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -24938,7 +25236,8 @@ D.
 
 5
 11`,
-    answer:{type:`open`,display:`II. Wykorzystanie`,description:``},
+    options:{A:`3`,B:`1 5`,C:`3 5`,D:`− 5 11`},correctAnswer:`C`,
+    answer:{type:`closed`,display:`C`,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
       {level:3,text:`Geometryczny: an = a1*q^(n-1), Sn = a1(q^n-1)/(q-1)`}],
@@ -24986,7 +25285,8 @@ D.
 
 13
 15`,
-    answer:{type:`open`,display:`III. Modelowanie`,description:``},
+    options:{A:`2 15`,B:`1 5`,C:`4 5`,D:`13 15`},correctAnswer:`A`,
+    answer:{type:`closed`,display:`A`,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
       {level:3,text:`Prawdopodobieństwo warunkowe: P(A|B) = P(A∩B)/P(B)`}],
@@ -25077,7 +25377,8 @@ B.  36
 C.  8 6
 
 D.  12 6`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`6`,B:`36`,C:`8 6`,D:`12 6`},correctAnswer:`B`,
+    answer:{type:`closed`,display:`B`,description:``},
     hints:[{level:1,text:`Licz możliwości krok po kroku, mnożąc liczby wyborów`},
       {level:2,text:`Permutacje n elementów: n!; kombinacje: C(n,k) = n!/(k!(n-k)!)`},
       {level:3,text:`Uważaj czy kolejność ma znaczenie (permutacja) czy nie (kombinacja)`}],
@@ -25142,6 +25443,7 @@ długości boku AB. Oblicz cosinus najmniejszego kąta trójkąta ABC.
 
 W  kratki  poniżej  wpisz  kolejno  –  od  lewej  do  prawej  –  pierwszą,  drugą  oraz  trzecią  cyfrę
 po przecinku nieskończonego rozwinięcia dziesiętnego otrzymanego wyniku.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`IV. Użycie i tworzenie`,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -25187,6 +25489,7 @@ a
 4
 
 Odpowiedź:  ...............................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -25251,6 +25554,7 @@ MC
 4
 = .
 5`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -25320,6 +25624,7 @@ b=
 2
 
 .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -25405,6 +25710,7 @@ x ∈
 .
 
 Odpowiedź:  ...............................................................................................................................  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -25500,6 +25806,7 @@ a
 2
 
 ,`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -25589,6 +25896,7 @@ x
 =  z niewiadomą  x . Wyznacz
 2x  tego równania  istnieją
 1x  i`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -25693,6 +26001,7 @@ y
 x
 
 2`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -25743,6 +26052,7 @@ rozwiązanie tego etapu zda`,explanation:``}]
     image:`img/tasks_cke/cke_2020_13.jpg`,
     statement:`Oblicz, ile jest wszystkich siedmiocyfrowych liczb naturalnych, w których zapisie dziesiętnym
 występują dokładnie trzy cyfry 1 i dokładnie dwie cyfry 2.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Licz możliwości krok po kroku, mnożąc liczby wyborów`},
       {level:2,text:`Permutacje n elementów: n!; kombinacje: C(n,k) = n!/(k!(n-k)!)`},
@@ -25800,6 +26110,7 @@ tg
 2
 
 tego ostrosłupa.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj bryłę i zaznacz wszystkie dane`},
       {level:2,text:`Szukaj użytecznych przekrojów osiowych lub środkowych`},
@@ -25858,6 +26169,7 @@ c
 m
 
 0,5 cm`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -25917,7 +26229,8 @@ B. 0
 C. −24√3
 
 D. −192√3`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`512`,B:`0`,C:`−24√3`,D:`−192√3`},correctAnswer:`D`,
+    answer:{type:`closed`,display:`D`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -25949,7 +26262,8 @@ B. |𝑎| = 1    i    𝑏 = 0
 C. |𝑎| = 1    i    |𝑏| = 1
 
 D. 𝑎 = 0    i    |𝑏| = 1`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`𝑎 = 0 i 𝑏 = 0`,B:`|𝑎| = 1 i 𝑏 = 0`,C:`|𝑎| = 1 i |𝑏| = 1`,D:`𝑎 = 0 i |𝑏| = 1`},correctAnswer:`D`,
+    answer:{type:`closed`,display:`D`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -25970,7 +26284,8 @@ B. 𝑚 = 0  lub  𝑚 = 2
 C. 𝑚 = 2
 
 D. 𝑚 = 2  lub  𝑚 = 4`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`𝑚 = 0 lub 𝑚 = 4`,B:`𝑚 = 0 lub 𝑚 = 2`,C:`𝑚 = 2`,D:`𝑚 = 2 lub 𝑚 = 4`},correctAnswer:`B`,
+    answer:{type:`closed`,display:`B`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -26010,7 +26325,8 @@ D. 𝑓𝑥 = 2𝜋 ⋅ sin
 
 𝑥
 2`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`𝑓(cid:4666)𝑥(cid:4667) = 2 sin(cid:4666)2𝑥(cid:4667)`,B:`𝑓(cid:4666)𝑥(cid:4667) = 2𝜋 ⋅ sin(cid:4666)2𝑥(cid:4667)`,C:`𝑓(cid:4666)𝑥(cid:4667) = 2 sin (cid:4672) 𝑥 2 (cid:4673)`,D:`𝑓(cid:4666)𝑥(cid:4667) = 2𝜋 ⋅ sin (cid:4672) 𝑥 2 (cid:4673)`},correctAnswer:`D`,
+    answer:{type:`closed`,display:`D`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -26024,6 +26340,7 @@ D. 𝑓𝑥 = 2𝜋 ⋅ sin
     statement:`Wynikiem  dzielenia  wielomianu    5𝑥 − 7𝑥 − 4𝑥 − 4    przez  dwumian    𝑥 − 2    jest  trójmian
 kwadratowy postaci  𝑎𝑥 + 𝑏𝑥 + 𝑐.
 W poniższe kratki wpisz kolejno – od lewej do prawej – wartości współczynników  𝑎, 𝑏  oraz  𝑐.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -26043,6 +26360,7 @@ W poniższe kratki wpisz kolejno – od lewej do prawej – wartości współczy
  .
 
 EMAP-R0_100`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -26074,6 +26392,7 @@ równe  𝑆, to pole trójkąta  𝐴𝐷𝐺  jest równe  3𝑆.
 𝐹
 
 𝐵`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -26086,6 +26405,7 @@ równe  𝑆, to pole trójkąta  𝐴𝐷𝐺  jest równe  3𝑆.
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2021_dod_8.jpg`,
     statement:`Rozwiąż równanie  2 cos 𝑥 − cos 𝑥 = sin2𝑥 − sin 𝑥  w przedziale  〈0, 2𝜋〉.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -26100,6 +26420,7 @@ równe  𝑆, to pole trójkąta  𝐴𝐷𝐺  jest równe  3𝑆.
     statement:`Dane są prosta  𝑘  o równaniu  𝑥 − 2𝑦 = 0  i prosta  𝑙  o równaniu  2𝑥 + 𝑦 − 1 = 0. Punkt  𝑃
 leży  na  prostej  o  równaniu    𝑦 = 𝑥 + 4.  Odległość  punktu    𝑃    od  prostej    𝑘    jest  dwa  razy
 większa niż odległość punktu  𝑃  od prostej  𝑙. Oblicz współrzędne punktu  𝑃.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyznacz równanie prostej przez dwa punkty`},
       {level:2,text:`Odległość punktu (x0,y0) od prostej ax+by+c=0: d = |ax0+by0+c|/sqrt(a^2+b^2)`},
@@ -26137,6 +26458,7 @@ większa niż odległość punktu  𝑃  od prostej  𝑙. Oblicz współrzędne
 2
 
 𝐵`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -26159,6 +26481,7 @@ równe
 15
 
  . Oblicz, ilu aktorów bierze udział w tym programie.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -26175,6 +26498,7 @@ równe
 𝑥 − 3𝑥 + 𝑚 − 1𝑥 − 6𝑚 + 2𝑚 = 0
 
 ma dokładnie dwa rozwiązania.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -26194,6 +26518,7 @@ ma dokładnie dwa rozwiązania.`,
   dla każdej liczby rzeczywistej  𝑥 ≠ 0.
 
 Oblicz wartość  𝑘, dla której prosta o równaniu  𝑦 = −𝑥  jest styczna do wykresu funkcji  𝑓.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Oblicz pochodną f'(x)`},
       {level:2,text:`Podstaw x0 do f'(x0) — to nachylenie stycznej`},
@@ -26216,6 +26541,7 @@ cos∡𝐴𝐷𝐵 =
  ,     |∡𝐵𝐶𝐷| = 90°     oraz     |𝐴𝐵| > √15.
 
 Oblicz długość boku  𝐵𝐶  tego czworokąta.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -26240,6 +26566,7 @@ b)  Wyznacz dziedzinę funkcji  𝑃.
 c)  Oblicz długości boków tego z rozpatrywanych trójkątów, który ma największe pole. Oblicz
 
 to największe pole.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -26269,7 +26596,8 @@ D.
 
 3
 2`,
-    answer:{type:`open`,display:`poprawna.`,description:``},
+    options:{A:`−1`,B:`− (cid:3493)3 2`,C:`− 1 2`,D:`(cid:3493)3 2`},correctAnswer:`D`,
+    answer:{type:`closed`,display:`D`,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
       {level:3,text:`Wzory: sin(pi-x)=sin x, cos(pi+x)=-cos x`}],
@@ -26333,7 +26661,8 @@ cos 𝑥2
 
 |sin 𝑥|2
 sin 𝑥2`,
-    answer:{type:`open`,display:`poprawna.`,description:``},
+    options:{A:`𝑓(𝑥) =`,B:`𝑓(𝑥) =`,C:`𝑓(𝑥) =`,D:`𝑓(𝑥) = cos 𝑥+1 |cos 𝑥|+1 sin 𝑥+1 |sin 𝑥|+1 |cos 𝑥|(cid:2879)2 cos 𝑥(cid:2879)2 |sin 𝑥|(cid:2879)2 sin 𝑥(cid:2879)2`},correctAnswer:`C`,
+    answer:{type:`closed`,display:`C`,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
       {level:3,text:`Wzory: sin(pi-x)=sin x, cos(pi+x)=-cos x`}],
@@ -26364,7 +26693,8 @@ B. 𝑥 + 9
 C. 𝑥 − 3√2𝑥 + 9
 
 D. 𝑥 + 3√2𝑥 − 9`,
-    answer:{type:`open`,display:`poprawna.`,description:``},
+    options:{A:`𝑥 − 3`,B:`𝑥(cid:2870) + 9`,C:`𝑥(cid:2870) − 3√2𝑥 + 9`,D:`𝑥(cid:2870) + 3√2𝑥 − 9`},correctAnswer:`C`,
+    answer:{type:`closed`,display:`C`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -26389,7 +26719,8 @@ B. 1
 C. 2
 
 D. 3`,
-    answer:{type:`open`,display:`poprawna.`,description:``},
+    options:{A:`0`,B:`1`,C:`2`,D:`3`},correctAnswer:`B`,
+    answer:{type:`closed`,display:`B`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -26421,6 +26752,7 @@ B`,explanation:``}]
 
 W poniższe kratki wpisz kolejno – od lewej do prawej – cyfrę jedności i pierwsze dwie cyfry po
 przecinku skończonego rozwinięcia dziesiętnego otrzymanego wyniku.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`całkowicie poprawna.`,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -26446,6 +26778,7 @@ ZADANIA OTWARTE (NIEKODOWANE)
 𝑐−1
 
  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyznacz dziedzinę: argumenty logarytmów muszą być > 0`},
       {level:2,text:`Wzory: log(ab) = log a + log b, log(a^n) = n*log a`},
@@ -26492,6 +26825,7 @@ log`,explanation:``}]
 
 2 + 2𝑥
 5𝑥`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -26558,6 +26892,7 @@ iloczyn  (1 − 𝑥)2(5𝑥)2 , do postaci
 𝐵
 
 Wykaż, że pole trójkąta  𝐷𝐵𝑃  jest  21  razy mniejsze od pola trójkąta  𝐴𝐵𝐶.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`owiednie`,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -26581,6 +26916,7 @@ ALBO
     statement:`Ze  zbioru  wszystkich  liczb  naturalnych  czterocyfrowych  losujemy  jedną  liczbę.  Oblicz
 prawdopodobieństwo  zdarzenia  polegającego  na  tym,  że  wylosowana  liczba  jest  podzielna
 przez  15, jeśli wiadomo, że jest ona podzielna przez  18.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -26603,6 +26939,7 @@ własności ciągu arytmetycznego, stosowanie`,explanation:``}]
     statement:`Prosta  przechodząca  przez  punkty    𝐴 = (8, −6)    i    𝐵 = (5, 15)    jest  styczna  do  okręgu
 o środku w punkcie  𝑂 = (0, 0). Oblicz promień tego okręgu i współrzędne punktu styczności tego
 okręgu z prostą  𝐴𝐵.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Oblicz pochodną f'(x)`},
       {level:2,text:`Podstaw x0 do f'(x0) — to nachylenie stycznej`},
@@ -26639,6 +26976,7 @@ ma dwa różne pierwiastki rzeczywiste  𝑥  oraz  𝑥, spełniające warunki:
 
 1
 𝑥`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -26663,6 +27001,7 @@ Drugi etap polega na roz`,explanation:``}]
 2
 
 (cos 𝑥 − sin 𝑥)  w przedziale  〈0, 𝜋〉.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -26703,6 +27042,7 @@ ALBO
     statement:`Dany  jest  trójkąt  prostokątny    𝐴𝐵𝐶.  Promień  okręgu  wpisanego  w  ten  trójkąt  jest  pięć  razy
 krótszy od przeciwprostokątnej tego trójkąta. Oblicz sinus tego z kątów ostrych trójkąta  𝐴𝐵𝐶,
 który ma większą miarę.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -26765,6 +27105,7 @@ b) Wyznacz wszystkie wartości  𝑚, dla których trójkąt  𝐴𝐵𝐶  jest
   3
 
    𝑥`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`unktu a)`,description:``},
     hints:[{level:1,text:`Wyznacz równanie prostej przez dwa punkty`},
       {level:2,text:`Odległość punktu (x0,y0) od prostej ax+by+c=0: d = |ax0+by0+c|/sqrt(a^2+b^2)`},
@@ -26788,6 +27129,7 @@ Całkowity koszt wykonania zbiornika ustalono w następujący sposób:
 –  75 zł za  1 m  ściany bocznej.
 
 Oblicz wymiary zbiornika, dla którego tak ustalony koszt wykonania będzie najmniejszy.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -26828,7 +27170,8 @@ D.
 
 3𝑎+1
 2𝑏+𝑎`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`3𝑎+1 𝑎+𝑏`,B:`2𝑎+1 𝑎+𝑏`,C:`2𝑎+1 𝑎+2𝑏`,D:`3𝑎+1 2𝑏+𝑎`},correctAnswer:`D`,
+    answer:{type:`closed`,display:`D`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -26874,7 +27217,8 @@ D.
 4
 
 𝑛 + 1]  oraz  𝑏⃗⃗ = [𝑛 + 1, 𝑚 + 2]  jest wektor  𝑐⃗ =[0, 0].`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`(− 1 8 )`,B:`1 16`,C:`(− 1 16 )`,D:`7 4 𝑛 + 1] oraz 𝑏⃗⃗ = [𝑛 + 1, 𝑚 + 2] jest wektor 𝑐⃗ =[0, 0].`},correctAnswer:`B`,
+    answer:{type:`closed`,display:`B`,description:``},
     hints:[{level:1,text:`Sprawdź czy granica ma postać nieskonczonosc/nieskonczonosc lub 0/0`},
       {level:2,text:`Podziel licznik i mianownik przez najwyższą potęgę x`},
       {level:3,text:`Ciąg geometryczny zbiega gdy |q| < 1`}],
@@ -26896,7 +27240,8 @@ A. 𝑚 = 1    i    𝑛 = 3.
 B. 𝑚 = −9    i    𝑛 = −21.
 C. 𝑚 = 3    i    𝑛 = −9.
 D. 𝑚 = −1    i    𝑛 = 0.`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`𝑚 = 1 i 𝑛 = 3.`,B:`𝑚 = −9 i 𝑛 = −21.`,C:`𝑚 = 3 i 𝑛 = −9.`,D:`𝑚 = −1 i 𝑛 = 0.`},correctAnswer:`C`,
+    answer:{type:`closed`,display:`C`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
       {level:3,text:`Sprawdź czy wszystkie podpunkty zostały rozwiązane`}],
@@ -26917,7 +27262,8 @@ B. 8
 C. √41
 
 D. √143`,
-    answer:{type:`open`,display:``,description:``},
+    options:{A:`5`,B:`8`,C:`√41`,D:`√143`},correctAnswer:`A`,
+    answer:{type:`closed`,display:`A`,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
       {level:3,text:`Pamiętaj własności okręgu wpisanego/opisanego w wielokąt`}],
@@ -26935,6 +27281,7 @@ warunkiem że jest mężczyzną.
 
 W poniższe kratki wpisz kolejno – od lewej do prawej – pierwszą, drugą oraz trzecią cyfrę po
 przecinku nieskończonego rozwinięcia dziesiętnego otrzymanego wyniku.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -26952,6 +27299,7 @@ przecinku nieskończonego rozwinięcia dziesiętnego otrzymanego wyniku.`,
 𝑥4 + 𝑦4 > 𝑥𝑦(𝑥2 + 𝑦2)
 
 EMAP-R0_100`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Spróbuj przekształcić algebraicznie do oczywistej nierówności`},
       {level:2,text:`Szukaj wzorów skróconego mnożenia lub AM-GM`},
@@ -26965,6 +27313,7 @@ EMAP-R0_100`,
     image:`img/tasks_cke/cke_2022_dod_7.jpg`,
     statement:`Oblicz, ile jest wszystkich liczb naturalnych pięciocyfrowych, w których zapisie występują
 dokładnie dwie cyfry nieparzyste.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -26985,6 +27334,7 @@ dokładnie dwie cyfry nieparzyste.`,
 
 3𝑥 + 4
 2𝑥 + 3`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -27000,6 +27350,7 @@ dokładnie dwie cyfry nieparzyste.`,
 poprowadzono dwie proste równoległe do boków  𝐵𝐶  i  𝐴𝐷. Prosta równoległa do boku  𝐵𝐶
 przecina bok  𝐴𝐵  w punkcie  𝐵′, a prosta równoległa do boku  𝐴𝐷  przecina bok  𝐴𝐵
 w punkcie  𝐴′. Wykaż, że  |𝐴𝐴′| = |𝐵𝐵′|.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -27022,6 +27373,7 @@ tj.
 𝑆𝑃
 
 = 𝑆𝑁 − 𝑆𝑃 . Oblicz  𝑞.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -27034,6 +27386,7 @@ tj.
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2022_dod_11.jpg`,
     statement:`Rozwiąż równanie  cos(3𝑥) + √3 sin(3𝑥) + 1 = 0  w przedziale  〈0, 𝜋〉.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -27075,6 +27428,7 @@ funkcję promienia  𝑅  i miary kąta  𝛼.
 𝑅
 
 𝐵`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj bryłę i zaznacz wszystkie dane`},
       {level:2,text:`Szukaj użytecznych przekrojów osiowych lub środkowych`},
@@ -27099,6 +27453,7 @@ ma trzy różne rozwiązania rzeczywiste  𝑥1, 𝑥2  oraz  𝑥3, spełniają
 2 + 𝑥3
 
 2 − 5𝑚 − 51`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -27113,6 +27468,7 @@ ma trzy różne rozwiązania rzeczywiste  𝑥1, 𝑥2  oraz  𝑥3, spełniają
     statement:`Dane są okrąg  𝑜1  o równaniu  (𝑥 − 6)2 + (𝑦 − 4)2 = 98  oraz okrąg  𝑜2  o promieniu  2√5.
 Środki okręgów  𝑜1  i  𝑜2  leżą po różnych stronach prostej  𝑘  o równaniu  𝑦 = −3𝑥 − 6, a punkty
 wspólne obu okręgów leżą na prostej  𝑘. Wyznacz równanie okręgu  𝑜2.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -27137,6 +27493,7 @@ b)  Wyznacz dziedzinę funkcji  𝑃.
 c)  Oblicz długość odcinka  𝑥  tego z rozpatrywanych trójkątów, który ma największe pole.
 
 Oblicz to największe pole.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -27166,7 +27523,8 @@ C.
 12
 
 D. 3`,
-    answer:{type:`open`,display:`poprawna.`,description:``},
+    options:{A:`4 3`,B:`1 2`,C:`11 12`,D:`3`},correctAnswer:`A`,
+    answer:{type:`closed`,display:`A`,description:``},
     hints:[{level:1,text:`Wyznacz dziedzinę: argumenty logarytmów muszą być > 0`},
       {level:2,text:`Wzory: log(ab) = log a + log b, log(a^n) = n*log a`},
       {level:3,text:`Zmiana podstawy: log_a(x) = ln x / ln a`}],
@@ -27213,7 +27571,8 @@ D.
 
 54
 8`,
-    answer:{type:`open`,display:`poprawna.`,description:``},
+    options:{A:`3 4`,B:`9 4`,C:`3`,D:`54 8`},correctAnswer:`C`,
+    answer:{type:`closed`,display:`C`,description:``},
     hints:[{level:1,text:`Oblicz pochodną f'(x)`},
       {level:2,text:`Podstaw x0 do f'(x0) — to nachylenie stycznej`},
       {level:3,text:`Równanie stycznej: y = f'(x0)*(x - x0) + f(x0)`}],
@@ -27270,7 +27629,8 @@ D.
 
 1−2√6
 6`,
-    answer:{type:`open`,display:`poprawna.`,description:``},
+    options:{A:`−2√2+√3 6`,B:`2√6+1 6`,C:`2√2+√3 6`,D:`1−2√6 6`},correctAnswer:`A`,
+    answer:{type:`closed`,display:`A`,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
       {level:3,text:`Wzory: sin(pi-x)=sin x, cos(pi+x)=-cos x`}],
@@ -27312,7 +27672,8 @@ D.
 
 6
 7`,
-    answer:{type:`open`,display:`poprawna.`,description:``},
+    options:{A:`5 14`,B:`9 14`,C:`5 7`,D:`6 7`},correctAnswer:`A`,
+    answer:{type:`closed`,display:`A`,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
       {level:3,text:`Prawdopodobieństwo warunkowe: P(A|B) = P(A∩B)/P(B)`}],
@@ -27347,6 +27708,7 @@ Oblicz wartość  𝑝, dla której granica ciągu  (𝑎𝑛)  jest równa
 
 W poniższe kratki wpisz kolejno – od lewej do prawej – pierwszą, drugą oraz trzecią cyfrę po
 przecinku nieskończonego rozwinięcia dziesiętnego otrzymanego wyniku.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`całkowicie poprawna.`,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -27375,6 +27737,7 @@ i konsekwentnie do popełnionych błędów rachunkowych rozwiązuje zadanie`,exp
 2𝑥 > 𝑦, spełniona jest nierówność
 
 7𝑥3 + 4𝑥2𝑦 ≥ 𝑦3 + 2𝑥𝑦2 − 𝑥3`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Spróbuj przekształcić algebraicznie do oczywistej nierówności`},
       {level:2,text:`Szukaj wzorów skróconego mnożenia lub AM-GM`},
@@ -27398,6 +27761,7 @@ ALBO
     statement:`Rozwiąż równanie:
 
 |𝑥 − 3| = 2𝑥 + 11`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -27427,6 +27791,7 @@ Wykaż, że spełniony jest warunek  |𝐷𝑃|2 + |𝐶𝑃|2 − |𝐶𝐷|2 =
 3
 
 ⋅ |𝐷𝑃| ⋅ |𝐶𝑃|.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -27450,6 +27815,7 @@ trójkącie  𝐴𝑃𝐵)`,explanation:``}]
     statement:`Reszta z dzielenia wielomianu  𝑊(𝑥) = 4𝑥3 − 6𝑥2 − (5𝑚 + 1)𝑥 − 2𝑚  przez dwumian  𝑥 + 2
 jest równa  (−30).
 Oblicz  𝑚  i dla wyznaczonej wartości  𝑚  rozwiąż nierówność  𝑊(𝑥) ≥ 0.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -27485,6 +27851,7 @@ kolejnych wyrazów ciągu  (𝑏𝑛). Ponadto  𝑎3 = 𝑏4. Oblicz  𝑏1.
 
 1
 5`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -27521,6 +27888,7 @@ Zdaj`,explanation:``}]
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2022_11.jpg`,
     statement:`Rozwiąż równanie  sin 𝑥 + sin 2𝑥 + sin 3𝑥 = 0  w przedziale  〈0, 𝜋〉.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -27564,6 +27932,7 @@ ma dwa różne rozwiązania rzeczywiste  𝑥1  oraz  𝑥2, spełniające warun
 1
 2
 𝑥2`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -27632,6 +28001,7 @@ Oblicz wysokość  ℎ  tego graniastosłupa.
 α
 
 𝐴`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -27656,6 +28026,7 @@ gdy spełni jeden z poniższych warunków:
     statement:`Punkt  𝐴 = (−3, 2)  jest wierzchołkiem trójkąta równoramiennego  𝐴𝐵𝐶, w którym  |𝐴𝐶| = |𝐵𝐶|.
 Pole tego trójkąta jest równe  15. Bok  𝐵𝐶  zawarty jest w prostej o równaniu  𝑦 = 𝑥 − 1.
 Oblicz współrzędne wierzchołków  𝐵  i  𝐶  tego trójkąta.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyznacz równanie prostej przez dwa punkty`},
       {level:2,text:`Odległość punktu (x0,y0) od prostej ax+by+c=0: d = |ax0+by0+c|/sqrt(a^2+b^2)`},
@@ -27686,6 +28057,7 @@ wzorem  𝑃(𝑏) =
 b)  Wyznacz dziedzinę funkcji  𝑃.
 
 c)  Oblicz długości boków tego z rozpatrywanych trójkątów, który ma największe pole.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -27713,6 +28085,7 @@ Oblicz  𝒂 − 𝒃.
 
 log3 2023
 log9 2023`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -27730,6 +28103,7 @@ takich ustawień tych  𝑛  osób w kolejkę, w których Ania i jej dwaj znajom
 miejsca (w dowolnej kolejności).
 
 Oblicz  𝒏. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -27748,6 +28122,7 @@ Oblicz prawdopodobieństwo zdarzenia  𝑨  polegającego na tym, że w okresie 
 dni wystąpią co najwyżej dwa takie dni, w których nastąpi awaria tej sieci na tym
 osiedlu w godzinach porannych. Wynik podaj w ułamku dziesiętnym w zaokrągleniu
 do części setnych. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -27764,6 +28139,7 @@ Punkt  𝑃 = (𝑥0 , 18)  należy do wykresu funkcji  𝑓.
 
 Oblicz  𝒙𝟎  oraz wyznacz równanie stycznej do wykresu funkcji  𝒇  w punkcie  𝑷.
 Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Oblicz pochodną f'(x)`},
       {level:2,text:`Podstaw x0 do f'(x0) — to nachylenie stycznej`},
@@ -27783,6 +28159,7 @@ Zapisz obliczenia.`,
 𝒂
 
 ≥ 𝟏𝟐`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Spróbuj przekształcić algebraicznie do oczywistej nierówności`},
       {level:2,text:`Szukaj wzorów skróconego mnożenia lub AM-GM`},
@@ -27815,6 +28192,7 @@ okrąg  𝒪
 
 Wykaż, że jeżeli  |𝑨𝑸| = 𝟓 ∙ |𝑩𝑷|  oraz  |𝑪𝑫| = 𝟐 ∙ |𝑩𝑫|, to trójkąt  𝑨𝑩𝑪  jest
 równoramienny.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -27850,6 +28228,7 @@ szeregu istnieje i jest równa
 𝟐
 
  . Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -27876,6 +28255,7 @@ w zbiorze  [−
  ]. Zapisz obliczenia.
 
 𝐬𝐢𝐧(𝟓𝒙) + 𝐜𝐨𝐬 𝒙 = 𝟎`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -27892,6 +28272,7 @@ trójkąta jest zawarty w prostej o równaniu  4𝑥 − 3𝑦 + 2 = 0. Wysokoś
 dzieli bok  𝐴𝐵  tak, że  |𝐴𝐷| = 4 ⋅ |𝐷𝐵|.
 
 Oblicz pole trójkąta  𝑨𝑩𝑪. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyznacz równanie prostej przez dwa punkty`},
       {level:2,text:`Odległość punktu (x0,y0) od prostej ax+by+c=0: d = |ax0+by0+c|/sqrt(a^2+b^2)`},
@@ -27920,6 +28301,7 @@ ma dokładnie dwa różne rozwiązania rzeczywiste  𝒙𝟏  oraz  𝒙𝟐 , s
 𝒙𝟐
 
 Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -27936,6 +28318,7 @@ Zapisz obliczenia.`,
 𝑐 − 𝑏 = 6.
 
 Oblicz  𝒂, 𝒃  oraz  𝒄. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -27962,6 +28345,7 @@ tak, że  |𝐵𝐸| = 3 ∙ |𝐷𝐸|  oraz  |𝐵𝐷| = 2 ∙ |𝐴𝐸|.
 Oblicz długości boków czworokąta  𝑨𝑩𝑪𝑫. Zapisz obliczenia.
 
 𝐴`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -28006,6 +28390,7 @@ b) Wyznacz wysokość tego z rozważanych graniastosłupów, którego objętoś�
 największa.
 
 Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj bryłę i zaznacz wszystkie dane`},
       {level:2,text:`Szukaj użytecznych przekrojów osiowych lub środkowych`},
@@ -28026,6 +28411,7 @@ chwili początkowej).
 Wyznacz wzór funkcji  𝒎(𝒕). Oblicz, po ilu pełnych dobach masa tej substancji będzie
 po raz pierwszy mniejsza od  𝟏, 𝟓  grama.
 Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Rozpoznaj model: m(t) = m0 * q^t lub y = a * b^x`},
       {level:2,text:`Wyznacz parametry a i b z danych zadania`},
@@ -28053,6 +28439,7 @@ Oblicz prawdopodobieństwo wygrania przez Tomka co najmniej czterech z pięciu
 partii. Wynik podaj w postaci ułamka zwykłego nieskracalnego. Zapisz obliczenia.
 
 2.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`1`,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -28130,6 +28517,7 @@ Punkt  𝑃 = (𝑥0 , 3)  należy do wykresu funkcji  𝑓.
 
 Oblicz  𝒙𝟎  oraz wyznacz równanie stycznej do wykresu funkcji  𝒇  w punkcie  𝑷.
 Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Oblicz pochodną f'(x)`},
       {level:2,text:`Podstaw x0 do f'(x0) — to nachylenie stycznej`},
@@ -28167,6 +28555,7 @@ Zasady ocen`,explanation:``}]
 Wykaż, że  𝒙 = 𝟐  oraz  𝒚 = 𝟐.
 
 4.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -28210,6 +28599,7 @@ rysunek). Odcinek  𝐾𝐿  przecina wysokość  𝐵𝐷  tego trójkąta w pu
 Wykaż, że  |𝑵𝑫| = √𝟑 + 𝟏.
 
 𝐶`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`|𝑁𝐷| = √3 + 1.`,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -28234,6 +28624,7 @@ ALBO
 Zapisz obliczenia.
 
 𝟒𝐬𝐢𝐧(𝟒𝒙)𝐜𝐨𝐬(𝟔𝒙) = 𝟐𝐬𝐢𝐧(𝟏𝟎𝒙) + 𝟏`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`7`,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -28295,6 +28686,7 @@ Oblicz wysokość trójkąta  𝑺𝑩𝑯  poprowadzoną z punktu  𝑺  na bok
 Zapisz obliczenia.
 
 7.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`√6.`,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -28327,6 +28719,7 @@ którego sinus jest równy
 Oblicz obwód czworokąta  𝑨𝑩𝑪𝑫. Zapisz obliczenia.
 
 8.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`16√3 + 10.`,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -28357,6 +28750,7 @@ Zapisz obliczenia.
 − √𝒙𝟐 − 𝟔𝒙 + 𝟗
 
 Wskazówka: skorzystaj z tego, że  √𝑎2 = |𝑎|  dla każdej liczby rzeczywistej  𝑎.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`𝑥 ∈ (−`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -28407,6 +28801,7 @@ Na rysunku przedstawiono kwadraty utworzone w sposób opisany powyżej.
 Oblicz sumę wszystkich wyrazów tego nieskończonego ciągu. Zapisz obliczenia.
 
 10.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`𝐿 =`,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -28462,6 +28857,7 @@ Zapisz obliczenia.
 𝟑 + 𝒙𝟐
 
 𝟑 > −𝟐𝟖.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -28502,6 +28898,7 @@ w szczególności wyznacza`,explanation:``}]
 ⋅ 𝒙𝟐 − 𝟔𝒙
 
 można równoważnie przekształcić do postaci  𝒙𝟒 + 𝒙𝟐 − 𝟔𝒙.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyznacz dziedzinę: argumenty logarytmów muszą być > 0`},
       {level:2,text:`Wzory: log(ab) = log a + log b, log(a^n) = n*log a`},
@@ -28537,6 +28934,7 @@ matem`,explanation:``}]
 Zapisz obliczenia.
 –1–
 Wskazówka: przyjmij, że wzór funkcji  𝑓  można przedstawić w postaci  𝑓(𝑥) = 𝑥4 + 𝑥2 − 6𝑥.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -28589,6 +28987,7 @@ okrąg  𝒪
 Oblicz współrzędne punktu  𝑪. Zapisz obliczenia.
 
 13.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`𝐶 = (`,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -28650,6 +29049,7 @@ masy początkowej (zobacz rysunek).
 
 Oblicz, po ilu sekundach (licząc od chwili zainicjowania tej reakcji) przereagowało
 𝟖𝟕, 𝟓 %  masy początkowej tego związku. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -28670,6 +29070,7 @@ Zapisz obliczenia.
 
 lim
 𝑥→3−`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy granica ma postać nieskonczonosc/nieskonczonosc lub 0/0`},
       {level:2,text:`Podziel licznik i mianownik przez najwyższą potęgę x`},
@@ -28693,6 +29094,7 @@ funkcji  𝑓.
 
 Oblicz  𝒙𝟎  oraz wyznacz równanie stycznej do wykresu funkcji  𝒇  w punkcie  𝑷.
 Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Oblicz pochodną f'(x)`},
       {level:2,text:`Podstaw x0 do f'(x0) — to nachylenie stycznej`},
@@ -28709,6 +29111,7 @@ Zapisz obliczenia.`,
 Oblicz prawdopodobieństwo zdarzenia polegającego na tym, że w tym doświadczeniu
 losowym orzeł wypadł dokładnie trzy razy z rzędu, jeśli wiadomo, że wypadł dokładnie
 trzy razy. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -28735,6 +29138,7 @@ trzy razy. Zapisz obliczenia.`,
 
 𝟒
 𝟑`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Spróbuj przekształcić algebraicznie do oczywistej nierówności`},
       {level:2,text:`Szukaj wzorów skróconego mnożenia lub AM-GM`},
@@ -28750,6 +29154,7 @@ trzy razy. Zapisz obliczenia.`,
 trapez można wpisać okrąg.
 
 Wykaż, że pole tego trapezu jest większe od  𝒂 ⋅ 𝒃.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -28774,6 +29179,7 @@ Ponadto  𝑎1 + 𝑎3 =
 𝑎1 + 𝑎3 + 𝑎5 +   … = 16
 
 Wyznacz wzór ogólny na  𝒏–ty wyraz ciągu  (𝒂𝒏). Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -28789,6 +29195,7 @@ Wyznacz wzór ogólny na  𝒏–ty wyraz ciągu  (𝒂𝒏). Zapisz obliczenia.
 ma długość  4√3  i jest najdłuższym bokiem tego trójkąta.
 
 Oblicz długość boku  𝑨𝑪  trójkąta  𝑨𝑩𝑪. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -28805,6 +29212,7 @@ Oblicz długość boku  𝑨𝑪  trójkąta  𝑨𝑩𝑪. Zapisz obliczenia.`,
 Zapisz obliczenia.
 
 𝐬𝐢𝐧(𝟔𝒙) + √𝟑 ⋅ 𝐬𝐢𝐧(𝟓𝒙) + 𝐬𝐢𝐧(𝟒𝒙) = 𝟎`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -28827,6 +29235,7 @@ graniastosłupa jest równy
  .
 
 Wyznacz pole powierzchni całkowitej tego graniastosłupa. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -28859,6 +29268,7 @@ równa
  .
 
 Oblicz długość boku  𝑩𝑪  tego równoległoboku. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyznacz równanie prostej przez dwa punkty`},
       {level:2,text:`Odległość punktu (x0,y0) od prostej ax+by+c=0: d = |ax0+by0+c|/sqrt(a^2+b^2)`},
@@ -28882,6 +29292,7 @@ ma dwa różne rozwiązania rzeczywiste  𝒙𝟏 , 𝒙𝟐  spełniające waru
 𝟐 = 𝒙𝟏 ⋅ 𝒙𝟐 + 𝟕
 
 Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -28902,6 +29313,7 @@ promienia okręgu opisanego na podstawie ostrosłupa jest określona wzorem
 𝟒
 
 ⋅ (𝟔𝑹𝟐 − 𝑹𝟑)`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj bryłę i zaznacz wszystkie dane`},
       {level:2,text:`Szukaj użytecznych przekrojów osiowych lub środkowych`},
@@ -28928,6 +29340,7 @@ dla  𝑅 ∈ (0, 6).
 Wyznacz długość promienia okręgu opisanego na podstawie tego z rozważanych
 ostrosłupów, którego objętość jest największa. Oblicz tę największą objętość. Zapisz
 obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj bryłę i zaznacz wszystkie dane`},
       {level:2,text:`Szukaj użytecznych przekrojów osiowych lub środkowych`},
@@ -28956,6 +29369,7 @@ Po  10  minutach, licząc od chwili początkowej, kawa ostygła do temperatury  
 
 Oblicz temperaturę tej kawy po następnych pięciu minutach. Wynik podaj w stopniach
 Celsjusza, w zaokrągleniu do jedności. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`zaokrąglony do jedności:  59 °C.`,description:``},
     hints:[{level:1,text:`Oblicz pochodną f'(x)`},
       {level:2,text:`Podstaw x0 do f'(x0) — to nachylenie stycznej`},
@@ -28982,6 +29396,7 @@ lim
 𝑥→2−
 
 2.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`(−∞).`,description:``},
     hints:[{level:1,text:`Sprawdź czy granica ma postać nieskonczonosc/nieskonczonosc lub 0/0`},
       {level:2,text:`Podziel licznik i mianownik przez najwyższą potęgę x`},
@@ -29030,6 +29445,7 @@ Oblicz prawdopodobieństwo zdarzenia polegającego na tym, że wśród opakowań
 poddanych tej kontroli będzie co najwyżej jedno opakowanie ze śmietaną, która
 zawiera mniej niż 36% tłuszczu. Wynik zapisz w postaci ułamka dziesiętnego
 w zaokrągleniu do części tysięcznych. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`0,996.`,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -29071,6 +29487,7 @@ Prosta o równaniu  𝑦 = 𝑎𝑥 + 𝑏  jest styczna do wykresu funkcji  �
 Oblicz współczynniki  𝒂  oraz  𝒃  w równaniu tej stycznej. Zapisz obliczenia.
 
 4.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`𝑎 =`,description:``},
     hints:[{level:1,text:`Oblicz pochodną f'(x)`},
       {level:2,text:`Podstaw x0 do f'(x0) — to nachylenie stycznej`},
@@ -29095,6 +29512,7 @@ oraz  𝑏 = −5.
 𝒂 ⋅ (𝟏 + 𝒃)
 
  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyznacz dziedzinę: argumenty logarytmów muszą być > 0`},
       {level:2,text:`Wzory: log(ab) = log a + log b, log(a^n) = n*log a`},
@@ -29118,6 +29536,7 @@ jakakolwiek cyfra oraz dokładnie trzy cyfry są nieparzyste i dokładnie dwie c
 Oblicz, ile jest wszystkich takich liczb. Zapisz obliczenia.
 
 6.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`11 040.`,description:``},
     hints:[{level:1,text:`Licz możliwości krok po kroku, mnożąc liczby wyborów`},
       {level:2,text:`Permutacje n elementów: n!; kombinacje: C(n,k) = n!/(k!(n-k)!)`},
@@ -29139,6 +29558,7 @@ wyrazem ciągu arytmetycznego  (𝑎𝑛), określonego dla każdej liczby natur
 Oblicz  𝒙, 𝒚  oraz  𝒛. Zapisz obliczenia.
 
 7.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`𝑥 = 5, 𝑦 = 20, 𝑧 = 80.`,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -29162,6 +29582,7 @@ dwa razy większa od miary kąta  𝐵𝐴𝐶.
 Wykaż, że długości boków tego trójkąta spełniają warunek
 
 |𝑨𝑪|𝟐 = |𝑩𝑪|𝟐 + |𝑨𝑩| ⋅ |𝑩𝑪|`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -29227,6 +29648,7 @@ ALBO
 Oblicz pola figur  𝑨𝑮𝑭  oraz  𝑪𝑬𝑭𝑮. Zapisz obliczenia.
 
 9.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`𝑃𝐴𝐺𝐹 =`,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -29276,6 +29698,7 @@ ALBO
 𝐬𝐢𝐧(𝟒𝒙) − 𝐬𝐢𝐧(𝟐𝒙) = 𝟒𝐜𝐨𝐬𝟐𝒙 − 𝟑
 
 w zbiorze  [𝟎, 𝟐𝝅]. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`𝜋`,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -29322,6 +29745,7 @@ odpowiednio –  𝐵  i  𝐶. Pole czworokąta  𝐴𝐵𝑆𝐶  jest równe 
 Oblicz współrzędne punktu  𝑺. Rozważ wszystkie przypadki. Zapisz obliczenia.
 
 11.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`𝑆 = (6, 7)  oraz  𝑆 = (−4, −3).`,description:``},
     hints:[{level:1,text:`Wyznacz równanie prostej przez dwa punkty`},
       {level:2,text:`Odległość punktu (x0,y0) od prostej ax+by+c=0: d = |ax0+by0+c|/sqrt(a^2+b^2)`},
@@ -29350,6 +29774,7 @@ ma dwa różne rozwiązania rzeczywiste  𝒙𝟏 , 𝒙𝟐  spełniające waru
 𝟑 + 𝟑 ⋅ 𝒙𝟏 ⋅ 𝒙𝟐 ⋅ (𝒙𝟏 + 𝒙𝟐 − 𝟑) ≤ 𝟑𝒎 − 𝟕
 
 Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -29393,6 +29818,7 @@ krawędzi podstawy graniastosłupa jest określone wzorem
 
 𝟏𝟑𝟖𝟐𝟒√𝟑
 𝒂`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj bryłę i zaznacz wszystkie dane`},
       {level:2,text:`Szukaj użytecznych przekrojów osiowych lub środkowych`},
@@ -29432,6 +29858,7 @@ dla  𝑎 ∈ (0, 8√3 ].
 Wyznacz długość krawędzi podstawy tego z rozważanych graniastosłupów, którego
 pole powierzchni całkowitej jest najmniejsze. Oblicz to najmniejsze pole. Zapisz
 obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -29452,6 +29879,7 @@ Oblicz prawdopodobieństwo zdarzenia  𝑨  polegającego na tym, że spośród
 𝟏𝟎  pralek wysłanych dziesięciu klientom przez ten sklep co najwyżej jedna ulegnie
 uszkodzeniu podczas transportu. Wynik zapisz w postaci ułamka dziesiętnego
 w zaokrągleniu do części tysięcznych. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -29469,6 +29897,7 @@ w zaokrągleniu do części tysięcznych. Zapisz obliczenia.`,
 𝟐𝒂 − 𝟐
 
  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -29484,6 +29913,7 @@ w zaokrągleniu do części tysięcznych. Zapisz obliczenia.`,
 iloczyn cyfr jest liczbą parzystą mniejszą od  5.
 
 Oblicz, ile jest wszystkich takich liczb sześciocyfrowych. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -29518,6 +29948,7 @@ przekątnej  𝐵𝐷  prostokąta.
 𝐵
 
 Wykaż, że stosunek pola trójkąta  𝑴𝑫𝑵  do pola trójkąta  𝑲𝑩𝑳  jest równy  𝟏𝟔.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -29542,6 +29973,7 @@ ma dwa różne rozwiązania rzeczywiste  𝒙𝟏 , 𝒙𝟐  spełniające waru
 𝟐) = 𝟑𝒎 ⋅ 𝒙𝟏 ⋅ 𝒙𝟐 + 𝟐
 
 Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -29558,6 +29990,7 @@ Zapisz obliczenia.`,
 𝐜𝐨𝐬(𝟐𝒙) + 𝟐𝐜𝐨𝐬𝟐(𝟑𝒙) + 𝐜𝐨𝐬(𝟒𝒙) = 𝟎
 
 w przedziale  [𝟎, 𝝅]. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -29573,6 +30006,7 @@ w przedziale  [𝟎, 𝝅]. Zapisz obliczenia.`,
 |𝐷𝐴| = 8, opisano okrąg.
 
 Oblicz promień tego okręgu. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -29590,6 +30024,7 @@ układzie współrzędnych  (𝑥, 𝑦)  styczna do wykresu wielomianu  𝑓  w
 o pierwszej współrzędnej równej  (−2)  przecina ten wykres w punkcie  𝑃 = (1, 9).
 
 Wyznacz wzór wielomianu  𝒇. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Oblicz pochodną f'(x)`},
       {level:2,text:`Podstaw x0 do f'(x0) — to nachylenie stycznej`},
@@ -29607,6 +30042,7 @@ Ciąg  (𝑏𝑛), określony dla każdej liczby naturalnej  𝑛 ≥ 1, jest ge
 𝑏2 = 𝑎6.
 
 Oblicz sumę wszystkich wyrazów ciągu  (𝒃𝒏). Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -29634,6 +30070,7 @@ krawędź w punkcie  𝐸, przy czym
 
 Oblicz stosunek pola powierzchni całkowitej tego ostrosłupa do pola podstawy  𝑨𝑩𝑪.
 Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj bryłę i zaznacz wszystkie dane`},
       {level:2,text:`Szukaj użytecznych przekrojów osiowych lub środkowych`},
@@ -29659,6 +30096,7 @@ boki  𝐴𝐵  i  𝐵𝐶  tego równoległoboku. Druga współrzędna środka
 ujemną.
 
 Wyznacz równanie okręgu  𝓞. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -29679,6 +30117,7 @@ jest określona wzorem
 𝟖
 
 𝒂𝟑`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj bryłę i zaznacz wszystkie dane`},
       {level:2,text:`Szukaj użytecznych przekrojów osiowych lub środkowych`},
@@ -29704,6 +30143,7 @@ dla  𝑎 ∈ (0, 4√3).
 
 Wyznacz długość krawędzi podstawy tego z rozważanych graniastosłupów, którego
 objętość jest największa. Oblicz tę największą objętość. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj bryłę i zaznacz wszystkie dane`},
       {level:2,text:`Szukaj użytecznych przekrojów osiowych lub środkowych`},
@@ -29734,6 +30174,7 @@ godzinach była równa  15 625.
 
 Oblicz, o ile procent wzrastała liczebność populacji tej bakterii w ciągu każdej godziny.
 Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`25%.`,description:``},
     hints:[{level:1,text:`Oblicz pochodną f'(x)`},
       {level:2,text:`Podstaw x0 do f'(x0) — to nachylenie stycznej`},
@@ -29772,6 +30213,7 @@ rzeczywistej  𝒃  takich, że  𝒃 ≠
 𝒂, prawdziwa jest nierówność
 
 (𝒂 + 𝟐𝒃)𝟑 > 𝟖𝒂𝟐𝒃 + 𝟏𝟔𝒂𝒃𝟐`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Spróbuj przekształcić algebraicznie do oczywistej nierówności`},
       {level:2,text:`Szukaj wzorów skróconego mnożenia lub AM-GM`},
@@ -29814,6 +30256,7 @@ do pola trójkąta  𝐴𝐷𝐶  jest równy
 Oblicz miarę kąta  𝑫𝑨𝑪. Zapisz obliczenia.
 
 3.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`45°.`,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -29847,6 +30290,7 @@ gry, która na każdej ściance ma inną liczbę oczek – od jednego oczka do s
 Oblicz prawdopodobieństwo zdarzenia polegającego na tym, że otrzymamy co
 najmniej jeden raz sześć oczek, pod warunkiem że otrzymamy dokładnie dwa razy
 pięć oczek. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`2 pkt – wyznaczenie mocy zdarzeń  𝐵  oraz  𝐴 ∩ 𝐵, np.  |𝐵| = (4`,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -29896,6 +30340,7 @@ ALBO
 Zapisz obliczenia.
 
 |𝒙 − 𝟐| − 𝟐 ⋅ |𝒙 + 𝟑| < −𝟐`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`𝑥 ∈ (−∞, −10) ∪ (−`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -29935,6 +30380,7 @@ W tym ciągu  𝑎1 + 𝑎3 = 20  i  𝑎1
 
 Oblicz sumę wszystkich wyrazów tego ciągu. Rozważ wszystkie przypadki.
 Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`27`,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -30000,6 +30446,7 @@ Wykaż, że
 𝟓
 
  .`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -30061,6 +30508,7 @@ dodatnią. Punkt  𝑀  spełnia warunek  𝐴𝑀⃗⃗⃗⃗⃗⃗  = −2 ⋅
 Oblicz współrzędne punktów  𝑨,  𝑩  oraz  𝑴. Zapisz obliczenia.
 
 8.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`𝐴 = (`,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -30114,6 +30562,7 @@ oraz  𝑀 = (
 𝟑𝐜𝐨𝐬𝟐𝒙 + √𝟑𝐬𝐢𝐧(𝟐𝒙) − 𝟑𝐬𝐢𝐧𝟐𝒙 = 𝟎
 
 w przedziale  [−𝝅, 𝝅]. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`(−`,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -30189,6 +30638,7 @@ ostrosłupa, natomiast krawędź podstawy ma długość  3√34. Cosinus kąta  
 Oblicz pole powierzchni bocznej tego ostrosłupa. Zapisz obliczenia.
 
 10.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:`918.`,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -30231,6 +30681,7 @@ miejsca zerowe  𝒙𝟏  oraz  𝒙𝟐  tego samego znaku, które spełniają 
 Zapisz obliczenia.
 
 (𝒙𝟏 − 𝒙𝟐)𝟐 ≤ 𝟏𝟖𝟎`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -30273,6 +30724,7 @@ Egzamin maturalny z matematyki na poziomie rozszerzonym`,explanation:``}]
 
 𝟐𝟓𝒉𝟑
 𝒉𝟐 − 𝟐𝟓`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj bryłę i zaznacz wszystkie dane`},
       {level:2,text:`Szukaj użytecznych przekrojów osiowych lub środkowych`},
@@ -30348,6 +30800,7 @@ dla  ℎ ∈ (5, +∞).
 12.2.
 Wyznacz wysokość tego z rozważanych stożków, którego objętość jest najmniejsza.
 Oblicz tę najmniejszą objętość. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyraź szukaną wielkość jako funkcję jednej zmiennej`},
       {level:2,text:`Wyznacz dziedzinę (warunki geometryczne lub fizyczne)`},
@@ -30390,6 +30843,7 @@ Zapisz obliczenia.
 
 𝟏
 𝟐`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -30410,6 +30864,7 @@ podzielną przez  𝟑. Wynik podaj w postaci nieskracalnego ułamka zwykłego.
 Zapisz obliczenia.
 
 2.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź czy zdarzenia są niezależne: P(A∩B) = P(A)*P(B)`},
       {level:2,text:`Schemat Bernoullego: P(k) = C(n,k)*p^k*(1-p)^(n-k)`},
@@ -30439,6 +30894,7 @@ rzeczywistej  𝒚  prawdziwa jest nierówność
 
 𝒚
 𝒙𝟐`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Spróbuj przekształcić algebraicznie do oczywistej nierówności`},
       {level:2,text:`Szukaj wzorów skróconego mnożenia lub AM-GM`},
@@ -30482,6 +30938,7 @@ Wykaż, że  |𝑷𝑸| =
 𝟓
 
 𝒂.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -30498,6 +30955,7 @@ Wykaż, że  |𝑷𝑸| =
 Zapisz obliczenia.
 
 |𝟐𝒙 − 𝟔| − |𝒙𝟐 − 𝟗| < 𝟎`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -30517,6 +30975,7 @@ geometryczny.
 Oblicz sumę wszystkich wyrazów ciągu  (𝒂𝒏). Zapisz obliczenia.
 
 6.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprawdź: stała różnica → arytmetyczny; stały iloraz → geometryczny`},
       {level:2,text:`Arytmetyczny: an = a1 + (n-1)d, Sn = n(a1+an)/2`},
@@ -30533,6 +30992,7 @@ Oblicz sumę wszystkich wyrazów ciągu  (𝒂𝒏). Zapisz obliczenia.
 Zapisz obliczenia.
 
 𝐬𝐢𝐧(𝟔𝒙) − 𝟐 𝐬𝐢𝐧(𝟐𝒙) = 𝟎`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -30556,6 +31016,7 @@ kąta między krawędziami bocznymi  𝑆𝐵  i  𝑆𝐶  jest równy
 
 Oblicz długość krawędzi podstawy  𝑨𝑩𝑪  oraz cosinus kąta między ścianami
 bocznymi  𝑺𝑨𝑪  i  𝑺𝑩𝑪  tego ostrosłupa. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Sprowadź równanie do sin(x) = a lub cos(x) = a`},
       {level:2,text:`Ogólne rozwiązanie: sin(x)=a -> x=alfa+2k*pi lub x=pi-alfa+2k*pi`},
@@ -30576,6 +31037,7 @@ Wyznacz równanie okręgu, który ma środek w punkcie  𝑴  i przechodzi przez
 Zapisz obliczenia.
 
 9.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -30594,6 +31056,7 @@ funkcja kwadratowa  𝒇  określona wzorem
 
 ma dwa różne miejsca zerowe  𝒙𝟏  oraz  𝒙𝟐  należące do przedziału  (−𝟐, 𝟐).
 Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Wyróżnik Delta = b^2-4ac: >0 dwa pierwiastki, =0 jeden, <0 brak`},
       {level:2,text:`Wzory Viete'a: x1+x2 = -b/a, x1*x2 = c/a`},
@@ -30625,6 +31088,7 @@ W ten czworokąt wpisano okrąg oraz na tym czworokącie opisano okrąg (zobacz 
 Oblicz długości boków  𝑩𝑪  i  𝑪𝑫  oraz pole czworokąta  𝑨𝑩𝑪𝑫. Zapisz obliczenia.
 
 11.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Przeczytaj treść uważnie — zadanie ma zwykle 2-3 podpunkty`},
       {level:2,text:`Zacznij od prostszego podpunktu, wyniki mogą być potrzebne dalej`},
@@ -30643,6 +31107,7 @@ o podstawie długości  𝒙  metrów jest określone wzorem
 
 𝟐𝒙𝟑
 𝒙𝟐 − 𝟏𝟔`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},
@@ -30666,6 +31131,7 @@ dla każdego  𝑥 ∈ (4, 10].
 12.2.
 Wyznacz długość  𝒙  podstawy trójkątnego kwietnika, dla której pole tego kwietnika
 jest najmniejsze. Oblicz to najmniejsze pole. Zapisz obliczenia.`,
+    options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
     hints:[{level:1,text:`Narysuj dokładny rysunek z wszystkimi danymi`},
       {level:2,text:`Użyj twierdzenia Pitagorasa, sinusów lub cosinusów`},

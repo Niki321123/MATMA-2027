@@ -469,21 +469,22 @@
 
     hideLanding();
 
-    const isClosed = task.type === 'closed';
-    const catId    = task.categoryId ?? task.category;
-    const meta     = G.getMeta(catId);
+    // Zadanie CKE zamknięte = ma pole options (A/B/C/D)
+    const isCkeClosed = !!(task.options && Object.keys(task.options).length >= 2);
+    const isClosed    = task.type === 'closed' || isCkeClosed;
+    const catId       = task.categoryId ?? task.category;
+    const meta        = G.getMeta(catId);
     if (elTaskBadge) elTaskBadge.textContent = meta ? `${meta.icon} ${meta.name}` : (task.categoryName || `Kat. ${catId}`);
     if (elTaskPoints) elTaskPoints.textContent = `${task.points} pkt`;
 
-    // Badge źródła — ukryty dla zadań CKE (nie pokazujemy roku/numeru)
+    // Badge źródła — zawsze ukryty dla CKE
     if (elTaskSource) elTaskSource.classList.add('hidden');
 
     // Wyświetl treść zadania: obrazek (CKE) lub KaTeX (generatory)
     if (elTaskStatement) {
       if (task.image) {
         elTaskStatement.innerHTML =
-          `<img src="${task.image}" alt="Treść zadania" class="task-img" loading="lazy"
-                style="max-width:100%;display:block;border-radius:6px;">`;
+          `<img src="${task.image}" alt="Treść zadania" class="task-img" loading="lazy">`;
       } else {
         KR.render(task.statement, elTaskStatement);
       }
@@ -494,10 +495,23 @@
     if (closedEl) {
       closedEl.classList.toggle('hidden', !isClosed);
       if (isClosed) {
-        ['A', 'B', 'C', 'D'].forEach(opt => {
-          const el = $(`opt-${opt}-text`);
-          if (el) KR.render(task.options[opt] || '', el);
-        });
+        if (isCkeClosed) {
+          // Zadanie CKE: opcje z pola task.options
+          ['A', 'B', 'C', 'D'].forEach(opt => {
+            const el = $(`opt-${opt}-text`);
+            if (el) {
+              const txt = task.options[opt] || '';
+              // Tekst opcji może być garbled z PDF — pokaż jako plain text
+              el.textContent = txt;
+            }
+          });
+        } else {
+          // Zadanie generatora: opcje z KaTeX
+          ['A', 'B', 'C', 'D'].forEach(opt => {
+            const el = $(`opt-${opt}-text`);
+            if (el) KR.render(task.options[opt] || '', el);
+          });
+        }
         document.querySelectorAll('.opt-btn').forEach(b => {
           b.classList.remove('selected', 'correct', 'wrong');
           b.disabled = false;
@@ -519,7 +533,7 @@
     }
     elBtnSelfCorrect?.classList.add('hidden');
     elBtnSelfWrong?.classList.add('hidden');
-    // Dla zadań zamkniętych: ukryj "Pokaż rozwiązanie" (auto-ujawnienie po wyborze opcji)
+    // Dla zadań zamkniętych: ukryj "Pokaż rozwiązanie"
     if (isClosed) {
       elBtnShowSolution?.classList.add('hidden');
     } else {
@@ -1151,6 +1165,25 @@
       cats.forEach(catId => {
         try { examTasks.push(G.generate(catId)); examResults.push(null); } catch (e) { /* skip */ }
       });
+    } else if (CKE) {
+      // PR: losuj z bazy CKE — tylko zadania otwarte (bez ABCD)
+      const openTasks = CKE.getAll().filter(t => !t.options || Object.keys(t.options).length < 2);
+      // Zbierz z różnych kategorii — max 1 z każdej, łącznie ~15 zadań
+      const taskPool = [];
+      const usedCats = new Set();
+      // Przetasuj i wybierz
+      const shuffled = [...openTasks].sort(() => Math.random() - 0.5);
+      for (const t of shuffled) {
+        if (taskPool.length >= 15) break;
+        if (!usedCats.has(t.category) || taskPool.length < 8) {
+          taskPool.push(t);
+          usedCats.add(t.category);
+        }
+      }
+      taskPool.slice(0, 15).forEach(raw => {
+        examTasks.push(CKE.asTask(raw));
+        examResults.push(null);
+      });
     } else {
       const cats = [...EXAM_CATS_PR].sort(() => Math.random() - 0.5).slice(0, 12);
       cats.forEach(catId => {
@@ -1429,34 +1462,50 @@
     elBtnSelfCorrect?.addEventListener('click', () => recordResult(true));
     elBtnSelfWrong?.addEventListener('click', () => recordResult(false));
 
-    // Opcje A/B/C/D dla zadań zamkniętych
+    // Opcje A/B/C/D dla zadań zamkniętych (generatory + CKE)
     document.querySelectorAll('.opt-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        if (taskAnswered || !currentTask || currentTask.type !== 'closed') return;
+        const isCkeClosed = !!(currentTask?.options && Object.keys(currentTask.options).length >= 2);
+        const isGenClosed = currentTask?.type === 'closed';
+        if (taskAnswered || !currentTask || (!isGenClosed && !isCkeClosed)) return;
+
         const selected = btn.dataset.opt;
-        const isCorrect = selected === currentTask.correctOption;
+        // Poprawna odpowiedź: dla CKE → correctAnswer, dla generatora → correctOption
+        const correctOpt = isCkeClosed
+          ? (currentTask.correctAnswer || null)
+          : (currentTask.correctOption || null);
+        const isCorrect = correctOpt ? selected === correctOpt : false;
         taskAnswered = true;
 
         document.querySelectorAll('.opt-btn').forEach(b => {
           b.disabled = true;
-          if (b.dataset.opt === currentTask.correctOption) b.classList.add('correct');
-          else if (b.dataset.opt === selected) b.classList.add('wrong');
+          if (correctOpt && b.dataset.opt === correctOpt) b.classList.add('correct');
+          else if (b.dataset.opt === selected && !isCorrect) b.classList.add('wrong');
+          else if (b.dataset.opt === selected && isCorrect) b.classList.add('correct');
         });
 
         // Pokaż rozwiązanie automatycznie
         elSolutionPanel.classList.remove('hidden');
         if (elAnswerDisplay) {
-          const correctText = currentTask.options[currentTask.correctOption];
-          KR.render(`**Odpowiedź:** ${currentTask.correctOption}: ${correctText}`, elAnswerDisplay);
+          if (isCkeClosed && correctOpt) {
+            elAnswerDisplay.textContent = `Poprawna odpowiedź: ${correctOpt}`;
+          } else if (isGenClosed && correctOpt) {
+            const correctText = currentTask.options[correctOpt] || '';
+            KR.render(`**Odpowiedź:** ${correctOpt}: ${correctText}`, elAnswerDisplay);
+          } else {
+            elAnswerDisplay.textContent = '';
+          }
         }
         if (elSolutionSteps) KR.renderSolution(currentTask.solution, elSolutionSteps);
         elBtnShowSolution?.classList.add('hidden');
 
+        const catKey = currentTask.categoryId ?? currentTask.category;
         if (currentMode === 'symulacja') {
           examResults[examIndex] = isCorrect ? 'correct' : 'wrong';
-          PT.record(currentTask.categoryId ?? currentTask.category, isCorrect);
+          PT.record(catKey, isCorrect);
           renderExamNav();
-          showToast(isCorrect ? 'Poprawnie! ✓' : `Błąd — prawidłowa: ${currentTask.correctOption}`, isCorrect ? 'success' : 'warning');
+          const msg = isCorrect ? 'Poprawnie! ✓' : (correctOpt ? `Błąd — prawidłowa: ${correctOpt}` : 'Błędna odpowiedź');
+          showToast(msg, isCorrect ? 'success' : 'warning');
           elBtnSelfCorrect?.classList.add('hidden');
           elBtnSelfWrong?.classList.add('hidden');
           const remaining = examResults.findIndex(r => r === null);
@@ -1469,9 +1518,10 @@
           }
           updateSidebar();
         } else {
-          PT.record(currentTask.categoryId ?? currentTask.category, isCorrect);
-          SA?.recordAnswer(currentTask.categoryId ?? currentTask.category, isCorrect);
-          showToast(isCorrect ? 'Poprawnie! ✓' : `Błąd — prawidłowa odpowiedź: ${currentTask.correctOption}`, isCorrect ? 'success' : 'warning');
+          PT.record(catKey, isCorrect);
+          SA?.recordAnswer(catKey, isCorrect);
+          const msg = isCorrect ? 'Poprawnie! ✓' : (correctOpt ? `Błąd — prawidłowa odpowiedź: ${correctOpt}` : 'Błędna odpowiedź');
+          showToast(msg, isCorrect ? 'success' : 'warning');
           if (elBtnNext) { elBtnNext.textContent = '↻ Następne zadanie'; elBtnNext.classList.remove('hidden'); }
           updateSidebar();
         }

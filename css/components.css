@@ -294,6 +294,18 @@
 .task-statement p { margin-bottom: 10px; }
 .task-statement strong { color: var(--text-primary); font-weight: 700; }
 
+/* CKE task image */
+.task-img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.22), 0 1px 4px rgba(0,0,0,0.12);
+  background: #fff;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
 /* ===== INLINE CONFIRM ===== */
 .inline-confirm {
   display: flex;
