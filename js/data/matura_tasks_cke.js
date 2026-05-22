@@ -8,6 +8,8 @@ window.MaturaCKE = (() => {
     number:`11`,source:`2002_matura_matematyka-2002-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:4,
     image:`img/tasks_cke/cke_2002_11.jpg`,
+    latex:``,
+    figure:null,
     statement:`Wyznacz wszystkie wartoci parametru
 
 )
@@ -45,6 +47,25 @@ mx
     number:`12`,source:`2002_matura_matematyka-2002-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2002_12.jpg`,
+    latex:`A  i  B  s„ zdarzeniami losowymi i
+)
+
+Wyka¿, ¿e
+
+(
+/
+BAP
+
+$$1 .$$
+
+)
+(
+'
+AP
+( )BP
+
+$$( ) 0>BP . £$$`,
+    figure:null,
     statement:`A  i  B  s„ zdarzeniami losowymi i
 )
 
@@ -81,6 +102,8 @@ AP
     number:`13`,source:`2002_matura_matematyka-2002-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:5,
     image:`img/tasks_cke/cke_2002_13.jpg`,
+    latex:``,
+    figure:null,
     statement:`Sprawd,  ¿e  przekszta‡cenie  P  p‡aszczyzny  dane  wzorem
 izometri„.  Wyznacz
 rwnanie
@@ -143,6 +166,8 @@ x
     number:`14`,source:`2002_matura_matematyka-2002-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:6,
     image:`img/tasks_cke/cke_2002_14.jpg`,
+    latex:``,
+    figure:null,
     statement:`Zaznacz na p‡aszczynie zbir
 
 =
@@ -202,6 +227,8 @@ Napisz równania osi symetrii figury F.
     number:`15`,source:`2002_matura_matematyka-2002-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:6,
     image:`img/tasks_cke/cke_2002_15.jpg`,
+    latex:``,
+    figure:null,
     statement:`ObjŒto walca jest rwna
 p250 cm3. Przedstaw pole powierzchni ca‡kowitej tego walca jako
 funkcjŒ  d‡ugoci  promienia  jego  podstawy  i  okrel  dziedzinŒ  tej  funkcji.  Wyznacz  d‡ugo
@@ -218,6 +245,8 @@ promienia takiego walca, którego pole powierzchni ca‡kowitej jest najmniejsze
     number:`16`,source:`2002_matura_matematyka-2002-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:7,
     image:`img/tasks_cke/cke_2002_16.jpg`,
+    latex:``,
+    figure:null,
     statement:`Naszkicuj w jednym uk‡adzie wsp‡rzŒdnych wykresy funkcji
 
 ( )
@@ -263,6 +292,8 @@ xf
     number:`17`,source:`2002_matura_matematyka-2002-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:8,
     image:`img/tasks_cke/cke_2002_17.jpg`,
+    latex:``,
+    figure:null,
     statement:`Rozwi„¿  rwnanie:
 
   dla
@@ -311,6 +342,8 @@ p
     number:`18`,source:`2002_matura_matematyka-2002-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:10,
     image:`img/tasks_cke/cke_2002_18.jpg`,
+    latex:``,
+    figure:null,
     statement:`Rozwi„¿  nierwno
 
 1
@@ -353,6 +386,8 @@ x
     number:`19`,source:`2002_matura_matematyka-2002-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:10,
     image:`img/tasks_cke/cke_2002_19.jpg`,
+    latex:``,
+    figure:null,
     statement:`W  trjk„cie  jeden  z  k„tw  ma  miarŒ
 120 .  D‡ugoci  bokw  tego  trjk„ta  s„  kolejnymi
 wyrazami  ci„gu  arytmetycznego,  ktrego  suma  wynosi  30.  Wyznacz  stosunek  d‡ugoci
@@ -370,6 +405,21 @@ trjk„t.`,
     number:`11`,source:`2005_matura_matematyka-2005-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2005_11.jpg`,
+    latex:`Wyznacz  dziedzinę  funkcji
+
+przedziałów liczbowych.
+
+( )
+xf
+
+$$=$$
+
+log
+
+$$3 \\frac{(}{x} 32 x 2 + 4 x x )^{4}$$
+
+i  zapisz  ją  w  postaci  sumy`,
+    figure:null,
     statement:`Wyznacz  dziedzinę  funkcji
 
 przedziałów liczbowych.
@@ -417,6 +467,27 @@ x
     number:`12`,source:`2005_matura_matematyka-2005-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2005_12.jpg`,
+    latex:`Dana jest funkcja:
+
+( )
+f x
+
+$$=$$
+
+cos
+
+$$x \\frac{x}{3 sin ,}$$
+
+\\in
+.
+x R
+
+a) Naszkicuj wykres funkcji f.
+( ) 1=xf
+b) Rozwiąż równanie:
+
+$$.$$`,
+    figure:null,
     statement:`Dana jest funkcja:
 
 ( )
@@ -454,6 +525,13 @@ b) Rozwiąż równanie:
     number:`13`,source:`2005_matura_matematyka-2005-maj-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:4,
     image:`img/tasks_cke/cke_2005_13.jpg`,
+    latex:`Rzucamy n razy dwiema symetrycznymi sześciennymi kostkami do gry. Oblicz, dla jakich n
+prawdopodobieństwo otrzymania co najmniej raz tej samej liczby oczek na obu kostkach jest
+
+mniejsze od
+
+$$\\frac{671}{1296} .$$`,
+    figure:null,
     statement:`Rzucamy n razy dwiema symetrycznymi sześciennymi kostkami do gry. Oblicz, dla jakich n
 prawdopodobieństwo otrzymania co najmniej raz tej samej liczby oczek na obu kostkach jest
 
@@ -475,6 +553,17 @@ mniejsze od
     number:`14`,source:`2005_matura_matematyka-2005-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:5,
     image:`img/tasks_cke/cke_2005_14.jpg`,
+    latex:`Oblicz:
+
+$$\\lim_{n} \\frac{741}{975}$$
+
+$$\\frac{++++}{+++} +$$
+
+...
+...
+
+$$( 3 n ( 2 n + ) 2 )^{3} .$$`,
+    figure:null,
     statement:`Oblicz:
 
 lim
@@ -517,6 +606,118 @@ n
     number:`15`,source:`2005_matura_matematyka-2005-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:4,
     image:`img/tasks_cke/cke_2005_15.jpg`,
+    latex:`W dowolnym trójkącie ABC punkty M i N są odpowiednio środkami boków AC i BC (Rys. 1).
+
+$$Rys. 1$$
+
+Zapoznaj się uważnie z następującym rozumowaniem:
+
+Korzystając z własności wektorów i działań na wektorach, zapisujemy równości:
+
+uuur
+uuuur
+MN MA AB BN
++
+
+uuur
+
+uuur
+
+$$= +$$
+
+oraz
+
+uuur
+uuuur
+uuuur
+MN MC CN
+
+$$= + (1) (2) \\cdot$$
+
+uuur
+
+$$+ = - +$$
+
+uuur
+uuuur
+2 MN MA MC AB BN CN
+
+uuuur
++
+uuur
+uuuur
+Ponieważ  MC MA
+uuuur
+uuur
+uuuur
+AB
+MN
+
+Po dodaniu równości  (1) i (2) stronami otrzymujemy:
+uuur
+uuur
++
++
+uuur
+uuur
+oraz  CN
+,  więc:
+BN
+uuur
+uuur
+uuur
+2 MN MA MA AB BN BN
+\\cdot
++
+r
+0
+2
++
+\\cdot
+uuuur
+MN
+
+=
+= -
+uuur
+=
+r
+0
+= +
+1
+uuur
+AB
+.
+= \\cdot
+2
+Wykorzystując  własności
+zinterpretować następująco:
+
+uuur
+
+iloczynu  wektora  przez
+
+liczbę,  ostatnią  równość  można
+
+odcinek  łączący  środki  dwóch  boków  dowolnego  trójkąta  jest  równoległy  do  trzeciego
+boku tego trójkąta, zaś jego długość jest równa połowie długości tego boku.
+
+uuuur
+Przeprowadzając  analogiczne  rozumowanie,  ustal  związek  pomiędzy  wektorem MN
+uuur
+wektorami  AB
+M i N są odpowiednio środkami ramion AD i BC tego trapezu (Rys. 2).
+
+oraz
+,  wiedząc,  że  czworokąt  ABCD  jest  dowolnym  trapezem,  zaś  punkty
+
+uuur
+  i  DC
+
+$$Rys. 2$$
+
+Podaj interpretację otrzymanego wyniku.`,
+    figure:null,
     statement:`W dowolnym trójkącie ABC punkty M i N są odpowiednio środkami boków AC i BC (Rys. 1).
 
 Rys. 1
@@ -654,6 +855,16 @@ Podaj interpretację otrzymanego wyniku.`,
     number:`16`,source:`2005_matura_matematyka-2005-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:5,
     image:`img/tasks_cke/cke_2005_16.jpg`,
+    latex:`Sześcian  o  krawędzi  długości  a  przecięto  płaszczyzną  przechodzącą  przez  przekątną
+
+podstawy i nachyloną do płaszczyzny podstawy pod kątem
+
+Oblicz pole otrzymanego przekroju.
+
+$$\\frac{\\pi}{3}$$
+
+. Sporządź odpowiedni rysunek.`,
+    figure:null,
     statement:`Sześcian  o  krawędzi  długości  a  przecięto  płaszczyzną  przechodzącą  przez  przekątną
 
 podstawy i nachyloną do płaszczyzny podstawy pod kątem
@@ -676,6 +887,12 @@ Oblicz pole otrzymanego przekroju.
     number:`17`,source:`2005_matura_matematyka-2005-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:7,
     image:`img/tasks_cke/cke_2005_17.jpg`,
+    latex:`Wykaż, bez użycia kalkulatora i tablic, że
+
+$$3 25 \\frac{7}{-} + 3 25 7$$
+
+jest liczbą całkowitą.`,
+    figure:null,
     statement:`Wykaż, bez użycia kalkulatora i tablic, że
 
 3
@@ -706,6 +923,8 @@ jest liczbą całkowitą.`,
     number:`18`,source:`2005_matura_matematyka-2005-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:8,
     image:`img/tasks_cke/cke_2005_18.jpg`,
+    latex:``,
+    figure:null,
     statement:`Pary liczb(
 
 ,x y  spełniające układ równań:
@@ -767,6 +986,21 @@ c)  Wyznacz równanie okręgu opisanego na czworokącie ABCD.`,
     number:`19`,source:`2005_matura_matematyka-2005-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:10,
     image:`img/tasks_cke/cke_2005_19.jpg`,
+    latex:`$$2$$
+
+Dane jest równanie:
+
+1
+4
+Zbadaj,  dla  jakich  wartości  parametru  m  stosunek  sumy  pierwiastków  rzeczywistych
+równania do ich iloczynu przyjmuje wartość najmniejszą. Wyznacz tę wartość.
+
+)
+2
+mmx
+
+$$\\frac{(}{m} . = + + + + 0 5 x$$`,
+    figure:null,
     statement:`2
 
 Dane jest równanie:
@@ -814,6 +1048,39 @@ x`,
     number:`12`,source:`2006_matura_matematyka-2006-maj-matura-rozszerzona.pdf`,
     category:5,categoryName:`Dowód nierówności`,points:5,
     image:`img/tasks_cke/cke_2006_12.jpg`,
+    latex:`Korzystając  z  zasady  indukcji  matematycznej  wykaż,  że  dla  każdej  liczby  naturalnej
+2
+(
+)
+2 4 2 !
+\\cdot
+
+prawdziwy jest wzór:
+
+$$\\frac{1 3 (1!)}{\\cdot} + \\cdot\\cdot\\cdot +$$
+
+(
+n n
+
+$$+ \\cdot$$
+
+)(
+
+$$\\frac{)}{!} + = + 2 1 n . \\cdot 2 2 2$$
+
+(
+n⎡
+⎣
+
+$$) ⎤ 1 ! ⎦ 1\\geqn$$
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{12.1.}{1} \\frac{12.2.}{1} \\frac{12.3.}{1} \\frac{12.4.}{1} \\frac{12.5.}{1}$$`,
+    figure:null,
     statement:`Korzystając  z  zasady  indukcji  matematycznej  wykaż,  że  dla  każdej  liczby  naturalnej
 2
 (
@@ -1066,6 +1333,44 @@ n
     number:`13`,source:`2006_matura_matematyka-2006-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:5,
     image:`img/tasks_cke/cke_2006_13.jpg`,
+    latex:`Dany jest ciąg  (
+
+6
+n
+5
++
+1)
+n
+10(
++
+)na .
+a)  Zbadaj monotoniczność ciągu  (
+lim .
+a
+b)  Oblicz
+n
+n
+\\infty\\to
+
+$$= a n$$
+
+dla każdej liczby naturalnej
+
+$$1\\geqn .$$
+
+c)  Podaj  największą  liczbę  a  i  najmniejszą  liczbę  b  takie,  że  dla  każdego  n  spełniony  jest
+
+warunek
+
+$$a \\leq \\frac{a}{n} . \\leq b$$
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{13.1.}{1} \\frac{13.2.}{1} \\frac{13.3.}{1} \\frac{13.4.}{1} \\frac{13.5.}{1}$$`,
+    figure:null,
     statement:`Dany jest ciąg  (
 
 6
@@ -1300,6 +1605,20 @@ n
     number:`14`,source:`2006_matura_matematyka-2006-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2006_14.jpg`,
+    latex:`$$a)  Naszkicuj wykres funkcji y 2sin= x$$
+
+w przedziale
+
+$$-< \\pi\\pi 2,2 > . b)  Naszkicuj wykres funkcji y = 2sin x 2sin x$$
+
+w przedziale
+
+$$-< \\pi\\pi 2,2 >$$
+
+i zapisz, dla których liczb z tego przedziału spełniona jest nierówność
+
+$$2sin x 2sin x < 0 .$$`,
+    figure:null,
     statement:`a)  Naszkicuj wykres funkcji
 
 y
@@ -1535,6 +1854,21 @@ dla
     number:`15`,source:`2006_matura_matematyka-2006-maj-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:4,
     image:`img/tasks_cke/cke_2006_15.jpg`,
+    latex:`Uczniowie  dojeżdżający  do  szkoły  zaobserwowali,  że  spóźnienie  autobusu  zależy  od  tego,
+który z trzech kierowców prowadzi autobus. Przeprowadzili badania statystyczne i obliczyli,
+że w przypadku, gdy autobus prowadzi kierowca A, spóźnienie zdarza się w 5% jego kursów,
+gdy  prowadzi  kierowca  B  w  20%  jego  kursów,  a  gdy  prowadzi  kierowca  C  w  50%  jego
+kursów.  W  ciągu  5-dniowego  tygodnia  nauki  dwa  razy  prowadzi  autobus  kierowca  A,  dwa
+razy  kierowca  B  i  jeden  raz  kierowca  C.  Oblicz  prawdopodobieństwo  spóźnienia  się
+szkolnego autobusu w losowo wybrany dzień nauki.
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{15.1.}{1} \\frac{15.2.}{1} \\frac{15.3.}{1} \\frac{15.4.}{1}$$`,
+    figure:null,
     statement:`Uczniowie  dojeżdżający  do  szkoły  zaobserwowali,  że  spóźnienie  autobusu  zależy  od  tego,
 który z trzech kierowców prowadzi autobus. Przeprowadzili badania statystyczne i obliczyli,
 że w przypadku, gdy autobus prowadzi kierowca A, spóźnienie zdarza się w 5% jego kursów,
@@ -1561,6 +1895,18 @@ szkolnego autobusu w l`,explanation:``}]
     number:`16`,source:`2006_matura_matematyka-2006-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:3,
     image:`img/tasks_cke/cke_2006_16.jpg`,
+    latex:`Obiekty A i B leżą po dwóch stronach jeziora. W terenie dokonano pomiarów odpowiednich
+kątów i ich wyniki przedstawiono na rysunku. Odległość między obiektami B i C jest równa
+400 m. Oblicz odległość w linii prostej między obiektami A i B i podaj wynik, zaokrąglając
+go do jednego metra.
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{16.1.}{1} \\frac{16.2.}{1} \\frac{16.3.}{1}$$`,
+    figure:null,
     statement:`Obiekty A i B leżą po dwóch stronach jeziora. W terenie dokonano pomiarów odpowiednich
 kątów i ich wyniki przedstawiono na rysunku. Odległość między obiektami B i C jest równa
 400 m. Oblicz odległość w linii prostej między obiektami A i B i podaj wynik, zaokrąglając
@@ -1618,6 +1964,8 @@ Odp`,explanation:``}]
     number:`17`,source:`2006_matura_matematyka-2006-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:6,
     image:`img/tasks_cke/cke_2006_17.jpg`,
+    latex:``,
+    figure:null,
     statement:`Na  okręgu  o  promieniu  r  opisano  trapez  równoramienny  ABCD  o  dłuższej  podstawie  AB
 
 i krótszej CD. Punkt styczności S dzieli ramię BC tak, że
@@ -1737,6 +2085,17 @@ Korzystając z własności czworokąta opisanego na okręgu otrzymuję:`,explana
     number:`18`,source:`2006_matura_matematyka-2006-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:7,
     image:`img/tasks_cke/cke_2006_18.jpg`,
+    latex:`Wśród  wszystkich  graniastosłupów  prawidłowych  trójkątnych  o  objętości  równej  2 m3
+istnieje  taki,  którego  pole  powierzchni  całkowitej  jest  najmniejsze.  Wyznacz  długości
+krawędzi tego graniastosłupa.
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{18.1.}{1} \\frac{18.2.}{1} \\frac{18.3.}{1} \\frac{18.4.}{1} \\frac{18.5.}{1} \\frac{18.6.}{1} \\frac{18.7.}{1}$$`,
+    figure:null,
     statement:`Wśród  wszystkich  graniastosłupów  prawidłowych  trójkątnych  o  objętości  równej  2 m3
 istnieje  taki,  którego  pole  powierzchni  całkowitej  jest  najmniejsze.  Wyznacz  długości
 krawędzi tego graniastosłupa.`,
@@ -1806,6 +2165,41 @@ Po  podstawieniu  h  do  wzoru  na  po`,explanation:``}]
     number:`19`,source:`2006_matura_matematyka-2006-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:7,
     image:`img/tasks_cke/cke_2006_19.jpg`,
+    latex:`wzorem
+ciąg
+Nieskończony
+rekurencyjnym:
+ ,2
+),2
+. Wszystkie
+wyrazy  tego  ciągu  są  różne  od  zera.  Wyznacz  wszystkie  wartości  parametru  k,  dla  których
+istnieje suma wszystkich wyrazów nieskończonego ciągu  (
+
+(
+)na
+ dla każdej liczby naturalnej
+
+zdefiniowany
+1\\geqn
+
+geometryczny
+k
+
+jest
+
+log
+
+$$\\frac{a}{1} = = a a \\frac{1}{} + ( \\cdot n n 2$$
+
+)na .
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{19.1.}{1} \\frac{19.2.}{1} \\frac{19.3.}{1} \\frac{19.4.}{1} \\frac{19.5.}{2} \\frac{19.6.}{1}$$`,
+    figure:null,
     statement:`wzorem
 ciąg
 Nieskończony
@@ -1987,6 +2381,33 @@ Aby istniała suma wszyst`,explanation:``}]
     number:`20`,source:`2006_matura_matematyka-2006-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2006_20.jpg`,
+    latex:`Dane są funkcje
+
+1
+⎛
+= ⎜
+9
+⎝
+Oblicz, dla których argumentów x wartości funkcji  f  są większe od wartości funkcji
+
+( ) 3x
+f x
+=
+
+g x
+( )
+
+$$i ⎞ ⎟ ⎠ 2 5 . x \\frac{22}{x} 3 x - + 2$$
+
+.g
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{20.1.}{1} \\frac{20.2.}{1} \\frac{20.3.}{1} \\frac{20.4.}{1}$$`,
+    figure:null,
     statement:`Dane są funkcje
 
 1
@@ -2240,6 +2661,48 @@ x
     number:`21`,source:`2006_matura_matematyka-2006-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:5,
     image:`img/tasks_cke/cke_2006_21.jpg`,
+    latex:`W  trakcie  badania  przebiegu  zmienności  funkcji  ustalono,  że  funkcja    f    ma  następujące
+własności:
+oraz:
+f x′
+
+jej dziedziną jest zbiór wszystkich liczb rzeczywistych,
+f  jest funkcją nieparzystą,
+f  jest funkcją ciągłą
+
+$$( ) 0$$
+
+f x′
+
+$$) x \\in - - , 8, 3 ) x \\in - - , 3, 1 )^{1}, 0 , ( ) 0 >  dla <  dla$$
+
+(
+(
+(
+f x′
+( ) 0
+<  dla
+x \\in -
+′
+′
+( 1) 0,
+( 3)
+f
+f
+- =
+- =
+( 8) 0,
+- =
+
+$$f f f f 2, ( 3) - = - ( 2) 0, - = ( 1) 1. - =$$
+
+W  prostokątnym  układzie  współrzędnych  na  płaszczyźnie  naszkicuj  wykres  funkcji  f
+w przedziale
+
+, wykorzystując podane powyżej informacje o jej własnościach.
+
+$$8,8- y 1 0 1 x$$`,
+    figure:null,
     statement:`W  trakcie  badania  przebiegu  zmienności  funkcji  ustalono,  że  funkcja    f    ma  następujące
 własności:
 –
@@ -2401,6 +2864,35 @@ w przedziale
     number:`1`,source:`2007_matura_matematyka-2007-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:5,
     image:`img/tasks_cke/cke_2007_1.jpg`,
+    latex:`( )
+f x
+
+Dana jest funkcja
+
+a)  Wyznacz zbiór wartości funkcji f dla
+
+$$x \\in -\\infty - . , 2 ) x x 1 = - - +  dla  x R\\in . 2 ($$
+
+b)  Naszkicuj wykres tej funkcji.
+c)  Podaj jej miejsca zerowe.
+d)  Wyznacz  wszystkie  wartości  parametru  m,  dla  których  równanie
+
+( )
+f x
+
+$$m=$$
+
+nie  ma
+
+rozwiązania.
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{1.1.}{1} \\frac{1.2.}{1} \\frac{1.3.}{1} \\frac{1.4.}{1} \\frac{1.5.}{1}$$`,
+    figure:null,
     statement:`( )
 f x
 
@@ -2564,6 +3056,23 @@ jest  funkcją  stałą,  a  je`,explanation:``}]
     number:`2`,source:`2007_matura_matematyka-2007-maj-matura-rozszerzona.pdf`,
     category:3,categoryName:`Logarytmy`,points:5,
     image:`img/tasks_cke/cke_2007_2.jpg`,
+    latex:`Rozwiąż nierówność:
+
+log
+
+$$( 2 x ) 1 - + \\frac{1}{3} ( log 5 1 3 x ) >$$
+
+log
+
+$$\\frac{1}{3} ( 3 ( x + \\frac{)}{1} ) .$$
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{2.1.}{1} \\frac{2.2.}{1} \\frac{2.3.}{1} \\frac{2.4.}{1} \\frac{2.5.}{1}$$`,
+    figure:null,
     statement:`Rozwiąż nierówność:
 
 log
@@ -2754,6 +3263,24 @@ logarytmów  i  zmianie  zw`,explanation:``}]
     number:`3`,source:`2007_matura_matematyka-2007-maj-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:5,
     image:`img/tasks_cke/cke_2007_3.jpg`,
+    latex:`Kapsuła  lądownika  ma  kształt  stożka  zakończonego  w  podstawie  półkulą  o  tym  samym
+promieniu  co  promień  podstawy  stożka.  Wysokość  stożka  jest  o  1  m  większa  niż  promień
+
+półkuli.  Objętość  stożka  stanowi
+
+$$\\frac{2}{3}$$
+
+lądownika.
+
+objętości  całej  kapsuły.  Oblicz  objętość  kapsuły
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{3.1.}{1} \\frac{3.2.}{1} \\frac{3.3.}{1} \\frac{3.4.}{1} \\frac{3.5.}{1}$$`,
+    figure:null,
     statement:`Kapsuła  lądownika  ma  kształt  stożka  zakończonego  w  podstawie  półkulą  o  tym  samym
 promieniu  co  promień  podstawy  stożka.  Wysokość  stożka  jest  o  1  m  większa  niż  promień
 
@@ -2849,6 +3376,21 @@ r`,explanation:``}]
     number:`4`,source:`2007_matura_matematyka-2007-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:3,
     image:`img/tasks_cke/cke_2007_4.jpg`,
+    latex:`Dany jest trójkąt o bokach długości 1,
+
+najkrótszego boku tego trójkąta.
+
+$$\\frac{3}{2}$$
+
+, 2. Oblicz cosinus i sinus kąta leżącego naprzeciw
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{4.1.}{1} \\frac{4.2.}{1} \\frac{4.3.}{1}$$`,
+    figure:null,
     statement:`Dany jest trójkąt o bokach długości 1,
 
 najkrótszego boku tego trójkąta.
@@ -2983,6 +3525,20 @@ Kąt α jest kątem ostrym, więc`,explanation:``}]
     number:`5`,source:`2007_matura_matematyka-2007-maj-matura-rozszerzona.pdf`,
     category:11,categoryName:`Geometria analityczna`,points:7,
     image:`img/tasks_cke/cke_2007_5.jpg`,
+    latex:`Wierzchołki  trójkąta  równobocznego  ABC  są  punktami  paraboli
+x .  Punkt  C  jest
+jej  wierzchołkiem,  a  bok  AB  jest  równoległy  do  osi  Ox.  Sporządź  rysunek  w  układzie
+współrzędnych i wyznacz współrzędne wierzchołków tego trójkąta.
+
+$$= - y x \\frac{2 6}{} +$$
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{5.1.}{1} \\frac{5.2.}{1} \\frac{5.3.}{1} \\frac{5.4.}{1} \\frac{5.5.}{1} \\frac{5.6.}{1} \\frac{5.7.}{1}$$`,
+    figure:null,
     statement:`Wierzchołki  trójkąta  równobocznego  ABC  są  punktami  paraboli
 x .  Punkt  C  jest
 jej  wierzchołkiem,  a  bok  AB  jest  równoległy  do  osi  Ox.  Sporządź  rysunek  w  układzie
@@ -3077,6 +3633,25 @@ Trójkąt  ABC  jest  równoboczny,  więc  kąt  BAC  ma  miarę  60(cid`,expla
     number:`6`,source:`2007_matura_matematyka-2007-maj-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:4,
     image:`img/tasks_cke/cke_2007_6.jpg`,
+    latex:`Niech  A,  B  będą  zdarzeniami  o  prawdopodobieństwach
+
+(
+,  to  prawdopodobieństwo  warunkowe  spełnia  nierówność
+
+P B .  Wykaż,  że  jeżeli
+
+)
+P A   i
+
+$$( ) i ( P A = ( P A B \\geq \\frac{) 0,85}{) 0,8} \\frac{(}{P B =} ) 0, 75 .$$
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{6.1.}{1} \\frac{6.2.}{1} \\frac{6.3.}{1} \\frac{6.4.}{1}$$`,
+    figure:null,
     statement:`Niech  A,  B  będą  zdarzeniami  o  prawdopodobieństwach
 
 (
@@ -3235,6 +3810,29 @@ i otrzymuję
     number:`7`,source:`2007_matura_matematyka-2007-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:7,
     image:`img/tasks_cke/cke_2007_7.jpg`,
+    latex:`2
+mx
+y
+- =
+x my m
+=
+
+$$⎧ ⎨ ⎩$$
+
+Dany jest układ równań:
+
++
+Dla  każdej  wartości  parametru  m  wyznacz  parę  liczb  (
+układu równań. Wyznacz najmniejszą wartość sumy  x
+
+$$. \\frac{)}{y+  dla}$$
+
+x, y ,  która  jest  rozwiązaniem  tego
+
+m \\in
+
+$$2, 4 .$$`,
+    figure:null,
     statement:`2
 mx
 y
@@ -3393,6 +3991,31 @@ m
     number:`8`,source:`2007_matura_matematyka-2007-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2007_8.jpg`,
+    latex:`Dana jest funkcja f określona wzorem
+
+( )
+f x
+
+$$= \\frac{a)  Naszkicuj wykres funkcji f .}{b)  Wyznacz miejsca zerowe funkcji f.} 2$$
+
+sin
+
+$$x$$
+
+sin
+
+$$x$$
+
+sin
+
+$$x$$
+
+dla
+
+x \\in
+
+$$( 0, ( ) \\pi ∪ \\pi \\pi . , 2 ) y 2 1 0 \\pi 2\\pi x$$`,
+    figure:null,
     statement:`Dana jest funkcja f określona wzorem
 
 ( )
@@ -3591,6 +4214,27 @@ Na podstawie wzoru wyznaczam miejsca zerowe funkcji:`,explanation:``}]
     number:`9`,source:`2007_matura_matematyka-2007-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2007_9.jpg`,
+    latex:`Przedstaw wielomian
+
+( )
+W x
+
+$$= 4 x 3 2 x 2 3 x + 4 x$$
+
+-  w postaci iloczynu dwóch wielomianów
+
+$$1$$
+
+stopnia  drugiego  o  współczynnikach  całkowitych  i  takich,  że  współczynniki  przy  drugich
+potęgach są równe jeden.
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{9.1.}{1} \\frac{9.2.}{1} \\frac{9.3.}{1}$$`,
+    figure:null,
     statement:`Przedstaw wielomian
 
 ( )
@@ -3786,6 +4430,21 @@ x
     number:`10`,source:`2007_matura_matematyka-2007-maj-matura-rozszerzona.pdf`,
     category:11,categoryName:`Geometria analityczna`,points:4,
     image:`img/tasks_cke/cke_2007_10.jpg`,
+    latex:`Na kole opisany jest romb. Stosunek pola koła do pola rombu wynosi
+
+$$\\pi 3 8$$
+
+. Wyznacz miarę
+
+kąta ostrego rombu.
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{10.1.}{1} \\frac{10.2.}{1} \\frac{10.3.}{1} \\frac{10.4.}{1}$$`,
+    figure:null,
     statement:`Na kole opisany jest romb. Stosunek pola koła do pola rombu wynosi
 
 π
@@ -3891,6 +4550,44 @@ a= ⋅`,explanation:``}]
     number:`11`,source:`2007_matura_matematyka-2007-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:4,
     image:`img/tasks_cke/cke_2007_11.jpg`,
+    latex:`Suma  n  początkowych  wyrazów  ciągu  arytmetycznego
+
+$$($$
+
+)na   wyraża  się  wzorem
+
+$$\\frac{22}{n} n = +$$
+
+dla
+
+$$1n \\geq .$$
+
+Sn
+a)  Oblicz  sumę  50  początkowych  wyrazów
+.
+
+$$+ + \\frac{a}{2} \\frac{a}{4} \\frac{a}{6} 100 b)  Oblicz$$
+
+$$\\lim_{n}$$
+
+... a
++ +
+S
+2
+3
+n
+
+$$n 2 .$$
+
+tego  ciągu  o  numerach  parzystych:
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{11.1.}{1} \\frac{11.2.}{1} \\frac{11.3.}{1} \\frac{11.4.}{1}$$`,
+    figure:null,
     statement:`Suma  n  początkowych  wyrazów  ciągu  arytmetycznego
 
 (
@@ -4087,6 +4784,25 @@ początkowych  wyrazów`,explanation:``}]
     number:`1`,source:`2008_matura_matematyka-2008-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2008_1.jpg`,
+    latex:`Wielomian  f,  którego  fragment  wykresu  przedstawiono  na  poniższym  rysunku  spełnia
+.  Wykaż,
+warunek
+( )
+g x
+
+.  Wielomian  g  dany  jest  wzorem
+
+$$(0) 90 = ) ( -  dla  x R\\in .$$
+
+( )
+g x
+
+$$= -$$
+
+że
+
+$$14 90 63 = + x x x x f f 3 2 y f 1 0 1 x$$`,
+    figure:null,
     statement:`Wielomian  f,  którego  fragment  wykresu  przedstawiono  na  poniższym  rysunku  spełnia
 .  Wykaż,
 warunek
@@ -4291,6 +5007,19 @@ x
     number:`2`,source:`2008_matura_matematyka-2008-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2008_2.jpg`,
+    latex:`Rozwiąż nierówność
+x
+
+$$\\frac{2}{-} + 3 x \\frac{6}{- <} x .$$
+
+Wypełnia
+egzaminator!
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$\\frac{2.1}{1} \\frac{2.2}{1} \\frac{2.3}{1} \\frac{2.4}{1}$$`,
+    figure:null,
     statement:`Rozwiąż nierówność
 x
 
@@ -4503,6 +5232,30 @@ przedziału
     number:`3`,source:`2008_matura_matematyka-2008-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:5,
     image:`img/tasks_cke/cke_2008_3.jpg`,
+    latex:`Liczby  1
+ i
+x = +
+z niewiadomą x. Oblicz wartości  p  i  q .
+
+$$\\frac{x = -}{2} 23 23 5 5$$
+
+są rozwiązaniami równania
+
+$$2 x ( 2 p 2 + q ) x + ($$
+
+p q
++
+
+$$) \\frac{=}{0}$$
+
+Wypełnia
+egzaminator!
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$\\frac{3.1}{1} \\frac{3.2}{1} \\frac{3.3}{1} \\frac{3.4}{1} \\frac{3.5}{1}$$`,
+    figure:null,
     statement:`Liczby  1
  i
 x = +
@@ -4696,6 +5449,18 @@ Dokonuję  podstawienia`,explanation:``}]
     number:`4`,source:`2008_matura_matematyka-2008-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2008_4.jpg`,
+    latex:`Rozwiąż równanie
+
+$$4 cos 2 x = 4sin x +  w przedziale  0, 2\\pi . 1$$
+
+Wypełnia
+egzaminator!
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$\\frac{4.1}{1} \\frac{4.2}{1} \\frac{4.3}{1} \\frac{4.4}{1}$$`,
+    figure:null,
     statement:`Rozwiąż równanie
 
 4 cos
@@ -4841,6 +5606,24 @@ Poziom rozszerzony`,explanation:``}]
     number:`5`,source:`2008_matura_matematyka-2008-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:5,
     image:`img/tasks_cke/cke_2008_5.jpg`,
+    latex:`Dane  jest  równanie
+
+$$\\frac{2}{x} + 3$$
+
+=   z  niewiadomą  x.  Wyznacz  liczbę  rozwiązań  tego  równania
+
+$$p$$
+
+w zależności od parametru p.
+
+Wypełnia
+egzaminator!
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$\\frac{5.1}{1} \\frac{5.2}{1} \\frac{5.3}{1} \\frac{5.4}{1} \\frac{5.5}{1}$$`,
+    figure:null,
     statement:`Dane  jest  równanie
 
 2
@@ -4980,6 +5763,23 @@ Poziom rozszerzony`,explanation:``}]
     number:`6`,source:`2008_matura_matematyka-2008-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:3,
     image:`img/tasks_cke/cke_2008_6.jpg`,
+    latex:`Udowodnij,  że  jeżeli  ciąg  (
+to  a
+
+$$= = . b c$$
+
+a b c   jest  jednocześnie  arytmetyczny  i  geometryczny,
+
+$$, , )$$
+
+Wypełnia
+egzaminator!
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$\\frac{6.1}{1} \\frac{6.2}{1} \\frac{6.3}{1}$$`,
+    figure:null,
     statement:`Udowodnij,  że  jeżeli  ciąg  (
 to  a
 
@@ -5109,6 +5909,24 @@ c
     number:`7`,source:`2008_matura_matematyka-2008-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2008_7.jpg`,
+    latex:`Uzasadnij, że każdy punkt paraboli o równaniu
+
+$$y 1 2 + = x 4 1$$
+
+jest równoodległy od osi  Ox  i od
+
+punktu
+
+$$)^{2},0(=F .$$
+
+Wypełnia
+egzaminator!
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$\\frac{7.1}{1} \\frac{7.2}{1} \\frac{7.3}{1} \\frac{7.4}{1}$$`,
+    figure:null,
     statement:`Uzasadnij, że każdy punkt paraboli o równaniu
 
 y
@@ -5273,6 +6091,17 @@ PF
     number:`8`,source:`2008_matura_matematyka-2008-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2008_8.jpg`,
+    latex:`Wyznacz  współrzędne  środka  jednokładności,  w  której  obrazem  okręgu  o  równaniu
+(
+,  a  skala  tej  jednokładności
+6
++
+jest liczbą ujemną.
+
+=   jest  okrąg  o  równaniu  (
+
+$$16 16 )^{2} + = 4 4 x y x y ) ( ) 2 2 2$$`,
+    figure:null,
     statement:`Wyznacz  współrzędne  środka  jednokładności,  w  której  obrazem  okręgu  o  równaniu
 (
 ,  a  skala  tej  jednokładności
@@ -5531,6 +6360,25 @@ S
     number:`9`,source:`2008_matura_matematyka-2008-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:4,
     image:`img/tasks_cke/cke_2008_9.jpg`,
+    latex:`Wyznacz dziedzinę i najmniejszą wartość funkcji
+
+( )
+f x
+
+$$=$$
+
+log
+
+$$8 x x )^{2} . ( \\frac{2}{2}$$
+
+Wypełnia
+egzaminator!
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$\\frac{9.1}{1} \\frac{9.2}{1} \\frac{9.3}{1} \\frac{9.4}{1}$$`,
+    figure:null,
     statement:`Wyznacz dziedzinę i najmniejszą wartość funkcji
 
 ( )
@@ -5671,6 +6519,18 @@ Obliczam wartość funkcji f dla argumentu 16, kor`,explanation:``}]
     number:`10`,source:`2008_matura_matematyka-2008-maj-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:4,
     image:`img/tasks_cke/cke_2008_10.jpg`,
+    latex:`Z  pewnej  grupy  osób,  w  której  jest  dwa  razy  więcej  mężczyzn  niż  kobiet,  wybrano  losowo
+dwuosobową  delegację.  Prawdopodobieństwo  tego,  że  w  delegacji  znajdą  się  tylko  kobiety
+jest równe 0,1. Oblicz, ile kobiet i ilu mężczyzn jest w tej grupie.
+
+Wypełnia
+egzaminator!
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$\\frac{10.1}{1} \\frac{10.2}{1} \\frac{10.3}{1} \\frac{10.4}{1}$$`,
+    figure:null,
     statement:`Z  pewnej  grupy  osób,  w  której  jest  dwa  razy  więcej  mężczyzn  niż  kobiet,  wybrano  losowo
 dwuosobową  delegację.  Prawdopodobieństwo  tego,  że  w  delegacji  znajdą  się  tylko  kobiety
 jest równe 0,1. Oblicz, ile kobiet i ilu mężczyzn jest w tej grupie.`,
@@ -5722,6 +6582,8 @@ A – zdarzenie polegające na tym, że w delegacji znajdują się`,explanation:
     number:`11`,source:`2008_matura_matematyka-2008-maj-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:5,
     image:`img/tasks_cke/cke_2008_11.jpg`,
+    latex:``,
+    figure:null,
     statement:`W  ostrosłupie  prawidłowym  czworokątnym  dane  są:  H  – wysokość  ostrosłupa  oraz
 
 α  – miara kąta utworzonego przez krawędź boczną i krawędź podstawy ( 45
@@ -5825,6 +6687,13 @@ a)  Z trójkąta prostokątnego BES wyznaczam`,explanation:``}]
     number:`12`,source:`2008_matura_matematyka-2008-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:4,
     image:`img/tasks_cke/cke_2008_12.jpg`,
+    latex:`W trójkącie prostokątnym  ABC  przyprostokątne mają długości:
+. Na boku
+AB   wybrano  punkt  D   tak,  że  odcinki  BC   i  CD   mają  równe  długości.  Oblicz  długość
+odcinka  AD .
+
+$$BC = , CA = 12 9$$`,
+    figure:null,
     statement:`W trójkącie prostokątnym  ABC  przyprostokątne mają długości:
 . Na boku
 AB   wybrano  punkt  D   tak,  że  odcinki  BC   i  CD   mają  równe  długości.  Oblicz  długość
@@ -5892,6 +6761,47 @@ AB`,explanation:``}]
     number:`1`,source:`2009_matura_matematyka-2009-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2009_1.jpg`,
+    latex:`Funkcja liniowa f określona jest wzorem
+
+( )
+f x
+
+$$=$$
+
+ax b
+
+$$+  dla$$
+
+Rx \\in .
+
+$$=a$$
+
+a)  Dla
+b)  Narysuj w układzie współrzędnych zbiór
+
+$$2009 2008 =b i$$
+
+zbadaj, czy do wykresu tej funkcji należy punkt
+
+$$=P ( 2009 , 2009 )^{2} . A =$$
+
+,
+x y
+
+$$) ⎧ ( ⎨ ⎩ : x \\in - 1,3 i y = - \\frac{1}{2}$$
+
+x b
++
+
+$$i b \\in - 2,1 . ⎫ ⎬ ⎭$$
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{1.1.}{1} \\frac{1.2.}{1} \\frac{1.3.}{1} \\frac{1.4.}{1}$$`,
+    figure:null,
     statement:`Funkcja liniowa f określona jest wzorem
 
 ( )
@@ -6035,6 +6945,36 @@ Poprawna o`,explanation:``}]
     number:`2`,source:`2009_matura_matematyka-2009-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2009_2.jpg`,
+    latex:`Przy  dzieleniu  wielomianu
+( )
+xQ
+x
+
+oraz resztę
+
+$$\\frac{8 2}{x} 14 + = 4$$
+
+( )xW   przez  dwumian
+( )
+5-=xR
+
+. Oblicz pierwiastki wielomianu
+
+( )xW .
+
+$$( )^{1}-x$$
+
+otrzymujemy
+
+iloraz
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{2.1.}{1} \\frac{2.2.}{1} \\frac{2.3.}{1} \\frac{2.4.}{1}$$`,
+    figure:null,
     statement:`Przy  dzieleniu  wielomianu
 ( )
 xQ
@@ -6157,6 +7097,38 @@ Korzystanie z informacji  Wyznac`,explanation:``}]
     number:`3`,source:`2009_matura_matematyka-2009-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:4,
     image:`img/tasks_cke/cke_2009_3.jpg`,
+    latex:`Na rysunku przedstawiony jest wykres funkcji wykładniczej
+
+( )
+xf
+
+$$=$$
+
+xa
+
+dla
+
+Rx \\in .
+
+$$\\frac{y}{5} 4 3 2 1 0 1 2 3 4 x \\frac{a)  Oblicz a.}{b)  Narysuj  wykres  funkcji}$$
+
+( )
+xg
+=
+( ) mxg
+=
+
+dla których równanie
+
+ma dokładnie jedno rozwiązanie.
+
+( ) 2-
+xf
+
+i  podaj  wszystkie  wartości  parametru
+
+Rm \\in ,`,
+    figure:null,
     statement:`Na rysunku przedstawiony jest wykres funkcji wykładniczej
 
 ( )
@@ -6307,6 +7279,19 @@ i  na  ty`,explanation:``}]
     number:`4`,source:`2009_matura_matematyka-2009-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:5,
     image:`img/tasks_cke/cke_2009_4.jpg`,
+    latex:`W  skarbcu  królewskim  było  k  monet.  Pierwszego  dnia  rano  skarbnik  dorzucił  25  monet,
+a każdego następnego ranka dorzucał o 2 monety więcej niż dnia poprzedniego. Jednocześnie
+ze skarbca król zabierał w południe każdego dnia 50 monet. Oblicz najmniejszą liczbę k, dla
+której w każdym dniu w skarbcu była co najmniej jedna moneta, a następnie dla tej wartości k
+oblicz, w którym dniu w skarbcu była najmniejsza liczba monet.
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{4.1.}{1} \\frac{4.2.}{1} \\frac{4.3.}{1} \\frac{4.4.}{1} \\frac{4.5.}{1}$$`,
+    figure:null,
     statement:`W  skarbcu  królewskim  było  k  monet.  Pierwszego  dnia  rano  skarbnik  dorzucił  25  monet,
 a każdego następnego ranka dorzucał o 2 monety więcej niż dnia poprzedniego. Jednocześnie
 ze skarbca król zabierał w południe każdego dnia 50 monet. Oblicz najmniejszą liczbę k, dla
@@ -6357,6 +7342,26 @@ n
     number:`5`,source:`2009_matura_matematyka-2009-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2009_5.jpg`,
+    latex:`Wykaż, że jeżeli
+
+$$=A \\frac{2243}{} +$$
+
+Egzamin maturalny z matematyki
+Poziom rozszerzony
+
+$$7 i =B \\frac{3223}{} +$$
+
+, to
+
+$$\\frac{9B}{=} A .$$
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{5.1.}{1} \\frac{5.2.}{1} \\frac{5.3.}{1}$$`,
+    figure:null,
     statement:`Wykaż, że jeżeli
 
 =A
@@ -6487,6 +7492,29 @@ Klucz punktowania odpowiedzi
     number:`6`,source:`2009_matura_matematyka-2009-maj-matura-rozszerzona.pdf`,
     category:3,categoryName:`Logarytmy`,points:5,
     image:`img/tasks_cke/cke_2009_6.jpg`,
+    latex:`Wyznacz  dziedzinę  funkcji
+liczbowych.
+
+( )
+xf
+
+$$=$$
+
+log
+
+$$( 9 x - )^{2} x 2$$
+
+cos
+
+i  zapisz  ją  w  postaci  sumy  przedziałów
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{6.1.}{1} \\frac{6.2.}{1} \\frac{6.3.}{1} \\frac{6.4.}{1} \\frac{6.5.}{1}$$`,
+    figure:null,
     statement:`Wyznacz  dziedzinę  funkcji
 liczbowych.
 
@@ -6560,6 +7588,37 @@ Zdający  otrzymuje`,explanation:``}]
     number:`7`,source:`2009_matura_matematyka-2009-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:6,
     image:`img/tasks_cke/cke_2009_7.jpg`,
+    latex:`Ciąg  (
+3, 6
+3,
+x
+
+$$+ x x$$
+
+Egzamin maturalny z matematyki
+Poziom rozszerzony
+
+$$9 + 2,... )$$
+
+jest  nieskończonym  ciągiem  geometrycznym  o  wyrazach
+
+dodatnich.  Oblicz  iloraz  tego  ciągu  i  uzasadnij,  że
+
+n początkowych wyrazów tego ciągu.
+
+$$\\frac{S}{S} \\frac{19 <}{20} \\frac{1}{4}$$
+
+,  gdzie
+
+nS   oznacza  sumę
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{7.1.}{1} \\frac{7.2.}{1} \\frac{7.3.}{1} \\frac{7.4.}{1} \\frac{7.5.}{1} \\frac{7.6.}{1}$$`,
+    figure:null,
     statement:`Ciąg  (
 3, 6
 3,
@@ -6657,6 +7716,12 @@ Zdający otrzymuje 1 punkt, jeśli wybierze odpowiednią wartość x, tak aby ws
     number:`8`,source:`2009_matura_matematyka-2009-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:4,
     image:`img/tasks_cke/cke_2009_8.jpg`,
+    latex:`Dwa okręgi o środkach A i B są styczne zewnętrznie i każdy z nich jest jednocześnie styczny
+do  ramion  tego  samego  kąta  prostego  (patrz  rysunek).  Udowodnij,  że  stosunek  promienia
+większego z tych okręgów do promienia mniejszego jest równy
+
+$$223 + . B A$$`,
+    figure:null,
     statement:`Dwa okręgi o środkach A i B są styczne zewnętrznie i każdy z nich jest jednocześnie styczny
 do  ramion  tego  samego  kąta  prostego  (patrz  rysunek).  Udowodnij,  że  stosunek  promienia
 większego z tych okręgów do promienia mniejszego jest równy
@@ -6725,6 +7790,23 @@ Zdający otrzymuje 2 punkty`,explanation:``}]
     number:`9`,source:`2009_matura_matematyka-2009-maj-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:5,
     image:`img/tasks_cke/cke_2009_9.jpg`,
+    latex:`W  układzie  współrzędnych  narysuj  okrąg  o  równaniu  (
+  oraz  zaznacz
+punkt
+  jest  jedną  ze  stycznych  do  tego  okręgu
+.  Prosta  o  równaniu
+przechodzących  przez  punkt  A.  Wyznacz  równanie  drugiej  stycznej  do  tego  okręgu,
+przechodzącej przez punkt A.
+
+$$\\frac{)^{1},0 -}{(} 0=x =A \\frac{)}{3} = + + 4 2 y x ) ( 2 2$$
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{9.1.}{1} \\frac{9.2.}{1} \\frac{9.3.}{1} \\frac{9.4.}{1} \\frac{9.5.}{1}$$`,
+    figure:null,
     statement:`W  układzie  współrzędnych  narysuj  okrąg  o  równaniu  (
   oraz  zaznacz
 −
@@ -6833,6 +7915,20 @@ Zdający otrzymuje 1 p`,explanation:``}]
     number:`10`,source:`2009_matura_matematyka-2009-maj-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:4,
     image:`img/tasks_cke/cke_2009_10.jpg`,
+    latex:`W  urnie  znajdują  się  jedynie  kule  białe  i  czarne.  Kul  białych  jest  trzy  razy  więcej
+niż czarnych.  Oblicz,  ile  jest  kul  w  urnie,  jeśli  przy  jednoczesnym  losowaniu  dwóch  kul
+
+prawdopodobieństwo otrzymania kul o różnych kolorach jest większe od
+
+$$\\frac{9}{22} .$$
+
+Wypełnia
+egzaminator!
+
+Uzyskana liczba pkt
+
+$$\\frac{10.1.}{1} \\frac{10.2.}{1} \\frac{10.3.}{1} \\frac{10.4.}{1}$$`,
+    figure:null,
     statement:`W  urnie  znajdują  się  jedynie  kule  białe  i  czarne.  Kul  białych  jest  trzy  razy  więcej
 niż czarnych.  Oblicz,  ile  jest  kul  w  urnie,  jeśli  przy  jednoczesnym  losowaniu  dwóch  kul
 
@@ -6952,6 +8048,11 @@ Zdający otrzymuje 1 punkt, jeśli zapisze tylko liczbę wszystkich zdarzeń ele
     number:`11`,source:`2009_matura_matematyka-2009-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:6,
     image:`img/tasks_cke/cke_2009_11.jpg`,
+    latex:`Dany  jest  ostrosłup  prawidłowy  trójkątny,  w  którym  krawędź  podstawy  ma  długość  a
+i krawędź boczna jest od niej dwa razy dłuższa. Oblicz cosinus kąta między krawędzią boczną
+i krawędzią  podstawy  ostrosłupa.  Narysuj  przekrój  ostrosłupa  płaszczyzną  przechodzącą
+przez krawędź podstawy i środek przeciwległej krawędzi bocznej i oblicz pole tego przekroju.`,
+    figure:null,
     statement:`Dany  jest  ostrosłup  prawidłowy  trójkątny,  w  którym  krawędź  podstawy  ma  długość  a
 i krawędź boczna jest od niej dwa razy dłuższa. Oblicz cosinus kąta między krawędzią boczną
 i krawędzią  podstawy  ostrosłupa.  Narysuj  przekrój  ostrosłupa  płaszczyzną  przechodzącą
@@ -7009,6 +8110,10 @@ Zdający otrzymuje 3 punkty, jeśli`,explanation:``}]
     number:`1`,source:`2010_matura_matematyka-2010-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2010_1.jpg`,
+    latex:`Rozwiąż nierówność | 2
+
+$$x + 4 | + - \\leq . 1 6 x$$`,
+    figure:null,
     statement:`Rozwiąż nierówność | 2
 
 x
@@ -7085,6 +8190,14 @@ jest  3
     number:`2`,source:`2010_matura_matematyka-2010-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2010_2.jpg`,
+    latex:`Wyznacz  wszystkie  rozwiązania  równania
+
+$$2 2 cos 0, 2\\pi . x 5sin x$$
+
+- =   należące  do  przedziału
+
+$$4 0$$`,
+    figure:null,
     statement:`Wyznacz  wszystkie  rozwiązania  równania
 
 2
@@ -7215,6 +8328,21 @@ sin
     number:`3`,source:`2010_matura_matematyka-2010-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:4,
     image:`img/tasks_cke/cke_2010_3.jpg`,
+    latex:`Bok kwadratu ABCD ma długość 1. Na bokach BC i CD wybrano odpowiednio punkty E i F
+DF ,  dla  której  pole  trójkąta  AEF
+.  Oblicz  wartość  = |
+umieszczone  tak,  by  |
+
+$$\\frac{| 2}{=}$$
+
+DF
+
+CE
+
+$$x |$$
+
+jest najmniejsze.`,
+    figure:null,
     statement:`Bok kwadratu ABCD ma długość 1. Na bokach BC i CD wybrano odpowiednio punkty E i F
 DF ,  dla  której  pole  trójkąta  AEF
 .  Oblicz  wartość  = |
@@ -7403,6 +8531,30 @@ x
     number:`4`,source:`2010_matura_matematyka-2010-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2010_4.jpg`,
+    latex:`Wyznacz  wartości  a  i  b  współczynników  wielomianu
+)3x -
+
+=  oraz, że reszta z dzielenia
+
+$$)W x  przez ( ( )^{2} W 7 ($$
+
+(
+W x
+
+$$) = 3 x 2 +$$
+
+ax
+
+$$+$$
+
+bx
+
++   wiedząc,  że
+
+$$1$$
+
+jest równa 10.`,
+    figure:null,
     statement:`Wyznacz  wartości  a  i  b  współczynników  wielomianu
 )3x −
 
@@ -7592,6 +8744,20 @@ Rozwiązanie,  w  którym postęp jest wprawdzie niewielki,  ale`,explanation:``
     number:`5`,source:`2010_matura_matematyka-2010-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:5,
     image:`img/tasks_cke/cke_2010_5.jpg`,
+    latex:`O  liczbach  a,  b,  c  wiemy,  że  ciąg  (
+a
+(
+
+$$19) 4, 1, b + + + c$$
+
+jest geometryczny. Wyznacz te liczby.
+
+a b c   jest  arytmetyczny  i
+
+$$, , ) a c+ = 10$$
+
+,  zaś  ciąg`,
+    figure:null,
     statement:`O  liczbach  a,  b,  c  wiemy,  że  ciąg  (
 a
 (
@@ -7718,6 +8884,14 @@ c
     number:`6`,source:`2010_matura_matematyka-2010-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:5,
     image:`img/tasks_cke/cke_2010_6.jpg`,
+    latex:`Wyznacz  wszystkie  wartości  parametru
+
+,m   dla  których  równanie
+
+różne pierwiastki rzeczywiste takie, że suma ich kwadratów jest większa od
+
+$$\\frac{2}{x mx} + 2 0 + =   ma  dwa 22 m - 13 .$$`,
+    figure:null,
     statement:`Wyznacz  wszystkie  wartości  parametru
 
 ,m   dla  których  równanie
@@ -7854,6 +9028,25 @@ m
     number:`7`,source:`2010_matura_matematyka-2010-maj-matura-rozszerzona.pdf`,
     category:11,categoryName:`Geometria analityczna`,points:6,
     image:`img/tasks_cke/cke_2010_7.jpg`,
+    latex:`Punkt
+( 2,5)
+A = -
+AC
+|
+|
+BC=
+| .
+|
+x= +  Oblicz współrzędne wierzchołka C.
+y
+
+jest  jednym  z  wierzchołków  trójkąta  równoramiennego
+
+ABC   w  którym
+ Pole tego trójkąta jest równe 15. Bok  BC  jest zawarty w prostej o równaniu
+
+$$,$$`,
+    figure:null,
     statement:`Punkt
 ( 2,5)
 A = −
@@ -7991,6 +9184,22 @@ xx
     number:`8`,source:`2010_matura_matematyka-2010-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:5,
     image:`img/tasks_cke/cke_2010_8.jpg`,
+    latex:`Rysunek  przedstawia  fragment  wykresu  funkcji
+
+f x
+( )
+
+$$= \\frac{1}{2} x$$
+
+.  Przeprowadzono  prostą
+
+równoległą  do  osi  Ox ,  która  przecięła  wykres  tej  funkcji  w  punktach  A  i  B.  Niech
+C =
+
+- . Wykaż, że pole trójkąta ABC jest większe lub równe 2.
+
+$$(3, 1) y 3 2 1 0 1 2 3 4 x$$`,
+    figure:null,
     statement:`Rysunek  przedstawia  fragment  wykresu  funkcji
 
 f x
@@ -8139,6 +9348,11 @@ a >  zac`,explanation:``}]
     number:`9`,source:`2010_matura_matematyka-2010-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:4,
     image:`img/tasks_cke/cke_2010_9.jpg`,
+    latex:`Na  bokach  BC  i  CD  równoległoboku  ABCD  zbudowano  kwadraty  CDEF  i  BCGH  (zobacz
+rysunek). Udowodnij, że  AC
+
+$$. \\frac{FG=}{E} F C G H D A B$$`,
+    figure:null,
     statement:`Na  bokach  BC  i  CD  równoległoboku  ABCD  zbudowano  kwadraty  CDEF  i  BCGH  (zobacz
 rysunek). Udowodnij, że  AC
 
@@ -8270,6 +9484,9 @@ więc trójkąty ABC i FCG są`,explanation:``}]
     number:`10`,source:`2010_matura_matematyka-2010-maj-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:4,
     image:`img/tasks_cke/cke_2010_10.jpg`,
+    latex:`Oblicz prawdopodobieństwo tego, że w trzech rzutach symetryczną sześcienną kostką do gry suma
+kwadratów liczb uzyskanych oczek będzie podzielna przez 3.`,
+    figure:null,
     statement:`Oblicz prawdopodobieństwo tego, że w trzech rzutach symetryczną sześcienną kostką do gry suma
 kwadratów liczb uzyskanych oczek będzie podzielna przez 3.`,
     options:null,correctAnswer:null,
@@ -8297,6 +9514,10 @@ Kwadraty liczb 3 i 6 są liczba`,explanation:``}]
     number:`11`,source:`2010_matura_matematyka-2010-maj-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:5,
     image:`img/tasks_cke/cke_2010_11.jpg`,
+    latex:`W ostrosłupie prawidłowym trójkątnym krawędź podstawy ma długość a. Ściany boczne są
+trójkątami  ostrokątnymi.  Miara  kąta  między  sąsiednimi  ścianami  bocznymi  jest  równa  2\\alpha.
+Wyznacz objętość tego ostrosłupa.`,
+    figure:null,
     statement:`W ostrosłupie prawidłowym trójkątnym krawędź podstawy ma długość a. Ściany boczne są
 trójkątami  ostrokątnymi.  Miara  kąta  między  sąsiednimi  ścianami  bocznymi  jest  równa  2α.
 Wyznacz objętość tego ostrosłupa.`,
@@ -8327,6 +9548,10 @@ Użyliśmy oznaczeń`,explanation:``}]
     number:`1`,source:`2011_dodatkowa_matematyka-2011-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2011_dod_1.jpg`,
+    latex:`Rozwiąż nierówność  2
+
+$$x \\frac{x}{- + -} \\geq 4 5 12 .$$`,
+    figure:null,
     statement:`Rozwiąż nierówność  2
 
 x
@@ -8353,6 +9578,31 @@ x
     number:`2`,source:`2011_dodatkowa_matematyka-2011-czerwiec-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:5,
     image:`img/tasks_cke/cke_2011_dod_2.jpg`,
+    latex:`(
+2 2
+Wyznacz  wszystkie  wartości  parametru  m,  dla  których  równanie
+x
+m
+2
+2
+x
+x
+2
+2x , spełniające warunek
++
+1
+2
+
+ma dwa różne pierwiastki rzeczywiste
+
+$$1x ,$$
+
+2
+x x
+1 2
+
+$$3 = 0 ) x \\leq 3 m . 25$$`,
+    figure:null,
     statement:`(
 2 2
 Wyznacz  wszystkie  wartości  parametru  m,  dla  których  równanie
@@ -8406,6 +9656,21 @@ m
     number:`3`,source:`2011_dodatkowa_matematyka-2011-czerwiec-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:5,
     image:`img/tasks_cke/cke_2011_dod_3.jpg`,
+    latex:`Ciąg  (
+,
+dwóch pierwszych wyrazów jest równa trzeciemu. Oblicz  a ,  b ,  c .
+
+a
+a b c   jest  geometryczny.  Ciąg  (3
+
+$$3, 2 ,$$
+
+b c
+
+$$12) + ) ,$$
+
+jest  arytmetyczny  i  suma  jego`,
+    figure:null,
     statement:`Ciąg  (
 ,
 dwóch pierwszych wyrazów jest równa trzeciemu. Oblicz  a ,  b ,  c .
@@ -8440,6 +9705,16 @@ b c
     number:`4`,source:`2011_dodatkowa_matematyka-2011-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2011_dod_4.jpg`,
+    latex:`Rozwiąż równanie
+
+$$6sin 2 x + 7 cos x - = 1 0$$
+
+dla
+
+\\inx
+
+$$0, 2 \\pi .$$`,
+    figure:null,
     statement:`Rozwiąż równanie
 
 6sin
@@ -8477,6 +9752,20 @@ x
     number:`5`,source:`2011_dodatkowa_matematyka-2011-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:4,
     image:`img/tasks_cke/cke_2011_dod_5.jpg`,
+    latex:`Dany  jest  trójkąt  ostrokątny  ABC  o  bokach  długości  a,  b,  c  i  kątach  \\alpha,  \\beta,  \\gamma  (zobacz
+
+rysunek). Wykaż, że
+
+$$2 2 \\frac{b}{a} 2 2 \\frac{+}{} + \\frac{c}{c} 2 2 \\frac{a}{b} =$$
+
+tg
+tg
+
+\\beta
+\\alpha
+
+$$. C b a A c B$$`,
+    figure:null,
     statement:`Dany  jest  trójkąt  ostrokątny  ABC  o  bokach  długości  a,  b,  c  i  kątach  α,  β,  γ  (zobacz
 
 rysunek). Wykaż, że
@@ -8541,6 +9830,18 @@ B`,
     number:`6`,source:`2011_dodatkowa_matematyka-2011-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2011_dod_6.jpg`,
+    latex:`Wykaż,  że  nie  istnieje  wielomian
+który spełnia warunki:
+ i
+
+$$2 =W ( ) 3$$
+
+( )xW   stopnia  trzeciego  o  współczynnikach  całkowitych,
+(
+-W
+
+$$\\frac{) 2}{2 =} .$$`,
+    figure:null,
     statement:`Wykaż,  że  nie  istnieje  wielomian
 który spełnia warunki:
  i
@@ -8569,6 +9870,16 @@ który spełnia warunki:
     number:`7`,source:`2011_dodatkowa_matematyka-2011-czerwiec-matura-rozszerzona.pdf`,
     category:11,categoryName:`Geometria analityczna`,points:4,
     image:`img/tasks_cke/cke_2011_dod_7.jpg`,
+    latex:`Dany  jest  trójkąt  ostrokątny  ABC,  w  którym
+
+$$AC =   i 5$$
+
+AB = .  Pole  tego  trójkąta  jest
+
+$$8$$
+
+równe 10 3 . Oblicz promień okręgu opisanego na tym trójkącie.`,
+    figure:null,
     statement:`Dany  jest  trójkąt  ostrokątny  ABC,  w  którym
 
 AC =   i
@@ -8592,6 +9903,8 @@ równe 10 3 . Oblicz promień okręgu opisanego na tym trójkącie.`,
     number:`8`,source:`2011_dodatkowa_matematyka-2011-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:5,
     image:`img/tasks_cke/cke_2011_dod_8.jpg`,
+    latex:``,
+    figure:null,
     statement:`)
 (
 ,
@@ -8632,6 +9945,12 @@ y
     number:`9`,source:`2011_dodatkowa_matematyka-2011-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:3,
     image:`img/tasks_cke/cke_2011_dod_9.jpg`,
+    latex:`Przekątne trapezu ABCD przecinają się w punkcie P. Prosta równoległa do podstaw trapezu,
+przechodząca  przez  punkt  P,  przecina  ramiona  AD  i  BC  odpowiednio  w  punktach  M  i  N.
+Wykaż, że  MP
+
+$$NP= .$$`,
+    figure:null,
     statement:`Przekątne trapezu ABCD przecinają się w punkcie P. Prosta równoległa do podstaw trapezu,
 przechodząca  przez  punkt  P,  przecina  ramiona  AD  i  BC  odpowiednio  w  punktach  M  i  N.
 Wykaż, że  MP
@@ -8651,6 +9970,14 @@ NP=
     number:`10`,source:`2011_dodatkowa_matematyka-2011-czerwiec-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:5,
     image:`img/tasks_cke/cke_2011_dod_10.jpg`,
+    latex:`Dany  jest  kwadrat  ABCD  o  boku  równym  2.  Na  bokach  BC  i  CD  wybrano  odpowiednio
+punkty  E  i F,  różne  od  wierzchołków  kwadratu,  takie że  CE DF
+= .  Oblicz  wartość  x,
+
+$$= x$$
+
+dla której pole trójkąta AEF jest najmniejsze i oblicz to pole.`,
+    figure:null,
     statement:`Dany  jest  kwadrat  ABCD  o  boku  równym  2.  Na  bokach  BC  i  CD  wybrano  odpowiednio
 punkty  E  i F,  różne  od  wierzchołków  kwadratu,  takie że  CE DF
 = .  Oblicz  wartość  x,
@@ -8672,6 +9999,14 @@ dla której pole trójkąta AEF jest najmniejsze i oblicz to pole.`,
     number:`11`,source:`2011_dodatkowa_matematyka-2011-czerwiec-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:4,
     image:`img/tasks_cke/cke_2011_dod_11.jpg`,
+    latex:`Spośród  wszystkich  liczb  czterocyfrowych  o  cyfrach  ze  zbioru  {
+Oblicz  prawdopodobieństwo  zdarzenia  polegającego  na  tym,  że  suma  wszystkich  cyfr
+wylosowanej liczby jest równa 7.
+
+1, 2, 3   losujemy  jedną.
+
+$$}$$`,
+    figure:null,
     statement:`Spośród  wszystkich  liczb  czterocyfrowych  o  cyfrach  ze  zbioru  {
 Oblicz  prawdopodobieństwo  zdarzenia  polegającego  na  tym,  że  suma  wszystkich  cyfr
 wylosowanej liczby jest równa 7.
@@ -8691,6 +10026,28 @@ wylosowanej liczby jest równa 7.
     number:`12`,source:`2011_dodatkowa_matematyka-2011-czerwiec-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:4,
     image:`img/tasks_cke/cke_2011_dod_12.jpg`,
+    latex:`W  ostrosłupie
+SB
+AC
+AB
+
+$$= =$$
+
+trójkątnym  ABCS  o  podstawie  ABC
+=
+
+$$= BC 8=$$
+
+SC
+
+AS
+
+$$i = 9$$
+
+. Oblicz objętość tego ostrosłupa.
+
+i  wierzchołku  S  dane  są:`,
+    figure:null,
     statement:`W  ostrosłupie
 SB
 AC
@@ -8732,6 +10089,10 @@ i  wierzchołku  S  dane  są:`,
     number:`1`,source:`2011_matura_matematyka-2011-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2011_1.jpg`,
+    latex:`Uzasadnij, że dla każdej liczby całkowitej  k  liczba
+
+$$6 k 2 k 4 2 + k jest podzielna przez 36.$$`,
+    figure:null,
     statement:`Uzasadnij, że dla każdej liczby całkowitej  k  liczba
 
 6
@@ -8858,6 +10219,36 @@ i dokładnie jedna licz`,explanation:``}]
     number:`2`,source:`2011_matura_matematyka-2011-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2011_2.jpg`,
+    latex:`Uzasadnij, że jeżeli
+
+$$\\frac{a \\neq ,  \\neqa}{b} c ,  \\neqb$$
+
+c  i
+
+ba
+
+$$2=+ c$$
+
+, to
+
+a
+ca
+
+$$+$$
+
+b
+cb
+
+$$2= .$$
+
+Wypełnia
+egzaminator
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$4 4$$`,
+    figure:null,
     statement:`Uzasadnij, że jeżeli
 
 a ≠ ,  ≠a
@@ -9013,6 +10404,43 @@ Egzamin maturalny z matematyki – poziom rozs`,explanation:``}]
     number:`3`,source:`2011_matura_matematyka-2011-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:6,
     image:`img/tasks_cke/cke_2011_3.jpg`,
+    latex:`Wyznacz
+4
+x
+
+wszystkie
+3
+m
++
+
+$$+ 6 2 2 m$$
+
+mmx
+2
+
+$$( \\frac{x}{1} x 2 ) < (8 m + ).1$$
+
+wartości
+2
+0
+=-
+
+parametru
+
+m ,
+
+dla
+
+ma  dwa  różne  pierwiastki  rzeczywiste
+
+których
+,x
+1
+
+równanie
+x   takie,  że
+2`,
+    figure:null,
     statement:`Wyznacz
 4
 x
@@ -9229,6 +10657,20 @@ m m
     number:`4`,source:`2011_matura_matematyka-2011-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2011_4.jpg`,
+    latex:`Rozwiąż równanie
+
+$$sin^{2} 2 x sin^{2} 2 x$$
+
+cos
+
+$$x \\frac{1}{-=}$$
+
+cos
+
+$$x w przedziale  0, 2\\pi .$$
+
+Odpowiedź: ................................................................................................................................ .`,
+    figure:null,
     statement:`Rozwiąż równanie
 
 sin2
@@ -9427,6 +10869,34 @@ Zate`,explanation:``}]
     number:`5`,source:`2011_matura_matematyka-2011-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:4,
     image:`img/tasks_cke/cke_2011_5.jpg`,
+    latex:`)nx
+O ciągu (
+)na  określony wzorem
+a) ciąg (
+b)  1
+x
+x
+...
+=
++ +
++
+2
+Oblicz  1x .
+
+$$145 \\frac{x}{10} . na = 3 nx$$
+
+dla
+
+$$1n \\geq  jest geometryczny o ilorazie q = 27 .$$
+
+Wypełnia
+egzaminator
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$4 4$$`,
+    figure:null,
     statement:`)nx
 O ciągu (
 )na  określony wzorem
@@ -9579,6 +11049,8 @@ r
     number:`6`,source:`2011_matura_matematyka-2011-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2011_6.jpg`,
+    latex:``,
+    figure:null,
     statement:`Podstawa  AB  trójkąta  równoramiennego  ABC  ma  długość  8  oraz
 
 BAC =
@@ -9714,6 +11186,13 @@ AD
     number:`7`,source:`2011_matura_matematyka-2011-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:4,
     image:`img/tasks_cke/cke_2011_7.jpg`,
+    latex:`Oblicz  miarę  kąta  między  stycznymi  do  okręgu
+przez punkt
+
+$$)^{0},2(=A . 2 x 2 + y + 2 x 2 y \\frac{3}{=} - 0$$
+
+poprowadzonymi`,
+    figure:null,
     statement:`Oblicz  miarę  kąta  między  stycznymi  do  okręgu
 przez punkt
 
@@ -9867,6 +11346,10 @@ kierunkowym prostej stycznej).`,explanation:``}]
     number:`8`,source:`2011_matura_matematyka-2011-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:4,
     image:`img/tasks_cke/cke_2011_8.jpg`,
+    latex:`Wśród  wszystkich  graniastosłupów prawidłowych  sześciokątnych,  w  których  suma  długości
+wszystkich krawędzi jest równa 24, jest taki, który ma największe pole powierzchni bocznej.
+Oblicz długość krawędzi podstawy tego graniastosłupa.`,
+    figure:null,
     statement:`Wśród  wszystkich  graniastosłupów prawidłowych  sześciokątnych,  w  których  suma  długości
 wszystkich krawędzi jest równa 24, jest taki, który ma największe pole powierzchni bocznej.
 Oblicz długość krawędzi podstawy tego graniastosłupa.`,
@@ -9933,6 +11416,11 @@ Aby  wyznaczyć  długość  krawędzi  podstawy  graniastosłupa,  które`,expl
     number:`9`,source:`2011_matura_matematyka-2011-maj-matura-rozszerzona.pdf`,
     category:14,categoryName:`Kombinatoryka`,points:4,
     image:`img/tasks_cke/cke_2011_9.jpg`,
+    latex:`Oblicz,  ile  jest  liczb  ośmiocyfrowych,  w  zapisie  których  nie  występuje  zero,  natomiast
+występują dwie dwójki i występują trzy trójki.
+
+Odpowiedź: ................................................................................................................................ .`,
+    figure:null,
     statement:`Oblicz,  ile  jest  liczb  ośmiocyfrowych,  w  zapisie  których  nie  występuje  zero,  natomiast
 występują dwie dwójki i występują trzy trójki.
 
@@ -10002,6 +11490,8 @@ Rozwiązanie, w któ`,explanation:``}]
     number:`10`,source:`2011_matura_matematyka-2011-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:3,
     image:`img/tasks_cke/cke_2011_10.jpg`,
+    latex:``,
+    figure:null,
     statement:`Dany  jest  czworokąt  wypukły  ABCD  niebędący  równoległobokiem.  Punkty  M,  N  są
 odpowiednio środkami boków AB i CD. Punkty P, Q są odpowiednio środkami przekątnych
 AC i BD. Uzasadnij, że  MQ PN
@@ -10034,6 +11524,15 @@ Pokonanie zasadniczych trudności zadan`,explanation:``}]
     number:`11`,source:`2011_matura_matematyka-2011-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:6,
     image:`img/tasks_cke/cke_2011_11.jpg`,
+    latex:`Dany  jest  ostrosłup  prawidłowy  czworokątny  ABCDS  o  podstawie  ABCD.  W  trójkącie
+równoramiennym  ASC  stosunek  długości  podstawy  do  długości  ramienia  jest  równy
+AC AS =
+:
+
+. Oblicz sinus kąta nachylenia ściany bocznej do płaszczyzny podstawy.
+
+$$6 : 5$$`,
+    figure:null,
     statement:`Dany  jest  ostrosłup  prawidłowy  czworokątny  ABCDS  o  podstawie  ABCD.  W  trójkącie
 równoramiennym  ASC  stosunek  długości  podstawy  do  długości  ramienia  jest  równy
 AC AS =
@@ -10248,6 +11747,30 @@ x
     number:`12`,source:`2011_matura_matematyka-2011-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2011_12.jpg`,
+    latex:`A, B są zdarzeniami losowymi zawartymi w  \\Omega . Wykaż, że jeżeli
+
+$$( P A = 'B oznacza zdarzenie przeciwne do zdarzenia B).$$
+
+to
+
+P A B∩
+
+$$($$
+
+)'
+
+$$\\leq 0,3 ( ) 0,9 i \\frac{(}{P B =} ) 0, 7 ,$$
+
+Odpowiedź: ................................................................................................................................ .
+
+Wypełnia
+egzaminator
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$3$$`,
+    figure:null,
     statement:`A, B są zdarzeniami losowymi zawartymi w  Ω . Wykaż, że jeżeli
 
 (
@@ -10361,6 +11884,8 @@ rozwiązania zadania  ..........................................................
     number:`1`,source:`2012_dodatkowa_matematyka-2012-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2012_dod_1.jpg`,
+    latex:``,
+    figure:null,
     statement:`Rozwiąż nierówność
 x
 
@@ -10389,6 +11914,8 @@ x
     number:`2`,source:`2012_dodatkowa_matematyka-2012-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2012_dod_2.jpg`,
+    latex:``,
+    figure:null,
     statement:`Wielomian
 x
 
@@ -10449,6 +11976,8 @@ Odpowiedź: ....................................................................
     number:`3`,source:`2012_dodatkowa_matematyka-2012-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:5,
     image:`img/tasks_cke/cke_2012_dod_3.jpg`,
+    latex:``,
+    figure:null,
     statement:`Kąt  jest taki, że
 
 cos
@@ -10478,6 +12007,8 @@ Odpowiedź: ....................................................................
     number:`4`,source:`2012_dodatkowa_matematyka-2012-czerwiec-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:5,
     image:`img/tasks_cke/cke_2012_dod_4.jpg`,
+    latex:``,
+    figure:null,
     statement:`Wyznacz wszystkie wartości parametru m, dla których równanie
 
 22
@@ -10523,6 +12054,8 @@ m x m
     number:`5`,source:`2012_dodatkowa_matematyka-2012-czerwiec-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:5,
     image:`img/tasks_cke/cke_2012_dod_5.jpg`,
+    latex:``,
+    figure:null,
     statement:`W  ciągu  arytmetycznym  
 największe n takie, że
 a
@@ -10569,6 +12102,8 @@ Odpowiedź: ....................................................................
     number:`6`,source:`2012_dodatkowa_matematyka-2012-czerwiec-matura-rozszerzona.pdf`,
     category:5,categoryName:`Dowód nierówności`,points:3,
     image:`img/tasks_cke/cke_2012_dod_6.jpg`,
+    latex:``,
+    figure:null,
     statement:`Udowodnij,  że  dla  dowolnych  liczb  dodatnich  a,  b,  c  i  d  prawdziwa  jest  nierówność
 
 ac bd
@@ -10611,6 +12146,8 @@ d
     number:`7`,source:`2012_dodatkowa_matematyka-2012-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2012_dod_7.jpg`,
+    latex:``,
+    figure:null,
     statement:`Okrąg jest styczny do osi układu współrzędnych w punktach
 
 styczny do prostej l w punkcie
@@ -10652,6 +12189,8 @@ A 
     number:`8`,source:`2012_dodatkowa_matematyka-2012-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:5,
     image:`img/tasks_cke/cke_2012_dod_8.jpg`,
+    latex:``,
+    figure:null,
     statement:`W czworokącie ABCD dane są długości boków:
 
 AB 
@@ -10683,6 +12222,10 @@ DAB oraz BCD są proste. Oblicz pole tego czworokąta oraz długości jego przek
     number:`9`,source:`2012_dodatkowa_matematyka-2012-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2012_dod_9.jpg`,
+    latex:`$$\\frac{Oblicz,  ile  jest  liczb  naturalnych  trzycyfrowych  podzielnych  przez  6  lub  podzielnych}{przez 15.}$$
+
+Odpowiedź: ................................................................................................................................ .`,
+    figure:null,
     statement:`Oblicz,  ile  jest  liczb  naturalnych  trzycyfrowych  podzielnych  przez  6  lub  podzielnych
 przez 15.
 
@@ -10699,6 +12242,8 @@ Odpowiedź: ....................................................................
     number:`10`,source:`2012_dodatkowa_matematyka-2012-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2012_dod_10.jpg`,
+    latex:``,
+    figure:null,
     statement:`Na płaszczyźnie dane są punkty
 
 A
@@ -10757,6 +12302,8 @@ Odpowiedź: ....................................................................
     number:`11`,source:`2012_dodatkowa_matematyka-2012-czerwiec-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:5,
     image:`img/tasks_cke/cke_2012_dod_11.jpg`,
+    latex:``,
+    figure:null,
     statement:`Podstawą  ostrosłupa  ABCS  jest  trójkąt  równoramienny  ABC,  w  którym
 
 AB 
@@ -10789,6 +12336,8 @@ ostrosłupa.`,
     number:`12`,source:`2012_dodatkowa_matematyka-2012-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2012_dod_12.jpg`,
+    latex:``,
+    figure:null,
     statement:`Zdarzenia losowe A, B są zawarte w    oraz
 
 
@@ -10832,6 +12381,9 @@ przeciwne do zdarzenia B).
     number:`1`,source:`2012_matura_matematyka-2012-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:4,
     image:`img/tasks_cke/cke_2012_1.jpg`,
+    latex:`Wyznacz  cztery  kolejne  liczby  całkowite  takie,  że  największa  z  nich  jest  równa  sumie
+kwadratów trzech pozostałych liczb.`,
+    figure:null,
     statement:`Wyznacz  cztery  kolejne  liczby  całkowite  takie,  że  największa  z  nich  jest  równa  sumie
 kwadratów trzech pozostałych liczb.`,
     options:null,correctAnswer:null,
@@ -10918,6 +12470,8 @@ Zatem szukane licz`,explanation:``}]
     number:`2`,source:`2012_matura_matematyka-2012-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2012_2.jpg`,
+    latex:``,
+    figure:null,
     statement:`x
 Rozwiąż nierówność
 
@@ -10998,6 +12552,8 @@ x x
     number:`3`,source:`2012_matura_matematyka-2012-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2012_3.jpg`,
+    latex:``,
+    figure:null,
     statement:`Rozwiąż równanie  cos 2
 
 x
@@ -11100,6 +12656,8 @@ t `,explanation:``}]
     number:`4`,source:`2012_matura_matematyka-2012-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:6,
     image:`img/tasks_cke/cke_2012_4.jpg`,
+    latex:``,
+    figure:null,
     statement:`Oblicz  wszystkie  wartości  parametru  m,  dla  których  równanie
 
 2
@@ -11414,6 +12972,11 @@ m
     number:`5`,source:`2012_matura_matematyka-2012-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:6,
     image:`img/tasks_cke/cke_2012_5.jpg`,
+    latex:`Trzy liczby tworzą ciąg geometryczny. Jeżeli do drugiej liczby dodamy 8, to ciąg ten zmieni
+się w arytmetyczny. Jeżeli zaś do ostatniej liczby nowego ciągu arytmetycznego dodamy 64,
+to  tak  otrzymany  ciąg  będzie  znów  geometryczny.  Znajdź  te  liczby.  Uwzględnij  wszystkie
+możliwości.`,
+    figure:null,
     statement:`Trzy liczby tworzą ciąg geometryczny. Jeżeli do drugiej liczby dodamy 8, to ciąg ten zmieni
 się w arytmetyczny. Jeżeli zaś do ostatniej liczby nowego ciągu arytmetycznego dodamy 64,
 to  tak  otrzymany  ciąg  będzie  znów  geometryczny.  Znajdź  te  liczby.  Uwzględnij  wszystkie
@@ -11484,6 +13047,8 @@ jest  geometryczny,  więc
     number:`6`,source:`2012_matura_matematyka-2012-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:6,
     image:`img/tasks_cke/cke_2012_6.jpg`,
+    latex:``,
+    figure:null,
     statement:`W  układzie  współrzędnych  rozważmy  wszystkie  punkty  P  postaci:
 
 P
@@ -11697,6 +13262,8 @@ Ponieważ 10
     number:`7`,source:`2012_matura_matematyka-2012-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2012_7.jpg`,
+    latex:``,
+    figure:null,
     statement:`Udowodnij, że jeżeli
 
 a b  , to prawdziwa jest nierówność
@@ -11847,6 +13414,19 @@ Schemat oceniania rozwiązania`,explanation:``}]
     number:`8`,source:`2012_matura_matematyka-2012-maj-matura-rozszerzona.pdf`,
     category:14,categoryName:`Kombinatoryka`,points:4,
     image:`img/tasks_cke/cke_2012_8.jpg`,
+    latex:`Oblicz,  ile  jest  liczb  naturalnych  ośmiocyfrowych  takich,  że  iloczyn  cyfr  w  ich  zapisie
+dziesiętnym jest równy 12.
+
+Odpowiedź: ................................................................................................................................ .
+
+Wypełnia
+egzaminator
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$3 4$$`,
+    figure:null,
     statement:`Oblicz,  ile  jest  liczb  naturalnych  ośmiocyfrowych  takich,  że  iloczyn  cyfr  w  ich  zapisie
 dziesiętnym jest równy 12.
 
@@ -11896,6 +13476,8 @@ sposobów.
     number:`9`,source:`2012_matura_matematyka-2012-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:5,
     image:`img/tasks_cke/cke_2012_9.jpg`,
+    latex:``,
+    figure:null,
     statement:`Dany jest prostokąt ABCD, w którym  AB a ,  BC b  i  a
 trójkąta DAB opuszczoną na jego bok BD. Wyraź pole trójkąta AED za pomocą a i b.
 
@@ -12036,6 +13618,8 @@ II sposób rozwi`,explanation:``}]
     number:`10`,source:`2012_matura_matematyka-2012-maj-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:5,
     image:`img/tasks_cke/cke_2012_10.jpg`,
+    latex:``,
+    figure:null,
     statement:`Podstawą  ostrosłupa  ABCS  jest  trójkąt  równoramienny  ABC.  Krawędź  AS  jest  wysokością
 ostrosłupa oraz
 CS 
@@ -12129,6 +13713,8 @@ h 
     number:`11`,source:`2012_matura_matematyka-2012-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2012_11.jpg`,
+    latex:``,
+    figure:null,
     statement:`Zdarzenia  losowe  A,  B  są  zawarte  w     oraz
 przeciwne do zdarzenia  A ,
  0,3
@@ -12240,6 +13826,8 @@ Rozwiązanie, w którym jest istotny postęp ...................................
     number:`1`,source:`2013_matura_matematyka-2013-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2013_1.jpg`,
+    latex:``,
+    figure:null,
     statement:`Rozwiąż nierówność  2
 
 x
@@ -12345,6 +13933,8 @@ r`,explanation:``}]
     number:`2`,source:`2013_matura_matematyka-2013-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:4,
     image:`img/tasks_cke/cke_2013_2.jpg`,
+    latex:``,
+    figure:null,
     statement:`Trapez równoramienny ABCD o podstawach AB i CD jest opisany na okręgu o promieniu r.
 Wykaż, że
 
@@ -12447,6 +14037,9 @@ Kryteria ocenia`,explanation:``}]
     number:`3`,source:`2013_matura_matematyka-2013-maj-matura-rozszerzona.pdf`,
     category:14,categoryName:`Kombinatoryka`,points:3,
     image:`img/tasks_cke/cke_2013_3.jpg`,
+    latex:`Oblicz,  ile  jest  liczb  naturalnych  sześciocyfrowych,  w  zapisie  których  występuje  dokładnie
+trzy razy cyfra 0 i dokładnie raz występuje cyfra 5.`,
+    figure:null,
     statement:`Oblicz,  ile  jest  liczb  naturalnych  sześciocyfrowych,  w  zapisie  których  występuje  dokładnie
 trzy razy cyfra 0 i dokładnie raz występuje cyfra 5.`,
     options:null,correctAnswer:null,
@@ -12476,6 +14069,8 @@ różne od 0 i różne od 5.
     number:`4`,source:`2013_matura_matematyka-2013-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2013_4.jpg`,
+    latex:``,
+    figure:null,
     statement:`Rozwiąż równanie  cos 2
 
 x
@@ -12610,6 +14205,8 @@ Zapisujemy odpow`,explanation:``}]
     number:`5`,source:`2013_matura_matematyka-2013-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:5,
     image:`img/tasks_cke/cke_2013_5.jpg`,
+    latex:``,
+    figure:null,
     statement:`Ciąg liczbowy  
 ,
 ,
@@ -12746,6 +14343,8 @@ b`,explanation:``}]
     number:`6`,source:`2013_matura_matematyka-2013-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:6,
     image:`img/tasks_cke/cke_2013_6.jpg`,
+    latex:``,
+    figure:null,
     statement:`Wyznacz wszystkie wartości parametru m, dla których równanie
 
 2
@@ -12941,6 +14540,8 @@ m m
     number:`7`,source:`2013_matura_matematyka-2013-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2013_7.jpg`,
+    latex:``,
+    figure:null,
     statement:`Prosta  o  równaniu  3
 x
 
@@ -13044,6 +14645,8 @@ Jest to też długość odcinka SC, gdzie C jest środkiem cięciwy AB. P`,expla
     number:`8`,source:`2013_matura_matematyka-2013-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2013_8.jpg`,
+    latex:``,
+    figure:null,
     statement:`Reszta z dzielenia wielomianu
 
  
@@ -13155,6 +14758,8 @@ Stąd
     number:`9`,source:`2013_matura_matematyka-2013-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:5,
     image:`img/tasks_cke/cke_2013_9.jpg`,
+    latex:``,
+    figure:null,
     statement:`Dany  jest  trójkąt  ABC,  w  którym
 
 AC 
@@ -13281,6 +14886,10 @@ h
     number:`10`,source:`2013_matura_matematyka-2013-maj-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:4,
     image:`img/tasks_cke/cke_2013_10.jpg`,
+    latex:`W  ostrosłupie  ABCS  podstawa  ABC  jest  trójkątem  równobocznym  o  boku  długości  a.
+Krawędź  AS  jest  prostopadła  do  płaszczyzny  podstawy.  Odległość  wierzchołka  A  od ściany
+BCS jest równa d. Wyznacz objętość tego ostrosłupa.`,
+    figure:null,
     statement:`W  ostrosłupie  ABCS  podstawa  ABC  jest  trójkątem  równobocznym  o  boku  długości  a.
 Krawędź  AS  jest  prostopadła  do  płaszczyzny  podstawy.  Odległość  wierzchołka  A  od ściany
 BCS jest równa d. Wyznacz objętość tego ostrosłupa.`,
@@ -13386,6 +14995,10 @@ Kryteria oceniania odpowiedzi – poziom rozsz`,explanation:``}]
     number:`11`,source:`2013_matura_matematyka-2013-maj-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:4,
     image:`img/tasks_cke/cke_2013_11.jpg`,
+    latex:`Rzucamy  cztery  razy  symetryczną  sześcienną  kostką  do  gry.  Oblicz  prawdopodobieństwo
+zdarzenia polegającego na tym, że iloczyn liczb oczek otrzymanych we wszystkich czterech
+rzutach będzie równy  60 .`,
+    figure:null,
     statement:`Rzucamy  cztery  razy  symetryczną  sześcienną  kostką  do  gry.  Oblicz  prawdopodobieństwo
 zdarzenia polegającego na tym, że iloczyn liczb oczek otrzymanych we wszystkich czterech
 rzutach będzie równy  60 .`,
@@ -13416,6 +15029,8 @@ zdarzeń elementarnych tego doświadczenia jest
     number:`12`,source:`2013_matura_matematyka-2013-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:3,
     image:`img/tasks_cke/cke_2013_12.jpg`,
+    latex:``,
+    figure:null,
     statement:`Na rysunku przedstawiony jest fragment wykresu funkcji logarytmicznej f określonej wzorem
  
 f x
@@ -13587,6 +15202,8 @@ dan`,explanation:``}]
     number:`1`,source:`2014_matura_matematyka-2014-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2014_1.jpg`,
+    latex:``,
+    figure:null,
     statement:`Dana  jest  funkcja  f  określona  wzorem
 
 f x
@@ -13661,6 +15278,8 @@ symbolu wartości bezwzględnej. Wówczas
     number:`2`,source:`2014_matura_matematyka-2014-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:6,
     image:`img/tasks_cke/cke_2014_2.jpg`,
+    latex:``,
+    figure:null,
     statement:`Wyznacz  wszystkie  wartości  parametru  m,  dla  których
 xf
 )(
@@ -13794,6 +15413,8 @@ kwadratowej. Obliczanie odległości punktu`,explanation:``}]
     number:`3`,source:`2014_matura_matematyka-2014-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2014_3.jpg`,
+    latex:``,
+    figure:null,
     statement:`3
 Rozwiąż równanie
 
@@ -13946,6 +15567,8 @@ sin
     number:`4`,source:`2014_matura_matematyka-2014-maj-matura-rozszerzona.pdf`,
     category:5,categoryName:`Dowód nierówności`,points:3,
     image:`img/tasks_cke/cke_2014_4.jpg`,
+    latex:``,
+    figure:null,
     statement:`Udowodnij,  że  dla  każdych  dwóch  liczb  rzeczywistych  dodatnich
 
 yx,
@@ -14096,6 +15719,11 @@ xy
     number:`5`,source:`2014_matura_matematyka-2014-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:5,
     image:`img/tasks_cke/cke_2014_5.jpg`,
+    latex:`Dane są trzy okręgi o środkach A, B, C i promieniach równych odpowiednio r, 2r, 3r. Każde
+dwa z tych okręgów są zewnętrznie styczne: pierwszy z drugim w punkcie K, drugi z trzecim
+w punkcie L i trzeci z pierwszym w punkcie M. Oblicz stosunek pola trójkąta KLM do pola
+trójkąta ABC.`,
+    figure:null,
     statement:`Dane są trzy okręgi o środkach A, B, C i promieniach równych odpowiednio r, 2r, 3r. Każde
 dwa z tych okręgów są zewnętrznie styczne: pierwszy z drugim w punkcie K, drugi z trzecim
 w punkcie L i trzeci z pierwszym w punkcie M. Oblicz stosunek pola trójkąta KLM do pola
@@ -14123,6 +15751,8 @@ umieszczonych w kontekście praktycznym. (III.7.`,explanation:``}]
     number:`6`,source:`2014_matura_matematyka-2014-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:3,
     image:`img/tasks_cke/cke_2014_6.jpg`,
+    latex:``,
+    figure:null,
     statement:`Trójkąt  ABC  jest  wpisany  w  okrąg  o  środku  S.  Kąty  wewnętrzne  CAB,  ABC  i  BCA  tego
 trójkąta  są  równe,  odpowiednio,  ,  2  i  4 .  Wykaż,  że  trójkąt  ABC  jest  rozwartokątny,
 i udowodnij,  że  miary  wypukłych  kątów  środkowych  ASB,  ASC  i  BSC  tworzą  w  podanej
@@ -14155,6 +15785,8 @@ Suma kątów trójkąta`,explanation:``}]
     number:`7`,source:`2014_matura_matematyka-2014-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:6,
     image:`img/tasks_cke/cke_2014_7.jpg`,
+    latex:``,
+    figure:null,
     statement:`Ciąg  geometryczny  
 na   ma  100  wyrazów  i  są  one  liczbami  dodatnimi.  Suma  wszystkich
 wyrazów  o  numerach  nieparzystych  jest  sto  razy  większa  od  sumy  wszystkich  wyrazów
@@ -14260,6 +15892,8 @@ wyrazów ciągu arytmetycznego i ciągu geometrycznego.
     number:`8`,source:`2014_matura_matematyka-2014-maj-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:4,
     image:`img/tasks_cke/cke_2014_8.jpg`,
+    latex:``,
+    figure:null,
     statement:`Punkty  A,  B,  C,  D,  E,  F  są  kolejnymi  wierzchołkami  sześciokąta  foremnego,  przy  czym
 32,0A
 
@@ -14327,6 +15961,10 @@ Kr`,explanation:``}]
     number:`9`,source:`2014_matura_matematyka-2014-maj-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:6,
     image:`img/tasks_cke/cke_2014_9.jpg`,
+    latex:`Oblicz objętość ostrosłupa trójkątnego ABCS, którego siatkę przedstawiono na rysunku.
+
+$$65 C 40 40 65 A 48 B 65$$`,
+    figure:null,
     statement:`Oblicz objętość ostrosłupa trójkątnego ABCS, którego siatkę przedstawiono na rysunku.
 
 65
@@ -14394,6 +16032,8 @@ A
     number:`10`,source:`2014_matura_matematyka-2014-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:5,
     image:`img/tasks_cke/cke_2014_10.jpg`,
+    latex:``,
+    figure:null,
     statement:`Wyznacz  wszystkie
 
 2
@@ -14540,6 +16180,20 @@ Pozostałe pierwiastki wielomianu równania to pierwiastk`,explanation:``}]
     number:`11`,source:`2014_matura_matematyka-2014-maj-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:4,
     image:`img/tasks_cke/cke_2014_11.jpg`,
+    latex:`Z  urny  zawierającej  10  kul  ponumerowanych  kolejnymi  liczbami  od  1  do  10  losujemy
+jednocześnie  trzy  kule.  Oblicz  prawdopodobieństwo  zdarzenia  A  polegającego  na  tym,  że
+numer jednej z wylosowanych kul jest równy sumie numerów dwóch pozostałych kul.
+
+Odpowiedź: ................................................................................................................................. .
+
+Wypełnia
+egzaminator
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$4$$`,
+    figure:null,
     statement:`Z  urny  zawierającej  10  kul  ponumerowanych  kolejnymi  liczbami  od  1  do  10  losujemy
 jednocześnie  trzy  kule.  Oblicz  prawdopodobieństwo  zdarzenia  A  polegającego  na  tym,  że
 numer jednej z wylosowanych kul jest równy sumie numerów dwóch pozostałych kul.
@@ -14574,6 +16228,35 @@ Mamy do czynien`,explanation:``}]
     number:`1`,source:`2015_matura_matematyka-2015-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2015_1.jpg`,
+    latex:`Na  rysunku  przedstawiony
+nierówność  2
+
+$$\\frac{x - \\leq}{8} 10 .$$
+
+jest  zbiór  wszystkich
+
+liczb  rzeczywistych  spełniających
+
+$$k x$$
+
+B.
+
+$$\\frac{k =}{4}$$
+
+C.
+
+$$\\frac{k =}{5}$$
+
+D.
+
+$$\\frac{k =}{9}$$
+
+Stąd wynika, że
+k =
+2
+
+A.`,
+    figure:null,
     statement:`Na  rysunku  przedstawiony
 nierówność  2
 
@@ -14666,6 +16349,8 @@ reprezentacji.`,explanation:``}]
     number:`2`,source:`2015_matura_matematyka-2015-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2015_2.jpg`,
+    latex:``,
+    figure:null,
     statement:`−
 
 x
@@ -14727,6 +16412,26 @@ bezwzględną (R3.9).`,explanation:``}]
     number:`3`,source:`2015_matura_matematyka-2015-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2015_3.jpg`,
+    latex:`$$)^{3} Liczba ($$
+
+A.
+
+$$\\frac{24}{3}$$
+
+jest równa
+
+B.
+
+$$30 3$$
+
+C.
+
+$$78 3$$
+
+D.
+
+$$30 3$$`,
+    figure:null,
     statement:`)3
 
 Liczba (
@@ -14778,6 +16483,18 @@ reprezentacji.`,explanation:``}]
     number:`4`,source:`2015_matura_matematyka-2015-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:1,
     image:`img/tasks_cke/cke_2015_4.jpg`,
+    latex:`Równanie  2sin
+
+$$x + 3cos x =  w przedziale ( 6 \\frac{)}{0, 2\\pi}$$
+
+A. nie ma rozwiązań rzeczywistych.
+
+B. ma dokładnie jedno rozwiązanie rzeczywiste.
+
+C. ma dokładnie dwa rozwiązania rzeczywiste.
+
+D. ma więcej niż dwa rozwiązania rzeczywiste.`,
+    figure:null,
     statement:`Równanie  2sin
 
 x
@@ -14817,6 +16534,26 @@ reprezentacji.`,explanation:``}]
     number:`5`,source:`2015_matura_matematyka-2015-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:1,
     image:`img/tasks_cke/cke_2015_5.jpg`,
+    latex:`Odległość początku układu współrzędnych od prostej o równaniu
+
+$$y = x 2 + 4$$
+
+jest równa
+
+A.
+
+$$\\frac{5}{5}$$
+
+B.
+
+$$\\frac{54}{5}$$
+
+C.
+
+$$\\frac{4}{5}$$
+
+D.  4`,
+    figure:null,
     statement:`Odległość początku układu współrzędnych od prostej o równaniu
 
 y
@@ -14873,6 +16610,8 @@ Zdający oblicza odległość punktu od prostej
     number:`6`,source:`2015_matura_matematyka-2015-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:2,
     image:`img/tasks_cke/cke_2015_6.jpg`,
+    latex:``,
+    figure:null,
     statement:`Oblicz  granicę
 
 2
@@ -15019,6 +16758,30 @@ oraz z twierdzeń o działaniach na
     number:`7`,source:`2015_matura_matematyka-2015-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:2,
     image:`img/tasks_cke/cke_2015_7.jpg`,
+    latex:`$$Liczby ($$
+
+)1-  i  3  są miejscami zerowymi funkcji kwadratowej
+
+.f  Oblicz
+
+( )
+6
+(
+)
+12
+
+$$\\frac{f}{f} .$$
+
+Odpowiedź:  ................................................................................................................................  .
+
+Wypełnia
+egzaminator
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$2 2$$`,
+    figure:null,
     statement:`Liczby (
 
 )1−  i  3  są miejscami zerowymi funkcji kwadratowej
@@ -15125,6 +16888,10 @@ Zdający otrzymuje .................................`,explanation:``}]
     number:`8`,source:`2015_matura_matematyka-2015-maj-matura-rozszerzona.pdf`,
     category:5,categoryName:`Dowód nierówności`,points:3,
     image:`img/tasks_cke/cke_2015_8.jpg`,
+    latex:`Udowodnij, że dla każdej liczby rzeczywistej x prawdziwa jest nierówność
+
+$$4 x 2 2 x x \\frac{+ > .}{3 0}$$`,
+    figure:null,
     statement:`Udowodnij, że dla każdej liczby rzeczywistej x prawdziwa jest nierówność
 
 4
@@ -15236,6 +17003,15 @@ Lewa  strona  tej  nierówności  jest  sumą  tr`,explanation:``}]
     number:`9`,source:`2015_matura_matematyka-2015-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:3,
     image:`img/tasks_cke/cke_2015_9.jpg`,
+    latex:`Dwusieczne  czworokąta  ABCD  wpisanego  w  okrąg  przecinają  się  w  czterech  różnych
+punktach: P, Q, R, S (zobacz rysunek).
+
+$$A S D P R Q B$$
+
+Wykaż, że na czworokącie PQRS można opisać okrąg.
+
+$$C$$`,
+    figure:null,
     statement:`Dwusieczne  czworokąta  ABCD  wpisanego  w  okrąg  przecinają  się  w  czterech  różnych
 punktach: P, Q, R, S (zobacz rysunek).
 
@@ -15357,6 +17133,14 @@ BCR
     number:`10`,source:`2015_matura_matematyka-2015-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2015_10.jpg`,
+    latex:`Długości  boków  czworokąta  ABCD   są  równe:
+
+$$AB = , 2 \\frac{BC = ,}{3} CD = , 4 DA = . 5$$
+
+Na czworokącie  ABCD  opisano okrąg. Oblicz długość przekątnej  AC  tego czworokąta.
+
+Odpowiedź:  ................................................................................................................................  .`,
+    figure:null,
     statement:`Długości  boków  czworokąta  ABCD   są  równe:
 
 AB = ,
@@ -15442,6 +17226,22 @@ D`,explanation:``}]
     number:`11`,source:`2015_matura_matematyka-2015-maj-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:4,
     image:`img/tasks_cke/cke_2015_11.jpg`,
+    latex:`W pierwszej urnie umieszczono 3 kule białe i 5 kul czarnych, a w drugiej urnie 7 kul białych
+i 2 kule  czarne.  Losujemy  jedną  kulę  z  pierwszej  urny,  przekładamy  ją  do  urny  drugiej
+i dodatkowo  dokładamy  do  urny  drugiej  jeszcze  dwie  kule  tego  samego  koloru,  co
+wylosowana kula. Następnie losujemy dwie kule z urny drugiej. Oblicz prawdopodobieństwo
+zdarzenia polegającego na tym, że obie kule wylosowane z drugiej urny będą białe.
+
+Odpowiedź:  ................................................................................................................................  .
+
+Wypełnia
+egzaminator
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$4 4$$`,
+    figure:null,
     statement:`W pierwszej urnie umieszczono 3 kule białe i 5 kul czarnych, a w drugiej urnie 7 kul białych
 i 2 kule  czarne.  Losujemy  jedną  kulę  z  pierwszej  urny,  przekładamy  ją  do  urny  drugiej
 i dodatkowo  dokładamy  do  urny  drugiej  jeszcze  dwie  kule  tego  samego  koloru,  co
@@ -15470,6 +17270,22 @@ i kombinatoryka. Zdający korzysta z twier`,explanation:``}]
     number:`12`,source:`2015_matura_matematyka-2015-maj-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:4,
     image:`img/tasks_cke/cke_2015_12.jpg`,
+    latex:`Funkcja
+1
+Wyznacz  równania  tych  stycznych  do wykresu  funkcji
+o równaniu
+
+$$\\frac{x=}{4}$$
+
+xf
+)(
+
+$$+ = 2 x x y . 2 3$$
+
+  dla  każdej  liczby  rzeczywistej  x.
+,f
+  które  są  równoległe  do prostej`,
+    figure:null,
     statement:`Funkcja
 1
 Wyznacz  równania  tych  stycznych  do wykresu  funkcji
@@ -15557,6 +17373,28 @@ Aby  styczne  były  równoległe  do  prostej  o`,explanation:``}]
     number:`13`,source:`2015_matura_matematyka-2015-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:5,
     image:`img/tasks_cke/cke_2015_13.jpg`,
+    latex:`(
+Dany  jest  trójmian  kwadratowy
+m
+wartości  parametru  m,  dla  których  trójmian  f  ma  dwa  różne  pierwiastki  rzeczywiste
+
+.  Wyznacz  wszystkie
+2x ,
+
+)
+mx
+
+$$( m 2 ) x 1$$
+
+xf
+)(
+
+$$1x , = + + + 2 4 2$$
+
+spełniające warunek
+
+$$2 \\frac{x}{1} 2 \\frac{x}{2} = 4 x 1 4 \\frac{x}{2} .$$`,
+    figure:null,
     statement:`(
 Dany  jest  trójmian  kwadratowy
 m
@@ -15736,6 +17574,10 @@ m ≠ − .
     number:`14`,source:`2015_matura_matematyka-2015-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:5,
     image:`img/tasks_cke/cke_2015_14.jpg`,
+    latex:`Podstawą  ostrosłupa  ABCDS   jest  kwadrat  ABCD.  Krawędź  boczna  SD   jest  wysokością
+ostrosłupa, a jej długość jest dwa razy większa od długości krawędzi podstawy. Oblicz sinus
+kąta między ścianami bocznymi ABS i CBS tego ostrosłupa.`,
+    figure:null,
     statement:`Podstawą  ostrosłupa  ABCDS   jest  kwadrat  ABCD.  Krawędź  boczna  SD   jest  wysokością
 ostrosłupa, a jej długość jest dwa razy większa od długości krawędzi podstawy. Oblicz sinus
 kąta między ścianami bocznymi ABS i CBS tego ostrosłupa.`,
@@ -15787,6 +17629,26 @@ Trójkąty  ADS  i  CDS  są  przystające`,explanation:``}]
     number:`15`,source:`2015_matura_matematyka-2015-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:6,
     image:`img/tasks_cke/cke_2015_15.jpg`,
+    latex:`Suma  wszystkich  czterech  współczynników  wielomianu
+
+xW
+)(
+
+$$= 3 x + 2$$
+
+ax
+
+$$+$$
+
+bx
+
+$$+ c$$
+
+jest
+
+równa 0.  Trzy  pierwiastki  tego  wielomianu  tworzą  ciąg  arytmetyczny  o  różnicy  równej  3.
+Oblicz współczynniki  a ,  b  i  c . Rozważ wszystkie możliwe przypadki.`,
+    figure:null,
     statement:`Suma  wszystkich  czterech  współczynników  wielomianu
 
 xW
@@ -15893,6 +17755,10 @@ x`,explanation:``}]
     number:`16`,source:`2015_matura_matematyka-2015-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:7,
     image:`img/tasks_cke/cke_2015_16.jpg`,
+    latex:`Rozpatrujemy  wszystkie  stożki,  których  przekrojem  osiowym  jest  trójkąt  o  obwodzie  20.
+Oblicz  wysokość  i  promień  podstawy  tego  stożka,  którego  objętość  jest  największa.  Oblicz
+objętość tego stożka.`,
+    figure:null,
     statement:`Rozpatrujemy  wszystkie  stożki,  których  przekrojem  osiowym  jest  trójkąt  o  obwodzie  20.
 Oblicz  wysokość  i  promień  podstawy  tego  stożka,  którego  objętość  jest  największa.  Oblicz
 objętość tego stożka.`,
@@ -15940,6 +17806,35 @@ r`,explanation:``}]
     number:`1`,source:`2016_dodatkowa_matematyka-2016-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2016_dod_1.jpg`,
+    latex:`Funkcja  f  określona jest wzorem
+
+( )
+f x
+
+wartości funkcji f  jest
+
+$$= + \\frac{3}{3 5} x$$
+
+-  dla każdej liczby rzeczywistej. Zbiorem
+
+$$1$$
+
+A.
+
+$$( \\frac{)}{2, +\\infty}$$
+
+B.
+
+$$1,3$$
+
+C.
+
+$$\\frac{)}{1,- +\\infty}$$
+
+D.
+
+$$( \\frac{)}{0, +\\infty}$$`,
+    figure:null,
     statement:`Funkcja  f  określona jest wzorem
 
 ( )
@@ -15993,6 +17888,28 @@ D.
     number:`2`,source:`2016_dodatkowa_matematyka-2016-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2016_dod_2.jpg`,
+    latex:`Wartość wyrażenia
+
+$$\\frac{2}{sin 75} ° - \\frac{2}{cos 75}$$
+
+°  jest równa
+
+A.
+
+$$\\frac{1}{2}$$
+
+B.
+
+$$\\frac{1}{2}$$
+
+C.
+
+$$\\frac{3}{2}$$
+
+D.
+
+$$\\frac{3}{2}$$`,
+    figure:null,
     statement:`Wartość wyrażenia
 
 2
@@ -16039,6 +17956,8 @@ D.
     number:`3`,source:`2016_dodatkowa_matematyka-2016-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:1,
     image:`img/tasks_cke/cke_2016_dod_3.jpg`,
+    latex:``,
+    figure:null,
     statement:`W  trapezie  ABCD  o  podstawach  AB  i  CD  dane  są:
 
 AD = ,
@@ -16123,6 +18042,26 @@ AB =
     number:`4`,source:`2016_dodatkowa_matematyka-2016-czerwiec-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:1,
     image:`img/tasks_cke/cke_2016_dod_4.jpg`,
+    latex:`W  ostrosłupie  prawidłowym  czworokątnym  wszystkie  krawędzie  mają  jednakową  długość.
+Wynika  stąd,  że  cosinus  kąta  nachylenia  ściany  bocznej  do  płaszczyzny  podstawy  tego
+ostrosłupa jest równy
+
+A.
+
+$$\\frac{3}{3}$$
+
+B.
+
+$$\\frac{3}{2}$$
+
+C.
+
+$$\\frac{1}{2}$$
+
+D.
+
+$$\\frac{1}{3}$$`,
+    figure:null,
     statement:`W  ostrosłupie  prawidłowym  czworokątnym  wszystkie  krawędzie  mają  jednakową  długość.
 Wynika  stąd,  że  cosinus  kąta  nachylenia  ściany  bocznej  do  płaszczyzny  podstawy  tego
 ostrosłupa jest równy
@@ -16158,6 +18097,26 @@ D.
     number:`5`,source:`2016_dodatkowa_matematyka-2016-czerwiec-matura-rozszerzona.pdf`,
     category:2,categoryName:`Granica ciągu i funkcji`,points:1,
     image:`img/tasks_cke/cke_2016_dod_5.jpg`,
+    latex:`Granica
+
+$$\\lim_{\\to\\infty}$$
+
+A.  -\\infty
+
+$$3 7 n + n \\frac{n}{3} + 3 n 2 + \\frac{+}{1 2}$$
+
+jest równa
+
+$$5 4 n$$
+
+B.
+
+$$\\frac{7}{4}$$
+
+C.  0
+
+D.  + \\infty`,
+    figure:null,
     statement:`Granica
 
 lim
@@ -16216,6 +18175,17 @@ D.  + ∞`,
     number:`6`,source:`2016_dodatkowa_matematyka-2016-czerwiec-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:2,
     image:`img/tasks_cke/cke_2016_dod_6.jpg`,
+    latex:`Dany  jest  nieskończony  ciąg  geometryczny  (
+1n \\geq ,  w  którym  iloraz  jest
+na
+równy pierwszemu wyrazowi, a suma wszystkich wyrazów tego ciągu jest równa 12. Oblicz
+pierwszy  wyraz  tego  ciągu.  Zakoduj  kolejno  pierwsze  trzy cyfry  po  przecinku  otrzymanego
+wyniku.
+
+określony  dla
+
+$$)$$`,
+    figure:null,
     statement:`Dany  jest  nieskończony  ciąg  geometryczny  (
 1n ≥ ,  w  którym  iloraz  jest
 na
@@ -16238,6 +18208,25 @@ wyniku.
     number:`7`,source:`2016_dodatkowa_matematyka-2016-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:2,
     image:`img/tasks_cke/cke_2016_dod_7.jpg`,
+    latex:`Dane są zdarzenia losowe
+
+,A B ⊂ \\Omega takie, że
+
+2
+7
+\\B A  oznacza różnicę zdarzeń  B  i  A . Zakoduj kolejno pierwsze trzy cyfry
+
+$$3 P A B∪ = . Oblicz 5 \\frac{)}{P A =  i}$$
+
+)
+P B A ,
+\\
+
+$$( ( ( )$$
+
+gdzie zdarzenie
+po przecinku rozwinięcia dziesiętnego otrzymanego wyniku.`,
+    figure:null,
     statement:`Dane są zdarzenia losowe
 
 ,A B ⊂ Ω takie, że
@@ -16279,6 +18268,23 @@ po przecinku rozwinięcia dziesiętnego otrzymanego wyniku.`,
     number:`8`,source:`2016_dodatkowa_matematyka-2016-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2016_dod_8.jpg`,
+    latex:`a b c d >  prawdziwa jest nierówność  a b
++ \\cdot
+,
+Wykaż, że dla
+
+$$0 , , + \\geq$$
+
+c d
+
+$$+$$
+
+ac
+
+bd
+
+$$.$$`,
+    figure:null,
     statement:`a b c d >  prawdziwa jest nierówność  a b
 + ⋅
 ,
@@ -16313,6 +18319,10 @@ bd
     number:`9`,source:`2016_dodatkowa_matematyka-2016-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2016_dod_9.jpg`,
+    latex:`Rozwiąż nierówność
+
+$$2 x 3 x \\frac{\\geq+}{2} x 1 .$$`,
+    figure:null,
     statement:`Rozwiąż nierówność
 
 2
@@ -16347,6 +18357,30 @@ x
     number:`10`,source:`2016_dodatkowa_matematyka-2016-czerwiec-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:3,
     image:`img/tasks_cke/cke_2016_dod_10.jpg`,
+    latex:`)
+Dany jest ciąg  (
+1\\geqn
+każdej liczby
+(
+na  i ustal, czy ciąg ten jest malejący.
+
+$$)$$
+
+na  określony dla każdej liczby całkowitej
+-+
+n
+
+prawdziwa jest równość
+
+$$=+ a a n 1 n \\frac{1\\geqn}{4}$$
+
+, w którym
+
+a =  oraz dla
+. Oblicz pierwszy wyraz ciągu
+
+$$4 4$$`,
+    figure:null,
     statement:`)
 Dany jest ciąg  (
 1≥n
@@ -16397,6 +18431,15 @@ a =  oraz dla
     number:`11`,source:`2016_dodatkowa_matematyka-2016-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2016_dod_11.jpg`,
+    latex:`Dany  jest  sześcian  ABCDEFGH.  Przez  wierzchołki  A  i  C  oraz  środek  K  krawędzi  BF
+poprowadzono płaszczyznę, która przecina przekątną BH w punkcie P (zobacz rysunek).
+
+$$H G E D$$
+
+Wykaż, że
+
+$$\\frac{BP HP =}{:} 1: 3 \\frac{A}{.} F K P B C$$`,
+    figure:null,
     statement:`Dany  jest  sześcian  ABCDEFGH.  Przez  wierzchołki  A  i  C  oraz  środek  K  krawędzi  BF
 poprowadzono płaszczyznę, która przecina przekątną BH w punkcie P (zobacz rysunek).
 
@@ -16439,6 +18482,29 @@ BP HP =
     number:`12`,source:`2016_dodatkowa_matematyka-2016-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2016_dod_12.jpg`,
+    latex:`Liczba m jest sumą odwrotności dwóch różnych pierwiastków równania
+(
+
+01
+Wyznacz zbiór wartości funkcji określonej wzorem
+
+0\\neqk
+, gdzie
+=
+.
+)(
+2
+xf
+
+$$=+$$
+
+2
+xk
+
+$$)^{1} + . x k m 2$$
+
+Odpowiedź:  ................................................................................................................................  .`,
+    figure:null,
     statement:`Liczba m jest sumą odwrotności dwóch różnych pierwiastków równania
 (
 
@@ -16487,6 +18553,19 @@ Odpowiedź:  ...................................................................
     number:`13`,source:`2016_dodatkowa_matematyka-2016-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2016_dod_13.jpg`,
+    latex:`Rozwiąż nierówność (
+
+$$2 sin x$$
+
+)(
+3 2 sin
+
+$$+ \\frac{)}{1} x >  w przedziale 0$$
+
+x \\in
+
+$$(0, 2\\pi) .$$`,
+    figure:null,
     statement:`Rozwiąż nierówność (
 
 2 sin
@@ -16526,6 +18605,14 @@ x ∈
     number:`14`,source:`2016_dodatkowa_matematyka-2016-czerwiec-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2016_dod_14.jpg`,
+    latex:`W  trójkącie  prostokątnym  stosunek  różnicy  długości  przyprostokątnych  do  długości
+
+przeciwprostokątnej jest równy
+
+$$\\frac{1}{2}$$
+
+. Oblicz cosinusy kątów ostrych tego trójkąta.`,
+    figure:null,
     statement:`W  trójkącie  prostokątnym  stosunek  różnicy  długości  przyprostokątnych  do  długości
 
 przeciwprostokątnej jest równy
@@ -16546,6 +18633,9 @@ przeciwprostokątnej jest równy
     number:`15`,source:`2016_dodatkowa_matematyka-2016-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2016_dod_15.jpg`,
+    latex:`Oblicz,  ile  jest  wszystkich  liczb  naturalnych  pięciocyfrowych,  w  których  zapisie  występują
+dokładnie trzy cyfry nieparzyste.`,
+    figure:null,
     statement:`Oblicz,  ile  jest  wszystkich  liczb  naturalnych  pięciocyfrowych,  w  których  zapisie  występują
 dokładnie trzy cyfry nieparzyste.`,
     options:null,correctAnswer:null,
@@ -16560,6 +18650,18 @@ dokładnie trzy cyfry nieparzyste.`,
     number:`16`,source:`2016_dodatkowa_matematyka-2016-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:5,
     image:`img/tasks_cke/cke_2016_dod_16.jpg`,
+    latex:`-   są  wierzchołkami  podstawy  trójkąta  równoramiennego
+A = - -   i
+7, 2
+Punkty
+ABC, a wysokość opuszczona z wierzchołka A tego trójkąta zawiera się w prostej o równaniu
+
+$$4, 7 B = ( ) ) ( 2 x + 19 y + 52$$
+
+= . Oblicz współrzędne wierzchołka C.
+
+$$0$$`,
+    figure:null,
     statement:`−   są  wierzchołkami  podstawy  trójkąta  równoramiennego
 A = − −   i
 7, 2
@@ -16607,6 +18709,9 @@ y
     number:`17`,source:`2016_dodatkowa_matematyka-2016-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:7,
     image:`img/tasks_cke/cke_2016_dod_17.jpg`,
+    latex:`Rozpatrujemy  wszystkie  walce,  których  pole  powierzchni  całkowitej  jest  równe  2\\pi .  Oblicz
+promień podstawy tego walca, który ma największą objętość. Podaj tę największą objętość.`,
+    figure:null,
     statement:`Rozpatrujemy  wszystkie  walce,  których  pole  powierzchni  całkowitej  jest  równe  2π .  Oblicz
 promień podstawy tego walca, który ma największą objętość. Podaj tę największą objętość.`,
     options:null,correctAnswer:null,
@@ -16621,6 +18726,26 @@ promień podstawy tego walca, który ma największą objętość. Podaj tę najw
     number:`1`,source:`2016_matura_matematyka-2016-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2016_1.jpg`,
+    latex:`W rozwinięciu wyrażenia (
+
+$$2 3 \\frac{y+}{4x} )^{3}$$
+
+współczynnik przy iloczynie
+
+2xy  jest równy
+
+A.
+
+$$32 3$$
+
+B.  48
+
+C.
+
+$$96 3$$
+
+D.  144`,
+    figure:null,
     statement:`W rozwinięciu wyrażenia (
 
 2 3
@@ -16669,6 +18794,22 @@ reprezentacji.`,explanation:``}]
     number:`2`,source:`2016_matura_matematyka-2016-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2016_2.jpg`,
+    latex:`Wielomian
+W x
+( )
+
+$$= 3 6 x + 2 3 x 5 x +  jest podzielny przez dwumian p$$
+
+1x -  dla p równego
+
+A.  4
+
+B.
+
+C.  2
+
+D.`,
+    figure:null,
     statement:`Wielomian
 W x
 ( )
@@ -16737,6 +18878,48 @@ dwumian x – a (R3.4).`,explanation:``}]
     number:`3`,source:`2016_matura_matematyka-2016-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2016_3.jpg`,
+    latex:`Na  rysunku  przedstawiono  fragment  wykresu  funkcji  homograficznej
+dziedziną jest zbiór
+
+$$) ) D = -\\infty ∪ + \\infty . , 3 3, ( ( y =$$
+
+)(xf
+
+,  której
+
+$$y 7 6 5 4 3 2 1 0 1 2 3 4 5 6 7 x$$
+
+Równanie
+
+( )
+f x
+
+p=  z niewiadomą x ma dokładnie jedno rozwiązanie
+
+A.  w dwóch przypadkach:
+C.  tylko wtedy, gdy
+
+$$3p = . 0=p$$
+
+lub
+
+$$3=p$$
+
+.   B.  w dwóch przypadkach:
+p = .
+2
+tylko wtedy, gdy
+
+D.
+
+$$0=p$$
+
+lub
+
+$$2=p .$$
+
+Funkcja`,
+    figure:null,
     statement:`Na  rysunku  przedstawiono  fragment  wykresu  funkcji  homograficznej
 dziedziną jest zbiór
 
@@ -16841,6 +19024,40 @@ y = f(cx) (R4.1).`,explanation:``}]
     number:`4`,source:`2016_matura_matematyka-2016-maj-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:1,
     image:`img/tasks_cke/cke_2016_4.jpg`,
+    latex:`$$3 x 2 x$$
+
+1
+4
+jest określona wzorem
+
+( )
+f x
+
+$$+ =$$
+
+jest określona dla każdej liczby rzeczywistej x. Pochodna tej funkcji
+
+A.
+
+$$′ ( ) x f = 2 + x 3 ( 2 x \\frac{2}{} + + x ) 2 4 12$$
+
+B.
+
+$$′ ( ) x f = 9 12 2 + \\frac{x}{(} 2 x \\frac{2}{} + x ) 2 4$$
+
+C.
+
+$$′ ( ) x f = 3 \\frac{x}{(} 2 2 x x \\frac{2}{} + 4 12 ) 2$$
+
+D.
+
+$$′$$
+
+( )
+x
+
+$$f = 9 \\frac{x}{(} 2 2 x x \\frac{2}{} + 4 + 12 ) 2$$`,
+    figure:null,
     statement:`3
 x
 2
@@ -17030,6 +19247,32 @@ reprezentacji.`,explanation:``}]
     number:`5`,source:`2016_matura_matematyka-2016-maj-matura-rozszerzona.pdf`,
     category:2,categoryName:`Granica ciągu i funkcji`,points:1,
     image:`img/tasks_cke/cke_2016_5.jpg`,
+    latex:`$$2 ($$
+
+pn
+
+Granica
+
+$$\\lim_{\\to\\infty} 5 n p = - 8$$
+
+A.
+
+$$)^{3} n + 4 6 4 = - \\frac{8}{5}$$
+
+. Wynika stąd, że
+
+B.
+
+$$\\frac{p =}{4}$$
+
+C.
+
+$$\\frac{p =}{2}$$
+
+D.
+
+$$\\frac{p = -}{2}$$`,
+    figure:null,
     statement:`2
 
 (
@@ -17098,6 +19341,29 @@ reprezentacji.`,explanation:``}]
     number:`6`,source:`2016_matura_matematyka-2016-maj-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:2,
     image:`img/tasks_cke/cke_2016_6.jpg`,
+    latex:`Wśród 10 tysięcy mieszkańców pewnego miasta przeprowadzono sondaż dotyczący budowy
+przedszkola publicznego. Wyniki sondażu przedstawiono w tabeli.
+
+Badane grupy
+
+Kobiety
+Mężczyźni
+
+Liczba osób popierających
+budowę przedszkola
+5140
+2260
+
+Liczba osób niepopierających
+budowy przedszkola
+1860
+740
+
+Oblicz  prawdopodobieństwo  zdarzenia  polegającego  na  tym,  że  losowo  wybrana  osoba,
+spośród  ankietowanych,  popiera  budowę  przedszkola,  jeśli  wiadomo,  że  jest  mężczyzną.
+Zakoduj  trzy  pierwsze  cyfry  po  przecinku  nieskończonego  rozwinięcia  dziesiętnego
+otrzymanego wyniku.`,
+    figure:null,
     statement:`Wśród 10 tysięcy mieszkańców pewnego miasta przeprowadzono sondaż dotyczący budowy
 przedszkola publicznego. Wyniki sondażu przedstawiono w tabeli.
 
@@ -17149,6 +19415,8 @@ D`,explanation:``}]
     number:`7`,source:`2016_matura_matematyka-2016-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:2,
     image:`img/tasks_cke/cke_2016_7.jpg`,
+    latex:``,
+    figure:null,
     statement:`Dany jest ciąg geometryczny  (
 
 )
@@ -17316,6 +19584,11 @@ tego`,explanation:``}]
     number:`8`,source:`2016_matura_matematyka-2016-maj-matura-rozszerzona.pdf`,
     category:5,categoryName:`Dowód nierówności`,points:3,
     image:`img/tasks_cke/cke_2016_8.jpg`,
+    latex:`Wykaż,  że  dla  dowolnych  dodatnich  liczb  rzeczywistych  x  i  y  takich,  że
+prawdziwa jest nierówność
+
+$$y+ \\leq . 2 x 2 x y+ 2 \\frac{= ,}{2}$$`,
+    figure:null,
     statement:`Wykaż,  że  dla  dowolnych  dodatnich  liczb  rzeczywistych  x  i  y  takich,  że
 prawdziwa jest nierówność
 
@@ -17479,6 +19752,16 @@ xy
     number:`9`,source:`2016_matura_matematyka-2016-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:3,
     image:`img/tasks_cke/cke_2016_9.jpg`,
+    latex:`Dany  jest  prostokąt  ABCD.  Okrąg  wpisany  w  trójkąt  BCD  jest  styczny  do  przekątnej  BD
+w punkcie N. Okrąg wpisany w trójkąt ABD jest styczny do boku AD w punkcie M, a środek S
+tego okręgu leży na odcinku MN, jak na rysunku.
+
+$$D M A S N C B$$
+
+Wykaż, że  MN
+
+$$AD= .$$`,
+    figure:null,
     statement:`Dany  jest  prostokąt  ABCD.  Okrąg  wpisany  w  trójkąt  BCD  jest  styczny  do  przekątnej  BD
 w punkcie N. Okrąg wpisany w trójkąt ABD jest styczny do boku AD w punkcie M, a środek S
 tego okręgu leży na odcinku MN, jak na rysunku.
@@ -17564,6 +19847,25 @@ Trójkąty  DMS  i  DES  są  prostokątne,  więc  z twierdzenia  Pitagorasa  d
     number:`10`,source:`2016_matura_matematyka-2016-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:4,
     image:`img/tasks_cke/cke_2016_10.jpg`,
+    latex:`Wyznacz  wszystkie  wartości  parametru  a ,  dla  których  wykresy  funkcji  f  i  g,  określonych
+wzorami
+,  przecinają  się  w  punkcie  o  obu  współrzędnych
+
+$$\\frac{x= -   oraz}{2}$$
+
+( ) 5
+= -
+g x
+
+( )
+f x
+
+ax
+
+dodatnich.
+
+Odpowiedź:  ................................................................................................................................  .`,
+    figure:null,
     statement:`Wyznacz  wszystkie  wartości  parametru  a ,  dla  których  wykresy  funkcji  f  i  g,  określonych
 wzorami
 ,  przecinają  się  w  punkcie  o  obu  współrzędnych
@@ -17665,6 +19967,26 @@ a
     number:`11`,source:`2016_matura_matematyka-2016-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2016_11.jpg`,
+    latex:`Rozwiąż nierówność
+
+$$2 cos$$
+
+x
+2
+cos
+
+$$x 3 <  w przedziale  0, 2\\pi . 0$$
+
+Odpowiedź:  ................................................................................................................................  .
+
+Wypełnia
+egzaminator
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$4 4$$`,
+    figure:null,
     statement:`Rozwiąż nierówność
 
 2 cos
@@ -17791,6 +20113,28 @@ W przedziale  0, 2π  rozwiązaniem tej nie`,explanation:``}]
     number:`12`,source:`2016_matura_matematyka-2016-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:6,
     image:`img/tasks_cke/cke_2016_12.jpg`,
+    latex:`jest
+Dany
+
+trójmian  kwadratowy
+
+( )
+f x
+
+$$= \\frac{+}{2 2} x ( m + \\frac{)}{1}$$
+
++
+x m
+6
+
+$$1 \\frac{+ .  Wyznacz  wszystkie}{2x} 1x ,$$
+
+rzeczywiste wartości parametru m, dla których ten trójmian ma dwa różne pierwiastki
+
+tego samego znaku, spełniające warunek
+
+$$\\frac{x}{1} x- 2 \\frac{< .}{3}$$`,
+    figure:null,
     statement:`jest
 Dany
 
@@ -17864,6 +20208,22 @@ wyznaczymy  te  wartości  parametru  m,  dla  których  pierwiastki  trójmianu
     number:`13`,source:`2016_matura_matematyka-2016-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:5,
     image:`img/tasks_cke/cke_2016_13.jpg`,
+    latex:`)
+=A
+30, 32
+Punkty
+
+$$( i =B ($$
+
+2 0
+w okrąg. Prosta o równaniu
+przekątną  AC . Oblicz współrzędne wierzchołków  C  i  D  tego czworokąta.
+
+$$\\frac{)^{0}, 8}{x}$$
+
+ są sąsiednimi wierzchołkami czworokąta  ABCD wpisanego
+y- + =  jest jedyną osią symetrii tego czworokąta i zawiera`,
+    figure:null,
     statement:`)
 =A
 30, 32
@@ -17911,6 +20271,10 @@ i  ADC  są prostokątne. Obliczymy`,explanation:``}]
     number:`14`,source:`2016_matura_matematyka-2016-maj-matura-rozszerzona.pdf`,
     category:14,categoryName:`Kombinatoryka`,points:3,
     image:`img/tasks_cke/cke_2016_14.jpg`,
+    latex:`Rozpatrujemy  wszystkie  liczby  naturalne  dziesięciocyfrowe,  w  zapisie  których  mogą
+występować  wyłącznie  cyfry  1,  2,  3,  przy  czym  cyfra  1  występuje  dokładnie  trzy  razy.
+Uzasadnij, że takich liczb jest 15 360.`,
+    figure:null,
     statement:`Rozpatrujemy  wszystkie  liczby  naturalne  dziesięciocyfrowe,  w  zapisie  których  mogą
 występować  wyłącznie  cyfry  1,  2,  3,  przy  czym  cyfra  1  występuje  dokładnie  trzy  razy.
 Uzasadnij, że takich liczb jest 15 360.`,
@@ -17965,6 +20329,10 @@ różnych  lic`,explanation:``}]
     number:`15`,source:`2016_matura_matematyka-2016-maj-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:6,
     image:`img/tasks_cke/cke_2016_15.jpg`,
+    latex:`W ostrosłupie prawidłowym czworokątnym ABCDS o podstawie ABCD wysokość jest równa 5,
+a kąt między sąsiednimi ścianami bocznymi ostrosłupa ma miarę  120° . Oblicz objętość tego
+ostrosłupa.`,
+    figure:null,
     statement:`W ostrosłupie prawidłowym czworokątnym ABCDS o podstawie ABCD wysokość jest równa 5,
 a kąt między sąsiednimi ścianami bocznymi ostrosłupa ma miarę  120° . Oblicz objętość tego
 ostrosłupa.`,
@@ -18029,6 +20397,22 @@ Ponieważ trójkąt BFO jes`,explanation:``}]
     number:`16`,source:`2016_matura_matematyka-2016-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:7,
     image:`img/tasks_cke/cke_2016_16.jpg`,
+    latex:`Parabola  o  równaniu
+)2, 0
+(
+A = -
+dłuższą podstawą jest odcinek AB, a końce C i D krótszej podstawy leżą na paraboli (zobacz
+rysunek).
+
+.  Rozpatrujemy  wszystkie  trapezy  równoramienne  ABCD,  których
+
+przecina  oś  Ox  układu  współrzędnych  w  punktach
+
+$$\\frac{= -}{22} )^{2}, 0 \\frac{21}{x} B = i y ( y 2 1 0 D A C 1 x \\frac{B}{2}$$
+
+Wyznacz pole trapezu ABCD w zależności od pierwszej współrzędnej wierzchołka C. Oblicz
+współrzędne wierzchołka C tego z rozpatrywanych trapezów, którego pole jest największe.`,
+    figure:null,
     statement:`Parabola  o  równaniu
 )2, 0
 (
@@ -18258,6 +20642,18 @@ d`,explanation:``}]
     number:`1`,source:`2017_dodatkowa_matematyka-2017-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2017_dod_1.jpg`,
+    latex:`Równanie
+
+$$\\frac{=--x}{4} 2 2$$
+
+ma dokładnie
+
+A.  dwa rozwiązania rzeczywiste.
+jedno rozwiązanie rzeczywiste.
+B.
+C.  cztery rozwiązania rzeczywiste.
+D.  trzy rozwiązania rzeczywiste.`,
+    figure:null,
     statement:`Równanie
 
 =−−x
@@ -18286,6 +20682,28 @@ D.  trzy rozwiązania rzeczywiste.`,
     number:`2`,source:`2017_dodatkowa_matematyka-2017-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2017_dod_2.jpg`,
+    latex:`$$\\frac{+}{log 25 log 10}$$
+
+Liczba
+
+$$2 4 log 15 2$$
+
+A.
+
+jest równa
+
+B.
+
+$$\\frac{log 50}{2}$$
+
+C.
+
+$$\\frac{log 210}{2}$$
+
+D.
+
+$$\\frac{log 635}{2}$$`,
+    figure:null,
     statement:`+
 log 25 log 10
 
@@ -18327,6 +20745,35 @@ log 635
     number:`3`,source:`2017_dodatkowa_matematyka-2017-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2017_dod_3.jpg`,
+    latex:`(
+P′ =
+Punkt
+3, 3
+)12,2-=S
+(
+
+. Skala tej jednokładności jest równa
+
+$$)$$
+
+jest  obrazem  punktu
+
+$$P = ( )^{1}, 3$$
+
+w  jednokładności  o  środku  w  punkcie
+
+A.
+
+$$\\frac{3}{5}$$
+
+B.
+
+$$\\frac{5}{3}$$
+
+C.  2
+
+D.   3`,
+    figure:null,
     statement:`(
 P′ =
 −
@@ -18374,6 +20821,34 @@ D.   3`,
     number:`4`,source:`2017_dodatkowa_matematyka-2017-czerwiec-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:1,
     image:`img/tasks_cke/cke_2017_dod_4.jpg`,
+    latex:`Funkcja  f  jest  określona  wzorem
+
+2
+Wówczas pochodna tej funkcji dla argumentu
+
+( )
+f x
+
+$$= x x 8 x =$$
+
+dla  każdej  liczby  rzeczywistej
+
+$$\\frac{x \\neq .}{4} 2 4$$
+
++  jest równa
+
+A.
+
+$$\\frac{1}{6}$$
+
+B.
+
+$$+ 2 2 2$$
+
+C.
+
+D.  2 2`,
+    figure:null,
     statement:`Funkcja  f  jest  określona  wzorem
 
 2
@@ -18428,6 +20903,30 @@ D.  2 2`,
     number:`5`,source:`2017_dodatkowa_matematyka-2017-czerwiec-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:1,
     image:`img/tasks_cke/cke_2017_dod_5.jpg`,
+    latex:`Dany  jest  nieskończony  ciąg  geometryczny,  w  którym  iloraz  jest  trzy  razy  większy  od
+
+pierwszego  wyrazu,  a  suma  wszystkich  wyrazów  tego  ciągu  jest  równa
+
+$$\\frac{1}{4}$$
+
+.  Pierwszy  wyraz
+
+tego ciągu jest równy
+
+A.
+
+$$\\frac{3}{7}$$
+
+B.
+
+$$\\frac{1}{7}$$
+
+C.
+
+$$\\frac{7}{3}$$
+
+D.  7`,
+    figure:null,
     statement:`Dany  jest  nieskończony  ciąg  geometryczny,  w  którym  iloraz  jest  trzy  razy  większy  od
 
 pierwszego  wyrazu,  a  suma  wszystkich  wyrazów  tego  ciągu  jest  równa
@@ -18467,6 +20966,22 @@ D.  7`,
     number:`6`,source:`2017_dodatkowa_matematyka-2017-czerwiec-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:2,
     image:`img/tasks_cke/cke_2017_dod_6.jpg`,
+    latex:`Funkcja kwadratowa
+
+( )
+f x
+
+$$= - 2 x +$$
+
+bx
+
+$$+  ma dwa miejsca zerowe:  1 c x = -  i 1 x = 2 12$$
+
+. Oblicz
+
+największą wartość tej funkcji. Zakoduj kolejno, od lewej do prawej, cyfrę jedności i pierwsze
+dwie cyfry po przecinku rozwinięcia dziesiętnego otrzymanego wyniku.`,
+    figure:null,
     statement:`Funkcja kwadratowa
 
 ( )
@@ -18512,6 +21027,15 @@ dwie cyfry po przecinku rozwinięcia dziesiętnego otrzymanego wyniku.`,
     number:`7`,source:`2017_dodatkowa_matematyka-2017-czerwiec-matura-rozszerzona.pdf`,
     category:5,categoryName:`Dowód nierówności`,points:3,
     image:`img/tasks_cke/cke_2017_dod_7.jpg`,
+    latex:`Udowodnij, że dla każdej liczby rzeczywistej x i dla każdej liczby rzeczywistej y prawdziwa
+jest nierówność
+
+$$2 5 x + 2 y 4$$
+
+xy
+
+$$+ 6 x \\frac{+ \\geq .}{9 0}$$`,
+    figure:null,
     statement:`Udowodnij, że dla każdej liczby rzeczywistej x i dla każdej liczby rzeczywistej y prawdziwa
 jest nierówność
 
@@ -18553,6 +21077,8 @@ x
     number:`8`,source:`2017_dodatkowa_matematyka-2017-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:3,
     image:`img/tasks_cke/cke_2017_dod_8.jpg`,
+    latex:``,
+    figure:null,
     statement:`Miary  kątów  trójkąta  ABC  są  równe
 
 α= 
@@ -18610,6 +21136,11 @@ Wykaż, że jeżeli α β γ
     number:`9`,source:`2017_dodatkowa_matematyka-2017-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2017_dod_9.jpg`,
+    latex:`Z cyfr 0, 1, 2 tworzymy pięciocyfrowe liczby całkowite dodatnie podzielne przez 15. Oblicz,
+ile możemy utworzyć takich liczb.
+
+Odpowiedź:  ................................................................................................................................  .`,
+    figure:null,
     statement:`Z cyfr 0, 1, 2 tworzymy pięciocyfrowe liczby całkowite dodatnie podzielne przez 15. Oblicz,
 ile możemy utworzyć takich liczb.
 
@@ -18626,6 +21157,28 @@ Odpowiedź:  ...................................................................
     number:`10`,source:`2017_dodatkowa_matematyka-2017-czerwiec-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:5,
     image:`img/tasks_cke/cke_2017_dod_10.jpg`,
+    latex:`Ciąg  (
+)
+1a   ciągu
+arytmetycznego  jest  ilorazem  ciągu  geometrycznego  (
+na   są  liczbami
+całkowitymi,  a  suma  ośmiu  początkowych  wyrazów  tego  ciągu  jest  równa  124.  Natomiast
+pierwszy  wyraz
+na .  Suma
+dwóch pierwszych wyrazów ciągu geometrycznego (
+
+1b   ciągu  geometrycznego  jest  różnicą  ciągu  arytmetycznego  (
+
+nb   jest  geometryczny.  Pierwszy  wyraz
+
+nb .  Wyrazy  ciągu  (
+
+nb  jest równa 18. Wyznacz te ciągi.
+
+$$) ) ) ) )$$
+
+Odpowiedź:  ................................................................................................................................  .`,
+    figure:null,
     statement:`Ciąg  (
 )
 1a   ciągu
@@ -18667,6 +21220,8 @@ Odpowiedź:  ...................................................................
     number:`11`,source:`2017_dodatkowa_matematyka-2017-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2017_dod_11.jpg`,
+    latex:``,
+    figure:null,
     statement:`Rozwiąż równanie
 
 3sin
@@ -18724,6 +21279,18 @@ Odpowiedź:  ...................................................................
     number:`12`,source:`2017_dodatkowa_matematyka-2017-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:5,
     image:`img/tasks_cke/cke_2017_dod_12.jpg`,
+    latex:`(
+Prosta
+współrzędnych trójkąt prostokątny o polu równym  36 . Wyznacz równanie prostej  l .
+
+l ,  na  której
+
+leży  punkt
+
+tworzy  z  dodatnimi  półosiami  układu
+
+$$P = 8, 2 , )$$`,
+    figure:null,
     statement:`(
 Prosta
 współrzędnych trójkąt prostokątny o polu równym  36 . Wyznacz równanie prostej  l .
@@ -18753,6 +21320,18 @@ P =
     number:`13`,source:`2017_dodatkowa_matematyka-2017-czerwiec-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:6,
     image:`img/tasks_cke/cke_2017_dod_13.jpg`,
+    latex:`Wyznacz wszystkie wartości parametru  m , dla których równanie
+)
+dwa różne rozwiązania takie, że każde należy do przedziału (
+, 3
+
+$$-\\infty 2 \\frac{x}{.}$$
+
+mx
+3
+
+$$+ 2 2 m + =   ma 1 0$$`,
+    figure:null,
     statement:`Wyznacz wszystkie wartości parametru  m , dla których równanie
 )
 dwa różne rozwiązania takie, że każde należy do przedziału (
@@ -18793,6 +21372,10 @@ m
     number:`14`,source:`2017_dodatkowa_matematyka-2017-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:6,
     image:`img/tasks_cke/cke_2017_dod_14.jpg`,
+    latex:`Trapez  równoramienny  ABCD  o  ramieniu  długości  6  wpisany  jest  w  okrąg,  przy  czym
+dłuższa  podstawa  AB  trapezu,  o  długości  12,  jest  średnicą  tego  okręgu.  Przekątne  AC  i  BD
+trapezu przecinają się w punkcie P. Oblicz pole koła wpisanego w trójkąt ABP.`,
+    figure:null,
     statement:`Trapez  równoramienny  ABCD  o  ramieniu  długości  6  wpisany  jest  w  okrąg,  przy  czym
 dłuższa  podstawa  AB  trapezu,  o  długości  12,  jest  średnicą  tego  okręgu.  Przekątne  AC  i  BD
 trapezu przecinają się w punkcie P. Oblicz pole koła wpisanego w trójkąt ABP.`,
@@ -18808,6 +21391,13 @@ trapezu przecinają się w punkcie P. Oblicz pole koła wpisanego w trójkąt AB
     number:`15`,source:`2017_dodatkowa_matematyka-2017-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:7,
     image:`img/tasks_cke/cke_2017_dod_15.jpg`,
+    latex:`Rozpatrujemy  wszystkie  prostopadłościany  o  objętości  8,  których  stosunek  długości  dwóch
+krawędzi  wychodzących  z  tego  samego  wierzchołka  jest  równy  1: 2   oraz  suma  długości
+wszystkich  dwunastu  krawędzi  jest  mniejsza  od  28.  Wyznacz  pole  powierzchni  całkowitej
+prostopadłościanu  jako  funkcję  długości  jednej  z  jego  krawędzi.  Wyznacz  dziedzinę  tej
+funkcji.  Oblicz  wymiary  tego  spośród  rozpatrywanych  prostopadłościanów,  którego  pole
+powierzchni całkowitej jest najmniejsze.`,
+    figure:null,
     statement:`Rozpatrujemy  wszystkie  prostopadłościany  o  objętości  8,  których  stosunek  długości  dwóch
 krawędzi  wychodzących  z  tego  samego  wierzchołka  jest  równy  1: 2   oraz  suma  długości
 wszystkich  dwunastu  krawędzi  jest  mniejsza  od  28.  Wyznacz  pole  powierzchni  całkowitej
@@ -18826,6 +21416,20 @@ powierzchni całkowitej jest najmniejsze.`,
     number:`1`,source:`2017_matura_matematyka-2017-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2017_1.jpg`,
+    latex:`$$Liczba ( 2 3 + 2 )^{2} 3$$
+
+jest równa
+
+A.  2
+
+B.  4
+
+C.
+
+$$3$$
+
+D.  2 3`,
+    figure:null,
     statement:`Liczba (
 
 −
@@ -18881,6 +21485,35 @@ reprezentacji.`,explanation:``}]
     number:`2`,source:`2017_matura_matematyka-2017-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:1,
     image:`img/tasks_cke/cke_2017_2.jpg`,
+    latex:`Nieskończony  ciąg  liczbowy  jest  określony  wzorem
+
+$$= a n ( 2 n 10 n + 3 2 n )$$
+
+)(
+n
+
+$$2 2 3 n + 3$$
+
+dla
+
+$$1n \\geq .$$
+
+B.
+
+$$\\lim_{\\to\\infty} \\frac{a}{n}$$
+
+$$\\frac{=}{0}$$
+
+C.
+
+Wtedy
+
+A.
+
+$$\\lim_{\\to\\infty} \\frac{a}{n}$$
+
+$$1 = 2$$`,
+    figure:null,
     statement:`Nieskończony  ciąg  liczbowy  jest  określony  wzorem
 
 =
@@ -18970,6 +21603,44 @@ o działaniach na granicach ciągów; (R5.2).`,explanation:``}]
     number:`3`,source:`2017_matura_matematyka-2017-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:1,
     image:`img/tasks_cke/cke_2017_3.jpg`,
+    latex:`a
+lim n
+
+$$\\to\\infty n = -\\infty$$
+
+D.
+
+$$\\lim_{\\to\\infty} \\frac{a}{n}$$
+
+$$3 = - 2$$
+
+Odcinek CD jest wysokością trójkąta ABC, w którym
+
+=
+AD CD
+
+$$= \\frac{1}{2}$$
+
+BC
+
+$$(zobacz rysunek).$$
+
+Okrąg  o  środku  C  i  promieniu  CD  jest  styczny  do  prostej  AB.  Okrąg  ten  przecina  boki
+AC i BC trójkąta odpowiednio w punktach K i L.
+
+$$M$$
+
+\\alpha
+
+$$C D K A L B$$
+
+Zaznaczony na rysunku kąt \\alpha wpisany w okrąg jest równy
+C.  52,5°
+A.  37,5°
+B.  45°
+
+D.  60°`,
+    figure:null,
     statement:`a
 lim n
 
@@ -19047,6 +21718,8 @@ kątem środkowym i kątem wpisanym; (7.1).`,explanation:``}]
     number:`4`,source:`2017_matura_matematyka-2017-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2017_4.jpg`,
+    latex:``,
+    figure:null,
     statement:`Dane są punkt
 
 (
@@ -19127,6 +21800,23 @@ reprezentacji.`,explanation:``}]
     number:`5`,source:`2017_matura_matematyka-2017-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:2,
     image:`img/tasks_cke/cke_2017_5.jpg`,
+    latex:`Reszta  z  dzielenia  wielomianu
+
+W x
+( )
+
+$$= 3 x 2 2 x +$$
+
+ax
+
+$$+   przez  dwumian \\frac{3}{4}$$
+
+2x -   jest  równa  1.
+
+Oblicz wartość współczynnika a.
+W poniższe kratki wpisz kolejno trzy pierwsze cyfry po przecinku rozwinięcia dziesiętnego
+otrzymanego wyniku.`,
+    figure:null,
     statement:`Reszta  z  dzielenia  wielomianu
 
 W x
@@ -19188,6 +21878,21 @@ wielomianu przez dwumian x – a (R3.4).
     number:`6`,source:`2017_matura_matematyka-2017-maj-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:3,
     image:`img/tasks_cke/cke_2017_6.jpg`,
+    latex:`Funkcja  f  jest określona wzorem
+
+( )
+f x
+
+$$= x 2 x 1 + 1$$
+
+dla każdej liczby rzeczywistej  x . Wyznacz
+
+równanie stycznej do wykresu tej funkcji w punkcie
+
+$$P = ( )^{1}, 0 .$$
+
+Odpowiedź:  ................................................................................................................................  .`,
+    figure:null,
     statement:`Funkcja  f  jest określona wzorem
 
 ( )
@@ -19338,6 +22043,27 @@ x
     number:`7`,source:`2017_matura_matematyka-2017-maj-matura-rozszerzona.pdf`,
     category:5,categoryName:`Dowód nierówności`,points:3,
     image:`img/tasks_cke/cke_2017_7.jpg`,
+    latex:`Udowodnij, że dla dowolnych różnych liczb rzeczywistych x, y prawdziwa jest nierówność
+y
+2
+
+$$\\frac{+ > .}{4 0}$$
+
+2
+x y
+
+xy
+
+$$+ + 8 2 x 2 2 2$$
+
+Wypełnia
+egzaminator
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$2 3 3$$`,
+    figure:null,
     statement:`Udowodnij, że dla dowolnych różnych liczb rzeczywistych x, y prawdziwa jest nierówność
 y
 2
@@ -19499,6 +22225,8 @@ P`,explanation:``}]
     number:`8`,source:`2017_matura_matematyka-2017-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:3,
     image:`img/tasks_cke/cke_2017_8.jpg`,
+    latex:``,
+    figure:null,
     statement:`W  trójkącie  ostrokątnym  ABC  bok  AB  ma  długość  c,  długość  boku  BC  jest  równa  a  oraz
 
 
@@ -19557,6 +22285,29 @@ Pole trójkąta ABC jest`,explanation:``}]
     number:`9`,source:`2017_matura_matematyka-2017-maj-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:4,
     image:`img/tasks_cke/cke_2017_9.jpg`,
+    latex:`W czworościanie, którego wszystkie krawędzie mają taką samą długość 6, umieszczono kulę
+tak, że ma ona dokładnie jeden punkt wspólny z każdą ścianą czworościanu. Płaszczyzna  \\pi,
+równoległa  do  podstawy  tego  czworościanu,  dzieli  go  na  dwie  bryły:  ostrosłup  o  objętości
+
+$$\\frac{8}{27}$$
+
+równej
+
+objętości dzielonego czworościanu i ostrosłup ścięty. Oblicz odległość środka S
+
+kuli od płaszczyzny  \\pi, tj. długość najkrótszego spośród odcinków SP, gdzie  P jest punktem
+płaszczyzny \\pi.
+
+Odpowiedź:  ................................................................................................................................  .
+
+Wypełnia
+egzaminator
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$3 4$$`,
+    figure:null,
     statement:`W czworościanie, którego wszystkie krawędzie mają taką samą długość 6, umieszczono kulę
 tak, że ma ona dokładnie jeden punkt wspólny z każdą ścianą czworościanu. Płaszczyzna  π,
 równoległa  do  podstawy  tego  czworościanu,  dzieli  go  na  dwie  bryły:  ostrosłup  o  objętości
@@ -19596,6 +22347,12 @@ jest prostopadła do płaszczyzny`,explanation:``}]
     number:`10`,source:`2017_matura_matematyka-2017-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2017_10.jpg`,
+    latex:`Rozwiąż równanie  cos 2
+
+$$+ x 3cos x = - 2 w przedziale  0, 2\\pi .$$
+
+Odpowiedź:  ................................................................................................................................  .`,
+    figure:null,
     statement:`Rozwiąż równanie  cos 2
 
 +
@@ -19721,6 +22478,22 @@ lub
     number:`11`,source:`2017_matura_matematyka-2017-maj-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:4,
     image:`img/tasks_cke/cke_2017_11.jpg`,
+    latex:`W pudełku znajduje się 8 piłeczek oznaczonych kolejnymi liczbami naturalnymi od 1 do 8.
+Losujemy  jedną  piłeczkę,  zapisujemy  liczbę  na  niej  występującą,  a  następnie  zwracamy
+piłeczkę  do  urny.  Tę  procedurę  wykonujemy  jeszcze  dwa  razy  i  tym  samym  otrzymujemy
+zapisane  trzy  liczby.  Oblicz  prawdopodobieństwo  wylosowania  takich  piłeczek,  że  iloczyn
+trzech zapisanych liczb jest podzielny przez 4. Wynik podaj w postaci ułamka zwykłego.
+
+Odpowiedź:  ................................................................................................................................  .
+
+Wypełnia
+egzaminator
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$4 4$$`,
+    figure:null,
     statement:`W pudełku znajduje się 8 piłeczek oznaczonych kolejnymi liczbami naturalnymi od 1 do 8.
 Losujemy  jedną  piłeczkę,  zapisujemy  liczbę  na  niej  występującą,  a  następnie  zwracamy
 piłeczkę  do  urny.  Tę  procedurę  wykonujemy  jeszcze  dwa  razy  i  tym  samym  otrzymujemy
@@ -19758,6 +22531,35 @@ Niech  A  ozn`,explanation:``}]
     number:`12`,source:`2017_matura_matematyka-2017-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:5,
     image:`img/tasks_cke/cke_2017_12.jpg`,
+    latex:`Wyznacz wszystkie wartości parametru  m , dla których równanie
+24
+x
+
+mx
+
+)(
+
+$$+ + 6 3 ( )$$
+
+ma dwa różne rozwiązania rzeczywiste  1x  i
+
+$$( 4 \\frac{x}{1} 4 \\frac{x}{2} 3$$
+
+2
+m
+m
+2x , przy czym  1
+)(
+x
+4
+1 4
+2
+
+$$= 0 <x ) + < . 0 1 \\frac{x}{1}$$
+
+x , spełniające warunek
+2`,
+    figure:null,
     statement:`Wyznacz wszystkie wartości parametru  m , dla których równanie
 24
 x
@@ -19965,6 +22767,16 @@ x x
     number:`13`,source:`2017_matura_matematyka-2017-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:5,
     image:`img/tasks_cke/cke_2017_13.jpg`,
+    latex:`Wyznacz  równanie  okręgu  przechodzącego  przez  punkty
+
+$$\\frac{(}{A =} - )^{5}, 3 i B = ( )^{0}, 6$$
+
+,  którego
+
+środek leży na prostej o równaniu
+
+$$x \\frac{y-}{3} \\frac{+ = .}{1 0}$$`,
+    figure:null,
     statement:`Wyznacz  równanie  okręgu  przechodzącego  przez  punkty
 
 (
@@ -20016,6 +22828,17 @@ odcinka AB.`,explanation:``}]
     number:`14`,source:`2017_matura_matematyka-2017-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:6,
     image:`img/tasks_cke/cke_2017_14.jpg`,
+    latex:`Liczby  a,  b,  c  są  -  odpowiednio  -  pierwszym,  drugim  i  trzecim  wyrazem  ciągu
+arytmetycznego. Suma tych liczb jest równa 27. Ciąg (
+Wyznacz liczby a, b, c.
+
+$$+  jest geometryczny.$$
+
+b c
+, 2
+
+$$\\frac{)}{1} 2, a$$`,
+    figure:null,
     statement:`Liczby  a,  b,  c  są  –  odpowiednio  –  pierwszym,  drugim  i  trzecim  wyrazem  ciągu
 arytmetycznego. Suma tych liczb jest równa 27. Ciąg (
 Wyznacz liczby a, b, c.
@@ -20075,6 +22898,10 @@ b r b b r
     number:`15`,source:`2017_matura_matematyka-2017-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:7,
     image:`img/tasks_cke/cke_2017_15.jpg`,
+    latex:`Rozpatrujemy  wszystkie  walce  o  danym  polu  powierzchni  całkowitej  P.  Oblicz  wysokość
+i promień  podstawy  tego  walca,  którego  objętość  jest  największa.  Oblicz  tę  największą
+objętość.`,
+    figure:null,
     statement:`Rozpatrujemy  wszystkie  walce  o  danym  polu  powierzchni  całkowitej  P.  Oblicz  wysokość
 i promień  podstawy  tego  walca,  którego  objętość  jest  największa.  Oblicz  tę  największą
 objętość.`,
@@ -20189,6 +23016,40 @@ dla
     number:`1`,source:`2018_dodatkowa_matematyka-2018-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2018_dod_1.jpg`,
+    latex:`=L
+2
+Niech
+
+log
+
+$$2 \\cdot$$
+
+log
+
+$$2 \\cdot 3$$
+
+log
+
+$$3 4$$
+
+. Wtedy
+
+A.
+
+$$1=L$$
+
+B.
+
+$$2L =$$
+
+C.
+
+$$3L =$$
+
+D.
+
+$$4L =$$`,
+    figure:null,
     statement:`=L
 2
 Niech
@@ -20242,6 +23103,32 @@ D.
     number:`2`,source:`2018_dodatkowa_matematyka-2018-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2018_dod_2.jpg`,
+    latex:`(
+Okrąg  o  równaniu  (
+i promieniu r. Wynika stąd, że
+
+$$+ 3 x ) 2 + y 2 ) 7 = 625$$
+
+jest  styczny  do  okręgu  o  środku
+
+$$S = \\frac{(}{12,5} )$$
+
+A.
+
+$$\\frac{r =}{5}$$
+
+B.
+
+$$r = 15$$
+
+C.
+
+$$r = 10$$
+
+D.
+
+$$r = 20$$`,
+    figure:null,
     statement:`(
 Okrąg  o  równaniu  (
 i promieniu r. Wynika stąd, że
@@ -20315,6 +23202,8 @@ r =
     number:`3`,source:`2018_dodatkowa_matematyka-2018-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:null,
+    latex:null,
+    figure:null,
     statement:`)
 (
 2
@@ -20364,6 +23253,24 @@ D.  2 2 1+`,
     number:`4`,source:`2018_dodatkowa_matematyka-2018-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2018_dod_4.jpg`,
+    latex:`Spośród poniższych nierówności wskaż tę, którą spełniają dokładnie trzy liczby całkowite.
+
+A.
+
+$$\\frac{3}{4} \\frac{x + <}{5} 2$$
+
+B.
+
+$$x + < 5 2 \\frac{4}{3}$$
+
+C.
+
+$$x + < 4 2 \\frac{3}{5}$$
+
+D.
+
+$$x + < 2 3 \\frac{4}{5}$$`,
+    figure:null,
     statement:`Spośród poniższych nierówności wskaż tę, którą spełniają dokładnie trzy liczby całkowite.
 
 A.
@@ -20414,6 +23321,27 @@ x + <
     number:`5`,source:`2018_dodatkowa_matematyka-2018-czerwiec-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:2,
     image:`img/tasks_cke/cke_2018_dod_5.jpg`,
+    latex:`Oblicz  współczynnik  kierunkowy  stycznej  do  wykresu  funkcji
+
+każdej liczby rzeczywistej
+
+$$1x \\neq , poprowadzonej w punkcie A = ($$
+
+( )
+=
+f x
+)36
+56,
+
+$$2 \\frac{x}{x} 1$$
+
+,  określonej  dla
+
+tego wykresu.
+
+W  poniższe  kratki  wpisz  kolejno  cyfrę  jedności  i  dwie  cyfry  po  przecinku  skończonego
+rozwinięcia dziesiętnego otrzymanego wyniku.`,
+    figure:null,
     statement:`Oblicz  współczynnik  kierunkowy  stycznej  do  wykresu  funkcji
 
 każdej liczby rzeczywistej
@@ -20456,6 +23384,18 @@ rozwinięcia dziesiętnego otrzymanego wyniku.`,
     number:`6`,source:`2018_dodatkowa_matematyka-2018-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2018_dod_6.jpg`,
+    latex:`W  trójkącie  ABC  kąt  BAC  jest  dwa  razy  większy  od  kąta  ABC.  Wykaż,  że  prawdziwa  jest
+równość
+
+\\cdot
+AB AC
+
+AC
+
+BC
+
+$$= . 2 2$$`,
+    figure:null,
     statement:`W  trójkącie  ABC  kąt  BAC  jest  dwa  razy  większy  od  kąta  ABC.  Wykaż,  że  prawdziwa  jest
 równość
 
@@ -20487,6 +23427,37 @@ BC
     number:`7`,source:`2018_dodatkowa_matematyka-2018-czerwiec-matura-rozszerzona.pdf`,
     category:5,categoryName:`Dowód nierówności`,points:3,
     image:`img/tasks_cke/cke_2018_dod_7.jpg`,
+    latex:`Udowodnij, że dla dowolnego kąta
+
+sin
+
+)\\pi
+(
+20,\\alpha\\in
+)
+(
+\\pi
+\\cdot
+cos\\alpha
+12
+
+$$( \\frac{\\pi}{12}$$
+
+)
+\\alpha
+
+$$+ 1 < . 4$$
+
+prawdziwa jest nierówność
+
+Wypełnia
+egzaminator
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$2 3 3$$`,
+    figure:null,
     statement:`Udowodnij, że dla dowolnego kąta
 
 sin
@@ -20529,6 +23500,14 @@ cosα
     number:`8`,source:`2018_dodatkowa_matematyka-2018-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2018_dod_8.jpg`,
+    latex:`Wykaż, że równanie
+
+$$8 x + 2 x = 2 ( 4 x \\frac{+ -}{x} \\frac{)}{1}$$
+
+ma tylko jedno rozwiązanie rzeczywiste
+
+$$1x = .$$`,
+    figure:null,
     statement:`Wykaż, że równanie
 
 8
@@ -20574,6 +23553,22 @@ ma tylko jedno rozwiązanie rzeczywiste
     number:`9`,source:`2018_dodatkowa_matematyka-2018-czerwiec-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:4,
     image:`img/tasks_cke/cke_2018_dod_9.jpg`,
+    latex:`Ze  zbioru  wszystkich  liczb  naturalnych  ośmiocyfrowych,  w  których  zapisie  dziesiętnym
+}
+występują tylko cyfry ze zbioru {
+0, 1, 3, 5, 7, 9 , losujemy jedną. Oblicz prawdopodobieństwo
+zdarzenia polegającego na tym, że suma cyfr wylosowanej liczby jest równa 3.
+
+Odpowiedź:  ...............................................................................................................................  .
+
+Wypełnia
+egzaminator
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$3 4$$`,
+    figure:null,
     statement:`Ze  zbioru  wszystkich  liczb  naturalnych  ośmiocyfrowych,  w  których  zapisie  dziesiętnym
 }
 występują tylko cyfry ze zbioru {
@@ -20593,6 +23588,16 @@ Odpowiedź:  ...................................................................
     number:`10`,source:`2018_dodatkowa_matematyka-2018-czerwiec-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:4,
     image:`img/tasks_cke/cke_2018_dod_10.jpg`,
+    latex:`Dany  jest  rosnący  ciąg  geometryczny  (
+liczbami  całkowitymi  nieparzystymi.  Jeśli  największy  wyraz  ciągu  zmniejszymy  o  4,  to
+otrzymamy ciąg arytmetyczny. Oblicz wyraz  aq  tego ciągu.
+
+a aq aq ,  którego  wszystkie  wyrazy  i  iloraz  są
+
+$$)^{2} , ,$$
+
+Odpowiedź:  ...............................................................................................................................  .`,
+    figure:null,
     statement:`Dany  jest  rosnący  ciąg  geometryczny  (
 liczbami  całkowitymi  nieparzystymi.  Jeśli  największy  wyraz  ciągu  zmniejszymy  o  4,  to
 otrzymamy ciąg arytmetyczny. Oblicz wyraz  aq  tego ciągu.
@@ -20618,6 +23623,27 @@ Odpowiedź:  ...................................................................
     number:`11`,source:`2018_dodatkowa_matematyka-2018-czerwiec-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:4,
     image:`img/tasks_cke/cke_2018_dod_11.jpg`,
+    latex:`Dany  jest  nieskończony  ciąg  okręgów  (
+no   o  równaniach
+będzie pierścieniem ograniczonym zewnętrznym okręgiem  2
+Oblicz sumę pól wszystkich pierścieni Pk, gdzie
+
+$$\\frac{k \\geq .}{1} ) n 2 2 y x = +$$
+
+1ko -  i wewnętrznym okręgiem
+
+$$n \\geq .  Niech  Pk 2 .ko 1 ,$$
+
+Odpowiedź:  ...............................................................................................................................  .
+
+Wypełnia
+egzaminator
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$4 4$$`,
+    figure:null,
     statement:`Dany  jest  nieskończony  ciąg  okręgów  (
 no   o  równaniach
 będzie pierścieniem ograniczonym zewnętrznym okręgiem  2
@@ -20666,6 +23692,10 @@ Odpowiedź:  ...................................................................
     number:`12`,source:`2018_dodatkowa_matematyka-2018-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:5,
     image:`img/tasks_cke/cke_2018_dod_12.jpg`,
+    latex:`Trapez prostokątny ABCD o podstawach AB i CD jest opisany na okręgu. Ramię BC ma długość
+10, a ramię AD jest wysokością trapezu. Podstawa AB jest 2 razy dłuższa od podstawy CD.
+Oblicz pole tego trapezu.`,
+    figure:null,
     statement:`Trapez prostokątny ABCD o podstawach AB i CD jest opisany na okręgu. Ramię BC ma długość
 10, a ramię AD jest wysokością trapezu. Podstawa AB jest 2 razy dłuższa od podstawy CD.
 Oblicz pole tego trapezu.`,
@@ -20681,6 +23711,13 @@ Oblicz pole tego trapezu.`,
     number:`13`,source:`2018_dodatkowa_matematyka-2018-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:5,
     image:`img/tasks_cke/cke_2018_dod_13.jpg`,
+    latex:`Wierzchołki A i B trójkąta prostokątnego ABC leżą na osi Oy układu współrzędnych. Okrąg
+wpisany  w  ten  trójkąt  jest  styczny  do  boków  AB,  BC  i  CA  w  punktach  -  odpowiednio  -
+P =
+. Oblicz współrzędne wierzchołków A, B i C tego trójkąta.
+
+$$\\frac{)}{0, 10 ,} )^{8}, 6 Q = 9, 13 R = i ( ) ( ($$`,
+    figure:null,
     statement:`Wierzchołki A i B trójkąta prostokątnego ABC leżą na osi Oy układu współrzędnych. Okrąg
 wpisany  w  ten  trójkąt  jest  styczny  do  boków  AB,  BC  i  CA  w  punktach  –  odpowiednio  –
 P =
@@ -20718,6 +23755,27 @@ R =
     number:`14`,source:`2018_dodatkowa_matematyka-2018-czerwiec-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:6,
     image:`img/tasks_cke/cke_2018_dod_14.jpg`,
+    latex:`Wyznacz wszystkie wartości parametru m, dla których równanie
+
+$$2 3$$
+
+(
++
+mx m
+
+$$+$$
+
+)(
+1 2
+
+$$m ) - = 0 1 x$$
+
+ma dwa różne rozwiązania  1x ,
+
+2x  spełniające warunki:  1
+
+$$x x\\cdot 2 \\neq  oraz 0 0 < + 1 x 1 1 x 2 2 \\leq . 3$$`,
+    figure:null,
     statement:`Wyznacz wszystkie wartości parametru m, dla których równanie
 
 −
@@ -20782,6 +23840,18 @@ x
     number:`15`,source:`2018_dodatkowa_matematyka-2018-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:7,
     image:`img/tasks_cke/cke_2018_dod_15.jpg`,
+    latex:`Rozpatrujemy wszystkie możliwe drewniane szkielety o kształcie przedstawionym na rysunku,
+wykonane  z  listewek.  Każda  z  tych  listewek  ma  kształt  prostopadłościanu  o  podstawie
+kwadratu o boku długości x. Wymiary szkieletu zaznaczono na rysunku.
+
+$$x x$$
+
+a)  Wyznacz objętość V drewna potrzebnego do budowy szkieletu jako funkcję zmiennej x.
+b)  Wyznacz dziedzinę funkcji V.
+c)  Oblicz tę wartość x, dla której zbudowany szkielet jest możliwie najcięższy, czyli kiedy
+
+funkcja V osiąga wartość największą. Oblicz tę największą objętość.`,
+    figure:null,
     statement:`Rozpatrujemy wszystkie możliwe drewniane szkielety o kształcie przedstawionym na rysunku,
 wykonane  z  listewek.  Każda  z  tych  listewek  ma  kształt  prostopadłościanu  o  podstawie
 kwadratu o boku długości x. Wymiary szkieletu zaznaczono na rysunku.
@@ -20807,6 +23877,32 @@ funkcja V osiąga wartość największą. Oblicz tę największą objętość.`,
     number:`1`,source:`2018_matura_matematyka-2018-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2018_1.jpg`,
+    latex:`Dane są liczby:
+
+$$\\frac{4 8=a}{2} , \\frac{1=b}{4 82} 4 8=c , , \\frac{2=d}{4 8}$$
+
+oraz
+
+$$k \\frac{1}{42} =$$
+
+. Prawdziwa jest równość
+
+A.
+
+$$\\frac{k =}{a}$$
+
+B.
+
+$$\\frac{k =}{b}$$
+
+C.
+
+$$\\frac{k =}{c}$$
+
+D.
+
+$$\\frac{k =}{d}$$`,
+    figure:null,
     statement:`Dane są liczby:
 
 4 8=a
@@ -20876,6 +23972,20 @@ reprezentacji.`,explanation:``}]
     number:`2`,source:`2018_matura_matematyka-2018-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2018_2.jpg`,
+    latex:`- =
+2
+Równanie
+
+$$x x \\frac{+}{2}$$
+
+A.  nie ma rozwiązań.
+
+B.  ma dokładnie jedno rozwiązanie.
+
+C.  ma dokładnie dwa rozwiązania.
+
+D.  ma dokładnie cztery rozwiązania.`,
+    figure:null,
     statement:`− =
 2
 Równanie
@@ -20908,6 +24018,25 @@ i tworzenie informacji.`,explanation:``}]
     number:`3`,source:`2018_matura_matematyka-2018-maj-matura-rozszerzona.pdf`,
     category:3,categoryName:`Logarytmy`,points:1,
     image:`img/tasks_cke/cke_2018_3.jpg`,
+    latex:`Wartość wyrażenia
+
+$$\\frac{2 log 10}{5}$$
+
+1
+log
+
+$$20 5$$
+
+jest równa
+
+A.
+
+B.  0
+
+C.  1
+
+D.  2`,
+    figure:null,
     statement:`Wartość wyrażenia
 
 2 log 10
@@ -20962,6 +24091,24 @@ wzór na zamianę podstawy logarytmu (R1.2).`,explanation:``}]
     number:`4`,source:`2018_matura_matematyka-2018-maj-matura-rozszerzona.pdf`,
     category:2,categoryName:`Granica ciągu i funkcji`,points:1,
     image:`img/tasks_cke/cke_2018_4.jpg`,
+    latex:`$$\\frac{- +}{x}$$
+
+Granica
+
+$$\\lim_{-\\to} 2$$
+
+$$x 5 x \\frac{2}{} + 6$$
+
+jest równa
+
+A.  -\\infty
+
+B.
+
+C.  0
+
+D.  +\\infty`,
+    figure:null,
     statement:`− +
 x
 −
@@ -21012,6 +24159,29 @@ reprezentacji.`,explanation:``}]
     number:`5`,source:`2018_matura_matematyka-2018-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:2,
     image:`img/tasks_cke/cke_2018_5.jpg`,
+    latex:`(
+)5,3
+A = -
+Punkt
++
+7
+ax
+( )
+xf
++
+dx
+
+$$=$$
+
+, gdy  x
+
+$$d\\neq - . Oblicz iloraz \\frac{d}{a} .$$
+
+jest środkiem symetrii wykresu funkcji homograficznej określonej wzorem
+
+W  poniższe  kratki  wpisz  kolejno  cyfrę  jedności  i  pierwsze  dwie  cyfry  po  przecinku
+nieskończonego rozwinięcia dziesiętnego otrzymanego wyniku.`,
+    figure:null,
     statement:`(
 )5,3
 A = −
@@ -21072,6 +24242,21 @@ Uwaga: Akceptowane są wszystkie o`,explanation:``}]
     number:`6`,source:`2018_matura_matematyka-2018-maj-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:3,
     image:`img/tasks_cke/cke_2018_6.jpg`,
+    latex:`Styczna do paraboli o równaniu
+pod kątem
+
+°30 . Oblicz współrzędne punktu P.
+
+$$= y x 1$$
+
+w punkcie
+
+$$P = ( x 0 , y 0 )$$
+
+jest nachylona do osi Ox
+
+Odpowiedź:  .................................................................................................................................`,
+    figure:null,
     statement:`Styczna do paraboli o równaniu
 pod kątem
 
@@ -21158,6 +24343,30 @@ Współrzędna  0x  punktu styczności`,explanation:``}]
     number:`7`,source:`2018_matura_matematyka-2018-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:3,
     image:`img/tasks_cke/cke_2018_7.jpg`,
+    latex:`Trójkąt  ABC  jest  ostrokątny  oraz    AC
+
+$$BC>$$
+
+Cd   kąta  ACB  przecina  bok  AB
+w punkcie K. Punkt L jest obrazem punktu K w symetrii osiowej względem dwusiecznej
+Ad
+kąta BAC, punkt M jest obrazem punktu L w symetrii osiowej względem dwusiecznej  Cd  kąta
+ACB, a punkt N jest obrazem punktu M w symetrii osiowej względem dwusiecznej
+Bd  kąta
+ABC (zobacz rysunek).
+
+.  Dwusieczna
+
+Udowodnij, że na czworokącie KNML można opisać okrąg.
+
+Wypełnia
+egzaminator
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$2 3 3$$`,
+    figure:null,
     statement:`Trójkąt  ABC  jest  ostrokątny  oraz    AC
 
 BC>
@@ -21266,6 +24475,16 @@ LKN
     number:`8`,source:`2018_matura_matematyka-2018-maj-matura-rozszerzona.pdf`,
     category:5,categoryName:`Dowód nierówności`,points:3,
     image:`img/tasks_cke/cke_2018_8.jpg`,
+    latex:`Udowodnij, że dla każdej liczby całkowitej k i dla każdej liczby całkowitej m liczba
+jest podzielna przez 6.
+
+3
+mk
+
+$$3$$
+
+km`,
+    figure:null,
     statement:`Udowodnij, że dla każdej liczby całkowitej k i dla każdej liczby całkowitej m liczba
 jest podzielna przez 6.
 
@@ -21343,6 +24562,26 @@ Gdy którakolwiek z liczb k, m  j`,explanation:``}]
     number:`9`,source:`2018_matura_matematyka-2018-maj-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:4,
     image:`img/tasks_cke/cke_2018_9.jpg`,
+    latex:`Z liczb ośmioelementowego zbioru
+
+$$Z = } { 1, 2, 3, 4, 5, 6, 7, 9$$
+
+tworzymy ośmiowyrazowy ciąg,
+
+którego  wyrazy  się  nie  powtarzają.  Oblicz  prawdopodobieństwo  zdarzenia  polegającego  na
+tym,  że  żadne  dwie  liczby  parzyste  nie  są  sąsiednimi  wyrazami  utworzonego  ciągu.  Wynik
+przedstaw w postaci ułamka zwykłego nieskracalnego.
+
+Odpowiedź:  .................................................................................................................................
+
+Wypełnia
+egzaminator
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$3 4$$`,
+    figure:null,
     statement:`Z liczb ośmioelementowego zbioru
 
 Z =
@@ -21388,6 +24627,24 @@ Liczba wszystkich zdarzeń elemen`,explanation:``}]
     number:`10`,source:`2018_matura_matematyka-2018-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2018_10.jpg`,
+    latex:`Objętość  stożka  ściętego  (przedstawionego  na  rysunku)  można  obliczyć  ze  wzoru
+,  gdzie  r  i  R  są  promieniami  podstaw  ( r R< ),  a  H  jest  wysokością
+
++
+rR R
+
+(
+H r
+
+$$V + ) 2 2 1 = \\pi 3$$
+
+bryły. Dany jest stożek ścięty, którego wysokość jest równa 10, objętość 840\\pi , a
+cosinus kąta nachylenia przekątnej przekroju osiowego tej bryły do jednej z jej podstaw.
+
+$$r = . Oblicz 6$$
+
+Odpowiedź:  .................................................................................................................................`,
+    figure:null,
     statement:`Objętość  stożka  ściętego  (przedstawionego  na  rysunku)  można  obliczyć  ze  wzoru
 ,  gdzie  r  i  R  są  promieniami  podstaw  ( r R< ),  a  H  jest  wysokością
 
@@ -21490,6 +24747,20 @@ R+
     number:`11`,source:`2018_matura_matematyka-2018-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2018_11.jpg`,
+    latex:`Rozwiąż równanie  sin 6
+
+$$+ x cos^{3} x = 2sin 3 x \\frac{+  w przedziale  0, \\pi .}{1}$$
+
+Odpowiedź:  .................................................................................................................................
+
+Wypełnia
+egzaminator
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$4 4$$`,
+    figure:null,
     statement:`Rozwiąż równanie  sin 6
 
 +
@@ -21615,6 +24886,27 @@ x`,explanation:``}]
     number:`12`,source:`2018_matura_matematyka-2018-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:6,
     image:`img/tasks_cke/cke_2018_12.jpg`,
+    latex:`Wyznacz wszystkie wartości parametru m, dla których równanie
+
+$$+ ( 2 x$$
+
+dwa rozwiązania rzeczywiste  1x  i
+
+$$\\frac{2x  ( 1}{x} x\\neq 2$$
+
+), spełniające warunek
+
+$$3 x 1 2 + =  ma 1 0 \\frac{m}{} + + \\frac{)}{1} 3 \\frac{x}{2}$$
+
+x m
+> -
+7
+
+x x
+1 2
+
+$$.$$`,
+    figure:null,
     statement:`Wyznacz wszystkie wartości parametru m, dla których równanie
 
 +
@@ -21840,6 +25132,8 @@ Ze wzorów Viète’`,explanation:``}]
     number:`13`,source:`2018_matura_matematyka-2018-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:4,
     image:`img/tasks_cke/cke_2018_13.jpg`,
+    latex:``,
+    figure:null,
     statement:`Wyrazy ciągu geometrycznego  (
 
 )
@@ -21981,6 +25275,24 @@ Z`,explanation:``}]
     number:`14`,source:`2018_matura_matematyka-2018-maj-matura-rozszerzona.pdf`,
     category:11,categoryName:`Geometria analityczna`,points:6,
     image:`img/tasks_cke/cke_2018_14.jpg`,
+    latex:`)
+A =
+Punkt
+7, 1
+
+$$($$
+
+-  jest wierzchołkiem trójkąta równoramiennego ABC, w którym  AC
+
+$$BC= .$$
+
+Obie  współrzędne  wierzchołka  C  są  liczbami  ujemnymi.  Okrąg  wpisany  w  trójkąt  ABC  ma
+równanie
+
+. Oblicz współrzędne wierzchołków B i C tego trójkąta.
+
+$$\\frac{=}{2 10} y+ x 2$$`,
+    figure:null,
     statement:`)
 A =
 Punkt
@@ -22032,6 +25344,22 @@ I sposób − analitycznie − styczn`,explanation:``}]
     number:`15`,source:`2018_matura_matematyka-2018-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:7,
     image:`img/tasks_cke/cke_2018_15.jpg`,
+    latex:`Rozpatrujemy  wszystkie  trapezy  równoramienne,  w  które  można  wpisać  okrąg,  spełniające
+warunek: suma długości dłuższej podstawy a i wysokości trapezu jest równa 2.
+a)  Wyznacz wszystkie wartości a, dla których istnieje trapez o podanych własnościach.
+b)  Wykaż, że obwód L takiego trapezu, jako funkcja długości a dłuższej podstawy trapezu,
+
+wyraża się wzorem
+
+(
+L a
+
+$$) = \\frac{24}{a} + 8 . a 8 a$$
+
+c)  Oblicz tangens kąta ostrego tego spośród rozpatrywanych trapezów, którego obwód jest
+
+najmniejszy.`,
+    figure:null,
     statement:`Rozpatrujemy  wszystkie  trapezy  równoramienne,  w  które  można  wpisać  okrąg,  spełniające
 warunek: suma długości dłuższej podstawy a i wysokości trapezu jest równa 2.
 a)  Wyznacz wszystkie wartości a, dla których istnieje trapez o podanych własnościach.
@@ -22103,6 +25431,31 @@ a
     number:`1`,source:`2019_dodatkowa_matematyka-2019-czerwiec-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:1,
     image:`img/tasks_cke/cke_2019_dod_1.jpg`,
+    latex:`Parametr m dobrano tak, że każda liczba rzeczywista jest rozwiązaniem równania
+)2
+\\cdot =
+m x m
+
+$$\\frac{m}{3} + ( 4 2 2$$
+
+z niewiadomą x. Wynika stąd, że
+
+A.
+
+$$\\frac{m = -}{2}$$
+
+ B.
+
+$$1m =$$
+
+C.
+
+$$2m =$$
+
+D.
+
+$$4m =$$`,
+    figure:null,
     statement:`Parametr m dobrano tak, że każda liczba rzeczywista jest rozwiązaniem równania
 )2
 ⋅ =
@@ -22155,6 +25508,25 @@ D.
     number:`2`,source:`2019_dodatkowa_matematyka-2019-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:1,
     image:`img/tasks_cke/cke_2019_dod_2.jpg`,
+    latex:`Dane  są  trzy  niewspółliniowe  punkty:
+
+)1, 1
+(
+punktów  D  takich,  że  czworokąt  o  wierzchołkach  w  punktach  A,  B,  C,  D  jest
+równoległobokiem?
+
+.  Ile  jest  wszystkich
+
+$$)^{4}, 5 )^{6}, 3 C = B = A = , , ( ($$
+
+A.  1
+
+B.  2
+
+C. 3
+
+D. 4`,
+    figure:null,
     statement:`Dane  są  trzy  niewspółliniowe  punkty:
 
 )1, 1
@@ -22201,6 +25573,36 @@ D. 4`,
     number:`3`,source:`2019_dodatkowa_matematyka-2019-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2019_dod_3.jpg`,
+    latex:`Wiadomo,  że  wielomian
+{
+7 6 8 9
+,
+6 ,
+5 7 5
+
+$$} ,$$
+
+133
+x
+ dokładnie jeden pierwiastek wymierny. Jest nim liczba
+
+$$146 383 499 15 x x x x 5 4 + 2 + 3 + 120$$
+
+ma  w  zbiorze
+
+A.  6
+5
+
+B.  7
+6
+
+C.
+
+$$\\frac{8}{7}$$
+
+D.  9
+5`,
+    figure:null,
     statement:`Wiadomo,  że  wielomian
 {
 7 6 8 9
@@ -22279,6 +25681,44 @@ D.  9
     number:`4`,source:`2019_dodatkowa_matematyka-2019-czerwiec-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:1,
     image:`img/tasks_cke/cke_2019_dod_4.jpg`,
+    latex:`Nieskończony  ciąg  geometryczny
+
+$$($$
+
+na
+
+$$)$$
+
+jest  określony  w  następujący  sposób:
+
+$$a = 1 \\frac{3}{5}$$
+
+oraz
+
+$$\\frac{a}{n} 2 + = \\cdot 3 1 \\frac{a}{n}$$
+
+dla
+
+$$1n \\geq$$
+
+. Suma wszystkich wyrazów tego ciągu jest równa
+
+A.
+
+$$\\frac{5}{3}$$
+
+B.
+
+$$\\frac{10}{9}$$
+
+C.
+
+$$\\frac{9}{10}$$
+
+D.
+
+$$\\frac{9}{5}$$`,
+    figure:null,
     statement:`Nieskończony  ciąg  geometryczny
 
 (
@@ -22347,6 +25787,12 @@ D.
     number:`5`,source:`2019_dodatkowa_matematyka-2019-czerwiec-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:2,
     image:`img/tasks_cke/cke_2019_dod_5.jpg`,
+    latex:`W urnie znajduje się 16 kul, które mogą się różnić wyłącznie kolorem. Wśród nich jest 10 kul
+białych  i  6  kul  czarnych.  Z  tej  urny  losujemy  dwukrotnie  jedną  kulę  bez  zwracania.  Oblicz
+prawdopodobieństwo wylosowania dwóch kul białych.
+Wpisz w poniższe kratki - od lewej do prawej - trzy kolejne cyfry po przecinku skończonego
+rozwinięcia dziesiętnego otrzymanego wyniku.`,
+    figure:null,
     statement:`W urnie znajduje się 16 kul, które mogą się różnić wyłącznie kolorem. Wśród nich jest 10 kul
 białych  i  6  kul  czarnych.  Z  tej  urny  losujemy  dwukrotnie  jedną  kulę  bez  zwracania.  Oblicz
 prawdopodobieństwo wylosowania dwóch kul białych.
@@ -22364,6 +25810,11 @@ rozwinięcia dziesiętnego otrzymanego wyniku.`,
     number:`6`,source:`2019_dodatkowa_matematyka-2019-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2019_dod_6.jpg`,
+    latex:`Oblicz,  ile  jest  siedmiocyfrowych  liczb  naturalnych  takich,  że  iloczyn  wszystkich  ich  cyfr
+w zapisie dziesiętnym jest równy 28.
+
+Odpowiedź:  ...............................................................................................................................  .`,
+    figure:null,
     statement:`Oblicz,  ile  jest  siedmiocyfrowych  liczb  naturalnych  takich,  że  iloczyn  wszystkich  ich  cyfr
 w zapisie dziesiętnym jest równy 28.
 
@@ -22380,6 +25831,25 @@ Odpowiedź:  ...................................................................
     number:`7`,source:`2019_dodatkowa_matematyka-2019-czerwiec-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:2,
     image:`img/tasks_cke/cke_2019_dod_7.jpg`,
+    latex:`Dana  jest  funkcja  f  określona  wzorem
+)10
+(
+
+Oblicz wartość
+
+f ′
+
+$$pochodnej tej funkcji dla argumentu 10.$$
+
+( )
+f x
+
+$$= \\frac{x}{2} \\frac{25}{x} 2 + \\frac{9}{2}$$
+
+dla  każdej  liczby  rzeczywistej  x.
+
+Odpowiedź:  ...............................................................................................................................  .`,
+    figure:null,
     statement:`Dana  jest  funkcja  f  określona  wzorem
 )10
 (
@@ -22425,6 +25895,8 @@ Odpowiedź:  ...................................................................
     number:`8`,source:`2019_dodatkowa_matematyka-2019-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2019_dod_8.jpg`,
+    latex:``,
+    figure:null,
     statement:`Dwusieczne  kątów  BAD  i  BCD  czworokąta  wypukłego  ABCD  przecinają  się  w  punkcie  E,
 
 przy czym punkty B i E leżą po przeciwnych stronach prostej AC (zobacz rysunek).
@@ -22476,6 +25948,13 @@ AEC
     number:`9`,source:`2019_dodatkowa_matematyka-2019-czerwiec-matura-rozszerzona.pdf`,
     category:5,categoryName:`Dowód nierówności`,points:3,
     image:`img/tasks_cke/cke_2019_dod_9.jpg`,
+    latex:`Udowodnij,  że  dla  każdej  liczby  nieparzystej  n  wyrażenie
+przez 16.
+
+$$5 n \\frac{3 4}{n} \\frac{+-}{n} 19$$
+
+jest  podzielne`,
+    figure:null,
     statement:`Udowodnij,  że  dla  każdej  liczby  nieparzystej  n  wyrażenie
 przez 16.
 
@@ -22506,6 +25985,14 @@ n
     number:`10`,source:`2019_dodatkowa_matematyka-2019-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2019_dod_10.jpg`,
+    latex:`Miara kąta wewnętrznego n- kąta foremnego jest o  °2  mniejsza od miary kąta wewnętrznego
+)2+n
+(
+
+- kąta foremnego. Oblicz n.
+
+Odpowiedź:  ...............................................................................................................................  .`,
+    figure:null,
     statement:`Miara kąta wewnętrznego n- kąta foremnego jest o  °2  mniejsza od miary kąta wewnętrznego
 )2+n
 (
@@ -22525,6 +26012,23 @@ Odpowiedź:  ...................................................................
     number:`11`,source:`2019_dodatkowa_matematyka-2019-czerwiec-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:6,
     image:`img/tasks_cke/cke_2019_dod_11.jpg`,
+    latex:`Podstawą ostrosłupa prawidłowego ABCS jest trójkąt równoboczny ABC o boku długości 6.
+Na krawędziach bocznych BS i CS wybrano punkty, odpowiednio D i E, takie że
+
+$$BD CE=$$
+
+oraz
+
+$$DE = 4$$
+
+(zobacz  rysunek).  Płaszczyzna  ADE  jest  prostopadła  do  płaszczyzny  ściany
+
+bocznej BCS ostrosłupa.
+
+$$S E 4 D 6 C A 6 6 B$$
+
+Oblicz objętość tego ostrosłupa.`,
+    figure:null,
     statement:`Podstawą ostrosłupa prawidłowego ABCS jest trójkąt równoboczny ABC o boku długości 6.
 Na krawędziach bocznych BS i CS wybrano punkty, odpowiednio D i E, takie że
 
@@ -22573,6 +26077,22 @@ Oblicz objętość tego ostrosłupa.`,
     number:`12`,source:`2019_dodatkowa_matematyka-2019-czerwiec-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:6,
     image:`img/tasks_cke/cke_2019_dod_12.jpg`,
+    latex:`Wyznacz wszystkie wartości parametru m, dla których równanie
+2
+x
+
+m x m m
+
+$$- - = 2 4 2 0 + + 4 ( ) 2$$
+
+ma dwa różne dodatnie rozwiązania
+
+$$1x , 2x$$
+
+spełniające nierówność
+
+$$2 x 1 2 x+ 2 \\leq \\frac{17}{4} .$$`,
+    figure:null,
     statement:`Wyznacz wszystkie wartości parametru m, dla których równanie
 2
 x
@@ -22636,6 +26156,18 @@ x+
     number:`13`,source:`2019_dodatkowa_matematyka-2019-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:6,
     image:`img/tasks_cke/cke_2019_dod_13.jpg`,
+    latex:`)2, 6
+(
+A = -
+Punkt
+w prostej l o równaniu
+
+jest  wierzchołkiem  rombu  ABCD  o  polu  90.  Przekątna  BD  zawiera  się
+
+$$2 x y- - = 5 0$$
+
+. Wyznacz długość boku tego rombu.`,
+    figure:null,
     statement:`)2, 6
 (
 A = −
@@ -22665,6 +26197,10 @@ y− − =
     number:`14`,source:`2019_dodatkowa_matematyka-2019-czerwiec-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2019_dod_14.jpg`,
+    latex:`Rozwiąż równanie  4sin 7 cos 2
+
+$$x = x 2sin 9 x \\frac{-  w przedziale  0,\\pi .}{1}$$`,
+    figure:null,
     statement:`Rozwiąż równanie  4sin 7 cos 2
 
 x
@@ -22691,6 +26227,8 @@ x
     number:`15`,source:`2019_dodatkowa_matematyka-2019-czerwiec-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:7,
     image:`img/tasks_cke/cke_2019_dod_15.jpg`,
+    latex:``,
+    figure:null,
     statement:`Dany jest okrąg o środku S i promieniu 18. Rozpatrujemy pary okręgów: jeden o środku
 i promieniu  x  oraz  drugi  o środku
 jednocześnie następujące warunki:
@@ -22763,6 +26301,34 @@ SS S
     number:`1`,source:`2019_matura_matematyka-2019-maj-matura-rozszerzona.pdf`,
     category:3,categoryName:`Logarytmy`,points:1,
     image:`img/tasks_cke/cke_2019_1.jpg`,
+    latex:`Dla  dowolnych  liczb
+
+$$0x > , 1x \\neq , 0y > ,$$
+
+1y \\neq   wartość  wyrażenia  (
+
+) (
+
+$$\\cdot y$$
+
+log
+
+$$\\frac{1}{y} ) x$$
+
+jest
+
+log
+
+$$\\frac{1}{x}$$
+
+równa
+
+A.  x y\\cdot
+
+B.
+
+$$\\frac{1}{yx \\cdot}$$`,
+    figure:null,
     statement:`Dla  dowolnych  liczb
 
 0x > ,
@@ -22823,6 +26389,35 @@ wzór na zamianę podstawy logarytmu. (R1.2).`,explanation:``}]
     number:`2`,source:`2019_matura_matematyka-2019-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:1,
     image:`img/tasks_cke/cke_2019_2.jpg`,
+    latex:`° -
+Liczba
+
+$$\\frac{2}{cos 105} \\frac{2}{sin 105}$$
+
+°  jest równa
+
+C.
+
+D.
+
+$$1$$
+
+A.
+
+$$\\frac{3}{2}$$
+
+B.
+
+$$\\frac{1}{2}$$
+
+C.
+
+$$\\frac{1}{2}$$
+
+D.
+
+$$\\frac{3}{2}$$`,
+    figure:null,
     statement:`° −
 Liczba
 
@@ -22882,6 +26477,46 @@ i różnicę sinusów i cosinusów kątów (R6.5).`,explanation:``}]
     number:`3`,source:`2019_matura_matematyka-2019-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2019_3.jpg`,
+    latex:`Na  rysunku  przedstawiono  fragment  wykresu  funkcji
+półprostych  AD  i  CE  oraz  dwóch  odcinków  AB  i  BC,  gdzie
+C =
+
+$$\\frac{(}{= -D} )^{3}, 0 , )^{4}, 3 )^{6}, 3$$
+
+)(xf
+
+$$=E y = , . ( ($$
+
+,  który  jest  złożony  z dwóch
+)1, 2
+)1, 0
+(
+,
+
+$$\\frac{(}{A =} - B = , D A 5 4 3 2 1 0 y B E 1 2 3 C 4 5 6 x 7 =$$
+
+A.
+
+$$\\frac{x}{x=}$$
+
+Wzór funkcji  f  to
+( )
+f x
+( )
+f x
+( )
+f x
+( )
+f x
+
+$$+ + - x 1 1 1 2 - + x= 1 2 x= - + 1 2$$
+
+D.
+
+C.
+
+B.`,
+    figure:null,
     statement:`Na  rysunku  przedstawiono  fragment  wykresu  funkcji
 półprostych  AD  i  CE  oraz  dwóch  odcinków  AB  i  BC,  gdzie
 C =
@@ -23021,6 +26656,44 @@ y = c·f(x), y = f(cx) (R4.1).`,explanation:``}]
     number:`4`,source:`2019_matura_matematyka-2019-maj-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:1,
     image:`img/tasks_cke/cke_2019_4.jpg`,
+    latex:`Zdarzenia  losowe  A  i  B   zawarte  w  \\Omega   są  takie,  że  prawdopodobieństwo
+
+(
+P B′
+
+$$)$$
+
+zdarzenia
+
+,B′   przeciwnego  do  zdarzenia  B,  jest  równe
+
+$$\\frac{1}{4}$$
+
+.  Ponadto  prawdopodobieństwo
+
+warunkowe
+
+(
+P A B = . Wynika stąd, że
+
+$$) \\frac{1}{5}$$
+
+A.
+
+$$P A B∩ = ) ( \\frac{1}{20}$$
+
+B.
+
+$$( P A B∩ = ) \\frac{4}{15}$$
+
+C.
+
+$$( P A B∩ = ) \\frac{3}{20}$$
+
+D.
+
+$$( 4 P A B∩ = 5 )$$`,
+    figure:null,
     statement:`Zdarzenia  losowe  A  i  B   zawarte  w  Ω   są  takie,  że  prawdopodobieństwo
 
 (
@@ -23116,6 +26789,8 @@ zadania.`,explanation:``}]
     number:`5`,source:`2019_matura_matematyka-2019-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:2,
     image:`img/tasks_cke/cke_2019_5.jpg`,
+    latex:``,
+    figure:null,
     statement:`Oblicz granicę
 
 lim
@@ -23306,6 +26981,19 @@ n
     number:`6`,source:`2019_matura_matematyka-2019-maj-matura-rozszerzona.pdf`,
     category:14,categoryName:`Kombinatoryka`,points:3,
     image:`img/tasks_cke/cke_2019_6.jpg`,
+    latex:`Rozważamy wszystkie liczby naturalne pięciocyfrowe zapisane przy użyciu cyfr 1,  3,  5,  7 , 9,
+bez powtarzania jakiejkolwiek cyfry. Oblicz sumę wszystkich takich liczb.
+
+Odpowiedź:  ...............................................................................................................................  .
+
+Wypełnia
+egzaminator
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$2 3$$`,
+    figure:null,
     statement:`Rozważamy wszystkie liczby naturalne pięciocyfrowe zapisane przy użyciu cyfr 1,  3,  5,  7 , 9,
 bez powtarzania jakiejkolwiek cyfry. Oblicz sumę wszystkich takich liczb.
 
@@ -23333,6 +27021,24 @@ Pokonanie zasadniczych trudności zadania  ...........................`,explanat
     number:`7`,source:`2019_matura_matematyka-2019-maj-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:2,
     image:`img/tasks_cke/cke_2019_7.jpg`,
+    latex:`P =
+Punkt
+kierunkowym
+
+$$(10, 2429) = y$$
+
+  leży  na  paraboli  o  równaniu
++
+ax b
+
+jest styczna do tej paraboli w punkcie P. Oblicz współczynnik b.
+
+$$y = \\frac{22}{x} \\frac{+ +}{x} 2219$$
+
+.  Prosta  o  równaniu
+
+Odpowiedź:  ...............................................................................................................................  .`,
+    figure:null,
     statement:`P =
 Punkt
 kierunkowym
@@ -23391,6 +27097,29 @@ lub obliczy wartość pochod`,explanation:``}]
     number:`8`,source:`2019_matura_matematyka-2019-maj-matura-rozszerzona.pdf`,
     category:5,categoryName:`Dowód nierówności`,points:3,
     image:`img/tasks_cke/cke_2019_8.jpg`,
+    latex:`Udowodnij, że dla dowolnych dodatnich liczb rzeczywistych x i y, takich że
+
+$$x y< ,$$
+
+i dowolnej
+
+dodatniej liczby rzeczywistej a, prawdziwa jest nierówność
+
++
+x a
++
+y a
+
+$$y + > x 2 .$$
+
+Wypełnia
+egzaminator
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$2 3$$`,
+    figure:null,
     statement:`Udowodnij, że dla dowolnych dodatnich liczb rzeczywistych x i y, takich że
 
 x
@@ -23459,6 +27188,31 @@ y
     number:`9`,source:`2019_matura_matematyka-2019-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:3,
     image:`img/tasks_cke/cke_2019_9.jpg`,
+    latex:`Dany jest trójkąt równoramienny  ABC , w którym  |
+wybrano punkt M ( M A\\neq
+|
+AM
+|
+trójkąta, które wyznaczają na niej punkty S i T. Udowodnij, że
+
+. Na ramieniu AC tego trójkąta
+), a na ramieniu BC wybrano punkt N, w taki sposób, że
+.  Przez  punkty  M  i  N  poprowadzono  proste  prostopadłe  do  podstawy  AB  tego
+
+$$i  M C\\neq \\frac{CN=}{|} \\frac{BC=}{|}$$
+
+AC
+
+$$| | |$$
+
+ST
+
+$$= \\frac{1}{2}$$
+
+AB
+
+$$.$$`,
+    figure:null,
     statement:`Dany jest trójkąt równoramienny  ABC , w którym  |
 wybrano punkt M ( M A≠
 |
@@ -23521,6 +27275,16 @@ teg`,explanation:``}]
     number:`10`,source:`2019_matura_matematyka-2019-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2019_10.jpg`,
+    latex:`Punkt  D  leży  na  boku  AB  trójkąta  ABC  oraz
+
+Oblicz obwód trójkąta ABC.
+
+$$AC = 16 , AD = , 6 CD = 14$$
+
+i  BC
+
+$$BD= .$$`,
+    figure:null,
     statement:`Punkt  D  leży  na  boku  AB  trójkąta  ABC  oraz
 
 Oblicz obwód trójkąta ABC.
@@ -23592,6 +27356,23 @@ lub
     number:`11`,source:`2019_matura_matematyka-2019-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:6,
     image:`img/tasks_cke/cke_2019_11.jpg`,
+    latex:`= .
+8
+77 0
+Dane  są  okręgi  o  równaniach
+Wyznacz wszystkie wartości parametru a, dla których te okręgi mają dokładnie jeden punkt
+wspólny. Rozważ wszystkie przypadki.
+
+$$=   i 2 12 43 0$$
+
++
+y a
+
+ax
+2
+
+$$+ + + + 4 x y x y x y 2 2 2 2$$`,
+    figure:null,
     statement:`= .
 8
 77 0
@@ -23671,6 +27452,8 @@ Drugi  etap  polega  na  wyznaczeniu  równania  z  jed`,explanation:``}]
     number:`12`,source:`2019_matura_matematyka-2019-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:6,
     image:`img/tasks_cke/cke_2019_12.jpg`,
+    latex:``,
+    figure:null,
     statement:`Trzywyrazowy  ciąg  (
 
 
@@ -23736,6 +27519,28 @@ Zdający może`,explanation:``}]
     number:`13`,source:`2019_matura_matematyka-2019-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:6,
     image:`img/tasks_cke/cke_2019_13.jpg`,
+    latex:`Wielomian  określony  wzorem
+przez  dwumian  (
+i dla wyznaczonej wartości m rozwiąż nierówność
+
+)
++   jest  podzielny
+=
+x
+11
+2
+1
+x
+)1x +   daje  resztę  6.  Oblicz  m
+  oraz  przy  dzieleniu  przez  dwumian  (
+W x \\leq
+( ) 0.
+
+( )
+W x
+
+$$)^{2}x - \\frac{(}{2 2} m m + + ( ) 2 x 3 3 2$$`,
+    figure:null,
     statement:`Wielomian  określony  wzorem
 przez  dwumian  (
 i dla wyznaczonej wartości m rozwiąż nierówność
@@ -23824,6 +27629,8 @@ m
     number:`14`,source:`2019_matura_matematyka-2019-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2019_14.jpg`,
+    latex:``,
+    figure:null,
     statement:`Rozwiąż równanie (
 
 cos
@@ -23968,6 +27775,11 @@ Pokonanie zasadniczych trudności zadania  .....................................
     number:`15`,source:`2019_matura_matematyka-2019-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:7,
     image:`img/tasks_cke/cke_2019_15.jpg`,
+    latex:`V =   Wyznacz
+Rozważmy  wszystkie  graniastosłupy  prawidłowe  trójkątne  o  objętości
+długości krawędzi tego z rozważanych graniastosłupów, którego pole powierzchni całkowitej
+jest najmniejsze. Oblicz to najmniejsze pole.`,
+    figure:null,
     statement:`V =   Wyznacz
 Rozważmy  wszystkie  graniastosłupy  prawidłowe  trójkątne  o  objętości
 długości krawędzi tego z rozważanych graniastosłupów, którego pole powierzchni całkowitej
@@ -24035,6 +27847,29 @@ a`,explanation:``}]
     number:`1`,source:`2020_dodatkowa_matematyka-2020-lipiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2020_dod_1.jpg`,
+    latex:`( )
+W x
+
+Wielomian
+
+$$= 3 x 2 x - -  jest podzielny bez reszty przez wielomian 2 x$$
+
+A.
+
+$$2x +$$
+
+B.
+
+$$1x +$$
+
+C.
+
+$$1x -$$
+
+D.
+
+$$2x -$$`,
+    figure:null,
     statement:`( )
 W x
 
@@ -24091,6 +27926,8 @@ reprezentacji.`,explanation:``}]
     number:`2`,source:`2020_dodatkowa_matematyka-2020-lipiec-matura-rozszerzona.pdf`,
     category:2,categoryName:`Granica ciągu i funkcji`,points:1,
     image:`img/tasks_cke/cke_2020_dod_2.jpg`,
+    latex:``,
+    figure:null,
     statement:`+
 3
 −
@@ -24154,6 +27991,57 @@ reprezentacji.`,explanation:``}]
     number:`3`,source:`2020_dodatkowa_matematyka-2020-lipiec-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:1,
     image:`img/tasks_cke/cke_2020_dod_3.jpg`,
+    latex:`Funkcja  f  jest określona wzorem
+
+1
+1
+Pochodna  f ′  tej funkcji jest określona wzorem
+
+$$3 x 2 x$$
+
+f x
+( )
+
+$$= \\frac{+}{} +$$
+
+dla wszystkich liczb rzeczywistych x.
+
+A.
+
+$$f ′$$
+
+( )
+x
+
+$$=$$
+
+B.
+
+$$f ′$$
+
+( )
+x
+
+$$= 3 x 2 23 x$$
+
+C.
+
+$$f ′$$
+
+( )
+x
+
+$$=$$
+
+D.
+
+$$f ′$$
+
+( )
+x
+
+$$= 9 \\frac{x}{(} 2 + 2 x \\frac{2}{} + 2 x 2 2 + 2 x 3 ( 2 x + 3 x 3 \\frac{+}{2} 3 x ) 1 + x ) 2 1$$`,
+    figure:null,
     statement:`Funkcja  f  jest określona wzorem
 
 1
@@ -24315,6 +28203,30 @@ matematyczne`,explanation:``}]
     number:`4`,source:`2020_dodatkowa_matematyka-2020-lipiec-matura-rozszerzona.pdf`,
     category:14,categoryName:`Kombinatoryka`,points:1,
     image:`img/tasks_cke/cke_2020_dod_4.jpg`,
+    latex:`$$1$$
+
+Wyrażenie
+
+$$+ 3 \\frac{+}{2 1}$$
+
+jest równe
+
+A.  3
+
+$$+ 2 1$$
+
+C.
+
+$$\\frac{1}{4} + 2$$
+
+B.
+
+$$6 \\frac{2}{4}$$
+
+D.
+
+$$+ 3 2 1 6$$`,
+    figure:null,
     statement:`1
 
 Wyrażenie
@@ -24420,6 +28332,21 @@ Zasady oceniania rozwiązań`,explanation:``}]
     number:`5`,source:`2020_dodatkowa_matematyka-2020-lipiec-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:2,
     image:`img/tasks_cke/cke_2020_dod_5.jpg`,
+    latex:`Suma wszystkich wyrazów nieskończonego ciągu geometrycznego  (
+1\\geqn
+jest równa 2, a suma kwadratów wszystkich wyrazów tego ciągu jest równa 3. Oblicz iloraz
+ciągu (
+
+na , określonego dla
+
+$$, )$$
+
+)
+na .
+
+W  kratki  poniżej  wpisz  kolejno  -  od  lewej  do  prawej  -  cyfrę  jedności,  części  dziesiętnych
+i setnych otrzymanego wyniku.`,
+    figure:null,
     statement:`Suma wszystkich wyrazów nieskończonego ciągu geometrycznego  (
 1≥n
 jest równa 2, a suma kwadratów wszystkich wyrazów tego ciągu jest równa 3. Oblicz iloraz
@@ -24460,6 +28387,26 @@ zadania.`,explanation:``}]
     number:`6`,source:`2020_dodatkowa_matematyka-2020-lipiec-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:3,
     image:`img/tasks_cke/cke_2020_dod_6.jpg`,
+    latex:`Pierwszy wyraz ciągu  (
+na , określonego dla
+= \\cdot
+3
+spełniają warunek
+
+n . Oblicz sumę
+
+$$+ ) 2 \\frac{a}{n} \\frac{+}{1} \\frac{a}{n} 1\\geqn$$
+
+, jest równy 2. Wszystkie wyrazy tego ciągu
++
+
+$$+ \\frac{a}{1} a 2$$
+
+a .
+3
+
+Odpowiedź:  ...............................................................................................................................  .`,
+    figure:null,
     statement:`Pierwszy wyraz ciągu  (
 na , określonego dla
 = ⋅
@@ -24526,6 +28473,8 @@ Zdający`,explanation:``}]
     number:`7`,source:`2020_dodatkowa_matematyka-2020-lipiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:3,
     image:`img/tasks_cke/cke_2020_dod_7.jpg`,
+    latex:``,
+    figure:null,
     statement:`Dany  jest  czworokąt  wypukły,  którego  kolejnymi  wierzchołkami  są  punkty  A,  B,  C  i  D.
 =
 Wykaż, że jeżeli  ADB
@@ -24587,6 +28536,10 @@ albo
     number:`8`,source:`2020_dodatkowa_matematyka-2020-lipiec-matura-rozszerzona.pdf`,
     category:5,categoryName:`Dowód nierówności`,points:3,
     image:`img/tasks_cke/cke_2020_dod_8.jpg`,
+    latex:`Wykaż, że dla każdej liczby nieparzystej n wyrażenie
+
+$$5 n \\frac{43}{n} \\frac{- +}{n} 3 jest podzielne przez 16.$$`,
+    figure:null,
     statement:`Wykaż, że dla każdej liczby nieparzystej n wyrażenie
 
 5
@@ -24660,6 +28613,12 @@ Pokonanie zasadniczych trudności zadania .............................`,explana
     number:`9`,source:`2020_dodatkowa_matematyka-2020-lipiec-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2020_dod_9.jpg`,
+    latex:`Rozwiąż równanie
+
+$$4sin 3 + x sin 2 x = 2 2sin ( \\cdot x 2cos x ) + . 1$$
+
+Odpowiedź:  ...............................................................................................................................  .`,
+    figure:null,
     statement:`Rozwiąż równanie
 
 4sin
@@ -24743,6 +28702,31 @@ i na tym z`,explanation:``}]
     number:`10`,source:`2020_dodatkowa_matematyka-2020-lipiec-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:4,
     image:`img/tasks_cke/cke_2020_dod_10.jpg`,
+    latex:`Dla pewnych liczb rzeczywistych
+
+$$\\frac{a > ,}{1} 1b >   i 3 ( 20 \\cdot =$$
+
+1>N   jest spełniona równość
+)
+N .
+
+log
+
+$$N + b$$
+
+log
+
+$$a$$
+
+log
+
+2
+a b
+
+$$N$$
+
+Wyznacz wszystkie wartości wyrażenia  log a b .`,
+    figure:null,
     statement:`Dla pewnych liczb rzeczywistych
 
 a > ,
@@ -24806,6 +28790,17 @@ Zdający
     number:`11`,source:`2020_dodatkowa_matematyka-2020-lipiec-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:5,
     image:`img/tasks_cke/cke_2020_dod_11.jpg`,
+    latex:`Wyznacz wszystkie wartości parametru  m , dla których nierówność
+2
+
+$$2 + 4 m 5 \\cdot x + 2 x > 2$$
+
+mx
+
+$$2 ( m )$$
+
+jest prawdziwa dla każdej liczby rzeczywistej  x .`,
+    figure:null,
     statement:`Wyznacz wszystkie wartości parametru  m , dla których nierówność
 2
 
@@ -24915,6 +28910,20 @@ Druga część polega na wyznaczeniu tych wartości parametru  m, dla k`,explana
     number:`12`,source:`2020_dodatkowa_matematyka-2020-lipiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:6,
     image:`img/tasks_cke/cke_2020_dod_12.jpg`,
+    latex:`(
+A = -
+Punkt
+
+$$)^{2}, 6$$
+
+ jest wierzchołkiem rombu ABCD o polu równym 82,5. Przekątna BD tego
+y- - = . Wyznacz współrzędne pozostałych
+
+$$5 0 x$$
+
+rombu zawiera się w prostej l o równaniu  2
+wierzchołków tego rombu.`,
+    figure:null,
     statement:`(
 A = −
 Punkt
@@ -24981,6 +28990,9 @@ rozwiązanie tego etapu zda`,explanation:``}]
     number:`13`,source:`2020_dodatkowa_matematyka-2020-lipiec-matura-rozszerzona.pdf`,
     category:14,categoryName:`Kombinatoryka`,points:3,
     image:`img/tasks_cke/cke_2020_dod_13.jpg`,
+    latex:`Oblicz, ile jest siedmiocyfrowych liczb naturalnych takich, że w zapisie dziesiętnym iloczyn
+wszystkich cyfr każdej z tych liczb jest równy 28.`,
+    figure:null,
     statement:`Oblicz, ile jest siedmiocyfrowych liczb naturalnych takich, że w zapisie dziesiętnym iloczyn
 wszystkich cyfr każdej z tych liczb jest równy 28.`,
     options:null,correctAnswer:null,
@@ -25009,6 +29021,19 @@ Druga część polega na zapisaniu liczby rozważanych w k`,explanation:``}]
     number:`14`,source:`2020_dodatkowa_matematyka-2020-lipiec-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:6,
     image:`img/tasks_cke/cke_2020_dod_14.jpg`,
+    latex:`Dany  jest  romb  ABCD.  Przez  wierzchołki  B  i  D  poprowadzono  dwie  proste  równoległe
+przecinające boki CD i AB - odpowiednio - w punktach M  i  N, tak, że podzieliły one ten romb
+na trzy figury AND, NBMD, BCM  o równych polach. Ponadto wiadomo, że  MB
+
+=
+ND BD
+
+$$=$$
+
+(zobacz rysunek). Oblicz cosinus kąta ostrego tego rombu.
+
+$$D M A C N B$$`,
+    figure:null,
     statement:`Dany  jest  romb  ABCD.  Przez  wierzchołki  B  i  D  poprowadzono  dwie  proste  równoległe
 przecinające boki CD i AB – odpowiednio – w punktach M  i  N, tak, że podzieliły one ten romb
 na trzy figury AND, NBMD, BCM  o równych polach. Ponadto wiadomo, że  MB
@@ -25058,6 +29083,11 @@ ABC`,explanation:``}]
     number:`15`,source:`2020_dodatkowa_matematyka-2020-lipiec-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:7,
     image:`img/tasks_cke/cke_2020_dod_15.jpg`,
+    latex:`Rozpatrujemy  wszystkie  ostrosłupy  prawidłowe  czworokątne,  w  których  suma  promienia
+okręgu opisanego na podstawie i długości krawędzi bocznej jest równa d. Wyznacz długość
+krawędzi podstawy tego z rozpatrywanych ostrosłupów, który ma największą objętość. Oblicz
+tę największą objętość.`,
+    figure:null,
     statement:`Rozpatrujemy  wszystkie  ostrosłupy  prawidłowe  czworokątne,  w  których  suma  promienia
 okręgu opisanego na podstawie i długości krawędzi bocznej jest równa d. Wyznacz długość
 krawędzi podstawy tego z rozpatrywanych ostrosłupów, który ma największą objętość. Oblicz
@@ -25109,6 +29139,33 @@ x
     number:`1`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2020_1.jpg`,
+    latex:`Wielomian  W  określony wzorem
+
+(
+W x
+
+$$) = x 2019 3 x 2000 + 2 x \\frac{+}{6}$$
+
+A. jest podzielny przez (
+
+$$)^{1}x -  i z dzielenia przez ($$
+
+)1x +  daje resztę równą  6 .
+
+B. jest podzielny przez (
+
+$$)^{1}x +  i z dzielenia przez ($$
+
+)1x -  daje resztę równą  6 .
+
+C. jest podzielny przez (
+
+$$)^{1}x -  i jest podzielny przez ( )^{1}x + .$$
+
+D. nie jest podzielny ani przez (
+
+$$)^{1}x - , ani przez ( )^{1}x + .$$`,
+    figure:null,
     statement:`Wielomian  W  określony wzorem
 
 (
@@ -25180,6 +29237,35 @@ reprezentacji.`,explanation:``}]
     number:`2`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:1,
     image:`img/tasks_cke/cke_2020_2.jpg`,
+    latex:`)
+Ciąg  (
+
+na  jest określony wzorem
+
+$$= \\frac{a}{n}$$
+
+Granica tego ciągu jest równa
+
+$$2 + n 3 11 5 7 n + n 5 2 n 5$$
+
+dla każdej liczby naturalnej
+
+$$1n \\geq .$$
+
+A.  3
+
+B.
+
+$$\\frac{1}{5}$$
+
+C.
+
+$$\\frac{3}{5}$$
+
+D.
+
+$$\\frac{5}{11}$$`,
+    figure:null,
     statement:`)
 Ciąg  (
 
@@ -25259,6 +29345,29 @@ reprezentacji.`,explanation:``}]
     number:`3`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:1,
     image:`img/tasks_cke/cke_2020_3.jpg`,
+    latex:`Mamy dwie urny. W pierwszej są 3 kule białe i 7 kul czarnych, w drugiej jest jedna kula biała
+i 9 kul czarnych. Rzucamy symetryczną sześcienną kostką do gry, która na każdej ściance ma
+inną liczbę oczek, od jednego oczka do sześciu oczek. Jeśli w wyniku rzutu otrzymamy ściankę
+z  jednym  oczkiem,  to  losujemy  jedną  kulę  z pierwszej  urny,  w  przeciwnym  przypadku  -
+losujemy jedną kulę z drugiej urny. Wtedy prawdopodobieństwo wylosowania kuli białej jest
+równe
+
+A.
+
+$$\\frac{2}{15}$$
+
+B.
+
+$$\\frac{1}{5}$$
+
+C.
+
+$$\\frac{4}{5}$$
+
+D.
+
+$$\\frac{13}{15}$$`,
+    figure:null,
     statement:`Mamy dwie urny. W pierwszej są 3 kule białe i 7 kul czarnych, w drugiej jest jedna kula biała
 i 9 kul czarnych. Rzucamy symetryczną sześcienną kostką do gry, która na każdej ściance ma
 inną liczbę oczek, od jednego oczka do sześciu oczek. Jeśli w wyniku rzutu otrzymamy ściankę
@@ -25316,6 +29425,52 @@ matematyczne`,explanation:``}]
     number:`4`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:14,categoryName:`Kombinatoryka`,points:1,
     image:`img/tasks_cke/cke_2020_4.jpg`,
+    latex:`Po
+
+przekształceniu
+
+wyrażenia
+
+algebraicznego
+
+$$4$$
+
+ax
+
+$$+$$
+
+3
+bx y
+
+$$+$$
+
+2
+cx y
+
+$$2 +$$
+
+dxy
+
+$$3 + 4$$
+
+ey
+
+współczynnik  c  jest równy
+
+$$( x 2 y+ )^{4} 3$$
+
+do
+
+postaci
+
+A.  6
+
+B.  36
+
+C.  8 6
+
+D.  12 6`,
+    figure:null,
     statement:`Po
 
 przekształceniu
@@ -25434,6 +29589,15 @@ Zasady oceniania rozwiązań`,explanation:``}]
     number:`5`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:2,
     image:`img/tasks_cke/cke_2020_5.jpg`,
+    latex:`W  trójkącie  ABC  bok  AB  jest  3  razy  dłuższy  od  boku  AC,  a  długość  boku  BC  stanowi
+
+długości boku AB. Oblicz cosinus najmniejszego kąta trójkąta ABC.
+
+$$\\frac{4}{5}$$
+
+W  kratki  poniżej  wpisz  kolejno  -  od  lewej  do  prawej  -  pierwszą,  drugą  oraz  trzecią  cyfrę
+po przecinku nieskończonego rozwinięcia dziesiętnego otrzymanego wyniku.`,
+    figure:null,
     statement:`W  trójkącie  ABC  bok  AB  jest  3  razy  dłuższy  od  boku  AC,  a  długość  boku  BC  stanowi
 
 długości boku AB. Oblicz cosinus najmniejszego kąta trójkąta ABC.
@@ -25467,6 +29631,21 @@ zadania.`,explanation:``}]
     number:`6`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:3,
     image:`img/tasks_cke/cke_2020_6.jpg`,
+    latex:`Wyznacz wszystkie wartości parametru  a , dla których równanie
+różne rozwiązania dodatnie.
+
+$$\\frac{- =}{5} x ( a \\frac{)^{2}}{1} -  ma dwa 4$$
+
+Odpowiedź:  ...............................................................................................................................  .
+
+Wypełnia
+egzaminator
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$2 3$$`,
+    figure:null,
     statement:`Wyznacz wszystkie wartości parametru  a , dla których równanie
 różne rozwiązania dodatnie.
 
@@ -25514,6 +29693,25 @@ Zdający`,explanation:``}]
     number:`7`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:3,
     image:`img/tasks_cke/cke_2020_7.jpg`,
+    latex:`= , a punkt D jest środkiem
+Dany jest trójkąt równoramienny  ABC , w którym
+podstawy AB. Okrąg o środku D jest styczny do prostej AC w punkcie M. Punkt  K  leży na boku
+2
+AC, punkt L leży na boku BC, odcinek KL jest styczny do rozważanego okręgu oraz
+
+$$KC LC= BC=$$
+
+AC
+
+$$= 6 (zobacz rysunek). C L K M A D B$$
+
+Wykaż, że
+
+AM
+MC
+
+$$4 = . 5$$`,
+    figure:null,
     statement:`= , a punkt D jest środkiem
 Dany jest trójkąt równoramienny  ABC , w którym
 podstawy AB. Okrąg o środku D jest styczny do prostej AC w punkcie M. Punkt  K  leży na boku
@@ -25595,6 +29793,15 @@ albo
     number:`8`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2020_8.jpg`,
+    latex:`Liczby dodatnie a i b spełniają równość  2
+a
+
+$$+ 2 a = 2 + \\frac{b}{4} \\frac{b}{4}$$
+
+. Wykaż, że
+
+$$a \\frac{b=}{2} .$$`,
+    figure:null,
     statement:`Liczby dodatnie a i b spełniają równość  2
 a
 
@@ -25680,6 +29887,24 @@ Pokonanie zasadniczych trudności zadania .............................`,explana
     number:`9`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2020_9.jpg`,
+    latex:`Rozwiąż równanie
+
+$$3cos 2 x + 10 cos 2 x = 24 sin x \\frac{-  dla}{3}$$
+
+x \\in
+
+$$0, 2\\pi .$$
+
+Odpowiedź:  ...............................................................................................................................  .
+
+Wypełnia
+egzaminator
+
+Nr zadania
+Uzyskana liczba pkt
+
+$$3 4$$`,
+    figure:null,
     statement:`Rozwiąż równanie
 
 3cos 2
@@ -25758,6 +29983,22 @@ i na tym z`,explanation:``}]
     number:`10`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:5,
     image:`img/tasks_cke/cke_2020_10.jpg`,
+    latex:`W trzywyrazowym ciągu geometrycznym (
+
+a
+a a a  spełniona jest równość  1
+1
+
+$$, , 2 3 ) + \\frac{a}{2} + \\frac{a}{3} = \\frac{21}{4} . , \\frac{a}{1}$$
+
+Wyrazy
+
+a są -  odpowiednio  -  czwartym,  drugim  i  pierwszym  wyrazem  rosnącego
+3
+ciągu arytmetycznego. Oblicz  1a .
+
+$$\\frac{a}{2} ,$$`,
+    figure:null,
     statement:`W trzywyrazowym ciągu geometrycznym (
 
 a
@@ -25831,6 +30072,30 @@ Zdający
     number:`11`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:4,
     image:`img/tasks_cke/cke_2020_11.jpg`,
+    latex:`Dane jest równanie kwadratowe
+
+$$( 2 x \\frac{m}{3} + ) 2$$
+
++
+x m
+2
+
+$$2 + 7 m$$
+
+wszystkie wartości parametru m, dla których różne rozwiązania
+i spełniają warunek
+
+$$2 2 x 1 + 5$$
+
+x x
+1 2
+
+$$+ 2 2 x 2 \\frac{= .}{2} 15 0$$
+
+=  z niewiadomą  x . Wyznacz
+2x  tego równania  istnieją
+1x  i`,
+    figure:null,
     statement:`Dane jest równanie kwadratowe
 
 −
@@ -25964,6 +30229,16 @@ Druga część polega na wyznaczeniu tych wartości parametru  m, dla k`,explana
     number:`12`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:5,
     image:`img/tasks_cke/cke_2020_12.jpg`,
+    latex:`+ =
+Prosta  o  równaniu
+8 0
+w punktach  K  i  L . Punkt  S  jest środkiem cięciwy  KL . Wyznacz równanie obrazu tego okręgu
+w jednokładności o środku  S  i skali
+
+=   przecina  okrąg  o  równaniu
+
+$$\\frac{k = - .}{3} y+ - 2 8 10 + 6 0 x y x y x 2$$`,
+    figure:null,
     statement:`+ =
 Prosta  o  równaniu
 8 0
@@ -26050,6 +30325,9 @@ rozwiązanie tego etapu zda`,explanation:``}]
     number:`13`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:14,categoryName:`Kombinatoryka`,points:4,
     image:`img/tasks_cke/cke_2020_13.jpg`,
+    latex:`Oblicz, ile jest wszystkich siedmiocyfrowych liczb naturalnych, w których zapisie dziesiętnym
+występują dokładnie trzy cyfry 1 i dokładnie dwie cyfry 2.`,
+    figure:null,
     statement:`Oblicz, ile jest wszystkich siedmiocyfrowych liczb naturalnych, w których zapisie dziesiętnym
 występują dokładnie trzy cyfry 1 i dokładnie dwie cyfry 2.`,
     options:null,correctAnswer:null,
@@ -26078,6 +30356,8 @@ Druga część polega na zapisaniu liczby rozważanych w k`,explanation:``}]
     number:`14`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:6,
     image:`img/tasks_cke/cke_2020_14.jpg`,
+    latex:``,
+    figure:null,
     statement:`Podstawą ostrosłupa czworokątnego  ABCDS  jest trapez  ABCD   (
 
 AB CD
@@ -26137,6 +30417,23 @@ ABC`,explanation:``}]
     number:`15`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:7,
     image:`img/tasks_cke/cke_2020_15.jpg`,
+    latex:`Należy  zaprojektować  wymiary  prostokątnego  ekranu  smartfona,  tak  aby  odległości  tego
+ekranu od krótszych brzegów smartfona były równe 0,5 cm każda, a odległości tego ekranu
+od dłuższych brzegów smartfona były równe 0,3 cm każda (zobacz rysunek - ekran zaznaczono
+. Wyznacz takie wymiary ekranu
+kolorem szarym). Sam ekran ma mieć powierzchnię 60
+smartfona, przy których powierzchnia ekranu wraz z obramowaniem jest najmniejsza.
+
+$$2cm 0,5 cm$$
+
+brzeg
+
+obramowanie
+
+ekran
+
+$$0 , 3 \\frac{c}{m} 0 , 3 \\frac{c}{m} 0,5 cm$$`,
+    figure:null,
     statement:`Należy  zaprojektować  wymiary  prostokątnego  ekranu  smartfona,  tak  aby  odległości  tego
 ekranu od krótszych brzegów smartfona były równe 0,5 cm każda, a odległości tego ekranu
 od dłuższych brzegów smartfona były równe 0,3 cm każda (zobacz rysunek – ekran zaznaczono
@@ -26216,6 +30513,8 @@ x
     number:`1`,source:`2021_dodatkowa_matematyka-2021-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2021_dod_1.jpg`,
+    latex:``,
+    figure:null,
     statement:`Wartość wyrażenia  √3 − 1
 
 − √3 + 1
@@ -26241,6 +30540,8 @@ D. −192√3`,
     number:`2`,source:`2021_dodatkowa_matematyka-2021-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2021_dod_2.jpg`,
+    latex:``,
+    figure:null,
     statement:`Granice   lim
 →
 
@@ -26274,6 +30575,8 @@ D. 𝑎 = 0    i    |𝑏| = 1`,
     number:`3`,source:`2021_dodatkowa_matematyka-2021-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2021_dod_3.jpg`,
+    latex:``,
+    figure:null,
     statement:`Wektory  𝑎⃗ = 𝑚 − 2, 𝑚 + 2  oraz  𝑏⃗ = 𝑚,, 2,   mają równe długości wtedy i tylko wtedy,
 gdy
 
@@ -26296,6 +30599,8 @@ D. 𝑚 = 2  lub  𝑚 = 4`,
     number:`4`,source:`2021_dodatkowa_matematyka-2021-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2021_dod_4.jpg`,
+    latex:``,
+    figure:null,
     statement:`Na rysunku przedstawiono fragment wykresu pewnej funkcji  𝑓  określonej dla każdej liczby
 rzeczywistej    𝑥.  Jeden  z  podanych  poniżej  wzorów  jest  wzorem  tej  funkcji.  Wskaż  wzór
 funkcji  𝑓.
@@ -26337,6 +30642,8 @@ D. 𝑓𝑥 = 2𝜋 ⋅ sin
     number:`5`,source:`2021_dodatkowa_matematyka-2021-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:2,
     image:`img/tasks_cke/cke_2021_dod_5.jpg`,
+    latex:``,
+    figure:null,
     statement:`Wynikiem  dzielenia  wielomianu    5𝑥 − 7𝑥 − 4𝑥 − 4    przez  dwumian    𝑥 − 2    jest  trójmian
 kwadratowy postaci  𝑎𝑥 + 𝑏𝑥 + 𝑐.
 W poniższe kratki wpisz kolejno – od lewej do prawej – wartości współczynników  𝑎, 𝑏  oraz  𝑐.`,
@@ -26352,6 +30659,8 @@ W poniższe kratki wpisz kolejno – od lewej do prawej – wartości współczy
     number:`6`,source:`2021_dodatkowa_matematyka-2021-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2021_dod_6.jpg`,
+    latex:``,
+    figure:null,
     statement:`Niech  log 9 = 𝑐. Wykaż, że  log 54 =
 
 3𝑐+2
@@ -26372,6 +30681,13 @@ EMAP-R0_100`,
     number:`7`,source:`2021_dodatkowa_matematyka-2021-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:3,
     image:`img/tasks_cke/cke_2021_dod_7.jpg`,
+    latex:`Dany  jest  trójkąt    ABC.  Na  boku    AB    tego  trójkąta  obrano  punkty    D,  E    i    F    tak,  że
+|AD| = |DE| = |EF| = 2|FB|. Na bokach  AC  i  BC  obrano - odpowiednio - punkty  G  i  H
+tak, że  DG ∥ EC  oraz  FH ∥ EC  (zobacz rysunek). Wykaż, że jeżeli pole trójkąta  FBH  jest
+równe  S, to pole trójkąta  ADG  jest równe  3S.
+
+$$C G H A D E F B$$`,
+    figure:null,
     statement:`Dany  jest  trójkąt    𝐴𝐵𝐶.  Na  boku    𝐴𝐵    tego  trójkąta  obrano  punkty    𝐷,  𝐸    i    𝐹    tak,  że
 |𝐴𝐷| = |𝐷𝐸| = |𝐸𝐹| = 2|𝐹𝐵|. Na bokach  𝐴𝐶  i  𝐵𝐶  obrano – odpowiednio – punkty  𝐺  i  𝐻
 tak, że  𝐷𝐺 ∥ 𝐸𝐶  oraz  𝐹𝐻 ∥ 𝐸𝐶  (zobacz rysunek). Wykaż, że jeżeli pole trójkąta  𝐹𝐵𝐻  jest
@@ -26404,6 +30720,8 @@ równe  𝑆, to pole trójkąta  𝐴𝐷𝐺  jest równe  3𝑆.
     number:`8`,source:`2021_dodatkowa_matematyka-2021-czerwiec-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2021_dod_8.jpg`,
+    latex:``,
+    figure:null,
     statement:`Rozwiąż równanie  2 cos 𝑥 − cos 𝑥 = sin2𝑥 − sin 𝑥  w przedziale  〈0, 2𝜋〉.`,
     options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
@@ -26417,6 +30735,10 @@ równe  𝑆, to pole trójkąta  𝐴𝐷𝐺  jest równe  3𝑆.
     number:`9`,source:`2021_dodatkowa_matematyka-2021-czerwiec-matura-rozszerzona.pdf`,
     category:11,categoryName:`Geometria analityczna`,points:4,
     image:`img/tasks_cke/cke_2021_dod_9.jpg`,
+    latex:`Dane są prosta  k  o równaniu  x - 2y = 0  i prosta  l  o równaniu  2x + y - 1 = 0. Punkt  P
+leży  na  prostej  o  równaniu    y = x + 4.  Odległość  punktu    P    od  prostej    k    jest  dwa  razy
+większa niż odległość punktu  P  od prostej  l. Oblicz współrzędne punktu  P.`,
+    figure:null,
     statement:`Dane są prosta  𝑘  o równaniu  𝑥 − 2𝑦 = 0  i prosta  𝑙  o równaniu  2𝑥 + 𝑦 − 1 = 0. Punkt  𝑃
 leży  na  prostej  o  równaniu    𝑦 = 𝑥 + 4.  Odległość  punktu    𝑃    od  prostej    𝑘    jest  dwa  razy
 większa niż odległość punktu  𝑃  od prostej  𝑙. Oblicz współrzędne punktu  𝑃.`,
@@ -26432,6 +30754,11 @@ większa niż odległość punktu  𝑃  od prostej  𝑙. Oblicz współrzędne
     number:`10`,source:`2021_dodatkowa_matematyka-2021-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:4,
     image:`img/tasks_cke/cke_2021_dod_10.jpg`,
+    latex:`Dany jest sześcian  ABCDEFGH  o krawędzi długości  2. Punkt  S  jest środkiem krawędzi  DH
+(zobacz rysunek). Oblicz miarę najmniejszego kąta wewnętrznego trójkąta  CFS.
+
+$$H 2 S D E 2 A F G C 2 B$$`,
+    figure:null,
     statement:`Dany jest sześcian  𝐴𝐵𝐶𝐷𝐸𝐹𝐺𝐻  o krawędzi długości  2. Punkt  𝑆  jest środkiem krawędzi  𝐷𝐻
 (zobacz rysunek). Oblicz miarę najmniejszego kąta wewnętrznego trójkąta  𝐶𝐹𝑆.
 
@@ -26470,6 +30797,17 @@ większa niż odległość punktu  𝑃  od prostej  𝑙. Oblicz współrzędne
     number:`11`,source:`2021_dodatkowa_matematyka-2021-czerwiec-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:4,
     image:`img/tasks_cke/cke_2021_dod_11.jpg`,
+    latex:`W pewnym telewizyjnym programie bierze udział trzech sportowców i pewna liczba aktorów.
+W trakcie tego programu uczestnicy siadają na fotelach w rzędzie, naprzeciw prowadzącego
+(liczba foteli jest równa liczbie uczestników). Prawdopodobieństwo zdarzenia polegającego na
+tym, że cała trójka sportowców będzie siedziała obok siebie przy losowym wyborze miejsc jest
+
+równe
+
+$$\\frac{1}{15}$$
+
+. Oblicz, ilu aktorów bierze udział w tym programie.`,
+    figure:null,
     statement:`W pewnym telewizyjnym programie bierze udział trzech sportowców i pewna liczba aktorów.
 W trakcie tego programu uczestnicy siadają na fotelach w rzędzie, naprzeciw prowadzącego
 (liczba foteli jest równa liczbie uczestników). Prawdopodobieństwo zdarzenia polegającego na
@@ -26493,6 +30831,8 @@ równe
     number:`12`,source:`2021_dodatkowa_matematyka-2021-czerwiec-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:5,
     image:`img/tasks_cke/cke_2021_dod_12.jpg`,
+    latex:``,
+    figure:null,
     statement:`Wyznacz wszystkie wartości parametru  𝑚, dla których równanie
 
 𝑥 − 3𝑥 + 𝑚 − 1𝑥 − 6𝑚 + 2𝑚 = 0
@@ -26510,6 +30850,8 @@ ma dokładnie dwa rozwiązania.`,
     number:`13`,source:`2021_dodatkowa_matematyka-2021-czerwiec-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:5,
     image:`img/tasks_cke/cke_2021_dod_13.jpg`,
+    latex:``,
+    figure:null,
     statement:`Dana jest funkcja  𝑓  określona wzorem  𝑓𝑥 =
 
 𝑥3+𝑘
@@ -26530,6 +30872,8 @@ Oblicz wartość  𝑘, dla której prosta o równaniu  𝑦 = −𝑥  jest sty
     number:`14`,source:`2021_dodatkowa_matematyka-2021-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:5,
     image:`img/tasks_cke/cke_2021_dod_14.jpg`,
+    latex:``,
+    figure:null,
     statement:`Na okręgu jest opisany czworokąt  𝐴𝐵𝐶𝐷. Bok  𝐴𝐷  tego czworokąta jest dwa razy dłuższy od
 boku  𝐴𝐵, a przekątna  𝐵𝐷  ma długość równą  6. Ponadto spełnione są następujące warunki:
 
@@ -26553,6 +30897,8 @@ Oblicz długość boku  𝐵𝐶  tego czworokąta.`,
     number:`15`,source:`2021_dodatkowa_matematyka-2021-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:7,
     image:`img/tasks_cke/cke_2021_dod_15.jpg`,
+    latex:``,
+    figure:null,
     statement:`Rozpatrujemy  wszystkie  trójkąty  prostokątne   𝐴𝐵𝐶    o  przeciwprostokątnej  𝐴𝐵    i  obwodzie
 równym  4. Niech  𝑥 = |𝐴𝐶|.
 a)  Wykaż,  że  pole    𝑃    trójkąta    𝐴𝐵𝐶    jako  funkcja  zmiennej    𝑥    jest  określone  wzorem
@@ -26578,6 +30924,8 @@ to największe pole.`,
     number:`1`,source:`2021_matura_matematyka-2021-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:1,
     image:`img/tasks_cke/cke_2021_1.jpg`,
+    latex:``,
+    figure:null,
     statement:`Różnica  cos 165° − sin 165°  jest równa
 
 A. −1
@@ -26614,6 +30962,8 @@ D`,explanation:``}]
     number:`2`,source:`2021_matura_matematyka-2021-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:1,
     image:`img/tasks_cke/cke_2021_2.jpg`,
+    latex:``,
+    figure:null,
     statement:`Na  rysunku  przedstawiono  fragment  wykresu  funkcji  𝑓  określonej  dla  każdej  liczby
 rzeczywistej  𝑥.
 
@@ -26684,6 +31034,8 @@ Zasady`,explanation:``}]
     number:`3`,source:`2021_matura_matematyka-2021-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2021_3.jpg`,
+    latex:``,
+    figure:null,
     statement:`Wielomian  𝑊(𝑥) = 𝑥 + 81  jest podzielny przez
 
 A. 𝑥 − 3
@@ -26710,6 +31062,16 @@ C`,explanation:``}]
     number:`4`,source:`2021_matura_matematyka-2021-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2021_4.jpg`,
+    latex:`Liczba różnych pierwiastków równania  3x + |x - 4| = 0  jest równa
+
+A. 0
+
+B. 1
+
+C. 2
+
+D. 3`,
+    figure:null,
     statement:`Liczba różnych pierwiastków równania  3𝑥 + |𝑥 − 4| = 0  jest równa
 
 A. 0
@@ -26736,6 +31098,8 @@ B`,explanation:``}]
     number:`5`,source:`2021_matura_matematyka-2021-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:2,
     image:`img/tasks_cke/cke_2021_5.jpg`,
+    latex:``,
+    figure:null,
     statement:`Oblicz granicę   lim
 →
 
@@ -26772,6 +31136,8 @@ ZADANIA OTWARTE (NIEKODOWANE)
     number:`6`,source:`2021_matura_matematyka-2021-maj-matura-rozszerzona.pdf`,
     category:3,categoryName:`Logarytmy`,points:3,
     image:`img/tasks_cke/cke_2021_6.jpg`,
+    latex:``,
+    figure:null,
     statement:`Niech  log 18  = 𝑐. Wykaż, że  log 4 =
 
 4
@@ -26816,6 +31182,10 @@ log`,explanation:``}]
     number:`7`,source:`2021_matura_matematyka-2021-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2021_7.jpg`,
+    latex:`Rozwiąż nierówność:
+
+$$\\frac{2x - 1}{1 - x} \\leq \\frac{2 + 2x}{5x}$$`,
+    figure:null,
     statement:`Rozwiąż nierówność:
 
 2𝑥 − 1
@@ -26868,6 +31238,18 @@ iloczyn  (1 − 𝑥)2(5𝑥)2 , do postaci
     number:`8`,source:`2021_matura_matematyka-2021-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:3,
     image:`img/tasks_cke/cke_2021_8.jpg`,
+    latex:`Dany jest trójkąt równoboczny  ABC. Na bokach  AB  i  AC  wybrano punkty - odpowiednio -
+
+D   i  E    takie,  że   |BD| = |AE| =
+
+$$(zobacz rysunek). \\frac{1}{3}$$
+
+|AB|.  Odcinki   CD    i    BE    przecinają  się w  punkcie    P
+
+$$C E A P D B$$
+
+Wykaż, że pole trójkąta  DBP  jest  21  razy mniejsze od pola trójkąta  ABC.`,
+    figure:null,
     statement:`Dany jest trójkąt równoboczny  𝐴𝐵𝐶. Na bokach  𝐴𝐵  i  𝐴𝐶  wybrano punkty – odpowiednio –
 
 𝐷   i  𝐸    takie,  że   |𝐵𝐷| = |𝐴𝐸| =
@@ -26913,6 +31295,10 @@ ALBO
     number:`9`,source:`2021_matura_matematyka-2021-maj-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:4,
     image:`img/tasks_cke/cke_2021_9.jpg`,
+    latex:`Ze  zbioru  wszystkich  liczb  naturalnych  czterocyfrowych  losujemy  jedną  liczbę.  Oblicz
+prawdopodobieństwo  zdarzenia  polegającego  na  tym,  że  wylosowana  liczba  jest  podzielna
+przez  15, jeśli wiadomo, że jest ona podzielna przez  18.`,
+    figure:null,
     statement:`Ze  zbioru  wszystkich  liczb  naturalnych  czterocyfrowych  losujemy  jedną  liczbę.  Oblicz
 prawdopodobieństwo  zdarzenia  polegającego  na  tym,  że  wylosowana  liczba  jest  podzielna
 przez  15, jeśli wiadomo, że jest ona podzielna przez  18.`,
@@ -26936,6 +31322,10 @@ własności ciągu arytmetycznego, stosowanie`,explanation:``}]
     number:`10`,source:`2021_matura_matematyka-2021-maj-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:4,
     image:`img/tasks_cke/cke_2021_10.jpg`,
+    latex:`Prosta  przechodząca  przez  punkty    A = (8, -6)    i    B = (5, 15)    jest  styczna  do  okręgu
+o środku w punkcie  O = (0, 0). Oblicz promień tego okręgu i współrzędne punktu styczności tego
+okręgu z prostą  AB.`,
+    figure:null,
     statement:`Prosta  przechodząca  przez  punkty    𝐴 = (8, −6)    i    𝐵 = (5, 15)    jest  styczna  do  okręgu
 o środku w punkcie  𝑂 = (0, 0). Oblicz promień tego okręgu i współrzędne punktu styczności tego
 okręgu z prostą  𝐴𝐵.`,
@@ -26959,6 +31349,8 @@ ALBO
     number:`11`,source:`2021_matura_matematyka-2021-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:5,
     image:`img/tasks_cke/cke_2021_11.jpg`,
+    latex:``,
+    figure:null,
     statement:`Wyznacz wszystkie wartości parametru  𝑚, dla których trójmian kwadratowy
 
 4𝑥 − 2(𝑚 + 1)𝑥 + 𝑚
@@ -26995,6 +31387,8 @@ Drugi etap polega na roz`,explanation:``}]
     number:`12`,source:`2021_matura_matematyka-2021-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:5,
     image:`img/tasks_cke/cke_2021_12.jpg`,
+    latex:``,
+    figure:null,
     statement:`Rozwiąż równanie  cos 2𝑥 =
 
 2
@@ -27039,6 +31433,10 @@ ALBO
     number:`13`,source:`2021_matura_matematyka-2021-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2021_13.jpg`,
+    latex:`Dany  jest  trójkąt  prostokątny    ABC.  Promień  okręgu  wpisanego  w  ten  trójkąt  jest  pięć  razy
+krótszy od przeciwprostokątnej tego trójkąta. Oblicz sinus tego z kątów ostrych trójkąta  ABC,
+który ma większą miarę.`,
+    figure:null,
     statement:`Dany  jest  trójkąt  prostokątny    𝐴𝐵𝐶.  Promień  okręgu  wpisanego  w  ten  trójkąt  jest  pięć  razy
 krótszy od przeciwprostokątnej tego trójkąta. Oblicz sinus tego z kątów ostrych trójkąta  𝐴𝐵𝐶,
 który ma większą miarę.`,
@@ -27071,6 +31469,8 @@ odcinków stycznych i promieniem okręgu wpisanego w tr`,explanation:``}]
     number:`14`,source:`2021_matura_matematyka-2021-maj-matura-rozszerzona.pdf`,
     category:11,categoryName:`Geometria analityczna`,points:6,
     image:`img/tasks_cke/cke_2021_14.jpg`,
+    latex:``,
+    figure:null,
     statement:`Dane są parabola o równaniu  𝑦 = 𝑥  oraz punkty  𝐴 = (0, 2)  i  𝐵 = (1, 3)  (zobacz rysunek).
 Rozpatrujemy wszystkie trójkąty  𝐴𝐵𝐶, których wierzchołek  𝐶  leży na tej paraboli. Niech  𝑚
 oznacza pierwszą współrzędną punktu  𝐶.
@@ -27121,6 +31521,8 @@ gdy zapisze współ`,explanation:``}]
     number:`15`,source:`2021_matura_matematyka-2021-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:7,
     image:`img/tasks_cke/cke_2021_15.jpg`,
+    latex:``,
+    figure:null,
     statement:`Pewien  zakład  otrzymał  zamówienie  na  wykonanie  prostopadłościennego  zbiornika
 (całkowicie  otwartego  od  góry)  o  pojemności    144 m.  Dno  zbiornika  ma  być  kwadratem.
 Żaden z wymiarów zbiornika (krawędzi prostopadłościanu) nie może przekraczać  9 metrów.
@@ -27149,6 +31551,24 @@ zbiornika, ℎ – wysokość zbiornika) za zmienną badanej f`,explanation:``}]
     number:`1`,source:`2022_dodatkowa_matematyka-2022-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2022_dod_1.jpg`,
+    latex:`Wiadomo, że  log5 2 = a  i  log5 3 = b. Wtedy liczba  log18 40  jest równa
+
+A.
+
+$$\\frac{3a+1}{a+b}$$
+
+B.
+
+$$\\frac{2a+1}{a+b}$$
+
+C.
+
+$$\\frac{2a+1}{a+2b}$$
+
+D.
+
+$$\\frac{3a+1}{2b+a}$$`,
+    figure:null,
     statement:`Wiadomo, że  log5 2 = 𝑎  i  log5 3 = 𝑏. Wtedy liczba  log18 40  jest równa
 
 A.
@@ -27182,6 +31602,28 @@ D.
     number:`2`,source:`2022_dodatkowa_matematyka-2022-czerwiec-matura-rozszerzona.pdf`,
     category:2,categoryName:`Granica ciągu i funkcji`,points:1,
     image:`img/tasks_cke/cke_2022_dod_2.jpg`,
+    latex:`Granica
+
+$$\\lim_{x \\to -3} \\frac{0,5x^{2}+3,5x+6}{-x^{2}+2x+15}$$
+
+jest równa
+
+A. (-
+
+$$\\frac{1}{8} )$$
+
+B.
+
+$$\\frac{1}{16}$$
+
+C. (-
+
+$$\\frac{1}{16} )$$
+
+D.
+
+$$\\frac{7}{4} n + 1]  oraz  \\vec{b}⃗ = [n + 1, m + 2]  jest wektor  \\vec{c} =[0, 0].$$`,
+    figure:null,
     statement:`Granica
 
 lim
@@ -27229,6 +31671,17 @@ D.
     number:`3`,source:`2022_dodatkowa_matematyka-2022-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2022_dod_3.jpg`,
+    latex:`Sumą wektorów  \\vec{a} = [2 + 2m,
+
+Wynika stąd, że
+
+$$\\frac{2}{3}$$
+
+A. m = 1    i    n = 3.
+B. m = -9    i    n = -21.
+C. m = 3    i    n = -9.
+D. m = -1    i    n = 0.`,
+    figure:null,
     statement:`Sumą wektorów  𝑎⃗ = [2 + 2𝑚,
 
 Wynika stąd, że
@@ -27252,6 +31705,17 @@ D. 𝑚 = −1    i    𝑛 = 0.`,
     number:`4`,source:`2022_dodatkowa_matematyka-2022-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:1,
     image:`img/tasks_cke/cke_2022_dod_4.jpg`,
+    latex:`Pole trójkąta ostrokątnego o bokach  5  i  8  jest równe  12. Długość trzeciego boku tego
+trójkąta jest równa
+
+A. 5
+
+B. 8
+
+C. \\sqrt41
+
+D. \\sqrt143`,
+    figure:null,
     statement:`Pole trójkąta ostrokątnego o bokach  5  i  8  jest równe  12. Długość trzeciego boku tego
 trójkąta jest równa
 
@@ -27274,6 +31738,14 @@ D. √143`,
     number:`5`,source:`2022_dodatkowa_matematyka-2022-czerwiec-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:2,
     image:`img/tasks_cke/cke_2022_dod_5.jpg`,
+    latex:`Wśród   390  pracowników pewnej firmy jest  150  kobiet i  240  mężczyzn. Wśród nich w wieku
+przedemerytalnym jest  21  kobiet i  43  mężczyzn. Oblicz prawdopodobieństwo zdarzenia
+polegającego na tym, że losowo wybrany pracownik tej firmy jest w wieku przedemerytalnym - pod
+warunkiem że jest mężczyzną.
+
+W poniższe kratki wpisz kolejno - od lewej do prawej - pierwszą, drugą oraz trzecią cyfrę po
+przecinku nieskończonego rozwinięcia dziesiętnego otrzymanego wyniku.`,
+    figure:null,
     statement:`Wśród   390  pracowników pewnej firmy jest  150  kobiet i  240  mężczyzn. Wśród nich w wieku
 przedemerytalnym jest  21  kobiet i  43  mężczyzn. Oblicz prawdopodobieństwo zdarzenia
 polegającego na tym, że losowo wybrany pracownik tej firmy jest w wieku przedemerytalnym – pod
@@ -27293,6 +31765,11 @@ przecinku nieskończonego rozwinięcia dziesiętnego otrzymanego wyniku.`,
     number:`6`,source:`2022_dodatkowa_matematyka-2022-czerwiec-matura-rozszerzona.pdf`,
     category:5,categoryName:`Dowód nierówności`,points:3,
     image:`img/tasks_cke/cke_2022_dod_6.jpg`,
+    latex:`Wykaż, że dla każdej liczby rzeczywistej  x  i dla każdej liczby rzeczywistej  y  takich, że
+x \\neq y, spełniona jest nierówność
+
+$$x^{4} + y^{4} > xy(x^{2} + y^{2}) EMAP-R^{0}_100$$`,
+    figure:null,
     statement:`Wykaż, że dla każdej liczby rzeczywistej  𝑥  i dla każdej liczby rzeczywistej  𝑦  takich, że
 𝑥 ≠ 𝑦, spełniona jest nierówność
 
@@ -27311,6 +31788,9 @@ EMAP-R0_100`,
     number:`7`,source:`2022_dodatkowa_matematyka-2022-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2022_dod_7.jpg`,
+    latex:`Oblicz, ile jest wszystkich liczb naturalnych pięciocyfrowych, w których zapisie występują
+dokładnie dwie cyfry nieparzyste.`,
+    figure:null,
     statement:`Oblicz, ile jest wszystkich liczb naturalnych pięciocyfrowych, w których zapisie występują
 dokładnie dwie cyfry nieparzyste.`,
     options:null,correctAnswer:null,
@@ -27325,6 +31805,10 @@ dokładnie dwie cyfry nieparzyste.`,
     number:`8`,source:`2022_dodatkowa_matematyka-2022-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2022_dod_8.jpg`,
+    latex:`Rozwiąż nierówność
+
+$$\\frac{3x + 1}{2x + 1} \\leq \\frac{3x + 4}{2x + 3}$$`,
+    figure:null,
     statement:`Rozwiąż nierówność
 
 3𝑥 + 1
@@ -27346,6 +31830,11 @@ dokładnie dwie cyfry nieparzyste.`,
     number:`9`,source:`2022_dodatkowa_matematyka-2022-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:3,
     image:`img/tasks_cke/cke_2022_dod_9.jpg`,
+    latex:`W trapezie  ABCD  o podstawach  AB  i  CD  przez punkt  O  przecięcia się przekątnych
+poprowadzono dwie proste równoległe do boków  BC  i  AD. Prosta równoległa do boku  BC
+przecina bok  AB  w punkcie  B′, a prosta równoległa do boku  AD  przecina bok  AB
+w punkcie  A′. Wykaż, że  |AA′| = |BB′|.`,
+    figure:null,
     statement:`W trapezie  𝐴𝐵𝐶𝐷  o podstawach  𝐴𝐵  i  𝐶𝐷  przez punkt  𝑂  przecięcia się przekątnych
 poprowadzono dwie proste równoległe do boków  𝐵𝐶  i  𝐴𝐷. Prosta równoległa do boku  𝐵𝐶
 przecina bok  𝐴𝐵  w punkcie  𝐵′, a prosta równoległa do boku  𝐴𝐷  przecina bok  𝐴𝐵
@@ -27362,6 +31851,18 @@ w punkcie  𝐴′. Wykaż, że  |𝐴𝐴′| = |𝐵𝐵′|.`,
     number:`10`,source:`2022_dodatkowa_matematyka-2022-czerwiec-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:4,
     image:`img/tasks_cke/cke_2022_dod_10.jpg`,
+    latex:`Dany jest nieskończony ciąg geometryczny  (an), określony dla każdej liczby naturalnej  n \\geq 1,
+którego iloraz  q  jest równy pierwszemu wyrazowi i spełnia warunek  |q| < 1.
+Stosunek sumy  SN  wszystkich wyrazów tego ciągu o numerach nieparzystych do sumy  SP
+wszystkich wyrazów tego ciągu o numerach parzystych jest równy różnicy tych sum,
+
+tj.
+
+SN
+SP
+
+$$= SN - SP . Oblicz  q.$$`,
+    figure:null,
     statement:`Dany jest nieskończony ciąg geometryczny  (𝑎𝑛), określony dla każdej liczby naturalnej  𝑛 ≥ 1,
 którego iloraz  𝑞  jest równy pierwszemu wyrazowi i spełnia warunek  |𝑞| < 1.
 Stosunek sumy  𝑆𝑁  wszystkich wyrazów tego ciągu o numerach nieparzystych do sumy  𝑆𝑃
@@ -27385,6 +31886,8 @@ tj.
     number:`11`,source:`2022_dodatkowa_matematyka-2022-czerwiec-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2022_dod_11.jpg`,
+    latex:`Rozwiąż równanie  cos(3x) + \\sqrt3 sin(3x) + 1 = 0  w przedziale  〈0, 𝜋〉.`,
+    figure:null,
     statement:`Rozwiąż równanie  cos(3𝑥) + √3 sin(3𝑥) + 1 = 0  w przedziale  〈0, 𝜋〉.`,
     options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
@@ -27398,6 +31901,15 @@ tj.
     number:`12`,source:`2022_dodatkowa_matematyka-2022-czerwiec-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:5,
     image:`img/tasks_cke/cke_2022_dod_12.jpg`,
+    latex:`Podstawą graniastosłupa prostego  ABCDA1B1C1D1  jest trapez równoramienny  ABCD
+wpisany w okrąg o środku  O  i promieniu  R. Dłuższa podstawa  AB  trapezu jest średnicą
+tego okręgu, a krótsza - cięciwą odpowiadającą kątowi środkowemu o mierze  2𝛼  (zobacz
+rysunek). Przekątna ściany bocznej zawierającej ramię trapezu jest nachylona do
+płaszczyzny podstawy pod kątem o mierze  𝛼. Wyznacz objętość tego graniastosłupa jako
+funkcję promienia  R  i miary kąta  𝛼.
+
+$$A^{1} D^{1} D B^{1} C^{1} C A R 2𝛼 O R B$$`,
+    figure:null,
     statement:`Podstawą graniastosłupa prostego  𝐴𝐵𝐶𝐷𝐴1𝐵1𝐶1𝐷1  jest trapez równoramienny  𝐴𝐵𝐶𝐷
 wpisany w okrąg o środku  𝑂  i promieniu  𝑅. Dłuższa podstawa  𝐴𝐵  trapezu jest średnicą
 tego okręgu, a krótsza – cięciwą odpowiadającą kątowi środkowemu o mierze  2𝛼  (zobacz
@@ -27440,6 +31952,14 @@ funkcję promienia  𝑅  i miary kąta  𝛼.
     number:`13`,source:`2022_dodatkowa_matematyka-2022-czerwiec-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:6,
     image:`img/tasks_cke/cke_2022_dod_13.jpg`,
+    latex:`Wyznacz wszystkie wartości parametru  m, dla których równanie
+
+$$(x - 4)[x^{2} + (m - 3)x + m^{2} - m - 6] = 0$$
+
+ma trzy różne rozwiązania rzeczywiste  x1, x2  oraz  x3, spełniające warunek
+
+$$x^{1} \\cdot x^{2} \\cdot x^{3} > x^{1} 2 + x^{2} 2 + x^{3} 2 - 5m - 51$$`,
+    figure:null,
     statement:`Wyznacz wszystkie wartości parametru  𝑚, dla których równanie
 
 (𝑥 − 4)[𝑥2 + (𝑚 − 3)𝑥 + 𝑚2 − 𝑚 − 6] = 0
@@ -27465,6 +31985,10 @@ ma trzy różne rozwiązania rzeczywiste  𝑥1, 𝑥2  oraz  𝑥3, spełniają
     number:`14`,source:`2022_dodatkowa_matematyka-2022-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:6,
     image:`img/tasks_cke/cke_2022_dod_14.jpg`,
+    latex:`Dane są okrąg  o1  o równaniu  (x - 6)2 + (y - 4)2 = 98  oraz okrąg  o2  o promieniu  2\\sqrt5.
+Środki okręgów  o1  i  o2  leżą po różnych stronach prostej  k  o równaniu  y = -3x - 6, a punkty
+wspólne obu okręgów leżą na prostej  k. Wyznacz równanie okręgu  o2.`,
+    figure:null,
     statement:`Dane są okrąg  𝑜1  o równaniu  (𝑥 − 6)2 + (𝑦 − 4)2 = 98  oraz okrąg  𝑜2  o promieniu  2√5.
 Środki okręgów  𝑜1  i  𝑜2  leżą po różnych stronach prostej  𝑘  o równaniu  𝑦 = −3𝑥 − 6, a punkty
 wspólne obu okręgów leżą na prostej  𝑘. Wyznacz równanie okręgu  𝑜2.`,
@@ -27480,6 +32004,20 @@ wspólne obu okręgów leżą na prostej  𝑘. Wyznacz równanie okręgu  𝑜2
     number:`15`,source:`2022_dodatkowa_matematyka-2022-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:7,
     image:`img/tasks_cke/cke_2022_dod_15.jpg`,
+    latex:`Rozpatrujemy wszystkie trójkąty równoramienne ostrokątne  ABC  (|AC| = |BC|), na których
+opisano okrąg o promieniu  R = 1. Niech  x  oznacza odległość środka okręgu od podstawy
+AB  trójkąta.
+
+a)  Wykaż, że pole  P  każdego z tych trójkątów, jako funkcja długości  x, wyraża się wzorem
+
+$$P(x) = (x + 1) \\cdot \\sqrt^{1} - x^{2}.$$
+
+b)  Wyznacz dziedzinę funkcji  P.
+
+c)  Oblicz długość odcinka  x  tego z rozpatrywanych trójkątów, który ma największe pole.
+
+Oblicz to największe pole.`,
+    figure:null,
     statement:`Rozpatrujemy wszystkie trójkąty równoramienne ostrokątne  𝐴𝐵𝐶  (|𝐴𝐶| = |𝐵𝐶|), na których
 opisano okrąg o promieniu  𝑅 = 1. Niech  𝑥  oznacza odległość środka okręgu od podstawy
 𝐴𝐵  trójkąta.
@@ -27505,6 +32043,22 @@ Oblicz to największe pole.`,
     number:`1`,source:`2022_matura_matematyka-2022-maj-matura-rozszerzona.pdf`,
     category:3,categoryName:`Logarytmy`,points:1,
     image:`img/tasks_cke/cke_2022_1.jpg`,
+    latex:`Liczba  log3 \\sqrt27 - log27 \\sqrt3  jest równa
+
+A.
+
+$$\\frac{4}{3}$$
+
+B.
+
+$$\\frac{1}{2}$$
+
+C.
+
+$$\\frac{11}{12}$$
+
+D. 3`,
+    figure:null,
     statement:`Liczba  log3 √27 − log27 √3  jest równa
 
 A.
@@ -27541,6 +32095,32 @@ A`,explanation:``}]
     number:`2`,source:`2022_matura_matematyka-2022-maj-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:1,
     image:`img/tasks_cke/cke_2022_2.jpg`,
+    latex:`Funkcja  f  jest określona wzorem  f(x) =
+
+$$\\frac{x^{3}-8}{x-2}$$
+
+dla każdej liczby rzeczywistej  x \\neq 2.
+
+Wartość pochodnej tej funkcji dla argumentu  x =
+
+$$\\frac{1}{2}$$
+
+jest równa
+
+A.
+
+$$\\frac{3}{4}$$
+
+B.
+
+$$\\frac{9}{4}$$
+
+C. 3
+
+D.
+
+$$\\frac{54}{8}$$`,
+    figure:null,
     statement:`Funkcja  𝑓  jest określona wzorem  𝑓(𝑥) =
 
 𝑥3−8
@@ -27593,6 +32173,32 @@ funkcjonowania`,explanation:``}]
     number:`3`,source:`2022_matura_matematyka-2022-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:1,
     image:`img/tasks_cke/cke_2022_3.jpg`,
+    latex:`Jeżeli  cos 𝛽 = -
+
+$$\\frac{1}{3} i  𝛽 \\in (𝜋, \\frac{3}{2}$$
+
+𝜋), to wartość wyrażenia  sin (𝛽 -
+
+$$\\frac{1}{3}$$
+
+𝜋)  jest równa
+
+A.
+
+$$\\frac{-2\\sqrt^{2}+\\sqrt^{3}}{6}$$
+
+B.
+
+$$\\frac{2\\sqrt^{6}+1}{6}$$
+
+C.
+
+$$\\frac{2\\sqrt^{2}+\\sqrt^{3}}{6}$$
+
+D.
+
+$$\\frac{1-2\\sqrt^{6}}{6}$$`,
+    figure:null,
     statement:`Jeżeli  cos 𝛽 = −
 
 1
@@ -27646,6 +32252,29 @@ A`,explanation:``}]
     number:`4`,source:`2022_matura_matematyka-2022-maj-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:1,
     image:`img/tasks_cke/cke_2022_4.jpg`,
+    latex:`Dane są dwie urny z kulami. W każdej z urn jest siedem kul. W pierwszej urnie są jedna kula
+biała i sześć kul czarnych, w drugiej urnie są cztery kule białe i trzy kule czarne.
+Rzucamy jeden raz symetryczną monetą. Jeżeli wypadnie reszka, to losujemy jedną kulę
+z pierwszej urny, w przeciwnym przypadku - jedną kulę z drugiej urny.
+Prawdopodobieństwo zdarzenia polegającego na tym, że wylosujemy kulę białą w tym
+doświadczeniu, jest równe
+
+A.
+
+$$\\frac{5}{14}$$
+
+B.
+
+$$\\frac{9}{14}$$
+
+C.
+
+$$\\frac{5}{7}$$
+
+D.
+
+$$\\frac{6}{7}$$`,
+    figure:null,
     statement:`Dane są dwie urny z kulami. W każdej z urn jest siedem kul. W pierwszej urnie są jedna kula
 biała i sześć kul czarnych, w drugiej urnie są cztery kule białe i trzy kule czarne.
 Rzucamy jeden raz symetryczną monetą. Jeżeli wypadnie reszka, to losujemy jedną kulę
@@ -27690,6 +32319,19 @@ ZADANIE OTWARTE (KODOWANE)`,explanation:``}]
     number:`5`,source:`2022_matura_matematyka-2022-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:2,
     image:`img/tasks_cke/cke_2022_5.jpg`,
+    latex:`Ciąg  (an)  jest określony dla każdej liczby naturalnej  n \\geq 1  wzorem  an =
+
+$$\\frac{(7p-1)n^{3}+5pn-3}{(p+1)n^{3}+n^{2}+p} ,$$
+
+gdzie  p  jest liczbą rzeczywistą dodatnią.
+
+Oblicz wartość  p, dla której granica ciągu  (an)  jest równa
+
+$$\\frac{4}{3} .$$
+
+W poniższe kratki wpisz kolejno - od lewej do prawej - pierwszą, drugą oraz trzecią cyfrę po
+przecinku nieskończonego rozwinięcia dziesiętnego otrzymanego wyniku.`,
+    figure:null,
     statement:`Ciąg  (𝑎𝑛)  jest określony dla każdej liczby naturalnej  𝑛 ≥ 1  wzorem  𝑎𝑛 =
 
 (7𝑝−1)𝑛3+5𝑝𝑛−3
@@ -27733,6 +32375,22 @@ i konsekwentnie do popełnionych błędów rachunkowych rozwiązuje zadanie`,exp
     number:`6`,source:`2022_matura_matematyka-2022-maj-matura-rozszerzona.pdf`,
     category:5,categoryName:`Dowód nierówności`,points:3,
     image:`img/tasks_cke/cke_2022_6.jpg`,
+    latex:`Wykaż, że dla każdej liczby rzeczywistej  x  i dla każdej liczby rzeczywistej  y  takich, że
+2x > y, spełniona jest nierówność
+
+$$7x^{3} + 4x^{2}y \\geq y^{3} + 2xy^{2} - x^{3}$$
+
+ Wypełnia
+egzaminator
+
+Nr zadania
+
+$$2 3$$
+
+Uzyskana liczba pkt
+
+$$EMAP-R^{0}_100$$`,
+    figure:null,
     statement:`Wykaż, że dla każdej liczby rzeczywistej  𝑥  i dla każdej liczby rzeczywistej  𝑦  takich, że
 2𝑥 > 𝑦, spełniona jest nierówność
 
@@ -27758,6 +32416,10 @@ ALBO
     number:`7`,source:`2022_matura_matematyka-2022-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2022_7.jpg`,
+    latex:`Rozwiąż równanie:
+
+$$|x - 3| = 2x + 11$$`,
+    figure:null,
     statement:`Rozwiąż równanie:
 
 |𝑥 − 3| = 2𝑥 + 11`,
@@ -27781,6 +32443,14 @@ oba otrzymane równania:  𝑥 = −1`,explanation:``}]
     number:`8`,source:`2022_matura_matematyka-2022-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:3,
     image:`img/tasks_cke/cke_2022_8.jpg`,
+    latex:`Punkt  P  jest punktem przecięcia przekątnych trapezu  ABCD. Długość podstawy  CD  jest
+o  2  mniejsza od długości podstawy  AB. Promień okręgu opisanego na trójkącie
+ostrokątnym  CPD  jest o  3  mniejszy od promienia okręgu opisanego na trójkącie  APB.
+
+Wykaż, że spełniony jest warunek  |DP|2 + |CP|2 - |CD|2 =
+
+$$\\frac{4\\sqrt^{2}}{3} \\cdot |DP| \\cdot |CP|.$$`,
+    figure:null,
     statement:`Punkt  𝑃  jest punktem przecięcia przekątnych trapezu  𝐴𝐵𝐶𝐷. Długość podstawy  𝐶𝐷  jest
 o  2  mniejsza od długości podstawy  𝐴𝐵. Promień okręgu opisanego na trójkącie
 ostrokątnym  𝐶𝑃𝐷  jest o  3  mniejszy od promienia okręgu opisanego na trójkącie  𝐴𝑃𝐵.
@@ -27812,6 +32482,10 @@ trójkącie  𝐴𝑃𝐵)`,explanation:``}]
     number:`9`,source:`2022_matura_matematyka-2022-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2022_9.jpg`,
+    latex:`Reszta z dzielenia wielomianu  $W(x) = 4x3$ - 6x2 - (5m + 1)x - 2m  przez dwumian  x + 2
+jest równa  (-30).
+Oblicz  m  i dla wyznaczonej wartości  m  rozwiąż nierówność  W(x) \\geq 0.`,
+    figure:null,
     statement:`Reszta z dzielenia wielomianu  𝑊(𝑥) = 4𝑥3 − 6𝑥2 − (5𝑚 + 1)𝑥 − 2𝑚  przez dwumian  𝑥 + 2
 jest równa  (−30).
 Oblicz  𝑚  i dla wyznaczonej wartości  𝑚  rozwiąż nierówność  𝑊(𝑥) ≥ 0.`,
@@ -27835,6 +32509,15 @@ ALBO
     number:`10`,source:`2022_matura_matematyka-2022-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:4,
     image:`img/tasks_cke/cke_2022_10.jpg`,
+    latex:`Ciąg  (an), określony dla każdej liczby naturalnej  n \\geq 1, jest geometryczny i ma wszystkie
+
+wyrazy dodatnie. Ponadto  a1 = 675  i  a22 =
+Ciąg  (bn), określony dla każdej liczby naturalnej  n \\geq 1, jest arytmetyczny.
+Suma wszystkich wyrazów ciągu  (an)  jest równa sumie dwudziestu pięciu początkowych
+kolejnych wyrazów ciągu  (bn). Ponadto  a3 = b4. Oblicz  b1.
+
+$$a^{23} + a^{21}. \\frac{5}{4} \\frac{1}{5}$$`,
+    figure:null,
     statement:`Ciąg  (𝑎𝑛), określony dla każdej liczby naturalnej  𝑛 ≥ 1, jest geometryczny i ma wszystkie
 
 wyrazy dodatnie. Ponadto  𝑎1 = 675  i  𝑎22 =
@@ -27887,6 +32570,8 @@ Zdaj`,explanation:``}]
     number:`11`,source:`2022_matura_matematyka-2022-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2022_11.jpg`,
+    latex:`Rozwiąż równanie  sin x + sin 2x + sin 3x = 0  w przedziale  〈0, 𝜋〉.`,
+    figure:null,
     statement:`Rozwiąż równanie  sin 𝑥 + sin 2𝑥 + sin 3𝑥 = 0  w przedziale  〈0, 𝜋〉.`,
     options:null,correctAnswer:null,
     answer:{type:`open`,display:``,description:``},
@@ -27907,6 +32592,14 @@ sinus pot`,explanation:``}]
     number:`12`,source:`2022_matura_matematyka-2022-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:5,
     image:`img/tasks_cke/cke_2022_12.jpg`,
+    latex:`Wyznacz wszystkie wartości parametru  m, dla których równanie
+
+$$x^{2} - (m + 1)x + m = 0$$
+
+ma dwa różne rozwiązania rzeczywiste  x1  oraz  x2, spełniające warunki:
+
+$$x^{1} \\neq 0,     x^{2} \\neq 0     oraz \\frac{1}{x^{1}} + \\frac{1}{x^{2}} + 2 = 1 2 + x^{1} 1 2 x^{2}$$`,
+    figure:null,
     statement:`Wyznacz wszystkie wartości parametru  𝑚, dla których równanie
 
 𝑥2 − (𝑚 + 1)𝑥 + 𝑚 = 0
@@ -27970,6 +32663,23 @@ zastosować wzory V`,explanation:``}]
     number:`13`,source:`2022_matura_matematyka-2022-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:5,
     image:`img/tasks_cke/cke_2022_13.jpg`,
+    latex:`Dany jest graniastosłup prosty  ABCDEFGH  o podstawie prostokątnej  ABCD. Przekątne
+
+AH  i  AF  ścian bocznych tworzą kąt ostry o mierze  𝛼  takiej, że  sin 𝛼 =
+
+$$\\frac{12}{13}$$
+
+(zobacz
+
+rysunek). Pole trójkąta  AFH  jest równe  26,4.
+Oblicz wysokość  ℎ  tego graniastosłupa.
+
+$$G F H E ℎ D C B$$
+
+\\alpha
+
+$$A$$`,
+    figure:null,
     statement:`Dany jest graniastosłup prosty  𝐴𝐵𝐶𝐷𝐸𝐹𝐺𝐻  o podstawie prostokątnej  𝐴𝐵𝐶𝐷. Przekątne
 
 𝐴𝐻  i  𝐴𝐹  ścian bocznych tworzą kąt ostry o mierze  𝛼  takiej, że  sin 𝛼 =
@@ -28023,6 +32733,10 @@ gdy spełni jeden z poniższych warunków:
     number:`14`,source:`2022_matura_matematyka-2022-maj-matura-rozszerzona.pdf`,
     category:11,categoryName:`Geometria analityczna`,points:6,
     image:`img/tasks_cke/cke_2022_14.jpg`,
+    latex:`Punkt  A = (-3, 2)  jest wierzchołkiem trójkąta równoramiennego  ABC, w którym  |AC| = |BC|.
+Pole tego trójkąta jest równe  15. Bok  BC  zawarty jest w prostej o równaniu  y = x - 1.
+Oblicz współrzędne wierzchołków  B  i  C  tego trójkąta.`,
+    figure:null,
     statement:`Punkt  𝐴 = (−3, 2)  jest wierzchołkiem trójkąta równoramiennego  𝐴𝐵𝐶, w którym  |𝐴𝐶| = |𝐵𝐶|.
 Pole tego trójkąta jest równe  15. Bok  𝐵𝐶  zawarty jest w prostej o równaniu  𝑦 = 𝑥 − 1.
 Oblicz współrzędne wierzchołków  𝐵  i  𝐶  tego trójkąta.`,
@@ -28043,6 +32757,16 @@ gdy:
     number:`15`,source:`2022_matura_matematyka-2022-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:7,
     image:`img/tasks_cke/cke_2022_15.jpg`,
+    latex:`Rozpatrujemy wszystkie trójkąty równoramienne o obwodzie równym  18.
+
+a)  Wykaż, że pole  P  każdego z tych trójkątów, jako funkcja długości  b  ramienia, wyraża się
+
+$$wzorem  P(b) = \\frac{(18-2b) \\cdot \\sqrt^{18}b-81}{2} .$$
+
+b)  Wyznacz dziedzinę funkcji  P.
+
+c)  Oblicz długości boków tego z rozpatrywanych trójkątów, który ma największe pole.`,
+    figure:null,
     statement:`Rozpatrujemy wszystkie trójkąty równoramienne o obwodzie równym  18.
 
 a)  Wykaż, że pole  𝑃  każdego z tych trójkątów, jako funkcja długości  𝑏  ramienia, wyraża się
@@ -28077,6 +32801,10 @@ Zdający otrzymuje  ............................................................
     number:`1`,source:`2023_dodatkowa_matematyka-2023-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:2,
     image:`img/tasks_cke/cke_2023_dod_1.jpg`,
+    latex:`Dane są liczby
+
+$$Oblicz  a - b. a = 4log^{2} 45     oraz     b = \\frac{log^{3} 2023}{log^{9} 2023}$$`,
+    figure:null,
     statement:`Dane są liczby
 
 Oblicz  𝒂 − 𝒃.
@@ -28097,6 +32825,13 @@ log9 2023`,
     number:`2`,source:`2023_dodatkowa_matematyka-2023-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2023_dod_2.jpg`,
+    latex:`Wśród  n  osób są Ania i jej dwaj znajomi. Wszystkie te  n  osób ustawiamy w kolejkę jedna
+za drugą. Liczba wszystkich takich ustawień jest  12  razy większa od liczby wszystkich
+takich ustawień tych  n  osób w kolejkę, w których Ania i jej dwaj znajomi zajmują trzy kolejne
+miejsca (w dowolnej kolejności).
+
+Oblicz  n. Zapisz obliczenia.`,
+    figure:null,
     statement:`Wśród  𝑛  osób są Ania i jej dwaj znajomi. Wszystkie te  𝑛  osób ustawiamy w kolejkę jedna
 za drugą. Liczba wszystkich takich ustawień jest  12  razy większa od liczby wszystkich
 takich ustawień tych  𝑛  osób w kolejkę, w których Ania i jej dwaj znajomi zajmują trzy kolejne
@@ -28115,6 +32850,14 @@ Oblicz  𝒏. Zapisz obliczenia.`,
     number:`3`,source:`2023_dodatkowa_matematyka-2023-czerwiec-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:3,
     image:`img/tasks_cke/cke_2023_dod_3.jpg`,
+    latex:`Prawdopodobieństwo wystąpienia awarii sieci ciepłowniczej na pewnym osiedlu
+mieszkaniowym w godzinach porannych pojedynczego dnia jest równe  0,1.
+
+Oblicz prawdopodobieństwo zdarzenia  A  polegającego na tym, że w okresie siedmiu
+dni wystąpią co najwyżej dwa takie dni, w których nastąpi awaria tej sieci na tym
+osiedlu w godzinach porannych. Wynik podaj w ułamku dziesiętnym w zaokrągleniu
+do części setnych. Zapisz obliczenia.`,
+    figure:null,
     statement:`Prawdopodobieństwo wystąpienia awarii sieci ciepłowniczej na pewnym osiedlu
 mieszkaniowym w godzinach porannych pojedynczego dnia jest równe  0,1.
 
@@ -28134,6 +32877,12 @@ do części setnych. Zapisz obliczenia.`,
     number:`4`,source:`2023_dodatkowa_matematyka-2023-czerwiec-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:3,
     image:`img/tasks_cke/cke_2023_dod_4.jpg`,
+    latex:`Funkcja  f  jest określona wzorem  $f(x) = 2x3$ - 4x2 + 9x  dla każdego  x \\in ℝ.
+Punkt  P = (x0 , 18)  należy do wykresu funkcji  f.
+
+Oblicz  x0  oraz wyznacz równanie stycznej do wykresu funkcji  f  w punkcie  P.
+Zapisz obliczenia.`,
+    figure:null,
     statement:`Funkcja  𝑓  jest określona wzorem  𝑓(𝑥) = 2𝑥3 − 4𝑥2 + 9𝑥  dla każdego  𝑥 ∈ ℝ.
 Punkt  𝑃 = (𝑥0 , 18)  należy do wykresu funkcji  𝑓.
 
@@ -28151,6 +32900,10 @@ Zapisz obliczenia.`,
     number:`5`,source:`2023_dodatkowa_matematyka-2023-czerwiec-matura-rozszerzona.pdf`,
     category:5,categoryName:`Dowód nierówności`,points:3,
     image:`img/tasks_cke/cke_2023_dod_5.jpg`,
+    latex:`Wykaż, że dla każdej liczby rzeczywistej dodatniej  a  prawdziwa jest nierówność
+
+$$a^{2} + \\frac{16}{a} \\geq 12$$`,
+    figure:null,
     statement:`Wykaż, że dla każdej liczby rzeczywistej dodatniej  𝒂  prawdziwa jest nierówność
 
 𝒂𝟐 +
@@ -28171,6 +32924,18 @@ Zapisz obliczenia.`,
     number:`6`,source:`2023_dodatkowa_matematyka-2023-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:3,
     image:`img/tasks_cke/cke_2023_dod_6.jpg`,
+    latex:`Dany jest okrąg  O. Przez punkt  A  poprowadzono dwie proste, które są styczne do tego
+okręgu w punktach - odpowiednio -  P  oraz  Q. Przez punkt  B  leżący na odcinku  AP
+poprowadzono styczną do tego okręgu w punkcie  D, która przecięła odcinek  AQ
+w punkcie  C  (zobacz rysunek).
+
+okrąg  O
+
+$$Q C D A B P$$
+
+Wykaż, że jeżeli  |AQ| = 5 ∙ |BP|  oraz  |CD| = 2 ∙ |BD|, to trójkąt  ABC  jest
+równoramienny.`,
+    figure:null,
     statement:`Dany jest okrąg  𝒪. Przez punkt  𝐴  poprowadzono dwie proste, które są styczne do tego
 okręgu w punktach – odpowiednio –  𝑃  oraz  𝑄. Przez punkt  𝐵  leżący na odcinku  𝐴𝑃
 poprowadzono styczną do tego okręgu w punkcie  𝐷, która przecięła odcinek  𝐴𝑄
@@ -28204,6 +32969,18 @@ równoramienny.`,
     number:`7`,source:`2023_dodatkowa_matematyka-2023-czerwiec-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:4,
     image:`img/tasks_cke/cke_2023_dod_7.jpg`,
+    latex:`Dany jest nieskończony szereg geometryczny
+
+$$2x - \\frac{6x}{x - 1} + \\frac{18x}{(x - 1)^{2}} - 54x (x - 1)^{3} +   …$$
+
+Wyznacz wszystkie wartości zmiennej  x  (różnej od  0  i  od  1), dla których suma tego
+
+szeregu istnieje i jest równa
+
+$$\\frac{15}{2}$$
+
+. Zapisz obliczenia.`,
+    figure:null,
     statement:`Dany jest nieskończony szereg geometryczny
 
 2𝑥 −
@@ -28240,6 +33017,14 @@ szeregu istnieje i jest równa
     number:`8`,source:`2023_dodatkowa_matematyka-2023-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2023_dod_8.jpg`,
+    latex:`Rozwiąż równanie
+
+$$w zbiorze  [- \\frac{𝝅}{2} , \\frac{𝝅}{2}$$
+
+]. Zapisz obliczenia.
+
+$$sin(5x) + cos x = 0$$`,
+    figure:null,
     statement:`Rozwiąż równanie
 
 w zbiorze  [−
@@ -28267,6 +33052,12 @@ w zbiorze  [−
     number:`9`,source:`2023_dodatkowa_matematyka-2023-czerwiec-matura-rozszerzona.pdf`,
     category:11,categoryName:`Geometria analityczna`,points:4,
     image:`img/tasks_cke/cke_2023_dod_9.jpg`,
+    latex:`W okrąg o równaniu  (x - 1)2 + (y - 2)2 = 25  wpisano trójkąt  ABC. Bok  AB  tego
+trójkąta jest zawarty w prostej o równaniu  4x - 3y + 2 = 0. Wysokość  CD  tego trójkąta
+dzieli bok  AB  tak, że  |AD| = 4 \\cdot |DB|.
+
+Oblicz pole trójkąta  ABC. Zapisz obliczenia.`,
+    figure:null,
     statement:`W okrąg o równaniu  (𝑥 − 1)2 + (𝑦 − 2)2 = 25  wpisano trójkąt  𝐴𝐵𝐶. Bok  𝐴𝐵  tego
 trójkąta jest zawarty w prostej o równaniu  4𝑥 − 3𝑦 + 2 = 0. Wysokość  𝐶𝐷  tego trójkąta
 dzieli bok  𝐴𝐵  tak, że  |𝐴𝐷| = 4 ⋅ |𝐷𝐵|.
@@ -28284,6 +33075,16 @@ Oblicz pole trójkąta  𝑨𝑩𝑪. Zapisz obliczenia.`,
     number:`10`,source:`2023_dodatkowa_matematyka-2023-czerwiec-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:5,
     image:`img/tasks_cke/cke_2023_dod_10.jpg`,
+    latex:`Wyznacz wszystkie wartości parametru  m, dla których równanie
+
+$$mx^{2} - (m + 1)x - 2m + 3 = 0$$
+
+ma dokładnie dwa różne rozwiązania rzeczywiste  x1  oraz  x2 , spełniające warunki:
+
+$$x^{1} \\neq 0,     x^{2} \\neq 0     oraz 1 2 + x^{1} 1 2 < 1 x^{2}$$
+
+Zapisz obliczenia.`,
+    figure:null,
     statement:`Wyznacz wszystkie wartości parametru  𝒎, dla których równanie
 
 𝒎𝒙𝟐 − (𝒎 + 𝟏)𝒙 − 𝟐𝒎 + 𝟑 = 𝟎
@@ -28313,6 +33114,12 @@ Zapisz obliczenia.`,
     number:`11`,source:`2023_dodatkowa_matematyka-2023-czerwiec-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:5,
     image:`img/tasks_cke/cke_2023_dod_11.jpg`,
+    latex:`Ciąg  (a, b, c)  jest trzywyrazowym ciągiem geometrycznym o wyrazach dodatnich. Ciąg
+(2a, 2b, c + 1)  jest trzywyrazowym ciągiem arytmetycznym. Ponadto spełniony jest warunek
+c - b = 6.
+
+Oblicz  a, b  oraz  c. Zapisz obliczenia.`,
+    figure:null,
     statement:`Ciąg  (𝑎, 𝑏, 𝑐)  jest trzywyrazowym ciągiem geometrycznym o wyrazach dodatnich. Ciąg
 (2𝑎, 2𝑏, 𝑐 + 1)  jest trzywyrazowym ciągiem arytmetycznym. Ponadto spełniony jest warunek
 𝑐 − 𝑏 = 6.
@@ -28330,6 +33137,16 @@ Oblicz  𝒂, 𝒃  oraz  𝒄. Zapisz obliczenia.`,
     number:`12`,source:`2023_dodatkowa_matematyka-2023-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:5,
     image:`img/tasks_cke/cke_2023_dod_12.jpg`,
+    latex:`Czworokąt wypukły  ABCD  jest wpisany w okrąg o promieniu  4. Kąty  BAD  i  BCD  są
+proste (zobacz rysunek). Przekątne  AC  i  BD  tego czworokąta przecinają się w punkcie  E
+tak, że  |BE| = 3 ∙ |DE|  oraz  |BD| = 2 ∙ |AE|.
+
+$$C D E B$$
+
+Oblicz długości boków czworokąta  ABCD. Zapisz obliczenia.
+
+$$A$$`,
+    figure:null,
     statement:`Czworokąt wypukły  𝐴𝐵𝐶𝐷  jest wpisany w okrąg o promieniu  4. Kąty  𝐵𝐴𝐷  i  𝐵𝐶𝐷  są
 proste (zobacz rysunek). Przekątne  𝐴𝐶  i  𝐵𝐷  tego czworokąta przecinają się w punkcie  𝐸
 tak, że  |𝐵𝐸| = 3 ∙ |𝐷𝐸|  oraz  |𝐵𝐷| = 2 ∙ |𝐴𝐸|.
@@ -28357,6 +33174,22 @@ Oblicz długości boków czworokąta  𝑨𝑩𝑪𝑫. Zapisz obliczenia.
     number:`13`,source:`2023_dodatkowa_matematyka-2023-czerwiec-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:6,
     image:`img/tasks_cke/cke_2023_dod_13.jpg`,
+    latex:`Rozważamy wszystkie graniastosłupy prawidłowe czworokątne  ABCDEFGH, w których
+odcinek łączący punkt  O  przecięcia przekątnych  AC  i  BD  podstawy  ABCD  z dowolnym
+wierzchołkiem podstawy  EFGH  ma długość  d  (zobacz rysunek).
+
+$$H E F d D A O B G C$$
+
+a) Wyznacz zależność objętości  V  graniastosłupa od jego wysokości  h  i podaj
+
+dziedzinę funkcji  V(h).
+
+b) Wyznacz wysokość tego z rozważanych graniastosłupów, którego objętość jest
+
+największa.
+
+Zapisz obliczenia.`,
+    figure:null,
     statement:`Rozważamy wszystkie graniastosłupy prawidłowe czworokątne  𝐴𝐵𝐶𝐷𝐸𝐹𝐺𝐻, w których
 odcinek łączący punkt  𝑂  przecięcia przekątnych  𝐴𝐶  i  𝐵𝐷  podstawy  𝐴𝐵𝐶𝐷  z dowolnym
 wierzchołkiem podstawy  𝐸𝐹𝐺𝐻  ma długość  𝑑  (zobacz rysunek).
@@ -28402,6 +33235,16 @@ Zapisz obliczenia.`,
     number:`1`,source:`2023_matura_matematyka-2023-maj-matura-rozszerzona.pdf`,
     category:1,categoryName:`Funkcja wykładnicza w praktyce`,points:2,
     image:`img/tasks_cke/cke_2023_1.jpg`,
+    latex:`W chwili początkowej  $(t = 0)$  masa substancji jest równa  4  gramom. Wskutek rozpadu
+cząsteczek tej substancji jej masa się zmniejsza. Po każdej kolejnej dobie ubywa
+19%  masy, jaka była na koniec doby poprzedniej. Dla każdej liczby całkowitej  t \\geq 0
+funkcja  m(t)  określa masę substancji w gramach po  t  pełnych dobach (czas liczymy od
+chwili początkowej).
+
+Wyznacz wzór funkcji  m(t). Oblicz, po ilu pełnych dobach masa tej substancji będzie
+po raz pierwszy mniejsza od  1, 5  grama.
+Zapisz obliczenia.`,
+    figure:null,
     statement:`W chwili początkowej  (𝑡 = 0)  masa substancji jest równa  4  gramom. Wskutek rozpadu
 cząsteczek tej substancji jej masa się zmniejsza. Po każdej kolejnej dobie ubywa
 19%  masy, jaka była na koniec doby poprzedniej. Dla każdej liczby całkowitej  𝑡 ≥ 0
@@ -28426,6 +33269,15 @@ po których masa subst`,explanation:``}]
     number:`2`,source:`2023_matura_matematyka-2023-maj-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:3,
     image:`img/tasks_cke/cke_2023_2.jpg`,
+    latex:`Tomek i Romek postanowili rozegrać między sobą pięć partii szachów. Prawdopodobieństwo
+
+wygrania pojedynczej partii przez Tomka jest równe
+
+$$\\frac{1}{4} .$$
+
+Oblicz prawdopodobieństwo wygrania przez Tomka co najmniej czterech z pięciu
+partii. Wynik podaj w postaci ułamka zwykłego nieskracalnego. Zapisz obliczenia.`,
+    figure:null,
     statement:`Tomek i Romek postanowili rozegrać między sobą pięć partii szachów. Prawdopodobieństwo
 
 wygrania pojedynczej partii przez Tomka jest równe
@@ -28506,6 +33358,17 @@ sukcesów w pięciu próbach Bernoullego, np.  𝑃 = (
     number:`3`,source:`2023_matura_matematyka-2023-maj-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:3,
     image:`img/tasks_cke/cke_2023_3.jpg`,
+    latex:`Funkcja  f  jest określona wzorem  f(x) =
+
+$$\\frac{3x^{2}-2x}{x^{2}+2x+8}$$
+
+dla każdej liczby rzeczywistej  x.
+
+Punkt  P = (x0 , 3)  należy do wykresu funkcji  f.
+
+Oblicz  x0  oraz wyznacz równanie stycznej do wykresu funkcji  f  w punkcie  P.
+Zapisz obliczenia.`,
+    figure:null,
     statement:`Funkcja  𝑓  jest określona wzorem  𝑓(𝑥) =
 
 3𝑥2−2𝑥
@@ -28549,6 +33412,11 @@ Zasady ocen`,explanation:``}]
     number:`4`,source:`2023_matura_matematyka-2023-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2023_4.jpg`,
+    latex:`Liczby rzeczywiste  x  oraz  y  spełniają jednocześnie równanie  x + y = 4  i nierówność
+x3 - x2y \\leq xy2 - y3.
+
+Wykaż, że  x = 2  oraz  y = 2.`,
+    figure:null,
     statement:`Liczby rzeczywiste  𝑥  oraz  𝑦  spełniają jednocześnie równanie  𝑥 + 𝑦 = 4  i nierówność
 𝑥3 − 𝑥2𝑦 ≤ 𝑥𝑦2 − 𝑦3.
 
@@ -28571,6 +33439,17 @@ o równości liczb  𝑥  i  𝑦  (lub do postaci, z której można bezpośredn
     number:`5`,source:`2023_matura_matematyka-2023-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:3,
     image:`img/tasks_cke/cke_2023_5.jpg`,
+    latex:`Dany jest trójkąt prostokątny  ABC, w którym  |∡ABC| = 90°  oraz  |∡CAB| = 60°. Punkty
+K  i  L  leżą na bokach - odpowiednio - AB  i  BC  tak, że  |BK| = |BL| = 1  (zobacz
+rysunek). Odcinek  KL  przecina wysokość  BD  tego trójkąta w punkcie  N, a ponadto
+|AD| = 2.
+
+$$A 2 60° D K 1 N B 1 L$$
+
+Wykaż, że  |ND| = \\sqrt3 + 1.
+
+$$C$$`,
+    figure:null,
     statement:`Dany jest trójkąt prostokątny  𝐴𝐵𝐶, w którym  |∡𝐴𝐵𝐶| = 90°  oraz  |∡𝐶𝐴𝐵| = 60°. Punkty
 𝐾  i  𝐿  leżą na bokach – odpowiednio – 𝐴𝐵  i  𝐵𝐶  tak, że  |𝐵𝐾| = |𝐵𝐿| = 1  (zobacz
 rysunek). Odcinek  𝐾𝐿  przecina wysokość  𝐵𝐷  tego trójkąta w punkcie  𝑁, a ponadto
@@ -28619,6 +33498,12 @@ ALBO
     number:`6`,source:`2023_matura_matematyka-2023-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:3,
     image:`img/tasks_cke/cke_2023_6.jpg`,
+    latex:`Rozwiąż równanie
+
+Zapisz obliczenia.
+
+$$4sin(4x)cos(6x) = 2sin(10x) + 1$$`,
+    figure:null,
     statement:`Rozwiąż równanie
 
 Zapisz obliczenia.
@@ -28657,6 +33542,16 @@ lub  sin(−2𝑥) =
     number:`7`,source:`2023_matura_matematyka-2023-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:4,
     image:`img/tasks_cke/cke_2023_7.jpg`,
+    latex:`Dany jest sześcian  ABCDEFGH  o krawędzi
+długości  6. Punkt  S  jest punktem przecięcia
+przekątnych  AH  i  DE  ściany bocznej  ADHE
+(zobacz rysunek).
+
+$$H E S D F G C A 6 B$$
+
+Oblicz wysokość trójkąta  SBH  poprowadzoną z punktu  S  na bok  BH  tego trójkąta.
+Zapisz obliczenia.`,
+    figure:null,
     statement:`Dany jest sześcian  𝐴𝐵𝐶𝐷𝐸𝐹𝐺𝐻  o krawędzi
 długości  6. Punkt  𝑆  jest punktem przecięcia
 przekątnych  𝐴𝐻  i  𝐷𝐸  ściany bocznej  𝐴𝐷𝐻𝐸
@@ -28706,6 +33601,15 @@ Zasady oceniania
     number:`8`,source:`2023_matura_matematyka-2023-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2023_8.jpg`,
+    latex:`Czworokąt  ABCD, w którym  |BC| = 4  i  |CD| = 5, jest opisany na okręgu. Przekątna  AC
+tego czworokąta tworzy z bokiem  BC  kąt o mierze  60°, natomiast z bokiem  AB - kąt ostry,
+
+którego sinus jest równy
+
+$$\\frac{1}{4} .$$
+
+Oblicz obwód czworokąta  ABCD. Zapisz obliczenia.`,
+    figure:null,
     statement:`Czworokąt  𝐴𝐵𝐶𝐷, w którym  |𝐵𝐶| = 4  i  |𝐶𝐷| = 5, jest opisany na okręgu. Przekątna  𝐴𝐶
 tego czworokąta tworzy z bokiem  𝐵𝐶  kąt o mierze  60°, natomiast z bokiem  𝐴𝐵 – kąt ostry,
 
@@ -28738,6 +33642,14 @@ ALBO
     number:`9`,source:`2023_matura_matematyka-2023-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2023_9.jpg`,
+    latex:`Rozwiąż nierówność
+
+Zapisz obliczenia.
+
+$$\\sqrtx^{2} + 4x + 4 < \\frac{25}{3} - \\sqrtx^{2} - 6x + 9$$
+
+Wskazówka: skorzystaj z tego, że  \\sqrta2 = |a|  dla każdej liczby rzeczywistej  a.`,
+    figure:null,
     statement:`Rozwiąż nierówność
 
 Zapisz obliczenia.
@@ -28775,6 +33687,29 @@ Zasady oceniania
     number:`10`,source:`2023_matura_matematyka-2023-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:4,
     image:`img/tasks_cke/cke_2023_10.jpg`,
+    latex:`Określamy kwadraty  K1 , K2 , K3 , … następująco:
+•  K1  jest kwadratem o boku długości  a
+•  K2  jest kwadratem, którego każdy wierzchołek leży na innym boku kwadratu  K1  i dzieli
+
+$$ten bok w stosunku  1 ∶ 3$$
+
+•  K3  jest kwadratem, którego każdy wierzchołek leży na innym boku kwadratu  K2  i dzieli
+
+$$ten bok w stosunku  1 ∶ 3$$
+
+i ogólnie, dla każdej liczby naturalnej  n \\geq 2,
+•  Kn  jest kwadratem, którego każdy wierzchołek leży na innym boku kwadratu  Kn-1
+
+$$i dzieli ten bok w stosunku  1 ∶ 3.$$
+
+Obwody wszystkich kwadratów określonych powyżej tworzą nieskończony ciąg
+geometryczny.
+Na rysunku przedstawiono kwadraty utworzone w sposób opisany powyżej.
+
+$$a a$$
+
+Oblicz sumę wszystkich wyrazów tego nieskończonego ciągu. Zapisz obliczenia.`,
+    figure:null,
     statement:`Określamy kwadraty  𝐾1 , 𝐾2 , 𝐾3 , … następująco:
 •  𝐾1  jest kwadratem o boku długości  𝑎
 •  𝐾2  jest kwadratem, którego każdy wierzchołek leży na innym boku kwadratu  𝐾1  i dzieli
@@ -28842,6 +33777,15 @@ Zasady oceniania
     number:`11`,source:`2023_matura_matematyka-2023-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:5,
     image:`img/tasks_cke/cke_2023_11.jpg`,
+    latex:`Wyznacz wszystkie wartości parametru  m \\neq 2, dla których równanie
+
+$$x^{2} + 4x - \\frac{m - 3}{m - 2} = 0$$
+
+ma dwa różne rozwiązania rzeczywiste  x1 , x2  spełniające warunek  x1
+Zapisz obliczenia.
+
+$$3 + x^{2} 3 > -28.$$`,
+    figure:null,
     statement:`Wyznacz wszystkie wartości parametru  𝒎 ≠ 𝟐, dla których równanie
 
 𝒙𝟐 + 𝟒𝒙 −
@@ -28888,6 +33832,8 @@ w szczególności wyznacza`,explanation:``}]
     number:`12.1`,source:`2023_matura_matematyka-2023-maj-matura-rozszerzona.pdf`,
     category:3,categoryName:`Logarytmy`,points:2,
     image:`img/tasks_cke/cke_2023_12.jpg`,
+    latex:null,
+    figure:null,
     statement:`Wykaż, że dla każdej liczby dodatniej  𝒙  wyrażenie
 
 𝟖𝟏𝐥𝐨𝐠𝟑 𝒙 +
@@ -28930,6 +33876,8 @@ matem`,explanation:``}]
     number:`12.2`,source:`2023_matura_matematyka-2023-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:4,
     image:`img/tasks_cke/cke_2023_12.jpg`,
+    latex:null,
+    figure:null,
     statement:`Oblicz najmniejszą wartość funkcji  𝒇  określonej dla każdej liczby dodatniej  𝒙.
 Zapisz obliczenia.
 –1–
@@ -28949,6 +33897,20 @@ wartości najmniejszej funkcji  𝑓:`,explanation:``}]
     number:`13`,source:`2023_matura_matematyka-2023-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:6,
     image:`img/tasks_cke/cke_2023_13.jpg`,
+    latex:`W kartezjańskim układzie współrzędnych  (x, y)  prosta  l  o równaniu  x - y - 2 = 0
+przecina parabolę o równaniu  y = 4x2 - 7x + 1  w punktach  A  oraz  B. Odcinek  AB  jest
+średnicą okręgu  O. Punkt  C  leży na okręgu  O  nad prostą  l, a kąt  BAC  jest ostry i ma
+
+miarę  𝛼  taką, że  tg 𝛼 =
+
+$$\\frac{1}{3} (zobacz rysunek). y 1 y = 4x^{2} - 7x + 1 1 C B 𝛼 A$$
+
+okrąg  O
+
+$$l x - y - 2 = 0 x$$
+
+Oblicz współrzędne punktu  C. Zapisz obliczenia.`,
+    figure:null,
     statement:`W kartezjańskim układzie współrzędnych  (𝑥, 𝑦)  prosta  𝑙  o równaniu  𝑥 − 𝑦 − 2 = 0
 przecina parabolę o równaniu  𝑦 = 4𝑥2 − 7𝑥 + 1  w punktach  𝐴  oraz  𝐵. Odcinek  𝐴𝐵  jest
 średnicą okręgu  𝒪. Punkt  𝐶  leży na okręgu  𝒪  nad prostą  𝑙, a kąt  𝐵𝐴𝐶  jest ostry i ma
@@ -29011,6 +33973,34 @@ Zasady oceniania
     number:`1`,source:`2024_dodatkowa_matematyka-2024-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:2,
     image:`img/tasks_cke/cke_2024_dod_1.jpg`,
+    latex:`W chwili początkowej $(t = 0)$ zainicjowano pewną reakcję chemiczną, w której brał udział
+związek  A.
+W wyniku tej reakcji masa  m  związku  A  zmieniała się w czasie zgodnie z zależnością
+
+$$m(t) = a \\cdot 2-0,05\\cdott + b     dla     t \\geq 0$$
+
+gdzie:
+m   - masa związku  A  wyrażona w gramach,
+t
+a, b  - współczynniki liczbowe.
+
+- czas wyrażony w sekundach (liczony od chwili  t = 0),
+
+Masa początkowa związku  A  (tj. masa w chwili  t = 0)  była równa  m0  gramów.
+1
+9
+
+Po osiągnięciu stanu równowagi  (tj. gdy  t \\to \\infty)  masa tego związku była równa
+
+jego
+
+masy początkowej (zobacz rysunek).
+
+$$m m^{0} \\frac{1}{9} m^{0} 0 t$$
+
+Oblicz, po ilu sekundach (licząc od chwili zainicjowania tej reakcji) przereagowało
+87, 5 %  masy początkowej tego związku. Zapisz obliczenia.`,
+    figure:null,
     statement:`W chwili początkowej (𝑡 = 0) zainicjowano pewną reakcję chemiczną, w której brał udział
 związek  A.
 W wyniku tej reakcji masa  𝑚  związku  A  zmieniała się w czasie zgodnie z zależnością
@@ -29061,6 +34051,12 @@ Oblicz, po ilu sekundach (licząc od chwili zainicjowania tej reakcji) przereago
     number:`2`,source:`2024_dodatkowa_matematyka-2024-czerwiec-matura-rozszerzona.pdf`,
     category:2,categoryName:`Granica ciągu i funkcji`,points:2,
     image:`img/tasks_cke/cke_2024_dod_2.jpg`,
+    latex:`Oblicz granicę
+
+Zapisz obliczenia.
+
+$$\\lim_{x \\to 3^{-}} \\frac{|x - 3|}{x^{2} - 9}$$`,
+    figure:null,
     statement:`Oblicz granicę
 
 Zapisz obliczenia.
@@ -29082,6 +34078,18 @@ lim
     number:`3`,source:`2024_dodatkowa_matematyka-2024-czerwiec-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:3,
     image:`img/tasks_cke/cke_2024_dod_3.jpg`,
+    latex:`Funkcja  f  jest określona wzorem  f(x) =
+
+$$\\frac{2x+1}{x-4}$$
+
+dla każdej liczby rzeczywistej  x \\neq 4.
+
+W kartezjańskim układzie współrzędnych  (x, y)  punkt  P = (x0 , 5)  należy do wykresu
+funkcji  f.
+
+Oblicz  x0  oraz wyznacz równanie stycznej do wykresu funkcji  f  w punkcie  P.
+Zapisz obliczenia.`,
+    figure:null,
     statement:`Funkcja  𝑓  jest określona wzorem  𝑓(𝑥) =
 
 2𝑥+1
@@ -29106,6 +34114,12 @@ Zapisz obliczenia.`,
     number:`4`,source:`2024_dodatkowa_matematyka-2024-czerwiec-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:3,
     image:`img/tasks_cke/cke_2024_dod_4.jpg`,
+    latex:`Doświadczenie losowe polega na dziesięciokrotnym rzucie symetryczną monetą.
+
+Oblicz prawdopodobieństwo zdarzenia polegającego na tym, że w tym doświadczeniu
+losowym orzeł wypadł dokładnie trzy razy z rzędu, jeśli wiadomo, że wypadł dokładnie
+trzy razy. Zapisz obliczenia.`,
+    figure:null,
     statement:`Doświadczenie losowe polega na dziesięciokrotnym rzucie symetryczną monetą.
 
 Oblicz prawdopodobieństwo zdarzenia polegającego na tym, że w tym doświadczeniu
@@ -29123,6 +34137,11 @@ trzy razy. Zapisz obliczenia.`,
     number:`5`,source:`2024_dodatkowa_matematyka-2024-czerwiec-matura-rozszerzona.pdf`,
     category:5,categoryName:`Dowód nierówności`,points:3,
     image:`img/tasks_cke/cke_2024_dod_5.jpg`,
+    latex:`Wykaż, że dla każdej liczby dodatniej  a  i każdej liczby dodatniej  b  takich, że
+a + b = 1, prawdziwa jest nierówność
+
+$$\\frac{1}{2a + b} + \\frac{1}{a + 2b} \\geq \\frac{4}{3}$$`,
+    figure:null,
     statement:`Wykaż, że dla każdej liczby dodatniej  𝒂  i każdej liczby dodatniej  𝒃  takich, że
 𝒂 + 𝒃 = 𝟏, prawdziwa jest nierówność
 
@@ -29150,6 +34169,11 @@ trzy razy. Zapisz obliczenia.`,
     number:`6`,source:`2024_dodatkowa_matematyka-2024-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:3,
     image:`img/tasks_cke/cke_2024_dod_6.jpg`,
+    latex:`Długości podstaw trapezu równoramiennego są równe  a  oraz  b, przy czym  a > b. W ten
+trapez można wpisać okrąg.
+
+Wykaż, że pole tego trapezu jest większe od  a \\cdot b.`,
+    figure:null,
     statement:`Długości podstaw trapezu równoramiennego są równe  𝑎  oraz  𝑏, przy czym  𝑎 > 𝑏. W ten
 trapez można wpisać okrąg.
 
@@ -29166,6 +34190,13 @@ Wykaż, że pole tego trapezu jest większe od  𝒂 ⋅ 𝒃.`,
     number:`7`,source:`2024_dodatkowa_matematyka-2024-czerwiec-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:4,
     image:`img/tasks_cke/cke_2024_dod_7.jpg`,
+    latex:`Nieskończony ciąg geometryczny  (an)  jest określony dla każdej liczby naturalnej  n \\geq 1.
+Suma wszystkich wyrazów ciągu  (an)  o numerach nieparzystych jest równa  16, tj.
+
+$$Ponadto  a^{1} + a^{3} = \\frac{5}{2} \\cdot a^{2} . a^{1} + a^{3} + a^{5} +   … = 16$$
+
+Wyznacz wzór ogólny na  n-ty wyraz ciągu  (an). Zapisz obliczenia.`,
+    figure:null,
     statement:`Nieskończony ciąg geometryczny  (𝑎𝑛)  jest określony dla każdej liczby naturalnej  𝑛 ≥ 1.
 Suma wszystkich wyrazów ciągu  (𝑎𝑛)  o numerach nieparzystych jest równa  16, tj.
 
@@ -29191,6 +34222,11 @@ Wyznacz wzór ogólny na  𝒏–ty wyraz ciągu  (𝒂𝒏). Zapisz obliczenia.
     number:`8`,source:`2024_dodatkowa_matematyka-2024-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:4,
     image:`img/tasks_cke/cke_2024_dod_8.jpg`,
+    latex:`W okrąg o promieniu  4  wpisano trójkąt  ABC. Długość boku  AB  jest równa  6. Bok  BC
+ma długość  4\\sqrt3  i jest najdłuższym bokiem tego trójkąta.
+
+Oblicz długość boku  AC  trójkąta  ABC. Zapisz obliczenia.`,
+    figure:null,
     statement:`W okrąg o promieniu  4  wpisano trójkąt  𝐴𝐵𝐶. Długość boku  𝐴𝐵  jest równa  6. Bok  𝐵𝐶
 ma długość  4√3  i jest najdłuższym bokiem tego trójkąta.
 
@@ -29207,6 +34243,12 @@ Oblicz długość boku  𝑨𝑪  trójkąta  𝑨𝑩𝑪. Zapisz obliczenia.`,
     number:`9`,source:`2024_dodatkowa_matematyka-2024-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2024_dod_9.jpg`,
+    latex:`Rozwiąż równanie
+
+Zapisz obliczenia.
+
+$$sin(6x) + \\sqrt^{3} \\cdot sin(5x) + sin(4x) = 0$$`,
+    figure:null,
     statement:`Rozwiąż równanie
 
 Zapisz obliczenia.
@@ -29224,6 +34266,15 @@ Zapisz obliczenia.
     number:`10`,source:`2024_dodatkowa_matematyka-2024-czerwiec-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2024_dod_10.jpg`,
+    latex:`Długość krawędzi podstawy graniastosłupa prawidłowego trójkątnego jest równa  a.
+Sinus kąta między przekątnymi ścian bocznych wychodzącymi z jednego wierzchołka
+
+graniastosłupa jest równy
+
+$$\\frac{\\sqrt^{11}}{6} .$$
+
+Wyznacz pole powierzchni całkowitej tego graniastosłupa. Zapisz obliczenia.`,
+    figure:null,
     statement:`Długość krawędzi podstawy graniastosłupa prawidłowego trójkątnego jest równa  𝑎.
 Sinus kąta między przekątnymi ścian bocznych wychodzącymi z jednego wierzchołka
 
@@ -29247,6 +34298,24 @@ Wyznacz pole powierzchni całkowitej tego graniastosłupa. Zapisz obliczenia.`,
     number:`11`,source:`2024_dodatkowa_matematyka-2024-czerwiec-matura-rozszerzona.pdf`,
     category:11,categoryName:`Geometria analityczna`,points:6,
     image:`img/tasks_cke/cke_2024_dod_11.jpg`,
+    latex:`W kartezjańskim układzie współrzędnych  (x, y)  prosta o równaniu  3x + y + 2 = 0
+przecina parabolę o równaniu  y = x2 - 2x - 8  w punktach  A  oraz  B, które są kolejnymi
+wierzchołkami równoległoboku  ABCD. Wierzchołek  A  ma pierwszą współrzędną ujemną.
+
+Wierzchołek  C  leży na prostej o równaniu  y = -
+
+$$\\frac{1}{2}$$
+
+x + 1  i ma pierwszą współrzędną
+
+dodatnią. Odległość punktu  C  od prostej zawierającej bok  AB  równoległoboku jest
+
+równa
+
+$$\\frac{9\\sqrt^{10}}{5} .$$
+
+Oblicz długość boku  BC  tego równoległoboku. Zapisz obliczenia.`,
+    figure:null,
     statement:`W kartezjańskim układzie współrzędnych  (𝑥, 𝑦)  prosta o równaniu  3𝑥 + 𝑦 + 2 = 0
 przecina parabolę o równaniu  𝑦 = 𝑥2 − 2𝑥 − 8  w punktach  𝐴  oraz  𝐵, które są kolejnymi
 wierzchołkami równoległoboku  𝐴𝐵𝐶𝐷. Wierzchołek  𝐴  ma pierwszą współrzędną ujemną.
@@ -29280,6 +34349,16 @@ Oblicz długość boku  𝑩𝑪  tego równoległoboku. Zapisz obliczenia.`,
     number:`12`,source:`2024_dodatkowa_matematyka-2024-czerwiec-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:6,
     image:`img/tasks_cke/cke_2024_dod_12.jpg`,
+    latex:`Wyznacz wszystkie wartości parametru  m, dla których równanie
+
+$$(3 - m) \\cdot x^{2} + (m + 1) \\cdot x - (m + 1)^{2} = 0$$
+
+ma dwa różne rozwiązania rzeczywiste  x1 , x2  spełniające warunek
+
+$$\\frac{2 + x^{2}}{x^{1}} 2 = x^{1} \\cdot x^{2} + 7$$
+
+Zapisz obliczenia.`,
+    figure:null,
     statement:`Wyznacz wszystkie wartości parametru  𝒎, dla których równanie
 
 (𝟑 − 𝒎) ⋅ 𝒙𝟐 + (𝒎 + 𝟏) ⋅ 𝒙 − (𝒎 + 𝟏)𝟐 = 𝟎
@@ -29304,6 +34383,8 @@ Zapisz obliczenia.`,
     number:`13.1`,source:`2024_dodatkowa_matematyka-2024-czerwiec-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:2,
     image:`img/tasks_cke/cke_2024_dod_13.jpg`,
+    latex:null,
+    figure:null,
     statement:`Wykaż, że objętość  𝑽  każdego z takich ostrosłupów w zależności od długości  𝑹
 promienia okręgu opisanego na podstawie ostrosłupa jest określona wzorem
 
@@ -29325,6 +34406,8 @@ promienia okręgu opisanego na podstawie ostrosłupa jest określona wzorem
     number:`13.2`,source:`2024_dodatkowa_matematyka-2024-czerwiec-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:4,
     image:`img/tasks_cke/cke_2024_dod_13.jpg`,
+    latex:null,
+    figure:null,
     statement:`Objętość  𝑉  ostrosłupa w zależności od długości  𝑅  promienia okręgu opisanego na
 podstawie ostrosłupa jest określona wzorem
 
@@ -29352,6 +34435,24 @@ obliczenia.`,
     number:`1`,source:`2024_matura_matematyka-2024-maj-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:2,
     image:`img/tasks_cke/cke_2024_1.jpg`,
+    latex:`W chwili początkowej $(t = 0)$ filiżanka z gorącą kawą znajduje się w pokoju, a temperatura
+tej kawy jest równa  80 °C. Temperatura w pokoju (temperatura otoczenia) jest stała
+i równa  20 °C. Temperatura  T  tej kawy zmienia się w czasie zgodnie z zależnością
+
+$$T(t) = (Tp - Tz) \\cdot k-t + Tz     dla     t \\geq 0$$
+
+gdzie:
+T   - temperatura kawy wyrażona w stopniach Celsjusza,
+t   - czas wyrażony w minutach, liczony od chwili początkowej,
+Tp  - temperatura początkowa kawy wyrażona w stopniach Celsjusza,
+Tz  - temperatura otoczenia wyrażona w stopniach Celsjusza,
+k   - stała charakterystyczna dla danej cieczy.
+
+Po  10  minutach, licząc od chwili początkowej, kawa ostygła do temperatury  65 °C.
+
+Oblicz temperaturę tej kawy po następnych pięciu minutach. Wynik podaj w stopniach
+Celsjusza, w zaokrągleniu do jedności. Zapisz obliczenia.`,
+    figure:null,
     statement:`W chwili początkowej (𝑡 = 0) filiżanka z gorącą kawą znajduje się w pokoju, a temperatura
 tej kawy jest równa  80 °C. Temperatura w pokoju (temperatura otoczenia) jest stała
 i równa  20 °C. Temperatura  𝑇  tej kawy zmienia się w czasie zgodnie z zależnością
@@ -29385,6 +34486,12 @@ zaokrąglony do jedności:  59 °C.
     number:`2`,source:`2024_matura_matematyka-2024-maj-matura-rozszerzona.pdf`,
     category:2,categoryName:`Granica ciągu i funkcji`,points:2,
     image:`img/tasks_cke/cke_2024_2.jpg`,
+    latex:`Oblicz granicę
+
+Zapisz obliczenia.
+
+$$\\lim_{x \\to 2^{-}} \\frac{x^{3} - 8}{(x - 2)^{2}}$$`,
+    figure:null,
     statement:`Oblicz granicę
 
 Zapisz obliczenia.
@@ -29436,6 +34543,16 @@ lim
     number:`3`,source:`2024_matura_matematyka-2024-maj-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:3,
     image:`img/tasks_cke/cke_2024_3.jpg`,
+    latex:`W pewnym zakładzie mleczarskim śmietana produkowana jest w 200-gramowych
+opakowaniach. Prawdopodobieństwo zdarzenia, że w losowo wybranym opakowaniu
+śmietana zawiera mniej niż 36% tłuszczu, jest równe  0,01. Kontroli poddajemy  10  losowo
+wybranych opakowań ze śmietaną.
+
+Oblicz prawdopodobieństwo zdarzenia polegającego na tym, że wśród opakowań
+poddanych tej kontroli będzie co najwyżej jedno opakowanie ze śmietaną, która
+zawiera mniej niż 36% tłuszczu. Wynik zapisz w postaci ułamka dziesiętnego
+w zaokrągleniu do części tysięcznych. Zapisz obliczenia.`,
+    figure:null,
     statement:`W pewnym zakładzie mleczarskim śmietana produkowana jest w 200-gramowych
 opakowaniach. Prawdopodobieństwo zdarzenia, że w losowo wybranym opakowaniu
 śmietana zawiera mniej niż 36% tłuszczu, jest równe  0,01. Kontroli poddajemy  10  losowo
@@ -29473,6 +34590,16 @@ w dziesięciu próbach Bernoullego, np.
     number:`4`,source:`2024_matura_matematyka-2024-maj-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:3,
     image:`img/tasks_cke/cke_2024_4.jpg`,
+    latex:`Funkcja  f  jest określona wzorem
+
+$$f(x) = \\frac{x^{3}   -  3x  +  2}{x}$$
+
+dla każdej liczby rzeczywistej  x  różnej od zera. W kartezjańskim układzie współrzędnych
+(x, y)  punkt  P, o pierwszej współrzędnej równej  2, należy do wykresu funkcji  f.
+Prosta o równaniu  y = ax + b  jest styczna do wykresu funkcji  f  w punkcie  P.
+
+Oblicz współczynniki  a  oraz  b  w równaniu tej stycznej. Zapisz obliczenia.`,
+    figure:null,
     statement:`Funkcja  𝑓  jest określona wzorem
 
 𝑓(𝑥) =
@@ -29506,6 +34633,10 @@ oraz  𝑏 = −5.
     number:`5`,source:`2024_matura_matematyka-2024-maj-matura-rozszerzona.pdf`,
     category:3,categoryName:`Logarytmy`,points:3,
     image:`img/tasks_cke/cke_2024_5.jpg`,
+    latex:`Wykaż, że jeżeli  log54 = a  oraz  log43 = b, to  log1280 =
+
+$$\\frac{2a + 1}{a \\cdot (1 + b)} .$$`,
+    figure:null,
     statement:`Wykaż, że jeżeli  𝐥𝐨𝐠𝟓𝟒 = 𝒂  oraz  𝐥𝐨𝐠𝟒𝟑 = 𝒃, to  𝐥𝐨𝐠𝟏𝟐𝟖𝟎 =
 
 𝟐𝒂 + 𝟏
@@ -29530,6 +34661,11 @@ lub  log`,explanation:``}]
     number:`6`,source:`2024_matura_matematyka-2024-maj-matura-rozszerzona.pdf`,
     category:14,categoryName:`Kombinatoryka`,points:3,
     image:`img/tasks_cke/cke_2024_6.jpg`,
+    latex:`Rozważamy wszystkie liczby naturalne, w których zapisie dziesiętnym nie powtarza się
+jakakolwiek cyfra oraz dokładnie trzy cyfry są nieparzyste i dokładnie dwie cyfry są parzyste.
+
+Oblicz, ile jest wszystkich takich liczb. Zapisz obliczenia.`,
+    figure:null,
     statement:`Rozważamy wszystkie liczby naturalne, w których zapisie dziesiętnym nie powtarza się
 jakakolwiek cyfra oraz dokładnie trzy cyfry są nieparzyste i dokładnie dwie cyfry są parzyste.
 
@@ -29551,6 +34687,12 @@ Zasady oceniania
     number:`7`,source:`2024_matura_matematyka-2024-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:4,
     image:`img/tasks_cke/cke_2024_7.jpg`,
+    latex:`Trzywyrazowy ciąg  (x, y, z)  jest geometryczny i rosnący. Suma wyrazów tego ciągu jest
+równa  105. Liczby  x, y  oraz  z  są - odpowiednio - pierwszym, drugim oraz szóstym
+wyrazem ciągu arytmetycznego  (an), określonego dla każdej liczby naturalnej  n \\geq 1.
+
+Oblicz  x, y  oraz  z. Zapisz obliczenia.`,
+    figure:null,
     statement:`Trzywyrazowy ciąg  (𝑥, 𝑦, 𝑧)  jest geometryczny i rosnący. Suma wyrazów tego ciągu jest
 równa  105. Liczby  𝑥, 𝑦  oraz  𝑧  są – odpowiednio – pierwszym, drugim oraz szóstym
 wyrazem ciągu arytmetycznego  (𝑎𝑛), określonego dla każdej liczby naturalnej  𝑛 ≥ 1.
@@ -29576,6 +34718,13 @@ ALBO
     number:`8`,source:`2024_matura_matematyka-2024-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:4,
     image:`img/tasks_cke/cke_2024_8.jpg`,
+    latex:`Dany jest trójkąt  ABC, który nie jest równoramienny. W tym trójkącie miara kąta  ABC  jest
+dwa razy większa od miary kąta  BAC.
+
+Wykaż, że długości boków tego trójkąta spełniają warunek
+
+$$|AC|2 = |BC|2 + |AB| \\cdot |BC|$$`,
+    figure:null,
     statement:`Dany jest trójkąt  𝐴𝐵𝐶, który nie jest równoramienny. W tym trójkącie miara kąta  𝐴𝐵𝐶  jest
 dwa razy większa od miary kąta  𝐵𝐴𝐶.
 
@@ -29626,6 +34775,13 @@ ALBO
     number:`9`,source:`2024_matura_matematyka-2024-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:4,
     image:`img/tasks_cke/cke_2024_9.jpg`,
+    latex:`Dany jest kwadrat  ABCD  o boku długości  a. Punkt  E  jest środkiem boku  CD. Przekątna
+BD  dzieli trójkąt  ACE  na dwie figury:  AGF  oraz  CEFG  (zobacz rysunek).
+
+$$D E C F G a A B$$
+
+Oblicz pola figur  AGF  oraz  CEFG. Zapisz obliczenia.`,
+    figure:null,
     statement:`Dany jest kwadrat  𝐴𝐵𝐶𝐷  o boku długości  𝑎. Punkt  𝐸  jest środkiem boku  𝐶𝐷. Przekątna
 𝐵𝐷  dzieli trójkąt  𝐴𝐶𝐸  na dwie figury:  𝐴𝐺𝐹  oraz  𝐶𝐸𝐹𝐺  (zobacz rysunek).
 
@@ -29693,6 +34849,10 @@ ALBO
     number:`10`,source:`2024_matura_matematyka-2024-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:5,
     image:`img/tasks_cke/cke_2024_10.jpg`,
+    latex:`Rozwiąż równanie
+
+$$sin(4x) - sin(2x) = 4cos^{2}x - 3 w zbiorze  [0, 2𝝅]. Zapisz obliczenia.$$`,
+    figure:null,
     statement:`Rozwiąż równanie
 
 𝐬𝐢𝐧(𝟒𝒙) − 𝐬𝐢𝐧(𝟐𝒙) = 𝟒𝐜𝐨𝐬𝟐𝒙 − 𝟑
@@ -29737,6 +34897,13 @@ Zasady oceniania
     number:`11`,source:`2024_matura_matematyka-2024-maj-matura-rozszerzona.pdf`,
     category:11,categoryName:`Geometria analityczna`,points:5,
     image:`img/tasks_cke/cke_2024_11.jpg`,
+    latex:`W kartezjańskim układzie współrzędnych  (x, y)  środek  S  okręgu o promieniu  \\sqrt5  leży na
+prostej o równaniu  y = x + 1. Przez punkt  A = (1, 2), którego odległość od punktu  S  jest
+większa od  \\sqrt5, poprowadzono dwie proste styczne do tego okręgu w punktach -
+odpowiednio -  B  i  C. Pole czworokąta  ABSC  jest równe  15.
+
+Oblicz współrzędne punktu  S. Rozważ wszystkie przypadki. Zapisz obliczenia.`,
+    figure:null,
     statement:`W kartezjańskim układzie współrzędnych  (𝑥, 𝑦)  środek  𝑆  okręgu o promieniu  √5  leży na
 prostej o równaniu  𝑦 = 𝑥 + 1. Przez punkt  𝐴 = (1, 2), którego odległość od punktu  𝑆  jest
 większa od  √5, poprowadzono dwie proste styczne do tego okręgu w punktach –
@@ -29762,6 +34929,16 @@ ALBO
     number:`12`,source:`2024_matura_matematyka-2024-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:6,
     image:`img/tasks_cke/cke_2024_12.jpg`,
+    latex:`Wyznacz wszystkie wartości parametru  m, dla których równanie
+
+$$x^{2} - (3m + 1) \\cdot x + 2m^{2} + m + 1 = 0$$
+
+ma dwa różne rozwiązania rzeczywiste  x1 , x2  spełniające warunek
+
+$$\\frac{3 + x^{2}}{x^{1}} 3 + 3 \\cdot x^{1} \\cdot x^{2} \\cdot (x^{1} + x^{2} - 3) \\leq 3m - 7$$
+
+Zapisz obliczenia.`,
+    figure:null,
     statement:`Wyznacz wszystkie wartości parametru  𝒎, dla których równanie
 
 𝒙𝟐 − (𝟑𝒎 + 𝟏) ⋅ 𝒙 + 𝟐𝒎𝟐 + 𝒎 + 𝟏 = 𝟎
@@ -29805,6 +34982,8 @@ w szczególności wyznacza liczbę`,explanation:``}]
     number:`13.1`,source:`2024_matura_matematyka-2024-maj-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:2,
     image:`img/tasks_cke/cke_2024_13.jpg`,
+    latex:null,
+    figure:null,
     statement:`Wykaż, że pole  𝑷  powierzchni całkowitej graniastosłupa w zależności od długości  𝒂
 krawędzi podstawy graniastosłupa jest określone wzorem
 –1–2
@@ -29840,6 +35019,8 @@ Uwa`,explanation:``}]
     number:`13.2`,source:`2024_matura_matematyka-2024-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:4,
     image:`img/tasks_cke/cke_2024_13.jpg`,
+    latex:null,
+    figure:null,
     statement:`Pole  𝑃  powierzchni całkowitej graniastosłupa w zależności od długości  𝑎  krawędzi
 podstawy graniastosłupa jest określone wzorem
 
@@ -29872,6 +35053,14 @@ Zasady oceniania
     number:`1`,source:`2025_dodatkowa_matematyka-2025-czerwiec-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:3,
     image:`img/tasks_cke/cke_2025_dod_1.jpg`,
+    latex:`Sklep AGD prowadzi sprzedaż wysyłkową pralek. Prawdopodobieństwo uszkodzenia
+podczas transportu pralki wysłanej przez ten sklep do klienta jest równe  0,02.
+
+Oblicz prawdopodobieństwo zdarzenia  A  polegającego na tym, że spośród
+10  pralek wysłanych dziesięciu klientom przez ten sklep co najwyżej jedna ulegnie
+uszkodzeniu podczas transportu. Wynik zapisz w postaci ułamka dziesiętnego
+w zaokrągleniu do części tysięcznych. Zapisz obliczenia.`,
+    figure:null,
     statement:`Sklep AGD prowadzi sprzedaż wysyłkową pralek. Prawdopodobieństwo uszkodzenia
 podczas transportu pralki wysłanej przez ten sklep do klienta jest równe  0,02.
 
@@ -29891,6 +35080,10 @@ w zaokrągleniu do części tysięcznych. Zapisz obliczenia.`,
     number:`2`,source:`2025_dodatkowa_matematyka-2025-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2025_dod_2.jpg`,
+    latex:`Wykaż, że jeżeli  a = log2 14  oraz  b = log\\sqrt2 27, to  log7 54 =
+
+$$\\frac{b + 2}{2a - 2} .$$`,
+    figure:null,
     statement:`Wykaż, że jeżeli  𝒂 = 𝐥𝐨𝐠𝟐 𝟏𝟒  oraz  𝒃 = 𝐥𝐨𝐠√𝟐 𝟐𝟕, to  𝐥𝐨𝐠𝟕 𝟓𝟒 =
 
 𝒃 + 𝟐
@@ -29909,6 +35102,11 @@ w zaokrągleniu do części tysięcznych. Zapisz obliczenia.`,
     number:`3`,source:`2025_dodatkowa_matematyka-2025-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2025_dod_3.jpg`,
+    latex:`Rozważamy wszystkie liczby naturalne sześciocyfrowe, w których zapisie dziesiętnym
+iloczyn cyfr jest liczbą parzystą mniejszą od  5.
+
+Oblicz, ile jest wszystkich takich liczb sześciocyfrowych. Zapisz obliczenia.`,
+    figure:null,
     statement:`Rozważamy wszystkie liczby naturalne sześciocyfrowe, w których zapisie dziesiętnym
 iloczyn cyfr jest liczbą parzystą mniejszą od  5.
 
@@ -29925,6 +35123,16 @@ Oblicz, ile jest wszystkich takich liczb sześciocyfrowych. Zapisz obliczenia.`,
     number:`4`,source:`2025_dodatkowa_matematyka-2025-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:3,
     image:`img/tasks_cke/cke_2025_dod_4.jpg`,
+    latex:`Dany jest prostokąt  ABCD, w którym  |AB| = 2 \\cdot |AD|. Na bokach  AB, BC, CD  oraz  DA
+tego prostokąta obrano punkty - odpowiednio -  K, L, M  oraz  N  (przy czym każdy z tych
+punktów leży na dokładnie jednym boku prostokąta  ABCD). Czworokąt  KLMN  jest
+trapezem prostokątnym (zobacz rysunek), a wysokość  LM  tego trapezu jest równoległa do
+przekątnej  BD  prostokąta.
+
+$$D M C N A L K B$$
+
+Wykaż, że stosunek pola trójkąta  MDN  do pola trójkąta  KBL  jest równy  16.`,
+    figure:null,
     statement:`Dany jest prostokąt  𝐴𝐵𝐶𝐷, w którym  |𝐴𝐵| = 2 ⋅ |𝐴𝐷|. Na bokach  𝐴𝐵, 𝐵𝐶, 𝐶𝐷  oraz  𝐷𝐴
 tego prostokąta obrano punkty – odpowiednio –  𝐾, 𝐿, 𝑀  oraz  𝑁  (przy czym każdy z tych
 punktów leży na dokładnie jednym boku prostokąta  𝐴𝐵𝐶𝐷). Czworokąt  𝐾𝐿𝑀𝑁  jest
@@ -29960,6 +35168,16 @@ Wykaż, że stosunek pola trójkąta  𝑴𝑫𝑵  do pola trójkąta  𝑲𝑩
     number:`5`,source:`2025_dodatkowa_matematyka-2025-czerwiec-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:4,
     image:`img/tasks_cke/cke_2025_dod_5.jpg`,
+    latex:`Wyznacz wszystkie wartości parametru  m, dla których równanie
+
+$$x^{2} + 2mx + 2m - 1 = 0$$
+
+ma dwa różne rozwiązania rzeczywiste  x1 , x2  spełniające warunek
+
+$$m(x^{1} 2 + x^{2} 2) = 3m \\cdot x^{1} \\cdot x^{2} + 2$$
+
+Zapisz obliczenia.`,
+    figure:null,
     statement:`Wyznacz wszystkie wartości parametru  𝒎, dla których równanie
 
 𝒙𝟐 + 𝟐𝒎𝒙 + 𝟐𝒎 − 𝟏 = 𝟎
@@ -29985,6 +35203,10 @@ Zapisz obliczenia.`,
     number:`6`,source:`2025_dodatkowa_matematyka-2025-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2025_dod_6.jpg`,
+    latex:`Rozwiąż równanie
+
+$$cos(2x) + 2cos^{2}(3x) + cos(4x) = 0 w przedziale  [0, 𝝅]. Zapisz obliczenia.$$`,
+    figure:null,
     statement:`Rozwiąż równanie
 
 𝐜𝐨𝐬(𝟐𝒙) + 𝟐𝐜𝐨𝐬𝟐(𝟑𝒙) + 𝐜𝐨𝐬(𝟒𝒙) = 𝟎
@@ -30002,6 +35224,11 @@ w przedziale  [𝟎, 𝝅]. Zapisz obliczenia.`,
     number:`7`,source:`2025_dodatkowa_matematyka-2025-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2025_dod_7.jpg`,
+    latex:`Na czworokącie wypukłym  ABCD  o bokach długości:  |AB| = 3,  |BC| = 3,  |CD| = 5  oraz
+|DA| = 8, opisano okrąg.
+
+Oblicz promień tego okręgu. Zapisz obliczenia.`,
+    figure:null,
     statement:`Na czworokącie wypukłym  𝐴𝐵𝐶𝐷  o bokach długości:  |𝐴𝐵| = 3,  |𝐵𝐶| = 3,  |𝐶𝐷| = 5  oraz
 |𝐷𝐴| = 8, opisano okrąg.
 
@@ -30018,6 +35245,13 @@ Oblicz promień tego okręgu. Zapisz obliczenia.`,
     number:`8`,source:`2025_dodatkowa_matematyka-2025-czerwiec-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:4,
     image:`img/tasks_cke/cke_2025_dod_8.jpg`,
+    latex:`Wielomian  f  zmiennej rzeczywistej  x  jest określony wzorem  $f(x) = x3$ + ax2 + bx + c,
+gdzie  a, b, c \\in ℝ. Liczba  (-2)  jest miejscem zerowym tego wielomianu. W kartezjańskim
+układzie współrzędnych  (x, y)  styczna do wykresu wielomianu  f  w punkcie  A
+o pierwszej współrzędnej równej  (-2)  przecina ten wykres w punkcie  P = (1, 9).
+
+Wyznacz wzór wielomianu  f. Zapisz obliczenia.`,
+    figure:null,
     statement:`Wielomian  𝑓  zmiennej rzeczywistej  𝑥  jest określony wzorem  𝑓(𝑥) = 𝑥3 + 𝑎𝑥2 + 𝑏𝑥 + 𝑐,
 gdzie  𝑎, 𝑏, 𝑐 ∈ ℝ. Liczba  (−2)  jest miejscem zerowym tego wielomianu. W kartezjańskim
 układzie współrzędnych  (𝑥, 𝑦)  styczna do wykresu wielomianu  𝑓  w punkcie  𝐴
@@ -30036,6 +35270,13 @@ Wyznacz wzór wielomianu  𝒇. Zapisz obliczenia.`,
     number:`9`,source:`2025_dodatkowa_matematyka-2025-czerwiec-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:5,
     image:`img/tasks_cke/cke_2025_dod_9.jpg`,
+    latex:`Ciąg  (an), określony dla każdej liczby naturalnej  n \\geq 1, jest arytmetyczny i rosnący. W tym
+ciągu  a6 = 15  oraz  a15 = a3 \\cdot (a8 - 6).
+Ciąg  (bn), określony dla każdej liczby naturalnej  n \\geq 1, jest geometryczny i  b1 = a11  oraz
+b2 = a6.
+
+Oblicz sumę wszystkich wyrazów ciągu  (bn). Zapisz obliczenia.`,
+    figure:null,
     statement:`Ciąg  (𝑎𝑛), określony dla każdej liczby naturalnej  𝑛 ≥ 1, jest arytmetyczny i rosnący. W tym
 ciągu  𝑎6 = 15  oraz  𝑎15 = 𝑎3 ⋅ (𝑎8 − 6).
 Ciąg  (𝑏𝑛), określony dla każdej liczby naturalnej  𝑛 ≥ 1, jest geometryczny i  𝑏1 = 𝑎11  oraz
@@ -30054,6 +35295,18 @@ Oblicz sumę wszystkich wyrazów ciągu  (𝒃𝒏). Zapisz obliczenia.`,
     number:`10`,source:`2025_dodatkowa_matematyka-2025-czerwiec-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:5,
     image:`img/tasks_cke/cke_2025_dod_10.jpg`,
+    latex:`Dany jest ostrosłup prawidłowy trójkątny  ABCD  o podstawie  ABC. Płaszczyzna
+zawierająca krawędź  AB  podstawy i prostopadła do krawędzi bocznej  CD  przecina tę
+3
+11
+
+krawędź w punkcie  E, przy czym
+
+$$\\frac{|CE|}{|DE|} = .$$
+
+Oblicz stosunek pola powierzchni całkowitej tego ostrosłupa do pola podstawy  ABC.
+Zapisz obliczenia.`,
+    figure:null,
     statement:`Dany jest ostrosłup prawidłowy trójkątny  𝐴𝐵𝐶𝐷  o podstawie  𝐴𝐵𝐶. Płaszczyzna
 zawierająca krawędź  𝐴𝐵  podstawy i prostopadła do krawędzi bocznej  𝐶𝐷  przecina tę
 3
@@ -30082,6 +35335,18 @@ Zapisz obliczenia.`,
     number:`11`,source:`2025_dodatkowa_matematyka-2025-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:6,
     image:`img/tasks_cke/cke_2025_dod_11.jpg`,
+    latex:`W kartezjańskim układzie współrzędnych  (x, y)  dany jest równoległobok  ABCD
+
+o wierzchołkach  A = (-8, -1)  i  D = (-13, 9)  oraz środku symetrii  M = (-
+
+$$\\frac{9}{2} , 1).$$
+
+Okrąg  O  przechodzi przez początek tego układu i jest styczny do prostych zawierających
+boki  AB  i  BC  tego równoległoboku. Druga współrzędna środka okręgu  O  jest liczbą
+ujemną.
+
+Wyznacz równanie okręgu  O. Zapisz obliczenia.`,
+    figure:null,
     statement:`W kartezjańskim układzie współrzędnych  (𝑥, 𝑦)  dany jest równoległobok  𝐴𝐵𝐶𝐷
 
 o wierzchołkach  𝐴 = (−8, −1)  i  𝐷 = (−13, 9)  oraz środku symetrii  𝑀 = (−
@@ -30108,6 +35373,8 @@ Wyznacz równanie okręgu  𝓞. Zapisz obliczenia.`,
     number:`12.1`,source:`2025_dodatkowa_matematyka-2025-czerwiec-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:2,
     image:`img/tasks_cke/cke_2025_dod_12.jpg`,
+    latex:null,
+    figure:null,
     statement:`Wykaż, że objętość  𝑽  graniastosłupa w zależności od długości  𝒂  krawędzi podstawy
 jest określona wzorem
 
@@ -30129,6 +35396,8 @@ jest określona wzorem
     number:`12.2`,source:`2025_dodatkowa_matematyka-2025-czerwiec-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:4,
     image:`img/tasks_cke/cke_2025_dod_12.jpg`,
+    latex:null,
+    figure:null,
     statement:`Objętość  𝑉  graniastosłupa w zależności od długości  𝑎  krawędzi podstawy jest określona
 wzorem
 
@@ -30155,6 +35424,26 @@ objętość jest największa. Oblicz tę największą objętość. Zapisz oblicz
     number:`1`,source:`2025_matura_matematyka-2025-maj-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:2,
     image:`img/tasks_cke/cke_2025_1.jpg`,
+    latex:`W warunkach laboratoryjnych obserwowano dynamikę wzrostu liczebności populacji
+pewnego gatunku bakterii. Liczebność  N  populacji bakterii zmienia się w czasie zgodnie
+z zależnością wykładniczą
+
+$$N(t) = N^{0} \\cdot kt      dla      t \\geq 0$$
+
+gdzie:
+N0  - liczebność populacji w chwili  t = 0  rozpoczęcia obserwacji,
+k   - stała dodatnia, charakterystyczna dla danego gatunku bakterii i dla warunków
+
+przeprowadzenia obserwacji,
+
+t   - czas wyrażony w godzinach, liczony od chwili  t = 0  rozpoczęcia obserwacji.
+
+W chwili rozpoczęcia obserwacji liczebność populacji była równa  10 000, a po dwóch
+godzinach była równa  15 625.
+
+Oblicz, o ile procent wzrastała liczebność populacji tej bakterii w ciągu każdej godziny.
+Zapisz obliczenia.`,
+    figure:null,
     statement:`W warunkach laboratoryjnych obserwowano dynamikę wzrostu liczebności populacji
 pewnego gatunku bakterii. Liczebność  𝑁  populacji bakterii zmienia się w czasie zgodnie
 z zależnością wykładniczą
@@ -30203,6 +35492,16 @@ Zasady oceniania
     number:`2`,source:`2025_matura_matematyka-2025-maj-matura-rozszerzona.pdf`,
     category:5,categoryName:`Dowód nierówności`,points:3,
     image:`img/tasks_cke/cke_2025_2.jpg`,
+    latex:`Wykaż, że dla każdej dodatniej liczby rzeczywistej  a  i dla każdej dodatniej liczby
+
+rzeczywistej  b  takich, że  b \\neq
+
+$$\\frac{1}{2}$$
+
+a, prawdziwa jest nierówność
+
+$$(a + 2b)^{3} > 8a^{2}b + 16ab^{2}$$`,
+    figure:null,
     statement:`Wykaż, że dla każdej dodatniej liczby rzeczywistej  𝒂  i dla każdej dodatniej liczby
 
 rzeczywistej  𝒃  takich, że  𝒃 ≠
@@ -30244,6 +35543,14 @@ spełniających warunek  𝑏 ≠
     number:`3`,source:`2025_matura_matematyka-2025-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:3,
     image:`img/tasks_cke/cke_2025_3.jpg`,
+    latex:`W trójkącie równobocznym  ABC  punkt  D  leży na boku  BC. Stosunek pola trójkąta  ABD
+
+do pola trójkąta  ADC  jest równy
+
+$$\\frac{\\sqrt^{3}-1}{2} .$$
+
+Oblicz miarę kąta  DAC. Zapisz obliczenia.`,
+    figure:null,
     statement:`W trójkącie równobocznym  𝐴𝐵𝐶  punkt  𝐷  leży na boku  𝐵𝐶. Stosunek pola trójkąta  𝐴𝐵𝐷
 
 do pola trójkąta  𝐴𝐷𝐶  jest równy
@@ -30284,6 +35591,13 @@ sin 60°⋅ cos 𝛼 − cos 60°⋅`,explanation:``}]
     number:`4`,source:`2025_matura_matematyka-2025-maj-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:3,
     image:`img/tasks_cke/cke_2025_4.jpg`,
+    latex:`Doświadczenie losowe polega na czterokrotnym rzucie symetryczną sześcienną kostką do
+gry, która na każdej ściance ma inną liczbę oczek - od jednego oczka do sześciu oczek.
+
+Oblicz prawdopodobieństwo zdarzenia polegającego na tym, że otrzymamy co
+najmniej jeden raz sześć oczek, pod warunkiem że otrzymamy dokładnie dwa razy
+pięć oczek. Zapisz obliczenia.`,
+    figure:null,
     statement:`Doświadczenie losowe polega na czterokrotnym rzucie symetryczną sześcienną kostką do
 gry, która na każdej ściance ma inną liczbę oczek – od jednego oczka do sześciu oczek.
 
@@ -30335,6 +35649,12 @@ ALBO
     number:`5`,source:`2025_matura_matematyka-2025-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2025_5.jpg`,
+    latex:`Rozwiąż nierówność
+
+Zapisz obliczenia.
+
+$$|x - 2| - 2 \\cdot |x + 3| < -2$$`,
+    figure:null,
     statement:`Rozwiąż nierówność
 
 Zapisz obliczenia.
@@ -30372,6 +35692,15 @@ w każdym z tych przedziałów oraz rozwiązanie`,explanation:``}]
     number:`6`,source:`2025_matura_matematyka-2025-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:4,
     image:`img/tasks_cke/cke_2025_6.jpg`,
+    latex:`Ciąg  (an), określony dla każdej liczby naturalnej  n \\geq 1, jest geometryczny i zbieżny.
+2 = 328.
+W tym ciągu  a1 + a3 = 20  i  a1
+
+$$2 + a^{3}$$
+
+Oblicz sumę wszystkich wyrazów tego ciągu. Rozważ wszystkie przypadki.
+Zapisz obliczenia.`,
+    figure:null,
     statement:`Ciąg  (𝑎𝑛), określony dla każdej liczby naturalnej  𝑛 ≥ 1, jest geometryczny i zbieżny.
 2 = 328.
 W tym ciągu  𝑎1 + 𝑎3 = 20  i  𝑎1
@@ -30425,6 +35754,17 @@ ALBO
     number:`7`,source:`2025_matura_matematyka-2025-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:4,
     image:`img/tasks_cke/cke_2025_7.jpg`,
+    latex:`W trapezie  ABCD  o podstawach  AB  i  CD  punkt  E  jest środkiem ramienia  AD,
+a punkt  F  jest środkiem ramienia  BC  trapezu. Stosunek pola trapezu  EFCD  do pola
+
+trapezu  ABFE  jest równy
+
+$$\\frac{1}{2} .$$
+
+Wykaż, że
+
+$$\\frac{|CD|}{|AB|} = \\frac{1}{5} .$$`,
+    figure:null,
     statement:`W trapezie  𝐴𝐵𝐶𝐷  o podstawach  𝐴𝐵  i  𝐶𝐷  punkt  𝐸  jest środkiem ramienia  𝐴𝐷,
 a punkt  𝐹  jest środkiem ramienia  𝐵𝐶  trapezu. Stosunek pola trapezu  𝐸𝐹𝐶𝐷  do pola
 
@@ -30496,6 +35836,15 @@ ALBO
     number:`8`,source:`2025_matura_matematyka-2025-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:5,
     image:`img/tasks_cke/cke_2025_8.jpg`,
+    latex:`W kartezjańskim układzie współrzędnych  (x, y)  dane są okręgi  O1  oraz  O2  o równaniach:
+
+$$•  O^{1}:  (x - 1)^{2} + (y + 3)^{2} = 5 •  O^{2}:  (x - 2)^{2} + (y - 4)^{2} = 45.$$
+
+Te okręgi przecinają się w punktach  A  oraz  B. Punkt  A  ma pierwszą współrzędną
+dodatnią. Punkt  M  spełnia warunek  A\\vec{M}\\vec{⃗}\\vec{⃗}⃗  = -2 \\cdot B\\vec{M}\\vec{⃗}\\vec{⃗}⃗ .
+
+Oblicz współrzędne punktów  A,  B  oraz  M. Zapisz obliczenia.`,
+    figure:null,
     statement:`W kartezjańskim układzie współrzędnych  (𝑥, 𝑦)  dane są okręgi  𝒪1  oraz  𝒪2  o równaniach:
 
 •  𝒪1:  (𝑥 − 1)2 + (𝑦 + 3)2 = 5
@@ -30557,6 +35906,10 @@ oraz  𝑀 = (
     number:`9`,source:`2025_matura_matematyka-2025-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:5,
     image:`img/tasks_cke/cke_2025_9.jpg`,
+    latex:`Rozwiąż równanie
+
+$$3cos^{2}x + \\sqrt^{3}sin(2x) - 3sin^{2}x = 0 w przedziale  [-𝝅, 𝝅]. Zapisz obliczenia.$$`,
+    figure:null,
     statement:`Rozwiąż równanie
 
 𝟑𝐜𝐨𝐬𝟐𝒙 + √𝟑𝐬𝐢𝐧(𝟐𝒙) − 𝟑𝐬𝐢𝐧𝟐𝒙 = 𝟎
@@ -30625,6 +35978,17 @@ ALBO
     number:`10`,source:`2025_matura_matematyka-2025-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:5,
     image:`img/tasks_cke/cke_2025_10.jpg`,
+    latex:`Podstawą ostrosłupa  ABCDS  jest kwadrat  ABCD. Krawędź boczna  SA  jest wysokością
+ostrosłupa, natomiast krawędź podstawy ma długość  3\\sqrt34. Cosinus kąta  𝛽  między
+
+ścianami bocznymi  CDS  i  BCS  tego ostrosłupa jest równy  (-
+
+$$\\frac{9}{25}$$
+
+).
+
+Oblicz pole powierzchni bocznej tego ostrosłupa. Zapisz obliczenia.`,
+    figure:null,
     statement:`Podstawą ostrosłupa  𝐴𝐵𝐶𝐷𝑆  jest kwadrat  𝐴𝐵𝐶𝐷. Krawędź boczna  𝑆𝐴  jest wysokością
 ostrosłupa, natomiast krawędź podstawy ma długość  3√34. Cosinus kąta  𝛽  między
 
@@ -30669,6 +36033,19 @@ ALBO
     number:`11`,source:`2025_matura_matematyka-2025-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:6,
     image:`img/tasks_cke/cke_2025_11.jpg`,
+    latex:`Funkcja  f  jest określona wzorem
+
+$$f(x) = (2 - m)x^{2} - 2(2m + 1)x + m + 8$$
+
+dla każdej liczby rzeczywistej  x, gdzie  m  jest liczbą rzeczywistą różną od  2.
+
+Wyznacz wszystkie wartości parametru  m, dla których funkcja  f  ma dokładnie dwa
+miejsca zerowe  x1  oraz  x2  tego samego znaku, które spełniają warunek
+
+Zapisz obliczenia.
+
+$$(x^{1} - x^{2})^{2} \\leq 180$$`,
+    figure:null,
     statement:`Funkcja  𝑓  jest określona wzorem
 
 𝑓(𝑥) = (2 − 𝑚)𝑥2 − 2(2𝑚 + 1)𝑥 + 𝑚 + 8
@@ -30712,6 +36089,8 @@ Egzamin maturalny z matematyki na poziomie rozszerzonym`,explanation:``}]
     number:`12.1`,source:`2025_matura_matematyka-2025-maj-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:2,
     image:`img/tasks_cke/cke_2025_12.jpg`,
+    latex:null,
+    figure:null,
     statement:`Wykaż, że objętość  𝑽  stożka, jako funkcja wysokości  𝒉  stożka, wyraża się wzorem
 –1–2
 
@@ -30783,6 +36162,8 @@ Zasady oceniania
     number:`12.2`,source:`2025_matura_matematyka-2025-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:4,
     image:`img/tasks_cke/cke_2025_12.jpg`,
+    latex:null,
+    figure:null,
     statement:`Objętość  𝑉  stożka, jako funkcja wysokości  ℎ  stożka, wyraża się wzorem
 
 dla  ℎ ∈ (5, +∞).
@@ -30830,6 +36211,14 @@ Zasady oceniania
     number:`1`,source:`matematyka-2026-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:2,
     image:`img/tasks_cke/cke_2026_1.jpg`,
+    latex:`Oblicz granicę
+
+Zapisz obliczenia.
+
+$$(n + 2 n - 1) n^{3} - 4n + 7$$
+
+$$\\lim_{n \\to +\\infty} \\frac{1}{2}$$`,
+    figure:null,
     statement:`Oblicz granicę
 
 Zapisz obliczenia.
@@ -30855,6 +36244,14 @@ Zapisz obliczenia.
     number:`2`,source:`matematyka-2026-maj-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:3,
     image:`img/tasks_cke/cke_2026_2.jpg`,
+    latex:`Ze zbioru ośmiu liczb  {1, 2, 3, 4, 5, 6, 7, 8}  losujemy bez zwracania osiem razy po jednej
+liczbie. Wylosowane liczby ustawiamy w ciąg zgodnie z kolejnością losowania.
+
+Oblicz prawdopodobieństwo zdarzenia  A  polegającego na tym, że wylosowane liczby
+utworzą ciąg, w którym iloczyn każdych trzech kolejnych wyrazów będzie liczbą
+podzielną przez  3. Wynik podaj w postaci nieskracalnego ułamka zwykłego.
+Zapisz obliczenia.`,
+    figure:null,
     statement:`Ze zbioru ośmiu liczb  {1, 2, 3, 4, 5, 6, 7, 8}  losujemy bez zwracania osiem razy po jednej
 liczbie. Wylosowane liczby ustawiamy w ciąg zgodnie z kolejnością losowania.
 
@@ -30876,6 +36273,11 @@ Zapisz obliczenia.
     number:`3`,source:`matematyka-2026-maj-matura-rozszerzona.pdf`,
     category:5,categoryName:`Dowód nierówności`,points:3,
     image:`img/tasks_cke/cke_2026_3.jpg`,
+    latex:`Wykaż, że dla każdej dodatniej liczby rzeczywistej  x  i dla każdej dodatniej liczby
+rzeczywistej  y  prawdziwa jest nierówność
+
+$$\\frac{1}{x} + \\frac{1}{y} \\leq \\frac{x}{y^{2}} + \\frac{y}{x^{2}}$$`,
+    figure:null,
     statement:`Wykaż, że dla każdej dodatniej liczby rzeczywistej  𝒙  i dla każdej dodatniej liczby
 rzeczywistej  𝒚  prawdziwa jest nierówność
 
@@ -30906,6 +36308,20 @@ rzeczywistej  𝒚  prawdziwa jest nierówność
     number:`4`,source:`matematyka-2026-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2026_4.jpg`,
+    latex:`Punkty  K  i  L  są środkami - odpowiednio - boków  AB  i  BC  kwadratu  ABCD  o boku
+długości  a. Punkt  M  jest takim punktem na boku  BC, że odcinki  DK  i  KM  są
+prostopadłe.
+Odcinek  AL  przecina odcinki  DK  oraz  DM  w punktach - odpowiednio -  P  oraz  Q
+(zobacz rysunek).
+
+$$D C a Q P L M A K B$$
+
+Wykaż, że  |PQ| =
+
+$$\\frac{\\sqrt^{5}}{5}$$
+
+a.`,
+    figure:null,
     statement:`Punkty  𝐾  i  𝐿  są środkami – odpowiednio – boków  𝐴𝐵  i  𝐵𝐶  kwadratu  𝐴𝐵𝐶𝐷  o boku
 długości  𝑎. Punkt  𝑀  jest takim punktem na boku  𝐵𝐶, że odcinki  𝐷𝐾  i  𝐾𝑀  są
 prostopadłe.
@@ -30950,6 +36366,12 @@ Wykaż, że  |𝑷𝑸| =
     number:`5`,source:`matematyka-2026-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2026_5.jpg`,
+    latex:`Rozwiąż nierówność
+
+Zapisz obliczenia.
+
+$$|2x - 6| - |x^{2} - 9| < 0$$`,
+    figure:null,
     statement:`Rozwiąż nierówność
 
 Zapisz obliczenia.
@@ -30967,6 +36389,13 @@ Zapisz obliczenia.
     number:`6`,source:`matematyka-2026-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:4,
     image:`img/tasks_cke/cke_2026_6.jpg`,
+    latex:`Dany jest ciąg arytmetyczny  (an)  o skończonej liczbie wyrazów. Liczba wyrazów tego ciągu
+jest większa od  6. Pierwszy wyraz tego ciągu jest równy  1, a ostatni wyraz tego ciągu jest
+równy  (-2025). Drugi, trzeci i szósty wyraz tego ciągu tworzą - w podanej kolejności - ciąg
+geometryczny.
+
+Oblicz sumę wszystkich wyrazów ciągu  (an). Zapisz obliczenia.`,
+    figure:null,
     statement:`Dany jest ciąg arytmetyczny  (𝑎𝑛)  o skończonej liczbie wyrazów. Liczba wyrazów tego ciągu
 jest większa od  6. Pierwszy wyraz tego ciągu jest równy  1, a ostatni wyraz tego ciągu jest
 równy  (−2025). Drugi, trzeci i szósty wyraz tego ciągu tworzą – w podanej kolejności – ciąg
@@ -30987,6 +36416,12 @@ Oblicz sumę wszystkich wyrazów ciągu  (𝒂𝒏). Zapisz obliczenia.
     number:`7`,source:`matematyka-2026-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2026_7.jpg`,
+    latex:`Rozwiąż równanie
+
+Zapisz obliczenia.
+
+$$sin(6x) - 2 sin(2x) = 0$$`,
+    figure:null,
     statement:`Rozwiąż równanie
 
 Zapisz obliczenia.
@@ -31004,6 +36439,16 @@ Zapisz obliczenia.
     number:`8`,source:`matematyka-2026-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
     image:`img/tasks_cke/cke_2026_8.jpg`,
+    latex:`W ostrosłupie prawidłowym trójkątnym  ABCS  podstawa  ABC  jest trójkątem
+równobocznym. Długość okręgu opisanego na podstawie  ABC  jest równa  6\\sqrt2𝜋, a cosinus
+
+kąta między krawędziami bocznymi  SB  i  SC  jest równy
+
+$$\\frac{5}{9} .$$
+
+Oblicz długość krawędzi podstawy  ABC  oraz cosinus kąta między ścianami
+bocznymi  SAC  i  SBC  tego ostrosłupa. Zapisz obliczenia.`,
+    figure:null,
     statement:`W ostrosłupie prawidłowym trójkątnym  𝐴𝐵𝐶𝑆  podstawa  𝐴𝐵𝐶  jest trójkątem
 równobocznym. Długość okręgu opisanego na podstawie  𝐴𝐵𝐶  jest równa  6√2𝜋, a cosinus
 
@@ -31028,6 +36473,14 @@ bocznymi  𝑺𝑨𝑪  i  𝑺𝑩𝑪  tego ostrosłupa. Zapisz obliczenia.`,
     number:`9`,source:`matematyka-2026-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:5,
     image:`img/tasks_cke/cke_2026_9.jpg`,
+    latex:`W kartezjańskim układzie współrzędnych  (x, y)  punkty  A = (1, -1)  oraz  B = (4, 0)  są
+wierzchołkami trójkąta  ABC, w którym  |CA| = |CB|. Jedno z ramion trójkąta  ABC  zawiera
+się w prostej o równaniu  x + 2y - 4 = 0. Na boku  AC  tego trójkąta obrano taki punkt  M,
+że  |AM| ∶ |MC| = 1 ∶ 4.
+
+Wyznacz równanie okręgu, który ma środek w punkcie  M  i przechodzi przez punkt  C.
+Zapisz obliczenia.`,
+    figure:null,
     statement:`W kartezjańskim układzie współrzędnych  (𝑥, 𝑦)  punkty  𝐴 = (1, −1)  oraz  𝐵 = (4, 0)  są
 wierzchołkami trójkąta  𝐴𝐵𝐶, w którym  |𝐶𝐴| = |𝐶𝐵|. Jedno z ramion trójkąta  𝐴𝐵𝐶  zawiera
 się w prostej o równaniu  𝑥 + 2𝑦 − 4 = 0. Na boku  𝐴𝐶  tego trójkąta obrano taki punkt  𝑀,
@@ -31049,6 +36502,14 @@ Zapisz obliczenia.
     number:`10`,source:`matematyka-2026-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:5,
     image:`img/tasks_cke/cke_2026_10.jpg`,
+    latex:`Wyznacz wszystkie rzeczywiste wartości parametru  m, gdzie  m \\neq 0, dla których
+funkcja kwadratowa  f  określona wzorem
+
+$$f(x) = m^{2} \\cdot x^{2} - 2mx - m + 1$$
+
+ma dwa różne miejsca zerowe  x1  oraz  x2  należące do przedziału  (-2, 2).
+Zapisz obliczenia.`,
+    figure:null,
     statement:`Wyznacz wszystkie rzeczywiste wartości parametru  𝒎, gdzie  𝒎 ≠ 𝟎, dla których
 funkcja kwadratowa  𝒇  określona wzorem
 
@@ -31068,6 +36529,13 @@ Zapisz obliczenia.`,
     number:`11`,source:`matematyka-2026-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:6,
     image:`img/tasks_cke/cke_2026_11.jpg`,
+    latex:`W czworokącie  ABCD  są dane:  |AB| = 9, |AD| = 10  oraz  |∡BAD| = 60°.
+W ten czworokąt wpisano okrąg oraz na tym czworokącie opisano okrąg (zobacz rysunek).
+
+$$D 10 C 60° A 9 B$$
+
+Oblicz długości boków  BC  i  CD  oraz pole czworokąta  ABCD. Zapisz obliczenia.`,
+    figure:null,
     statement:`W czworokącie  𝐴𝐵𝐶𝐷  są dane:  |𝐴𝐵| = 9, |𝐴𝐷| = 10  oraz  |∡𝐵𝐴𝐷| = 60°.
 W ten czworokąt wpisano okrąg oraz na tym czworokącie opisano okrąg (zobacz rysunek).
 
@@ -31100,6 +36568,8 @@ Oblicz długości boków  𝑩𝑪  i  𝑪𝑫  oraz pole czworokąta  𝑨𝑩
     number:`12.1`,source:`matematyka-2026-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:3,
     image:`img/tasks_cke/cke_2026_12.jpg`,
+    latex:null,
+    figure:null,
     statement:`Wykaż, że pole  𝑷  (wyrażone w metrach kwadratowych) trójkątnego kwietnika
 o podstawie długości  𝒙  metrów jest określone wzorem
 
@@ -31119,6 +36589,8 @@ o podstawie długości  𝒙  metrów jest określone wzorem
     number:`12.2`,source:`matematyka-2026-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:4,
     image:`img/tasks_cke/cke_2026_12.jpg`,
+    latex:null,
+    figure:null,
     statement:`Pole  𝑃  trójkątnego kwietnika o podstawie długości  𝑥  metrów jest określone wzorem
 
 dla każdego  𝑥 ∈ (4, 10].
