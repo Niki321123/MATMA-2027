@@ -475,17 +475,19 @@
     if (elTaskBadge) elTaskBadge.textContent = meta ? `${meta.icon} ${meta.name}` : (task.categoryName || `Kat. ${catId}`);
     if (elTaskPoints) elTaskPoints.textContent = `${task.points} pkt`;
 
-    if (elTaskSource) {
-      if (task.type === 'matura_cke' || isMatura) {
-        const sesLabel = task.session === 'dodatkowa' ? ' (czerwiec)' : '';
-        elTaskSource.textContent = `📜 Matura ${task.year}${sesLabel} z.${task.number}`;
-        elTaskSource.classList.remove('hidden');
+    // Badge źródła — ukryty dla zadań CKE (nie pokazujemy roku/numeru)
+    if (elTaskSource) elTaskSource.classList.add('hidden');
+
+    // Wyświetl treść zadania: obrazek (CKE) lub KaTeX (generatory)
+    if (elTaskStatement) {
+      if (task.image) {
+        elTaskStatement.innerHTML =
+          `<img src="${task.image}" alt="Treść zadania" class="task-img" loading="lazy"
+                style="max-width:100%;display:block;border-radius:6px;">`;
       } else {
-        elTaskSource.classList.add('hidden');
+        KR.render(task.statement, elTaskStatement);
       }
     }
-
-    if (elTaskStatement) KR.render(task.statement, elTaskStatement);
 
     // Zadania zamknięte A/B/C/D
     const closedEl = $('closed-options');
