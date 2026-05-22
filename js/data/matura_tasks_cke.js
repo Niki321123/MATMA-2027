@@ -24808,10 +24808,10 @@ x
 600`,explanation:``}]
   },
   {
-    id:`cke_2020_dod_1`,year:2020,session:`dodatkowa`,
+    id:`cke_2020_1`,year:2020,session:`maj`,
     number:`1`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
-    image:`img/tasks_cke/cke_2020_dod_1.jpg`,
+    image:`img/tasks_cke/cke_2020_1.jpg`,
     statement:`Wielomian  W  określony wzorem
 
 (
@@ -24878,10 +24878,10 @@ i interpretowanie
 reprezentacji.`,explanation:``}]
   },
   {
-    id:`cke_2020_dod_2`,year:2020,session:`dodatkowa`,
+    id:`cke_2020_2`,year:2020,session:`maj`,
     number:`2`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:1,
-    image:`img/tasks_cke/cke_2020_dod_2.jpg`,
+    image:`img/tasks_cke/cke_2020_2.jpg`,
     statement:`)
 Ciąg  (
 
@@ -24956,10 +24956,10 @@ i interpretowanie
 reprezentacji.`,explanation:``}]
   },
   {
-    id:`cke_2020_dod_3`,year:2020,session:`dodatkowa`,
+    id:`cke_2020_3`,year:2020,session:`maj`,
     number:`3`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:1,
-    image:`img/tasks_cke/cke_2020_dod_3.jpg`,
+    image:`img/tasks_cke/cke_2020_3.jpg`,
     statement:`Mamy dwie urny. W pierwszej są 3 kule białe i 7 kul czarnych, w drugiej jest jedna kula biała
 i 9 kul czarnych. Rzucamy symetryczną sześcienną kostką do gry, która na każdej ściance ma
 inną liczbę oczek, od jednego oczka do sześciu oczek. Jeśli w wyniku rzutu otrzymamy ściankę
@@ -25012,10 +25012,10 @@ III. Modelowanie
 matematyczne`,explanation:``}]
   },
   {
-    id:`cke_2020_dod_4`,year:2020,session:`dodatkowa`,
+    id:`cke_2020_4`,year:2020,session:`maj`,
     number:`4`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:14,categoryName:`Kombinatoryka`,points:1,
-    image:`img/tasks_cke/cke_2020_dod_4.jpg`,
+    image:`img/tasks_cke/cke_2020_4.jpg`,
     statement:`Po
 
 przekształceniu
@@ -25129,10 +25129,10 @@ reprezentacji.
 Zasady oceniania rozwiązań`,explanation:``}]
   },
   {
-    id:`cke_2020_dod_5`,year:2020,session:`dodatkowa`,
+    id:`cke_2020_5`,year:2020,session:`maj`,
     number:`5`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:2,
-    image:`img/tasks_cke/cke_2020_dod_5.jpg`,
+    image:`img/tasks_cke/cke_2020_5.jpg`,
     statement:`W  trójkącie  ABC  bok  AB  jest  3  razy  dłuższy  od  boku  AC,  a  długość  boku  BC  stanowi
 
 długości boku AB. Oblicz cosinus najmniejszego kąta trójkąta ABC.
@@ -25161,10 +25161,10 @@ Uwaga: Akceptowane są wszystkie rozwiązania merytorycznie poprawne i spełniaj
 zadania.`,explanation:``}]
   },
   {
-    id:`cke_2020_dod_6`,year:2020,session:`dodatkowa`,
+    id:`cke_2020_6`,year:2020,session:`maj`,
     number:`6`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:3,
-    image:`img/tasks_cke/cke_2020_dod_6.jpg`,
+    image:`img/tasks_cke/cke_2020_6.jpg`,
     statement:`Wyznacz wszystkie wartości parametru  a , dla których równanie
 różne rozwiązania dodatnie.
 
@@ -25207,10 +25207,10 @@ do pełnego rozwiązania zadania  ..............................................
 Zdający`,explanation:``}]
   },
   {
-    id:`cke_2020_dod_7`,year:2020,session:`dodatkowa`,
+    id:`cke_2020_7`,year:2020,session:`maj`,
     number:`7`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:3,
-    image:`img/tasks_cke/cke_2020_dod_7.jpg`,
+    image:`img/tasks_cke/cke_2020_7.jpg`,
     statement:`= , a punkt D jest środkiem
 Dany jest trójkąt równoramienny  ABC , w którym
 podstawy AB. Okrąg o środku D jest styczny do prostej AC w punkcie M. Punkt  K  leży na boku
@@ -25287,10 +25287,10 @@ albo
 •  skorzysta z twierdzenia o odcinkach stycz`,explanation:``}]
   },
   {
-    id:`cke_2020_dod_8`,year:2020,session:`dodatkowa`,
+    id:`cke_2020_8`,year:2020,session:`maj`,
     number:`8`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
-    image:`img/tasks_cke/cke_2020_dod_8.jpg`,
+    image:`img/tasks_cke/cke_2020_8.jpg`,
     statement:`Liczby dodatnie a i b spełniają równość  2
 a
 
@@ -25371,10 +25371,10 @@ a
 Pokonanie zasadniczych trudności zadania .............................`,explanation:``}]
   },
   {
-    id:`cke_2020_dod_9`,year:2020,session:`dodatkowa`,
+    id:`cke_2020_9`,year:2020,session:`maj`,
     number:`9`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:4,
-    image:`img/tasks_cke/cke_2020_dod_9.jpg`,
+    image:`img/tasks_cke/cke_2020_9.jpg`,
     statement:`Rozwiąż równanie
 
 3cos 2
@@ -25448,10 +25448,10 @@ x
 i na tym z`,explanation:``}]
   },
   {
-    id:`cke_2020_dod_10`,year:2020,session:`dodatkowa`,
+    id:`cke_2020_10`,year:2020,session:`maj`,
     number:`10`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:5,
-    image:`img/tasks_cke/cke_2020_dod_10.jpg`,
+    image:`img/tasks_cke/cke_2020_10.jpg`,
     statement:`W trzywyrazowym ciągu geometrycznym (
 
 a
@@ -25520,10 +25520,10 @@ Zdający
 •  wykorzysta  wzór  na  n-ty  wyraz  ciągu  geometrycz`,explanation:``}]
   },
   {
-    id:`cke_2020_dod_11`,year:2020,session:`dodatkowa`,
+    id:`cke_2020_11`,year:2020,session:`maj`,
     number:`11`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:4,
-    image:`img/tasks_cke/cke_2020_dod_11.jpg`,
+    image:`img/tasks_cke/cke_2020_11.jpg`,
     statement:`Dane jest równanie kwadratowe
 
 −
@@ -25652,10 +25652,10 @@ x m
 Druga część polega na wyznaczeniu tych wartości parametru  m, dla k`,explanation:``}]
   },
   {
-    id:`cke_2020_dod_12`,year:2020,session:`dodatkowa`,
+    id:`cke_2020_12`,year:2020,session:`maj`,
     number:`12`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:5,
-    image:`img/tasks_cke/cke_2020_dod_12.jpg`,
+    image:`img/tasks_cke/cke_2020_12.jpg`,
     statement:`+ =
 Prosta  o  równaniu
 8 0
@@ -25737,10 +25737,10 @@ Pierwszy etap polega na wyznaczeniu współrzędnych środka danego okręgu. Za 
 rozwiązanie tego etapu zda`,explanation:``}]
   },
   {
-    id:`cke_2020_dod_13`,year:2020,session:`dodatkowa`,
+    id:`cke_2020_13`,year:2020,session:`maj`,
     number:`13`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:14,categoryName:`Kombinatoryka`,points:4,
-    image:`img/tasks_cke/cke_2020_dod_13.jpg`,
+    image:`img/tasks_cke/cke_2020_13.jpg`,
     statement:`Oblicz, ile jest wszystkich siedmiocyfrowych liczb naturalnych, w których zapisie dziesiętnym
 występują dokładnie trzy cyfry 1 i dokładnie dwie cyfry 2.`,
     answer:{type:`open`,display:``,description:``},
@@ -25764,10 +25764,10 @@ Pierwsza polega na wyróżnieniu trzech przypadków i dodaniu – w końcowej fa
 Druga część polega na zapisaniu liczby rozważanych w k`,explanation:``}]
   },
   {
-    id:`cke_2020_dod_14`,year:2020,session:`dodatkowa`,
+    id:`cke_2020_14`,year:2020,session:`maj`,
     number:`14`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:10,categoryName:`Stereometria`,points:6,
-    image:`img/tasks_cke/cke_2020_dod_14.jpg`,
+    image:`img/tasks_cke/cke_2020_14.jpg`,
     statement:`Podstawą ostrosłupa czworokątnego  ABCDS  jest trapez  ABCD   (
 
 AB CD
@@ -25822,10 +25822,10 @@ Zdający:
 ABC`,explanation:``}]
   },
   {
-    id:`cke_2020_dod_15`,year:2020,session:`dodatkowa`,
+    id:`cke_2020_15`,year:2020,session:`maj`,
     number:`15`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:7,
-    image:`img/tasks_cke/cke_2020_dod_15.jpg`,
+    image:`img/tasks_cke/cke_2020_15.jpg`,
     statement:`Należy  zaprojektować  wymiary  prostokątnego  ekranu  smartfona,  tak  aby  odległości  tego
 ekranu od krótszych brzegów smartfona były równe 0,5 cm każda, a odległości tego ekranu
 od dłuższych brzegów smartfona były równe 0,3 cm każda (zobacz rysunek – ekran zaznaczono
