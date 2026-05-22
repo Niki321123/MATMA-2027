@@ -2,10 +2,11 @@
 (() => {
   'use strict';
 
-  const G  = window.Generators;
-  const KR = window.KatexRenderer;
-  const PT = window.ProgressTracker;
-  const MT = window.MaturaTasks;
+  const G   = window.Generators;
+  const KR  = window.KatexRenderer;
+  const PT  = window.ProgressTracker;
+  const MT  = window.MaturaTasks;
+  const CKE = window.MaturaCKE;   // baza zadań CKE (arkusze PDF 2002-2026)
 
   // === Stan ===
   let currentTask    = null;
@@ -321,9 +322,10 @@
   }
 
   function initYearSelect() {
-    if (!MT || !elYearSelect) return;
-    MT.getYears().forEach(year => {
-      const count = MT.getByYear(year).length;
+    const db = CKE || MT;
+    if (!db || !elYearSelect) return;
+    db.getYears().forEach(year => {
+      const count = db.getByYear(year).length;
       const opt = document.createElement('option');
       opt.value = year;
       opt.textContent = `Matura ${year} (${count} zadań)`;
@@ -333,14 +335,16 @@
   }
 
   function updateMaturaTaskList() {
-    if (!MT || !elMaturaTaskSelect) return;
+    const db = CKE || MT;
+    if (!db || !elMaturaTaskSelect) return;
     const year = parseInt(elYearSelect.value);
-    const tasks = year ? MT.getByYear(year) : MT.getAll();
+    const tasks = year ? db.getByYear(year) : db.getAll();
     elMaturaTaskSelect.innerHTML = `<option value="">— wybierz zadanie (${tasks.length}) —</option>`;
     tasks.forEach(t => {
       const opt = document.createElement('option');
       opt.value = t.id;
-      opt.textContent = `${t.year} z.${t.number} (${t.points} pkt) — ${t.categoryName}`;
+      const sesLabel = t.session === 'dodatkowa' ? ' dod.' : '';
+      opt.textContent = `${t.year}${sesLabel} z.${t.number} (${t.points} pkt) — ${t.categoryName}`;
       elMaturaTaskSelect.appendChild(opt);
     });
   }
@@ -390,9 +394,26 @@
     if (!SA.canGenerateTask()) { openPricingModal('task-limit'); return; }
 
     const catVal = elCatSelect.value;
+    const _lvl   = getMathLevel();
+
+    // PR: używaj bazy CKE zamiast generatorów
+    if (_lvl === 'PR' && CKE) {
+      let raw = null;
+      if (catVal !== '0') {
+        const catId = /^\d+$/.test(catVal) ? parseInt(catVal) : catVal;
+        raw = CKE.randomByCategory(catId);
+      }
+      if (!raw) raw = CKE.random();
+      currentTask = CKE.asTask(raw);
+      SA.trackTaskGenerated();
+      updateLimitBadge();
+      displayTask(currentTask, true);
+      return;
+    }
+
+    // PP / FIZ: generatory jak poprzednio
     try {
       if (catVal === '0') {
-        const _lvl = getMathLevel();
         currentTask = _lvl === 'PP' ? G.generateRandomPP() : _lvl === 'FIZ' ? G.generateRandomFiz() : G.generateRandom();
       } else {
         const id = /^\d+$/.test(catVal) ? parseInt(catVal) : catVal;
@@ -409,29 +430,31 @@
   }
 
   async function loadMaturaTask(id) {
-    if (!MT) return;
+    const db = CKE || MT;
+    if (!db) return;
     const SA = window.SupabaseAuth;
     if (!SA?.isLoggedIn()) { openAuthModal(); return; }
     if (!SA.canGenerateTask()) { openPricingModal('task-limit'); return; }
 
-    const raw = id ? MT.getById(id) : MT.random();
+    const raw = id ? db.getById(id) : db.random();
     if (!raw) { showToast('Wybierz zadanie z listy.', 'warning'); return; }
-    currentTask = MT.asTask(raw);
+    currentTask = db.asTask(raw);
     SA.trackTaskGenerated();
     updateLimitBadge();
     displayTask(currentTask, true);
   }
 
   async function loadRandomMatura() {
-    if (!MT) return;
+    const db = CKE || MT;
+    if (!db) return;
     const SA = window.SupabaseAuth;
     if (!SA?.isLoggedIn()) { openAuthModal(); return; }
     if (!SA.canGenerateTask()) { openPricingModal('task-limit'); return; }
 
     const year = parseInt(elYearSelect.value);
-    const raw  = year ? MT.randomByYear(year) : MT.random();
+    const raw  = year ? db.randomByYear(year) : db.random();
     if (!raw) return;
-    currentTask = MT.asTask(raw);
+    currentTask = db.asTask(raw);
     SA.trackTaskGenerated();
     updateLimitBadge();
     displayTask(currentTask, true);
@@ -453,8 +476,9 @@
     if (elTaskPoints) elTaskPoints.textContent = `${task.points} pkt`;
 
     if (elTaskSource) {
-      if (isMatura) {
-        elTaskSource.textContent = `📜 Matura ${task.year} z.${task.number}`;
+      if (task.type === 'matura_cke' || isMatura) {
+        const sesLabel = task.session === 'dodatkowa' ? ' (czerwiec)' : '';
+        elTaskSource.textContent = `📜 Matura ${task.year}${sesLabel} z.${task.number}`;
         elTaskSource.classList.remove('hidden');
       } else {
         elTaskSource.classList.add('hidden');
