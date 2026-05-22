@@ -294,7 +294,7 @@
 .task-statement p { margin-bottom: 10px; }
 .task-statement strong { color: var(--text-primary); font-weight: 700; }
 
-/* CKE task image */
+/* CKE task image (screenshot fallback) */
 .task-img {
   display: block;
   max-width: 100%;
@@ -304,6 +304,31 @@
   background: #fff;
   padding: 4px;
   box-sizing: border-box;
+}
+
+/* Transkrybowane zadania — tekst LaTeX z KaTeX */
+.task-para {
+  margin: 0 0 12px;
+  line-height: 1.9;
+  color: var(--text-primary);
+}
+.task-para:last-child { margin-bottom: 0; }
+
+/* Rysunek geometryczny / wykres wbudowany w zadanie */
+.task-figure-img {
+  display: block;
+  max-width: min(420px, 100%);
+  margin: 16px auto;
+  border-radius: 10px;
+  background: #fff;
+  padding: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+
+/* KaTeX display math wyśrodkowany */
+.task-statement .katex-display {
+  margin: 12px 0;
+  overflow-x: auto;
 }
 
 /* ===== INLINE CONFIRM ===== */

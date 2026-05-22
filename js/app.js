@@ -460,6 +460,58 @@
     displayTask(currentTask, true);
   }
 
+  /**
+   * Renderuje treść zadania CKE z transkrypcji LaTeX.
+   * Obsługuje [RYSUNEK] placeholder + rysunek geometryczny.
+   * Wzory $...$ i $$...$$ renderowane przez KaTeX auto-render.
+   */
+  function renderLatexTask(task, container) {
+    const text   = task.latex || '';
+    const figure = task.figure || null;
+
+    // Bezpieczne escapowanie HTML (zachowuj $ dla KaTeX)
+    function escHtml(s) {
+      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    // Konwertuj tekst z [RYSUNEK] na HTML
+    function textToHtml(s) {
+      // Akapity
+      return s.split('\n\n').map(para => {
+        const lines = para.split('\n').map(escHtml).join('<br>');
+        return `<p class="task-para">${lines}</p>`;
+      }).join('');
+    }
+
+    let html = '';
+    if (figure && text.includes('[RYSUNEK]')) {
+      const parts = text.split('[RYSUNEK]');
+      html += textToHtml(parts[0]);
+      html += `<img src="${figure}" alt="Rysunek do zadania" class="task-figure-img" loading="lazy">`;
+      if (parts[1]) html += textToHtml(parts[1]);
+    } else if (figure) {
+      // Rysunek bez placeholdera — wstaw po tekście
+      html += textToHtml(text);
+      html += `<img src="${figure}" alt="Rysunek do zadania" class="task-figure-img" loading="lazy">`;
+    } else {
+      // Sam tekst
+      html += textToHtml(text.replace('[RYSUNEK]', ''));
+    }
+
+    container.innerHTML = html;
+
+    // Renderuj KaTeX ($$...$$ display, $...$ inline)
+    if (window.renderMathInElement) {
+      renderMathInElement(container, {
+        delimiters: [
+          { left: '$$', right: '$$', display: true  },
+          { left: '$',  right: '$',  display: false }
+        ],
+        throwOnError: false
+      });
+    }
+  }
+
   function displayTask(task, isMatura) {
     hintsUsed      = 0;
     taskAnswered   = false;
@@ -480,9 +532,13 @@
     // Badge źródła — zawsze ukryty dla CKE
     if (elTaskSource) elTaskSource.classList.add('hidden');
 
-    // Wyświetl treść zadania: obrazek (CKE) lub KaTeX (generatory)
+    // Wyświetl treść zadania
     if (elTaskStatement) {
-      if (task.image) {
+      if (task.latex) {
+        // Transkrypcja LaTeX (preferowana) — tekst + opcjonalny rysunek
+        renderLatexTask(task, elTaskStatement);
+      } else if (task.image) {
+        // Fallback: screenshot (stare zadania bez transkrypcji)
         elTaskStatement.innerHTML =
           `<img src="${task.image}" alt="Treść zadania" class="task-img" loading="lazy">`;
       } else {
@@ -501,8 +557,16 @@
             const el = $(`opt-${opt}-text`);
             if (el) {
               const txt = task.options[opt] || '';
-              // Tekst opcji może być garbled z PDF — pokaż jako plain text
-              el.textContent = txt;
+              if (task.latex && window.renderMathInElement) {
+                // Transkrybowane zadania — renderuj LaTeX w opcjach
+                el.innerHTML = txt.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+                renderMathInElement(el, {
+                  delimiters: [{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],
+                  throwOnError: false
+                });
+              } else {
+                el.textContent = txt;
+              }
             }
           });
         } else {
