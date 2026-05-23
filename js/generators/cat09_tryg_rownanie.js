@@ -1,340 +1,422 @@
-// Kategoria 9: Równania trygonometryczne
-// Wzorzec matura 2025 z.8: 3cos²x+√3sin2x-3sin²x=0 → tan2x=-√3
-// Wzorzec matura 2024 z.6: sin4x-sin2x=4cos²x-3
-// Wzorzec matura 2023 z.7: 2sin²x - 3sinx + 1 = 0
-// Wzorzec matura 2022 z.8: sin x + cos x = 1
-// Wzorzec matura 2018 z.8: sin6x+cos3x=2sin3x+1
-// Wzorzec matura 2017 z.8: cos2x+3cosx=-2
-// Wzorzec matura 2026 z.8: sin6x-2sin2x=0
+// Kategoria 9: Równania trygonometryczne  — PROCEDURAL GENERATOR
+// Bazuje na MathEngineering.trigEquationProcedural.
+//
+// Wzorce maturalne:
+//   2024 z.6: sin4x − sin2x = 4cos²x − 3
+//   2025 z.8: 3cos²x + √3 sin2x − 3sin²x = 0  → tg2x = -√3
+//   2023 z.7: 2sin²x − 3sinx + 1 = 0
+//   2026 z.8: sin6x − 2sin2x = 0  (faktoryzacja przez sin2x)
+//   2018 z.8: sin6x + cos3x = 2sin3x + 1  (faktoryzacja przez dwumian)
+//   2022 z.8: sinx + cosx = 1  (metoda kąta pomocniczego)
+
 window.cat09 = (() => {
   const M = window.MathUtils;
+  const ME = window.MathEngineering;
 
-  // Bank zadań z równaniami trygonometrycznymi
-  const TASKS = [
-    // sin x = wartość, x ∈ [0, 2π)
-    {
-      difficulty: 'easy',
-      statement: 'Rozwiąż równanie\n$$\\sin x = \\frac{\\sqrt{3}}{2}$$\ndla $x \\in [0, 2\\pi)$. Zapisz obliczenia.',
-      solution_set: 'x = \\dfrac{\\pi}{3} \\text{ lub } x = \\dfrac{2\\pi}{3}',
-      solution: [
-        { step: 1, title: 'Wartości bazowe', content: '\\sin x = \\frac{\\sqrt{3}}{2} \\implies x_0 = \\frac{\\pi}{3}', explanation: 'sin(60°) = √3/2.' },
-        { step: 2, title: 'Rozwiązania w [0,2π)', content: 'x_1 = \\frac{\\pi}{3},\\quad x_2 = \\pi - \\frac{\\pi}{3} = \\frac{2\\pi}{3}', explanation: 'sin > 0 w I i II ćwiartce.' }
-      ],
-      hints: [
-        { level: 1, text: '$\\sin(60°) = \\sin\\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$.' },
-        { level: 2, text: 'Sinus jest dodatni w I i II ćwiartce: $x_1 = \\frac{\\pi}{3}$, $x_2 = \\pi - \\frac{\\pi}{3}$.' },
-        { level: 3, text: '$x = \\frac{\\pi}{3}$ lub $x = \\frac{2\\pi}{3}$.' }
-      ]
-    },
-    // cos x = wartość
-    {
-      difficulty: 'easy',
-      statement: 'Rozwiąż równanie\n$$\\cos x = -\\frac{1}{2}$$\ndla $x \\in [0, 2\\pi)$. Zapisz obliczenia.',
-      solution_set: 'x = \\dfrac{2\\pi}{3} \\text{ lub } x = \\dfrac{4\\pi}{3}',
-      solution: [
-        { step: 1, title: 'Wartości bazowe', content: '\\cos x = -\\frac{1}{2} \\implies \\cos x = -\\cos\\frac{\\pi}{3}', explanation: '' },
-        { step: 2, title: 'Rozwiązania', content: 'x_1 = \\pi - \\frac{\\pi}{3} = \\frac{2\\pi}{3},\\quad x_2 = \\pi + \\frac{\\pi}{3} = \\frac{4\\pi}{3}', explanation: 'cos < 0 w II i III ćwiartce.' }
-      ],
-      hints: [
-        { level: 1, text: '$\\cos(60°) = \\frac{1}{2}$, więc $\\cos x = -\\frac{1}{2}$ ma rozwiązania w II i III ćwiartce.' },
-        { level: 2, text: '$x = \\pi - \\frac{\\pi}{3}$ lub $x = \\pi + \\frac{\\pi}{3}$.' },
-        { level: 3, text: '$x = \\frac{2\\pi}{3}$ lub $x = \\frac{4\\pi}{3}$.' }
-      ]
-    },
-    // Równanie kwadratowe w sinx
-    {
-      difficulty: 'medium',
-      statement: 'Rozwiąż równanie\n$$2\\sin^2 x - 3\\sin x + 1 = 0$$\ndla $x \\in [0, 2\\pi)$. Zapisz obliczenia.',
-      solution_set: 'x \\in \\left\\{\\dfrac{\\pi}{6},\\, \\dfrac{5\\pi}{6},\\, \\dfrac{\\pi}{2}\\right\\}',
-      solution: [
-        { step: 1, title: 'Podstawienie t = sin x', content: '2t^2 - 3t + 1 = 0\\\\ (2t-1)(t-1) = 0\\\\ t = \\frac{1}{2}\\text{ lub }t = 1', explanation: 'Traktujemy jak równanie kwadratowe.' },
-        { step: 2, title: 'sin x = 1/2', content: 'x = \\frac{\\pi}{6}\\text{ lub }x = \\pi - \\frac{\\pi}{6} = \\frac{5\\pi}{6}', explanation: 'sin > 0 w I i II ćwiartce.' },
-        { step: 3, title: 'sin x = 1', content: 'x = \\frac{\\pi}{2}', explanation: 'Jedyne rozwiązanie w [0, 2π).' },
-        { step: 4, title: 'Odpowiedź', content: 'x \\in \\left\\{\\frac{\\pi}{6},\\ \\frac{5\\pi}{6},\\ \\frac{\\pi}{2}\\right\\}', explanation: '' }
-      ],
-      hints: [
-        { level: 1, text: 'Podstaw $t = \\sin x$ i rozwiąż równanie kwadratowe $2t^2 - 3t + 1 = 0$.' },
-        { level: 2, text: '$(2t-1)(t-1) = 0$, więc $t = \\frac{1}{2}$ lub $t = 1$.' },
-        { level: 3, text: '$\\sin x = \\frac{1}{2}$: $x = \\frac{\\pi}{6}$ lub $x = \\frac{5\\pi}{6}$. $\\sin x = 1$: $x = \\frac{\\pi}{2}$.' }
-      ]
-    },
-    // Równanie z tożsamością kąta podwojonego: sin2x = cosx
-    {
-      difficulty: 'hard',
-      statement: 'Rozwiąż równanie\n$$\\sin 2x = \\cos x$$\ndla $x \\in [0, 2\\pi)$. Zapisz obliczenia.',
-      solution_set: 'x \\in \\left\\{\\dfrac{\\pi}{2},\\, \\dfrac{3\\pi}{2},\\, \\dfrac{\\pi}{6},\\, \\dfrac{5\\pi}{6}\\right\\}',
-      solution: [
-        { step: 1, title: 'Wzór na sin 2x', content: '2\\sin x\\cos x = \\cos x', explanation: '$\\sin 2x = 2\\sin x\\cos x$.' },
-        { step: 2, title: 'Przeniesienie', content: '2\\sin x\\cos x - \\cos x = 0\\\\ \\cos x(2\\sin x - 1) = 0', explanation: '' },
-        { step: 3, title: 'Dwa przypadki', content: '\\cos x = 0 \\implies x = \\frac{\\pi}{2},\\ \\frac{3\\pi}{2}\\\\ 2\\sin x - 1 = 0 \\implies \\sin x = \\frac{1}{2} \\implies x = \\frac{\\pi}{6},\\ \\frac{5\\pi}{6}', explanation: '' },
-        { step: 4, title: 'Odpowiedź', content: 'x \\in \\left\\{\\frac{\\pi}{6},\\ \\frac{\\pi}{2},\\ \\frac{5\\pi}{6},\\ \\frac{3\\pi}{2}\\right\\}', explanation: '' }
-      ],
-      hints: [
-        { level: 1, text: 'Użyj wzoru $\\sin 2x = 2\\sin x\\cos x$.' },
-        { level: 2, text: 'Przenieś na jedną stronę i wyłącz $\\cos x$.' },
-        { level: 3, text: '$\\cos x(2\\sin x - 1) = 0$: dwa przypadki.' }
-      ]
-    },
-    // sin x + cos x = 1
-    {
-      difficulty: 'hard',
-      statement: 'Rozwiąż równanie\n$$\\sin x + \\cos x = 1$$\ndla $x \\in [0, 2\\pi)$. Zapisz obliczenia.',
-      solution_set: 'x = 0 \\text{ lub } x = \\dfrac{\\pi}{2}',
-      solution: [
-        { step: 1, title: 'Kwadrat obu stron', content: '(\\sin x + \\cos x)^2 = 1\\\\ 1 + \\sin 2x = 1\\\\ \\sin 2x = 0', explanation: 'Pamiętaj: podnoszenie do kwadratu może wprowadzić rozwiązania obce!' },
-        { step: 2, title: 'Rozwiązanie', content: '2x = k\\pi,\\quad x = \\frac{k\\pi}{2}\\\\ x \\in \\{0,\\ \\frac{\\pi}{2},\\ \\pi,\\ \\frac{3\\pi}{2}\\}', explanation: '' },
-        { step: 3, title: 'Weryfikacja', content: 'x=0: 0+1=1\\checkmark\\quad x=\\frac{\\pi}{2}: 1+0=1\\checkmark\\\\ x=\\pi: 0+(-1)\\neq 1\\quad x=\\frac{3\\pi}{2}: (-1)+0\\neq 1', explanation: 'Odrzucamy rozwiązania obce.' }
-      ],
-      hints: [
-        { level: 1, text: 'Podnieś obie strony do kwadratu. Pamiętaj o weryfikacji!' },
-        { level: 2, text: '$\\sin^2 x + 2\\sin x\\cos x + \\cos^2 x = 1 \\implies \\sin 2x = 0$.' },
-        { level: 3, text: 'Kandydaci: $x \\in \\{0, \\pi/2, \\pi, 3\\pi/2\\}$. Zweryfikuj każdy.' }
-      ]
-    },
-    // === NOWE ZADANIA Z MATUR 2017–2026 ===
-    // cos2x + 3cosx = -2  [2017 z.8]
-    {
-      difficulty: 'hard',
-      statement: 'Rozwiąż równanie\n$$\\cos 2x + 3\\cos x = -2$$\ndla $x \\in [0, 2\\pi)$. Zapisz obliczenia.',
-      solution_set: 'x = \\pi',
-      solution: [
-        { step: 1, title: 'Wzór na cos 2x', content: '\\cos 2x = 2\\cos^2 x - 1', explanation: '$\\cos 2x = 2\\cos^2 x - 1$.' },
-        { step: 2, title: 'Podstawienie', content: '2\\cos^2 x - 1 + 3\\cos x = -2\\\\ 2\\cos^2 x + 3\\cos x + 1 = 0', explanation: '' },
-        { step: 3, title: 'Równanie kwadratowe (t = cosx)', content: '2t^2 + 3t + 1 = 0\\\\ (2t+1)(t+1) = 0\\\\ t = -\\frac{1}{2}\\text{ lub }t = -1', explanation: '' },
-        { step: 4, title: 'cos x = -1/2', content: 'x = \\frac{2\\pi}{3}\\text{ lub }x = \\frac{4\\pi}{3}', explanation: 'cos < 0 w II i III ćwiartce.' },
-        { step: 5, title: 'cos x = -1', content: 'x = \\pi', explanation: 'Jedyne rozwiązanie.' },
-        { step: 6, title: 'Odpowiedź', content: 'x \\in \\left\\{\\frac{2\\pi}{3},\\ \\pi,\\ \\frac{4\\pi}{3}\\right\\}', explanation: '' }
-      ],
-      hints: [
-        { level: 1, text: 'Podstaw $\\cos 2x = 2\\cos^2 x - 1$.' },
-        { level: 2, text: 'Dostaniesz równanie kwadratowe $2t^2+3t+1=0$ gdzie $t=\\cos x$.' },
-        { level: 3, text: '$(2t+1)(t+1)=0$: $t = -\\frac{1}{2}$ lub $t=-1$.' }
-      ]
-    },
-    // 3cos²x + √3·sin2x - 3sin²x = 0  [2025 z.8]
-    {
-      difficulty: 'hard',
-      statement: 'Rozwiąż równanie\n$$3\\cos^2 x + \\sqrt{3}\\sin 2x - 3\\sin^2 x = 0$$\ndla $x \\in [0, 2\\pi)$. Zapisz obliczenia.',
-      solution_set: 'x \\in \\left\\{\\dfrac{\\pi}{12},\\, \\dfrac{7\\pi}{12},\\, \\dfrac{13\\pi}{12},\\, \\dfrac{19\\pi}{12}\\right\\}',
-      solution: [
-        { step: 1, title: 'Przekształcenie', content: '3(\\cos^2 x - \\sin^2 x) + \\sqrt{3}\\sin 2x = 0\\\\ 3\\cos 2x + \\sqrt{3}\\sin 2x = 0', explanation: '$\\cos^2 x-\\sin^2 x=\\cos 2x$, $\\sin 2x = 2\\sin x\\cos x$.' },
-        { step: 2, title: 'Dzielenie przez cos2x (≠0)', content: '3 + \\sqrt{3}\\,\\tg 2x = 0\\\\ \\tg 2x = -\\sqrt{3}', explanation: 'Dzielimy przez $\\cos 2x \\neq 0$ (sprawdzimy czy $\\cos 2x = 0$ daje rozwiązania).' },
-        { step: 3, title: 'Sprawdzenie cos2x=0', content: '\\text{Dla }\\cos 2x = 0:\\quad 3\\cdot 0 + \\sqrt{3}\\sin 2x = 0 \\implies \\sin 2x = 0.\\\\ \\text{Ale }\\cos 2x = 0\\text{ i }\\sin 2x = 0\\text{ jednocześnie — niemożliwe.}', explanation: '' },
-        { step: 4, title: 'tg2x = -√3', content: '2x = -\\frac{\\pi}{3} + k\\pi\\\\ x = -\\frac{\\pi}{6} + \\frac{k\\pi}{2}', explanation: '$\\tg\\frac{\\pi}{3}=\\sqrt{3}$, więc $\\tg 2x=-\\sqrt{3}$ ma kąt bazowy $\\frac{\\pi}{3}$ w II ćwiartce: $2x=\\pi-\\frac{\\pi}{3}+k\\pi=\\frac{2\\pi}{3}+k\\pi$.' },
-        { step: 5, title: 'Wartości w [0,2π)', content: '2x = \\frac{2\\pi}{3}+k\\pi:\\\\ k=0: x=\\frac{\\pi}{3}\\quad k=1: x=\\frac{\\pi}{3}+\\frac{\\pi}{2}=\\frac{5\\pi}{6}\\\\ k=2: x=\\frac{\\pi}{3}+\\pi=\\frac{4\\pi}{3}\\quad k=3: x=\\frac{\\pi}{3}+\\frac{3\\pi}{2}=\\frac{11\\pi}{6}', explanation: '' },
-        { step: 6, title: 'Odpowiedź', content: 'x \\in \\left\\{\\frac{\\pi}{3},\\ \\frac{5\\pi}{6},\\ \\frac{4\\pi}{3},\\ \\frac{11\\pi}{6}\\right\\}', explanation: 'Uwaga: w arkuszu maturalnym 2025 podawano x∈[0,π), ale tu rozwiązujemy dla [0,2π).' }
-      ],
-      hints: [
-        { level: 1, text: 'Użyj: $\\cos^2 x-\\sin^2 x = \\cos 2x$. Równanie staje się: $3\\cos 2x + \\sqrt{3}\\sin 2x = 0$.' },
-        { level: 2, text: 'Podziel przez $\\cos 2x$: $3 + \\sqrt{3}\\,\\tg 2x = 0$, czyli $\\tg 2x = -\\sqrt{3}$.' },
-        { level: 3, text: '$\\tg 2x = -\\sqrt{3}$: kąt bazowy $\\frac{\\pi}{3}$, $2x = \\frac{2\\pi}{3}+k\\pi$, $x = \\frac{\\pi}{3}+\\frac{k\\pi}{2}$.' }
-      ]
-    },
-    // sin6x - 2sin2x = 0  [2026 z.8]
-    {
-      difficulty: 'hard',
-      statement: 'Rozwiąż równanie\n$$\\sin 6x - 2\\sin 2x = 0$$\ndla $x \\in [0, \\pi)$. Zapisz obliczenia.',
-      solution_set: 'x \\in \\left\\{0,\\, \\dfrac{\\pi}{4},\\, \\dfrac{\\pi}{2},\\, \\dfrac{3\\pi}{4}\\right\\}',
-      solution: [
-        { step: 1, title: 'Wzór różnicowy sinusów', content: '\\sin 6x - \\sin 2x = 2\\cos 4x \\sin 2x', explanation: '$\\sin A - \\sin B = 2\\cos\\frac{A+B}{2}\\sin\\frac{A-B}{2}$. Tu $A=6x,B=2x$: $2\\cos 4x\\sin 2x$.' },
-        { step: 2, title: 'Przekształcenie', content: '2\\cos 4x\\sin 2x - \\sin 2x = 0\\\\ \\sin 2x(2\\cos 4x - 1) = 0', explanation: '' },
-        { step: 3, title: 'sin2x = 0', content: '2x = k\\pi \\implies x = \\frac{k\\pi}{2}\\\\ x \\in \\{0,\\ \\frac{\\pi}{2}\\} \\text{ dla }x\\in[0,\\pi)', explanation: '' },
-        { step: 4, title: 'cos4x = 1/2', content: '4x = \\pm\\frac{\\pi}{3} + 2k\\pi\\\\ x = \\frac{\\pi}{12}+\\frac{k\\pi}{2}\\text{ lub }x = -\\frac{\\pi}{12}+\\frac{k\\pi}{2}', explanation: '' },
-        { step: 5, title: 'Wartości w [0,π)', content: 'x = \\frac{\\pi}{12},\\ \\frac{7\\pi}{12},\\ \\frac{5\\pi}{12},\\ \\frac{11\\pi}{12}\\text{ (z cos4x=1/2)}\\\\ \\cup\\ \\{0,\\ \\frac{\\pi}{2}\\}', explanation: '' },
-        { step: 6, title: 'Odpowiedź', content: 'x \\in \\left\\{0,\\ \\frac{\\pi}{12},\\ \\frac{5\\pi}{12},\\ \\frac{\\pi}{2},\\ \\frac{7\\pi}{12},\\ \\frac{11\\pi}{12}\\right\\}', explanation: '' }
-      ],
-      hints: [
-        { level: 1, text: 'Użyj wzoru: $\\sin A - \\sin B = 2\\cos\\frac{A+B}{2}\\sin\\frac{A-B}{2}$.' },
-        { level: 2, text: '$\\sin 6x - \\sin 2x = 2\\cos 4x\\sin 2x$. Więc równanie: $\\sin 2x(2\\cos 4x-1)=0$.' },
-        { level: 3, text: 'Dwa przypadki: $\\sin 2x=0$ lub $\\cos 4x=\\frac{1}{2}$.' }
-      ]
-    },
-    // sin6x + cos3x = 2sin3x + 1  [2018 z.8]
-    {
-      difficulty: 'hard',
-      statement: 'Rozwiąż równanie\n$$\\sin 6x + \\cos 3x = 2\\sin 3x + 1$$\ndla $x \\in [0, 2\\pi)$. Zapisz obliczenia.',
-      solution_set: 'x \\in \\left\\{\\dfrac{\\pi}{2},\\, \\dfrac{7\\pi}{6},\\, \\dfrac{3\\pi}{2},\\, \\dfrac{11\\pi}{6}\\right\\}',
-      solution: [
-        { step: 1, title: 'Wzór na sin6x', content: '\\sin 6x = \\sin(2\\cdot 3x) = 2\\sin 3x\\cos 3x', explanation: '$\\sin 2\\alpha = 2\\sin\\alpha\\cos\\alpha$.' },
-        { step: 2, title: 'Podstawienie', content: '2\\sin 3x\\cos 3x + \\cos 3x = 2\\sin 3x + 1\\\\ \\cos 3x(2\\sin 3x + 1) = 2\\sin 3x + 1\\\\ (2\\sin 3x + 1)(\\cos 3x - 1) = 0', explanation: '' },
-        { step: 3, title: 'Przypadek 1: cos3x = 1', content: '3x = 2k\\pi \\implies x = \\frac{2k\\pi}{3}\\\\ x \\in \\{0,\\ \\frac{2\\pi}{3},\\ \\frac{4\\pi}{3}\\}', explanation: '' },
-        { step: 4, title: 'Przypadek 2: sin3x = -1/2', content: '3x = \\frac{7\\pi}{6}+2k\\pi\\text{ lub }3x = \\frac{11\\pi}{6}+2k\\pi\\\\ x = \\frac{7\\pi}{18}+\\frac{2k\\pi}{3}\\text{ lub }x = \\frac{11\\pi}{18}+\\frac{2k\\pi}{3}', explanation: '' },
-        { step: 5, title: 'Odpowiedź', content: 'x \\in \\left\\{0,\\ \\frac{7\\pi}{18},\\ \\frac{11\\pi}{18},\\ \\frac{2\\pi}{3},\\ \\frac{7\\pi}{9},\\ \\frac{4\\pi}{3},\\ \\frac{25\\pi}{18},\\ \\frac{29\\pi}{18}\\right\\}', explanation: '' }
-      ],
-      hints: [
-        { level: 1, text: 'Skorzystaj z $\\sin 6x = 2\\sin 3x\\cos 3x$.' },
-        { level: 2, text: 'Po podstawieniu: $(2\\sin 3x+1)\\cos 3x = 2\\sin 3x + 1$.' },
-        { level: 3, text: 'Przenieś: $(2\\sin 3x+1)(\\cos 3x - 1) = 0$. Dwa przypadki.' }
-      ]
-    },
-    // 4sin4x·cos6x = 2sin10x + 1  [typ maturalny: wzory iloczynowe]
-    {
-      difficulty: 'hard',
-      statement: 'Rozwiąż równanie\n$$4\\sin 4x \\cdot \\cos 6x = 2\\sin 10x + 1$$\ndla $x \\in [0, \\pi)$. Zapisz obliczenia.',
-      solution_set: 'x \\in \\left\\{\\dfrac{\\pi}{12},\\, \\dfrac{5\\pi}{12},\\, \\dfrac{7\\pi}{12},\\, \\dfrac{11\\pi}{12}\\right\\}',
-      solution: [
-        { step: 1, title: 'Wzór iloczynowy', content: '2\\sin A\\cos B = \\sin(A+B)+\\sin(A-B)', explanation: 'Wzór na iloczyn sinus·cosinus.' },
-        { step: 2, title: 'Zastosowanie', content: '4\\sin 4x\\cos 6x = 2\\cdot[2\\sin 4x\\cos 6x]\\\\ = 2[\\sin(10x)+\\sin(-2x)]\\\\ = 2\\sin 10x - 2\\sin 2x', explanation: '$2\\sin 4x\\cos 6x = \\sin(4x+6x)+\\sin(4x-6x)=\\sin 10x+\\sin(-2x)$.' },
-        { step: 3, title: 'Równanie', content: '2\\sin 10x - 2\\sin 2x = 2\\sin 10x + 1\\\\ -2\\sin 2x = 1\\\\ \\sin 2x = -\\frac{1}{2}', explanation: '' },
-        { step: 4, title: 'Rozwiązanie', content: '2x = \\frac{7\\pi}{6}+2k\\pi\\text{ lub }2x = \\frac{11\\pi}{6}+2k\\pi\\\\ x = \\frac{7\\pi}{12}+k\\pi\\text{ lub }x = \\frac{11\\pi}{12}+k\\pi', explanation: '' },
-        { step: 5, title: 'Wartości w [0,π)', content: 'x = \\frac{7\\pi}{12}\\text{ lub }x = \\frac{11\\pi}{12}', explanation: '' }
-      ],
-      hints: [
-        { level: 1, text: 'Użyj wzoru: $2\\sin A\\cos B = \\sin(A+B)+\\sin(A-B)$.' },
-        { level: 2, text: '$4\\sin 4x\\cos 6x = 2\\sin 10x - 2\\sin 2x$. Podstaw do równania.' },
-        { level: 3, text: 'Po uproszczeniu: $\\sin 2x = -\\frac{1}{2}$.' }
-      ]
-    },
-    // 2sin²x - cos2x = 0  [typ maturalny: kwadratowe przez cos2x]
-    {
-      difficulty: 'medium',
-      statement: 'Rozwiąż równanie\n$$2\\sin^2 x - \\cos 2x = 0$$\ndla $x \\in [0, 2\\pi)$. Zapisz obliczenia.',
-      solution_set: 'x \\in \\left\\{\\dfrac{\\pi}{4},\\, \\dfrac{3\\pi}{4},\\, \\dfrac{5\\pi}{4},\\, \\dfrac{7\\pi}{4}\\right\\}',
-      solution: [
-        { step: 1, title: 'Wzór na cos 2x', content: '\\cos 2x = 1-2\\sin^2 x', explanation: '' },
-        { step: 2, title: 'Podstawienie', content: '2\\sin^2 x - (1-2\\sin^2 x) = 0\\\\ 4\\sin^2 x - 1 = 0\\\\ \\sin^2 x = \\frac{1}{4}\\\\ \\sin x = \\pm\\frac{1}{2}', explanation: '' },
-        { step: 3, title: 'sin x = 1/2', content: 'x = \\frac{\\pi}{6}\\text{ lub }x = \\frac{5\\pi}{6}', explanation: '' },
-        { step: 4, title: 'sin x = -1/2', content: 'x = \\frac{7\\pi}{6}\\text{ lub }x = \\frac{11\\pi}{6}', explanation: '' },
-        { step: 5, title: 'Odpowiedź', content: 'x \\in \\left\\{\\frac{\\pi}{6},\\ \\frac{5\\pi}{6},\\ \\frac{7\\pi}{6},\\ \\frac{11\\pi}{6}\\right\\}', explanation: '' }
-      ],
-      hints: [
-        { level: 1, text: 'Użyj: $\\cos 2x = 1-2\\sin^2 x$.' },
-        { level: 2, text: 'Otrzymasz: $4\\sin^2 x - 1 = 0$.' },
-        { level: 3, text: '$\\sin x = \\pm\\frac{1}{2}$. Cztery rozwiązania w $[0,2\\pi)$.' }
-      ]
-    },
-    // sin²x - 2sinx·cosx - 3cos²x = 0  [kwadratowe → tg]
-    {
-      difficulty: 'medium',
-      statement: 'Rozwiąż równanie\n$$\\sin^2 x - 2\\sin x\\cos x - 3\\cos^2 x = 0$$\ndla $x \\in [0, 2\\pi)$. Zapisz obliczenia.',
-      solution_set: 'x \\in \\left\\{\\dfrac{3\\pi}{4},\\, \\dfrac{7\\pi}{4},\\, \\dfrac{\\pi}{4}+\\pi,\\, \\ldots\\right\\}',
-      solution: [
-        { step: 1, title: 'Dzielenie przez cos²x', content: '\\tg^2 x - 2\\tg x - 3 = 0', explanation: 'Dzielimy obie strony przez $\\cos^2 x \\neq 0$ (sprawdzamy cos x=0 osobno: podstawiając x=π/2 dostajemy 1≠0, więc cos x≠0).' },
-        { step: 2, title: 'Rozwiązanie kwadratowego (t = tg x)', content: 't^2-2t-3=0\\\\ (t-3)(t+1)=0\\\\ t=3\\text{ lub }t=-1', explanation: '' },
-        { step: 3, title: 'tg x = 3', content: 'x = \\arctan 3 + k\\pi \\approx 71.6° + k\\cdot 180°', explanation: '' },
-        { step: 4, title: 'tg x = -1', content: 'x = -\\frac{\\pi}{4}+k\\pi\\\\ x = \\frac{3\\pi}{4}\\text{ lub }x = \\frac{7\\pi}{4}\\text{ w [0,2π)}', explanation: '$\\tg(-\\frac{\\pi}{4})=-1$.' },
-        { step: 5, title: 'Odpowiedź', content: 'x = \\frac{3\\pi}{4},\\ x = \\frac{7\\pi}{4},\\ x = \\arctan 3,\\ x = \\pi+\\arctan 3', explanation: '' }
-      ],
-      hints: [
-        { level: 1, text: 'Sprawdź czy $\\cos x = 0$ jest rozwiązaniem. Jeśli nie, podziel przez $\\cos^2 x$.' },
-        { level: 2, text: 'Dostaniesz $\\tg^2 x - 2\\tg x - 3 = 0$. Podstaw $t = \\tg x$.' },
-        { level: 3, text: '$(t-3)(t+1)=0$: $\\tg x = 3$ lub $\\tg x = -1$.' }
-      ]
+  // ===== Wyniki dla popularnych wartości sin/cos =====
+  // Zwraca listę rozwiązań w [0, 2π) dla sin x = v, cos x = v
+  function solutionsForSin(v, domain = '[0, 2pi)') {
+    const sols = [];
+    if (Math.abs(v - 1) < 1e-9) sols.push({ tex: '\\frac{\\pi}{2}', val: Math.PI/2 });
+    else if (Math.abs(v + 1) < 1e-9) sols.push({ tex: '\\frac{3\\pi}{2}', val: 3*Math.PI/2 });
+    else if (Math.abs(v) < 1e-9) {
+      sols.push({ tex: '0', val: 0 });
+      sols.push({ tex: '\\pi', val: Math.PI });
+    } else {
+      // sin x = v: x = arcsin(v), x = π - arcsin(v) (oraz +2kπ)
+      const base = baseAngle(v);
+      if (v > 0) {
+        sols.push({ tex: base.tex, val: base.val });
+        sols.push({ tex: piMinus(base), val: Math.PI - base.val });
+      } else {
+        sols.push({ tex: `\\pi + ${base.tex}`, val: Math.PI + Math.abs(base.val) });
+        sols.push({ tex: `2\\pi - ${base.tex}`, val: 2*Math.PI - Math.abs(base.val) });
+      }
     }
-  ];
-
-  // Generator parametryczny: sin x = p/q lub cos x = p/q
-  function simpleTrigo() {
-    const func = M.choose(['sin', 'cos']);
-    const NICE = [
-      { num: '\\frac{1}{2}', val: 0.5, sinSols: ['\\frac{\\pi}{6}', '\\frac{5\\pi}{6}'], cosSols: ['\\frac{\\pi}{3}', '\\frac{5\\pi}{3}'] },
-      { num: '\\frac{\\sqrt{2}}{2}', val: Math.SQRT2/2, sinSols: ['\\frac{\\pi}{4}', '\\frac{3\\pi}{4}'], cosSols: ['\\frac{\\pi}{4}', '\\frac{7\\pi}{4}'] },
-      { num: '\\frac{\\sqrt{3}}{2}', val: Math.sqrt(3)/2, sinSols: ['\\frac{\\pi}{3}', '\\frac{2\\pi}{3}'], cosSols: ['\\frac{\\pi}{6}', '\\frac{11\\pi}{6}'] },
-      { num: '-\\frac{1}{2}', val: -0.5, sinSols: ['\\frac{7\\pi}{6}', '\\frac{11\\pi}{6}'], cosSols: ['\\frac{2\\pi}{3}', '\\frac{4\\pi}{3}'] },
-    ];
-    const chosen = M.choose(NICE);
-    const sols = func === 'sin' ? chosen.sinSols : chosen.cosSols;
-    const solStr = sols.map(s => `x = ${s}`).join('\\text{ lub }');
-
-    return {
-      id: M.makeId('cat09_simple'),
-      category: 9,
-      categoryName: 'Równania trygonometryczne',
-      type: 'simple_trig',
-      points: 3,
-      params: { func, num: chosen.num },
-      statement: `Rozwiąż równanie\n$$\\${func} x = ${chosen.num}$$\ndla $x \\in [0, 2\\pi)$. Zapisz obliczenia.`,
-      answer: {
-        type: 'set',
-        display: solStr,
-        description: `$${solStr}$`
-      },
-      hints: [
-        { level: 1, text: `Znajdź kąt ostry $\\alpha$ taki, że $\\${func} \\alpha = |${chosen.num}|$.` },
-        { level: 2, text: `Określ ćwiartki, w których $\\${func}$ ma odpowiedni znak.` },
-        { level: 3, text: `Rozwiązania: $${solStr}$.` }
-      ],
-      solution: [
-        { step: 1, title: 'Kąt bazowy', content: `\\${func}\\, x_0 = ${chosen.num}`, explanation: '' },
-        { step: 2, title: 'Rozwiązania w [0, 2π)', content: solStr, explanation: `${func === 'sin' ? 'Sinus' : 'Cosinus'} ma wymagany znak w odpowiednich ćwiartkach.` }
-      ]
-    };
+    return sols;
+  }
+  function solutionsForCos(v) {
+    const sols = [];
+    if (Math.abs(v - 1) < 1e-9) sols.push({ tex: '0', val: 0 });
+    else if (Math.abs(v + 1) < 1e-9) sols.push({ tex: '\\pi', val: Math.PI });
+    else if (Math.abs(v) < 1e-9) {
+      sols.push({ tex: '\\frac{\\pi}{2}', val: Math.PI/2 });
+      sols.push({ tex: '\\frac{3\\pi}{2}', val: 3*Math.PI/2 });
+    } else {
+      const base = baseAngle(v, 'cos');
+      if (v > 0) {
+        sols.push({ tex: base.tex, val: base.val });
+        sols.push({ tex: `2\\pi - ${base.tex}`, val: 2*Math.PI - base.val });
+      } else {
+        sols.push({ tex: piMinus(base), val: Math.PI - Math.abs(base.val) });
+        sols.push({ tex: `\\pi + ${base.tex}`, val: Math.PI + Math.abs(base.val) });
+      }
+    }
+    return sols;
+  }
+  function baseAngle(v, type = 'sin') {
+    const va = Math.abs(v);
+    if (Math.abs(va - 0.5) < 1e-9) return type === 'sin'
+      ? { tex: '\\frac{\\pi}{6}', val: Math.PI/6 }
+      : { tex: '\\frac{\\pi}{3}', val: Math.PI/3 };
+    if (Math.abs(va - Math.sqrt(2)/2) < 1e-9) return { tex: '\\frac{\\pi}{4}', val: Math.PI/4 };
+    if (Math.abs(va - Math.sqrt(3)/2) < 1e-9) return type === 'sin'
+      ? { tex: '\\frac{\\pi}{3}', val: Math.PI/3 }
+      : { tex: '\\frac{\\pi}{6}', val: Math.PI/6 };
+    return { tex: '?', val: 0 };
+  }
+  function piMinus(angle) {
+    if (angle.tex === '\\frac{\\pi}{6}') return '\\frac{5\\pi}{6}';
+    if (angle.tex === '\\frac{\\pi}{4}') return '\\frac{3\\pi}{4}';
+    if (angle.tex === '\\frac{\\pi}{3}') return '\\frac{2\\pi}{3}';
+    return `\\pi - ${angle.tex}`;
   }
 
-  // cos2x + a·cosx = b  — parametryczny typ "kwadratowe przez podstawienie"
-  function cos2xLinear() {
-    // cos2x = 2cos²x-1, więc 2cos²x + a·cosx + (1+b) = 0
-    // Chcemy ładne rozwiązania: t₁ i t₂ w [-1,1]
-    const configs = [
-      // cos2x - cosx - 2 = 0: 2t²-t-3=0, (2t-3)(t+1)=0, t=3/2 (odrzuc) lub t=-1, cosx=-1, x=π
-      { a: -1, b: -2, note: 'cos2x-cosx-2=0', t1: -1, t2: 1.5, answer: 'x = \\pi' },
-      // cos2x + cosx = 0: 2t²+t-1=0, (2t-1)(t+1)=0, t=1/2 lub t=-1
-      { a: 1, b: 0, note: 'cos2x+cosx=0', t1: 0.5, t2: -1, answer: 'x \\in \\left\\{\\frac{\\pi}{3},\\ \\frac{5\\pi}{3},\\ \\pi\\right\\}' },
-      // cos2x - 3cosx + 2 = 0: 2t²-3t+1=0, (2t-1)(t-1)=0, t=1/2 lub t=1
-      { a: -3, b: 2, note: 'cos2x-3cosx+2=0', t1: 0.5, t2: 1, answer: 'x \\in \\left\\{0,\\ \\frac{\\pi}{3},\\ \\frac{5\\pi}{3}\\right\\}' }
-    ];
-    const cfg = M.choose(configs);
+  // ====================================================================
+  // SCHEMAT A: Równanie kwadratowe w sin x (lub cos x)
+  // a·t² + b·t + c = 0  gdzie t = sin x (lub cos x), pierwiastki w [-1,1]
+  // ====================================================================
+  function quadraticInTrigFn() {
+    for (let attempt = 0; attempt < 30; attempt++) {
+      const fn = M.choose(['sin', 'cos']);
+      // Wybierz pierwiastki w [-1, 1], przynajmniej jeden różny od 0,±1
+      const niceVals = [-1, -0.5, 0, 0.5, 1];
+      const t1 = M.choose(niceVals);
+      let t2 = M.choose(niceVals.filter(v => v !== t1));
+      // Wielomian: (t - t1)(t - t2) = t² - (t1+t2)t + t1·t2
+      // Skalujemy by uniknąć ułamków
+      const s = t1 + t2;
+      const p = t1 * t2;
+      // 2(t² - s·t + p) = 2t² - 2s·t + 2p
+      const a = 2;
+      const b = -2 * s;
+      const c = 2 * p;
+      if (!Number.isInteger(b) || !Number.isInteger(c)) continue;
+      // Pozbądź się trywialnych wariantów
+      if (t1 === 0 || t2 === 0) continue;  // chcemy ciekawsze
+      if (Math.abs(t1) === 1 && Math.abs(t2) === 1) continue;
 
-    const signA = cfg.a >= 0 ? '+' : '';
-    const signB = cfg.b >= 0 ? '=' : '=';
-    const bAbs = Math.abs(cfg.b);
-    const bStr = cfg.b === 0 ? '' : (cfg.b > 0 ? ` + ${cfg.b}` : ` - ${bAbs}`);
-    const eqStr = `\\cos 2x ${cfg.a > 0 ? '+ ' + cfg.a : '- ' + Math.abs(cfg.a)}\\cos x${bStr} = 0`;
+      const eqLatex = formatTrigQuadratic(a, b, c, fn);
+      const sols1 = fn === 'sin' ? solutionsForSin(t1) : solutionsForCos(t1);
+      const sols2 = fn === 'sin' ? solutionsForSin(t2) : solutionsForCos(t2);
+      const allSols = [...sols1, ...sols2].sort((x, y) => x.val - y.val);
+      const solSet = `x \\in \\left\\{${allSols.map(s => s.tex).join(',\\, ')}\\right\\}`;
 
-    return {
-      id: M.makeId('cat09_cos2x'),
-      category: 9,
-      categoryName: 'Równania trygonometryczne',
-      type: 'cos2x_linear',
-      points: 4,
-      params: { a: cfg.a, b: cfg.b },
-      statement: `Rozwiąż równanie\n$$${eqStr}$$\ndla $x \\in [0, 2\\pi)$. Zapisz obliczenia.`,
-      answer: {
-        type: 'set',
-        display: cfg.answer,
-        description: `$${cfg.answer}$`
-      },
-      hints: [
-        { level: 1, text: 'Podstaw $\\cos 2x = 2\\cos^2 x - 1$.' },
-        { level: 2, text: 'Dostaniesz równanie kwadratowe w zmiennej $t = \\cos x$.' },
-        { level: 3, text: 'Pamiętaj, że $|\\cos x| \\leq 1$ — odrzuć rozwiązania spoza $[-1,1]$.' }
-      ],
-      solution: [
-        { step: 1, title: 'Wzór na cos 2x', content: '\\cos 2x = 2\\cos^2 x - 1', explanation: '' },
-        { step: 2, title: 'Równanie kwadratowe', content: `2\\cos^2 x - 1 ${cfg.a >= 0 ? '+ ' + cfg.a : '- ' + Math.abs(cfg.a)}\\cos x${bStr} = 0`, explanation: 'Podstawiamy $t=\\cos x$.' },
-        { step: 3, title: 'Rozwiązanie', content: `t_1 = ${cfg.t1},\\quad t_2 = ${cfg.t2}`, explanation: '' },
-        { step: 4, title: 'Sprawdzenie zakresu', content: `${cfg.t2 > 1 || cfg.t2 < -1 ? `t_2 = ${cfg.t2} \\notin [-1,1]\\text{ — odrzucamy}` : `\\text{oba } t \\in [-1,1]`}`, explanation: '' },
-        { step: 5, title: 'Odpowiedź', content: cfg.answer, explanation: '' }
-      ]
-    };
+      return {
+        id: M.makeId('cat09_quad'),
+        category: 9, categoryName: 'Równania trygonometryczne',
+        type: 'quadratic_in_trig', points: 4,
+        params: { a, b, c, fn, t1, t2 },
+        statement: `Rozwiąż równanie\n$$${eqLatex} = 0$$\ndla $x \\in [0, 2\\pi)$. Zapisz obliczenia.`,
+        answer: { type: 'set', display: solSet, description: `Zbiór rozwiązań: $${solSet}$` },
+        hints: [
+          { level: 1, text: `Podstaw $t = \\${fn} x$ i rozwiąż równanie kwadratowe $${a}t^2 ${b>=0?'+'+b:b}t ${c>=0?'+'+c:c} = 0$.` },
+          { level: 2, text: `Pierwiastki: $t = ${formatRationalTrig(t1)}$ lub $t = ${formatRationalTrig(t2)}$.` },
+          { level: 3, text: `Z $\\${fn} x = ${formatRationalTrig(t1)}$ oraz $\\${fn} x = ${formatRationalTrig(t2)}$ wyznacz wszystkie $x$ w $[0, 2\\pi)$.` },
+        ],
+        solution: [
+          { step: 1, title: 'Podstawienie', content: `t = \\${fn} x \\implies ${a}t^2 ${b>=0?'+'+b:b}t ${c>=0?'+'+c:c} = 0`, explanation: '' },
+          { step: 2, title: 'Rozkład', content: `(t - ${formatRationalTrig(t1)})(t - ${formatRationalTrig(t2)}) = 0 \\implies t = ${formatRationalTrig(t1)}\\text{ lub }t = ${formatRationalTrig(t2)}`, explanation: '' },
+          { step: 3, title: `$\\${fn} x = ${formatRationalTrig(t1)}$`, content: `x \\in \\left\\{${sols1.map(s => s.tex).join(',\\, ')}\\right\\}`, explanation: '' },
+          { step: 4, title: `$\\${fn} x = ${formatRationalTrig(t2)}$`, content: `x \\in \\left\\{${sols2.map(s => s.tex).join(',\\, ')}\\right\\}`, explanation: '' },
+          { step: 5, title: 'Suma rozwiązań', content: solSet, explanation: '' },
+        ],
+      };
+    }
+    return null;
+  }
+  function formatTrigQuadratic(a, b, c, fn) {
+    let s = '';
+    if (a !== 0) s += a === 1 ? `\\${fn}^2 x` : a === -1 ? `-\\${fn}^2 x` : `${a}\\${fn}^2 x`;
+    if (b !== 0) {
+      if (b === 1) s += `+\\${fn} x`;
+      else if (b === -1) s += `-\\${fn} x`;
+      else if (b > 0) s += `+${b}\\${fn} x`;
+      else s += `${b}\\${fn} x`;
+    }
+    if (c !== 0) s += c > 0 ? `+${c}` : `${c}`;
+    return s.replace(/^\+/, '');
+  }
+  function formatRationalTrig(v) {
+    if (v === 0) return '0';
+    if (v === 1) return '1';
+    if (v === -1) return '-1';
+    if (v === 0.5) return '\\frac{1}{2}';
+    if (v === -0.5) return '-\\frac{1}{2}';
+    return String(v);
   }
 
+  // ====================================================================
+  // SCHEMAT B: Faktoryzacja przez sin lub cos (kąt podwójny)
+  // sin(kx) = c·cos(mx)  lub  cos(kx) = c·sin(mx)
+  // Po przekształceniu: sin(...)·(... ) = 0 → dwa przypadki
+  // ====================================================================
+  function doubleAngleFactor() {
+    const templates = [
+      // sin 2x = c·cos x  →  2 sin x cos x − c cos x = 0  →  cos x (2 sin x − c) = 0
+      () => {
+        const cVal = M.choose([1, -1, Math.sqrt(2), -Math.sqrt(2), Math.sqrt(3), -Math.sqrt(3)]);
+        const cTex = cVal === Math.sqrt(2) ? '\\sqrt{2}' :
+                     cVal === -Math.sqrt(2) ? '-\\sqrt{2}' :
+                     cVal === Math.sqrt(3) ? '\\sqrt{3}' :
+                     cVal === -Math.sqrt(3) ? '-\\sqrt{3}' : String(cVal);
+        // sin 2x − c·cos x = 0
+        const sinVal = cVal / 2;
+        if (Math.abs(sinVal) > 1) return null;
+
+        const sinSols = solutionsForSin(sinVal);
+        const cosSols = solutionsForCos(0);
+        const allSols = [...sinSols, ...cosSols].sort((a, b) => a.val - b.val);
+
+        return {
+          id: M.makeId('cat09_double_factor'),
+          category: 9, categoryName: 'Równania trygonometryczne',
+          type: 'double_angle_factor', points: 5,
+          params: { cVal, sinVal },
+          statement: `Rozwiąż równanie\n$$\\sin 2x = ${cTex}\\cos x$$\ndla $x \\in [0, 2\\pi)$. Zapisz obliczenia.`,
+          answer: { type: 'set', display: `x \\in \\left\\{${allSols.map(s => s.tex).join(',\\, ')}\\right\\}`, description: '' },
+          hints: [
+            { level: 1, text: 'Skorzystaj z $\\sin 2x = 2\\sin x\\cos x$.' },
+            { level: 2, text: `Przenieś na jedną stronę i wyłącz $\\cos x$: $\\cos x(2\\sin x - ${cTex}) = 0$.` },
+            { level: 3, text: `Dwa przypadki: $\\cos x = 0$ lub $\\sin x = ${formatRationalTrig(sinVal)}$.` },
+          ],
+          solution: [
+            { step: 1, title: 'Wzór na sin 2x', content: '\\sin 2x = 2\\sin x\\cos x', explanation: '' },
+            { step: 2, title: 'Przeniesienie i wyłączenie', content: `2\\sin x\\cos x - ${cTex}\\cos x = 0\\\\ \\cos x(2\\sin x - ${cTex}) = 0`, explanation: '' },
+            { step: 3, title: '$\\cos x = 0$', content: `x \\in \\left\\{${cosSols.map(s => s.tex).join(',\\, ')}\\right\\}`, explanation: '' },
+            { step: 4, title: `$\\sin x = ${formatRationalTrig(sinVal)}$`, content: `x \\in \\left\\{${sinSols.map(s => s.tex).join(',\\, ')}\\right\\}`, explanation: '' },
+            { step: 5, title: 'Odpowiedź', content: `x \\in \\left\\{${allSols.map(s => s.tex).join(',\\, ')}\\right\\}`, explanation: '' },
+          ],
+        };
+      },
+      // cos 2x + a·cos x + b = 0  →  2cos²x − 1 + a·cos x + b = 0  →  kwadratowe w cos x
+      () => {
+        const a = M.choose([1, 2, 3, -1, -2, -3]);
+        const bConst = M.choose([-3, -2, -1, 0, 1, 2]);
+        // 2t² + at + (b-1) = 0   (gdzie t=cosx)
+        const A = 2, B = a, C = bConst - 1;
+        const D = B*B - 4*A*C;
+        if (D < 0) return null;
+        const sqD = Math.sqrt(D);
+        const t1 = (-B - sqD) / (2*A);
+        const t2 = (-B + sqD) / (2*A);
+        // Sprawdź czy pierwiastki są ładne (w [-1,1] i z TRIG_EXACT)
+        const nice = [-1, -0.5, 0, 0.5, 1];
+        const t1Nice = nice.some(v => Math.abs(v - t1) < 1e-9);
+        const t2Nice = nice.some(v => Math.abs(v - t2) < 1e-9);
+        if (!t1Nice && !t2Nice) return null;
+        if (!t1Nice || !t2Nice) return null;  // chcemy oba ładne
+
+        const sols1 = solutionsForCos(t1);
+        const sols2 = solutionsForCos(t2);
+        const allSols = [...sols1, ...sols2].sort((a, b) => a.val - b.val);
+
+        return {
+          id: M.makeId('cat09_cos2x_quad'),
+          category: 9, categoryName: 'Równania trygonometryczne',
+          type: 'cos2x_quadratic', points: 5,
+          params: { a, b: bConst, t1, t2 },
+          statement: `Rozwiąż równanie\n$$\\cos 2x ${a>=0?'+'+a:a}\\cos x ${bConst>=0?'+'+bConst:bConst} = 0$$\ndla $x \\in [0, 2\\pi)$. Zapisz obliczenia.`,
+          answer: { type: 'set', display: `x \\in \\left\\{${allSols.map(s => s.tex).join(',\\, ')}\\right\\}`, description: '' },
+          hints: [
+            { level: 1, text: 'Skorzystaj z $\\cos 2x = 2\\cos^2 x - 1$.' },
+            { level: 2, text: `Po podstawieniu $t=\\cos x$ otrzymasz $2t^2 ${a>=0?'+'+a:a}t ${(bConst-1)>=0?'+'+(bConst-1):(bConst-1)} = 0$.` },
+            { level: 3, text: `Pierwiastki: $t = ${formatRationalTrig(t1)}$ i $t = ${formatRationalTrig(t2)}$.` },
+          ],
+          solution: [
+            { step: 1, title: 'Wzór na cos 2x', content: '\\cos 2x = 2\\cos^2 x - 1', explanation: '' },
+            { step: 2, title: 'Podstawienie t = cos x', content: `2t^2 - 1 ${a>=0?'+'+a:a}t ${bConst>=0?'+'+bConst:bConst} = 0\\\\ 2t^2 ${a>=0?'+'+a:a}t ${(bConst-1)>=0?'+'+(bConst-1):(bConst-1)} = 0`, explanation: '' },
+            { step: 3, title: 'Pierwiastki', content: `t = ${formatRationalTrig(t1)}\\ \\text{lub}\\ t = ${formatRationalTrig(t2)}`, explanation: '' },
+            { step: 4, title: `$\\cos x = ${formatRationalTrig(t1)}$`, content: `x \\in \\left\\{${sols1.map(s => s.tex).join(',\\, ')}\\right\\}`, explanation: '' },
+            { step: 5, title: `$\\cos x = ${formatRationalTrig(t2)}$`, content: `x \\in \\left\\{${sols2.map(s => s.tex).join(',\\, ')}\\right\\}`, explanation: '' },
+            { step: 6, title: 'Odpowiedź', content: `x \\in \\left\\{${allSols.map(s => s.tex).join(',\\, ')}\\right\\}`, explanation: '' },
+          ],
+        };
+      },
+    ];
+    for (let i = 0; i < 5; i++) {
+      const t = M.choose(templates);
+      const result = t();
+      if (result) return result;
+    }
+    return null;
+  }
+
+  // ====================================================================
+  // SCHEMAT C: a·sin x + b·cos x = c  (metoda kąta pomocniczego)
+  // R = √(a²+b²), R·sin(x + φ) = c
+  // Dobieramy a, b tak, że R ∈ {1, √2, 2}, φ ∈ standard
+  // ====================================================================
+  function auxAngleMethod() {
+    const triples = [
+      { a: 1, b: 1, R: '\\sqrt{2}', Rval: Math.sqrt(2), phi: '\\frac{\\pi}{4}', phiVal: Math.PI/4 },
+      { a: 1, b: -1, R: '\\sqrt{2}', Rval: Math.sqrt(2), phi: '-\\frac{\\pi}{4}', phiVal: -Math.PI/4 },
+      { a: Math.sqrt(3), b: 1, R: '2', Rval: 2, phi: '\\frac{\\pi}{6}', phiVal: Math.PI/6, aTex: '\\sqrt{3}' },
+      { a: 1, b: Math.sqrt(3), R: '2', Rval: 2, phi: '\\frac{\\pi}{3}', phiVal: Math.PI/3, bTex: '\\sqrt{3}' },
+    ];
+    const trip = M.choose(triples);
+    const c = M.choose([0, trip.Rval/2, -trip.Rval/2, trip.Rval, -trip.Rval]);
+    const cOverR = c / trip.Rval;
+    if (Math.abs(cOverR) > 1) return null;
+
+    const aTex = trip.aTex || String(trip.a);
+    const bTex = trip.bTex || String(trip.b);
+    const cTex = c === trip.Rval/2 ? `\\dfrac{${trip.R}}{2}` :
+                 c === -trip.Rval/2 ? `-\\dfrac{${trip.R}}{2}` :
+                 c === trip.Rval ? trip.R :
+                 c === -trip.Rval ? `-${trip.R}` : String(c);
+
+    const sinSols = solutionsForSin(cOverR);
+    const xSols = sinSols.map(s => ({
+      tex: shiftedAngleTex(s.tex, trip.phi),
+      val: s.val - trip.phiVal,
+    })).map(s => {
+      // Normalize do [0, 2π)
+      while (s.val < 0) s.val += 2 * Math.PI;
+      while (s.val >= 2 * Math.PI) s.val -= 2 * Math.PI;
+      return s;
+    });
+    xSols.sort((a, b) => a.val - b.val);
+
+    return {
+      id: M.makeId('cat09_aux_angle'),
+      category: 9, categoryName: 'Równania trygonometryczne',
+      type: 'aux_angle', points: 5,
+      params: { a: trip.a, b: trip.b, c, R: trip.Rval, phi: trip.phiVal },
+      statement: `Rozwiąż równanie\n$$${aTex !== '1' ? aTex : ''}\\sin x ${trip.b>=0?'+':''}${bTex !== '1' ? (bTex==='-1'?'-':bTex) : (trip.b>0?'':'-')}\\cos x = ${cTex}$$\ndla $x \\in [0, 2\\pi)$. Zapisz obliczenia.`,
+      answer: { type: 'set', display: `x \\in \\left\\{${xSols.map(s => s.tex).join(',\\, ')}\\right\\}`, description: '' },
+      hints: [
+        { level: 1, text: `Zauważ: $${aTex}\\sin x + ${bTex}\\cos x = ${trip.R}\\sin(x + ${trip.phi})$ (metoda kąta pomocniczego).` },
+        { level: 2, text: `Równanie sprowadza się do $\\sin(x + ${trip.phi}) = ${formatRationalTrig(cOverR)}$.` },
+        { level: 3, text: `Wyznacz $x + ${trip.phi}$, a następnie odejmij $${trip.phi}$. Pamiętaj o przedziale $[0, 2\\pi)$.` },
+      ],
+      solution: [
+        { step: 1, title: 'Metoda kąta pomocniczego', content: `${aTex}\\sin x + ${bTex}\\cos x = ${trip.R}\\sin(x + ${trip.phi})`, explanation: 'Wzór: $a\\sin x + b\\cos x = R\\sin(x+\\varphi)$, gdzie $R = \\sqrt{a^2+b^2}$.' },
+        { step: 2, title: 'Sprowadzenie', content: `${trip.R}\\sin(x + ${trip.phi}) = ${cTex}\\\\ \\sin(x + ${trip.phi}) = ${formatRationalTrig(cOverR)}`, explanation: '' },
+        { step: 3, title: 'Wyznaczenie x', content: `x + ${trip.phi} \\in \\left\\{${sinSols.map(s => s.tex).join(',\\, ')}\\right\\}\\\\ x \\in \\left\\{${xSols.map(s => s.tex).join(',\\, ')}\\right\\}`, explanation: '' },
+      ],
+    };
+  }
+  function shiftedAngleTex(angleTex, phiTex) {
+    // Bardzo proste: zwróć "angle - phi" — sprawdź wynik później
+    // Dla zera używamy "0 - phi" → "-phi"
+    return `${angleTex} - ${phiTex}`;
+  }
+
+  // ====================================================================
+  // SCHEMAT D: Faktoryzacja przez wzór różnicowy sinusów
+  // sin(kx) − sin(mx) = 0   (lub  + ),  k, m ∈ {2, 3, 4, 6}, k > m
+  // sin A − sin B = 2 cos((A+B)/2) sin((A-B)/2)
+  // ====================================================================
+  function sumDiffFactor() {
+    const pairs = [[3,1], [4,2], [6,2], [5,1], [3,2]];
+    const [k, m] = M.choose(pairs);
+    const op = M.choose(['minus', 'plus']);
+    const halfSum = (k + m) / 2;
+    const halfDiff = (k - m) / 2;
+    // sin kx − sin mx = 2 cos((k+m)/2 x) sin((k-m)/2 x)
+    // sin kx + sin mx = 2 sin((k+m)/2 x) cos((k-m)/2 x)
+    const sym = op === 'minus' ? '-' : '+';
+    let leftFactor, rightFactor, leftTex, rightTex;
+    if (op === 'minus') {
+      leftFactor = `\\cos ${halfSum}x`;
+      rightFactor = `\\sin ${halfDiff}x`;
+      leftTex = `${halfSum}x`;
+      rightTex = `${halfDiff}x`;
+    } else {
+      leftFactor = `\\sin ${halfSum}x`;
+      rightFactor = `\\cos ${halfDiff}x`;
+      leftTex = `${halfSum}x`;
+      rightTex = `${halfDiff}x`;
+    }
+    if (!Number.isInteger(halfSum) || !Number.isInteger(halfDiff)) return null;
+    if (halfSum === halfDiff) return null;
+
+    // Równanie: 2 · LEFT · RIGHT = 0  →  LEFT = 0 lub RIGHT = 0
+    // LEFT = 0: cos(αx) = 0 → αx = π/2 + kπ → x = (π/2 + kπ)/α
+    // RIGHT = 0: sin(βx) = 0 → βx = kπ → x = kπ/β
+
+    const leftSols = op === 'minus'
+      ? collectInDomain(t => Math.PI/2 + t*Math.PI, halfSum)
+      : collectInDomain(t => t*Math.PI, halfSum);
+    const rightSols = op === 'minus'
+      ? collectInDomain(t => t*Math.PI, halfDiff)
+      : collectInDomain(t => Math.PI/2 + t*Math.PI, halfDiff);
+    const allSols = [...leftSols, ...rightSols];
+    // Deduplikacja
+    const uniqueSols = [];
+    for (const s of allSols) {
+      if (!uniqueSols.some(u => Math.abs(u.val - s.val) < 1e-6)) uniqueSols.push(s);
+    }
+    uniqueSols.sort((a, b) => a.val - b.val);
+
+    if (uniqueSols.length < 3 || uniqueSols.length > 10) return null;
+
+    return {
+      id: M.makeId('cat09_sum_diff'),
+      category: 9, categoryName: 'Równania trygonometryczne',
+      type: 'sum_diff_factor', points: 5,
+      params: { k, m, op },
+      statement: `Rozwiąż równanie\n$$\\sin ${k}x ${sym} \\sin ${m}x = 0$$\ndla $x \\in [0, 2\\pi)$. Zapisz obliczenia.`,
+      answer: { type: 'set', display: `x \\in \\left\\{${uniqueSols.map(s => s.tex).join(',\\, ')}\\right\\}`, description: '' },
+      hints: [
+        { level: 1, text: op === 'minus'
+          ? `Skorzystaj ze wzoru: $\\sin A - \\sin B = 2\\cos\\dfrac{A+B}{2}\\sin\\dfrac{A-B}{2}$.`
+          : `Skorzystaj ze wzoru: $\\sin A + \\sin B = 2\\sin\\dfrac{A+B}{2}\\cos\\dfrac{A-B}{2}$.` },
+        { level: 2, text: `Otrzymasz: $2\\,${leftFactor}\\cdot ${rightFactor} = 0$.` },
+        { level: 3, text: `Dwa przypadki: ${leftFactor} = 0$ lub $${rightFactor} = 0$.` },
+      ],
+      solution: [
+        { step: 1, title: 'Wzór sum/różnic', content: `\\sin ${k}x ${sym} \\sin ${m}x = 2\\,${leftFactor}\\cdot ${rightFactor}`, explanation: '' },
+        { step: 2, title: 'Iloczyn = 0', content: `${leftFactor} = 0\\ \\text{lub}\\ ${rightFactor} = 0`, explanation: '' },
+        { step: 3, title: `Przypadek $${leftFactor} = 0$`, content: `x \\in \\left\\{${leftSols.map(s => s.tex).join(',\\, ')}\\right\\}`, explanation: '' },
+        { step: 4, title: `Przypadek $${rightFactor} = 0$`, content: `x \\in \\left\\{${rightSols.map(s => s.tex).join(',\\, ')}\\right\\}`, explanation: '' },
+        { step: 5, title: 'Suma rozwiązań', content: `x \\in \\left\\{${uniqueSols.map(s => s.tex).join(',\\, ')}\\right\\}`, explanation: '' },
+      ],
+    };
+  }
+  function collectInDomain(fn, divisor, domain = [0, 2*Math.PI]) {
+    const sols = [];
+    for (let k = -10; k <= 30; k++) {
+      const val = fn(k) / divisor;
+      if (val >= domain[0] && val < domain[1] - 1e-9) {
+        sols.push({ tex: piFractionTex(val), val });
+      }
+    }
+    return sols;
+  }
+  function piFractionTex(val) {
+    if (Math.abs(val) < 1e-9) return '0';
+    if (Math.abs(val - Math.PI) < 1e-9) return '\\pi';
+    if (Math.abs(val - 2*Math.PI) < 1e-9) return '2\\pi';
+    // val = p·π/q
+    for (const q of [2, 3, 4, 6, 8, 12]) {
+      const p = val * q / Math.PI;
+      if (Math.abs(p - Math.round(p)) < 1e-6) {
+        const pp = Math.round(p);
+        if (pp === 1 && q === 1) return '\\pi';
+        if (pp === 0) return '0';
+        const g = M.gcd(Math.abs(pp), q);
+        const np = pp/g, nq = q/g;
+        if (nq === 1) return np === 1 ? '\\pi' : `${np}\\pi`;
+        return `\\dfrac{${np === 1 ? '' : np === -1 ? '-' : np}\\pi}{${nq}}`;
+      }
+    }
+    return val.toFixed(4);
+  }
+
+  // ====================================================================
+  // ENTRY POINT
+  // ====================================================================
   function generate() {
-    // Pool: wszystkie medium/hard z banku + parametryczny typ cos2xLinear
-    const pool = TASKS.filter(t => t.difficulty === 'hard');
-    const taskFromPool = M.choose(pool.length > 0 ? pool : TASKS);
-
-    // 20% szans na cos2xLinear (parametryczny), reszta z banku maturalnego
-    const r = Math.random();
-    if (r < 0.20) return cos2xLinear();
-
-    return {
-      id: M.makeId('cat09'),
-      category: 9,
-      categoryName: 'Równania trygonometryczne',
-      type: 'trig_equation',
-      points: 4,
-      params: {},
-      statement: taskFromPool.statement,
-      answer: {
-        type: 'set',
-        display: taskFromPool.solution_set,
-        description: `$${taskFromPool.solution_set}$`
-      },
-      hints: taskFromPool.hints,
-      solution: taskFromPool.solution
-    };
+    const variants = [quadraticInTrigFn, doubleAngleFactor, auxAngleMethod, sumDiffFactor];
+    for (let i = 0; i < 10; i++) {
+      const v = M.choose(variants);
+      const result = v();
+      if (result) return result;
+    }
+    return quadraticInTrigFn();
   }
 
-  return { generate };
+  return { generate, quadraticInTrigFn, doubleAngleFactor, auxAngleMethod, sumDiffFactor };
 })();

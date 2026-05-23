@@ -491,102 +491,6 @@ window.cat16 = (() => {
     };
   }
 
-  // ─── 7. Prostokąt wpisany w parabolę: maksymalizacja pola ──────────────────
-  // Parabola y = a - x², prostokąt z podstawą na osi OX symetryczny względem OY
-  // Wierzchołki: (±x, 0) i (±x, a-x²), szerokość = 2x, wysokość = a-x²
-  // P(x) = 2x(a-x²) = 2ax - 2x³, P'(x) = 2a - 6x² = 0 → x = √(a/3)
-  // x_opt integer ↔ a/3 = perfect square → a=3k²
-  function rectInParabola() {
-    const configs = [
-      { a: 3,  x_opt: 1, h_opt: 2,  P_max: 4,   sqrtA: '\\sqrt{3}'  },
-      { a: 12, x_opt: 2, h_opt: 8,  P_max: 32,  sqrtA: '2\\sqrt{3}' },
-      { a: 27, x_opt: 3, h_opt: 18, P_max: 108, sqrtA: '3\\sqrt{3}' },
-      { a: 48, x_opt: 4, h_opt: 32, P_max: 256, sqrtA: '4\\sqrt{3}' },
-    ];
-    const cfg = M.choose(configs);
-    const { a, x_opt, h_opt, P_max, sqrtA } = cfg;
-
-    const contexts = [
-      {
-        intro: `Paraboliczna brama ogrodowa ma kształt łuku opisanego równaniem $y = ${a} - x^2$ (w metrach, dla $x \\in [-${sqrtA}, ${sqrtA}]$). ` +
-               `Właściciel chce zamontować prostokątną tablicę reklamową tak, aby dolna krawędź leżała na osi $x$, ` +
-               `a górne narożniki dotykały łuku paraboli.`,
-        varDesc: 'Oznaczmy przez $x$ odległość każdego górnego narożnika od osi $y$ ($x > 0$).',
-      },
-      {
-        intro: `Przekrój korytarza tunelu ma kształt paraboli opisanej równaniem $y = ${a} - x^2$ (w metrach). ` +
-               `Chcemy przeprowadzić przez tunel ciężarówkę o prostokątnym przekroju, ` +
-               `której bok jest symetrycznie ustawiony względem osi tunelu, a dolna krawędź leży na jezdni (osi $x$).`,
-        varDesc: 'Oznaczmy przez $x$ połowę szerokości ciężarówki ($x > 0$).',
-      },
-      {
-        intro: `Łuk paraboliczny mostu ma równanie $y = ${a} - x^2$ (w metrach, $y \\geq 0$). ` +
-               `Pod mostem chcemy przeprowadzić prostokątny baner reklamowy, ` +
-               `który symetrycznie wisi między pylonami (oś symetrii paraboli jest osią $y$), ` +
-               `a jego górne narożniki dotykają łuku paraboli.`,
-        varDesc: 'Oznaczmy przez $x$ połowę szerokości baneru ($x > 0$).',
-      },
-    ];
-    const ctx = M.choose(contexts);
-
-    return {
-      id: M.makeId('cat16_para'),
-      category: 16,
-      categoryName: 'Zadania 6-punktowe',
-      type: 'rect_in_parabola',
-      points: 6,
-      params: { a, x_opt, h_opt, P_max },
-      statement:
-        `${ctx.intro}\n\n${ctx.varDesc}\n\n` +
-        `**a)** Wyraź pole prostokąta $P$ jako funkcję $x$ i podaj dziedzinę tej funkcji.\n\n` +
-        `**b)** Oblicz $P'(x)$ i wyznacz $x$, dla którego pole jest największe.\n\n` +
-        `**c)** Oblicz wymiary i pole prostokąta o największym polu. ` +
-        `Sprawdź, korzystając z drugiej pochodnej, że wyznaczony punkt jest maksimum.\n\nZapisz obliczenia.`,
-      answer: {
-        type: 'multipart',
-        display: `x = ${x_opt},\\quad P_{\\max} = ${P_max}\\text{ m}^2`,
-        description: `$x = ${x_opt}$ m, szerokość $= ${2*x_opt}$ m, wysokość $= ${h_opt}$ m, $P_{\\max} = ${P_max}$ m²`
-      },
-      hints: [
-        { level: 1, text: `Prostokąt ma szerokość $2x$ i wysokość $y = ${a} - x^2$ (odczytana z paraboli). Pole: $P(x) = 2x \\cdot (${a} - x^2)$, dziedzina $x \\in (0,\\, ${sqrtA})$.` },
-        { level: 2, text: `$P(x) = ${2*a}x - 2x^3$. Oblicz $P'(x) = ${2*a} - 6x^2$. Przyrównaj do zera.` },
-        { level: 3, text: `$${2*a} - 6x^2 = 0 \\implies x^2 = ${a/3} \\implies x = ${x_opt}$. Sprawdź: $P''(x) = -12x < 0$ dla $x > 0$.` }
-      ],
-      solution: [
-        {
-          step: 1, title: 'a) Funkcja pola',
-          content: `\\text{Szerokość: }2x,\\quad \\text{wysokość: }y = ${a} - x^2 > 0 \\iff x \\in (0,\\,${sqrtA})\\\\ P(x) = 2x(${a}-x^2) = ${2*a}x - 2x^3`,
-          explanation: 'Podstawa prostokąta na osi x, górne wierzchołki na łuku paraboli.'
-        },
-        {
-          step: 2, title: 'b) Pochodna',
-          content: `P'(x) = ${2*a} - 6x^2`,
-          explanation: ''
-        },
-        {
-          step: 3, title: 'b) Punkt krytyczny',
-          content: `P'(x) = 0 \\implies 6x^2 = ${2*a} \\implies x^2 = \\frac{${2*a}}{6} = ${a/3} \\implies x = ${x_opt}`,
-          explanation: `$x = ${x_opt}$ (odrzucamy ujemne, bo $x > 0$).`
-        },
-        {
-          step: 4, title: 'c) Weryfikacja — druga pochodna',
-          content: `P''(x) = -12x \\implies P''(${x_opt}) = -${12*x_opt} < 0`,
-          explanation: '$P\'\'< 0$ potwierdza, że $x = ' + x_opt + '$ jest punktem maksimum.'
-        },
-        {
-          step: 5, title: 'c) Wymiary prostokąta',
-          content: `\\text{Szerokość: }2x = ${2*x_opt}\\text{ m},\\quad \\text{wysokość: }${a} - ${x_opt}^2 = ${a} - ${x_opt*x_opt} = ${h_opt}\\text{ m}`,
-          explanation: ''
-        },
-        {
-          step: 6, title: 'c) Maksymalne pole',
-          content: `P_{\\max} = P(${x_opt}) = ${2*a}\\cdot${x_opt} - 2\\cdot${x_opt}^3 = ${2*a*x_opt} - ${2*x_opt**3} = \\mathbf{${P_max}\\text{ m}^2}`,
-          explanation: `Prostokąt o wymiarach $${2*x_opt}\\text{ m} \\times ${h_opt}\\text{ m}$ ma największe pole.`
-        }
-      ]
-    };
-  }
-
   function generate() {
     return M.choose([
       cylinderContainer,
@@ -594,8 +498,7 @@ window.cat16 = (() => {
       cylinderInCone,
       fencingWithPartition,
       profitMaximum,
-      rectangleInCircle,
-      rectInParabola
+      rectangleInCircle
     ])();
   }
 
