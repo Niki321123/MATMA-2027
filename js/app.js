@@ -396,22 +396,7 @@
     const catVal = elCatSelect.value;
     const _lvl   = getMathLevel();
 
-    // PR: używaj bazy CKE zamiast generatorów
-    if (_lvl === 'PR' && CKE) {
-      let raw = null;
-      if (catVal !== '0') {
-        const catId = /^\d+$/.test(catVal) ? parseInt(catVal) : catVal;
-        raw = CKE.randomByCategory(catId);
-      }
-      if (!raw) raw = CKE.random();
-      currentTask = CKE.asTask(raw);
-      SA.trackTaskGenerated();
-      updateLimitBadge();
-      displayTask(currentTask, true);
-      return;
-    }
-
-    // PP / FIZ: generatory jak poprzednio
+    // Generatory dla wszystkich poziomów
     try {
       if (catVal === '0') {
         currentTask = _lvl === 'PP' ? G.generateRandomPP() : _lvl === 'FIZ' ? G.generateRandomFiz() : G.generateRandom();
