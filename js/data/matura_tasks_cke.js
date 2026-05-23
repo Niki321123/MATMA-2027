@@ -405,20 +405,7 @@ trjk„t.`,
     number:`11`,source:`2005_matura_matematyka-2005-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2005_11.jpg`,
-    latex:`Wyznacz  dziedzinę  funkcji
-
-przedziałów liczbowych.
-
-( )
-xf
-
-$$=$$
-
-log
-
-$$3 \\frac{(}{x} 32 x 2 + 4 x x )^{4}$$
-
-i  zapisz  ją  w  postaci  sumy`,
+    latex:``,
     figure:null,
     statement:`Wyznacz  dziedzinę  funkcji
 
@@ -476,7 +463,7 @@ $$=$$
 
 cos
 
-$$x \\frac{x}{3 sin ,}$$
+$$x \\frac{x}{3 \\sin ,}$$
 
 \\in
 .
@@ -484,9 +471,7 @@ x R
 
 a) Naszkicuj wykres funkcji f.
 ( ) 1=xf
-b) Rozwiąż równanie:
-
-$$.$$`,
+b) Rozwiąż równanie:`,
     figure:null,
     statement:`Dana jest funkcja:
 
@@ -528,9 +513,7 @@ b) Rozwiąż równanie:
     latex:`Rzucamy n razy dwiema symetrycznymi sześciennymi kostkami do gry. Oblicz, dla jakich n
 prawdopodobieństwo otrzymania co najmniej raz tej samej liczby oczek na obu kostkach jest
 
-mniejsze od
-
-$$\\frac{671}{1296} .$$`,
+mniejsze od`,
     figure:null,
     statement:`Rzucamy n razy dwiema symetrycznymi sześciennymi kostkami do gry. Oblicz, dla jakich n
 prawdopodobieństwo otrzymania co najmniej raz tej samej liczby oczek na obu kostkach jest
@@ -555,9 +538,9 @@ mniejsze od
     image:`img/tasks_cke/cke_2005_14.jpg`,
     latex:`Oblicz:
 
-$$\\lim_{n} \\frac{741}{975}$$
+$$\\lim_{n} \\frac{++++}{+++}$$
 
-$$\\frac{++++}{+++} +$$
+$$+$$
 
 ...
 ...
@@ -986,20 +969,7 @@ c)  Wyznacz równanie okręgu opisanego na czworokącie ABCD.`,
     number:`19`,source:`2005_matura_matematyka-2005-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:10,
     image:`img/tasks_cke/cke_2005_19.jpg`,
-    latex:`$$2$$
-
-Dane jest równanie:
-
-1
-4
-Zbadaj,  dla  jakich  wartości  parametru  m  stosunek  sumy  pierwiastków  rzeczywistych
-równania do ich iloczynu przyjmuje wartość najmniejszą. Wyznacz tę wartość.
-
-)
-2
-mmx
-
-$$\\frac{(}{m} . = + + + + 0 5 x$$`,
+    latex:``,
     figure:null,
     statement:`2
 
@@ -1048,38 +1018,7 @@ x`,
     number:`12`,source:`2006_matura_matematyka-2006-maj-matura-rozszerzona.pdf`,
     category:5,categoryName:`Dowód nierówności`,points:5,
     image:`img/tasks_cke/cke_2006_12.jpg`,
-    latex:`Korzystając  z  zasady  indukcji  matematycznej  wykaż,  że  dla  każdej  liczby  naturalnej
-2
-(
-)
-2 4 2 !
-\\cdot
-
-prawdziwy jest wzór:
-
-$$\\frac{1 3 (1!)}{\\cdot} + \\cdot\\cdot\\cdot +$$
-
-(
-n n
-
-$$+ \\cdot$$
-
-)(
-
-$$\\frac{)}{!} + = + 2 1 n . \\cdot 2 2 2$$
-
-(
-n⎡
-⎣
-
-$$) ⎤ 1 ! ⎦ 1\\geqn$$
-
-Wypełnia
-egzaminator!
-
-Uzyskana liczba pkt
-
-$$\\frac{12.1.}{1} \\frac{12.2.}{1} \\frac{12.3.}{1} \\frac{12.4.}{1} \\frac{12.5.}{1}$$`,
+    latex:``,
     figure:null,
     statement:`Korzystając  z  zasady  indukcji  matematycznej  wykaż,  że  dla  każdej  liczby  naturalnej
 2
@@ -1364,10 +1303,7 @@ warunek
 
 $$a \\leq \\frac{a}{n} . \\leq b$$
 
-Wypełnia
 egzaminator!
-
-Uzyskana liczba pkt
 
 $$\\frac{13.1.}{1} \\frac{13.2.}{1} \\frac{13.3.}{1} \\frac{13.4.}{1} \\frac{13.5.}{1}$$`,
     figure:null,
@@ -1862,10 +1798,7 @@ kursów.  W  ciągu  5-dniowego  tygodnia  nauki  dwa  razy  prowadzi  autobus  
 razy  kierowca  B  i  jeden  raz  kierowca  C.  Oblicz  prawdopodobieństwo  spóźnienia  się
 szkolnego autobusu w losowo wybrany dzień nauki.
 
-Wypełnia
 egzaminator!
-
-Uzyskana liczba pkt
 
 $$\\frac{15.1.}{1} \\frac{15.2.}{1} \\frac{15.3.}{1} \\frac{15.4.}{1}$$`,
     figure:null,
@@ -1900,10 +1833,7 @@ kątów i ich wyniki przedstawiono na rysunku. Odległość między obiektami B 
 400 m. Oblicz odległość w linii prostej między obiektami A i B i podaj wynik, zaokrąglając
 go do jednego metra.
 
-Wypełnia
 egzaminator!
-
-Uzyskana liczba pkt
 
 $$\\frac{16.1.}{1} \\frac{16.2.}{1} \\frac{16.3.}{1}$$`,
     figure:null,
@@ -2089,10 +2019,7 @@ Korzystając z własności czworokąta opisanego na okręgu otrzymuję:`,explana
 istnieje  taki,  którego  pole  powierzchni  całkowitej  jest  najmniejsze.  Wyznacz  długości
 krawędzi tego graniastosłupa.
 
-Wypełnia
 egzaminator!
-
-Uzyskana liczba pkt
 
 $$\\frac{18.1.}{1} \\frac{18.2.}{1} \\frac{18.3.}{1} \\frac{18.4.}{1} \\frac{18.5.}{1} \\frac{18.6.}{1} \\frac{18.7.}{1}$$`,
     figure:null,
@@ -2193,10 +2120,7 @@ $$\\frac{a}{1} = = a a \\frac{1}{} + ( \\cdot n n 2$$
 
 )na .
 
-Wypełnia
 egzaminator!
-
-Uzyskana liczba pkt
 
 $$\\frac{19.1.}{1} \\frac{19.2.}{1} \\frac{19.3.}{1} \\frac{19.4.}{1} \\frac{19.5.}{2} \\frac{19.6.}{1}$$`,
     figure:null,
@@ -2401,10 +2325,7 @@ $$i ⎞ ⎟ ⎠ 2 5 . x \\frac{22}{x} 3 x - + 2$$
 
 .g
 
-Wypełnia
 egzaminator!
-
-Uzyskana liczba pkt
 
 $$\\frac{20.1.}{1} \\frac{20.2.}{1} \\frac{20.3.}{1} \\frac{20.4.}{1}$$`,
     figure:null,
@@ -2886,10 +2807,7 @@ nie  ma
 
 rozwiązania.
 
-Wypełnia
 egzaminator!
-
-Uzyskana liczba pkt
 
 $$\\frac{1.1.}{1} \\frac{1.2.}{1} \\frac{1.3.}{1} \\frac{1.4.}{1} \\frac{1.5.}{1}$$`,
     figure:null,
@@ -3056,22 +2974,7 @@ jest  funkcją  stałą,  a  je`,explanation:``}]
     number:`2`,source:`2007_matura_matematyka-2007-maj-matura-rozszerzona.pdf`,
     category:3,categoryName:`Logarytmy`,points:5,
     image:`img/tasks_cke/cke_2007_2.jpg`,
-    latex:`Rozwiąż nierówność:
-
-log
-
-$$( 2 x ) 1 - + \\frac{1}{3} ( log 5 1 3 x ) >$$
-
-log
-
-$$\\frac{1}{3} ( 3 ( x + \\frac{)}{1} ) .$$
-
-Wypełnia
-egzaminator!
-
-Uzyskana liczba pkt
-
-$$\\frac{2.1.}{1} \\frac{2.2.}{1} \\frac{2.3.}{1} \\frac{2.4.}{1} \\frac{2.5.}{1}$$`,
+    latex:``,
     figure:null,
     statement:`Rozwiąż nierówność:
 
@@ -3274,10 +3177,7 @@ lądownika.
 
 objętości  całej  kapsuły.  Oblicz  objętość  kapsuły
 
-Wypełnia
 egzaminator!
-
-Uzyskana liczba pkt
 
 $$\\frac{3.1.}{1} \\frac{3.2.}{1} \\frac{3.3.}{1} \\frac{3.4.}{1} \\frac{3.5.}{1}$$`,
     figure:null,
@@ -3384,10 +3284,7 @@ $$\\frac{3}{2}$$
 
 , 2. Oblicz cosinus i sinus kąta leżącego naprzeciw
 
-Wypełnia
 egzaminator!
-
-Uzyskana liczba pkt
 
 $$\\frac{4.1.}{1} \\frac{4.2.}{1} \\frac{4.3.}{1}$$`,
     figure:null,
@@ -3532,10 +3429,7 @@ współrzędnych i wyznacz współrzędne wierzchołków tego trójkąta.
 
 $$= - y x \\frac{2 6}{} +$$
 
-Wypełnia
 egzaminator!
-
-Uzyskana liczba pkt
 
 $$\\frac{5.1.}{1} \\frac{5.2.}{1} \\frac{5.3.}{1} \\frac{5.4.}{1} \\frac{5.5.}{1} \\frac{5.6.}{1} \\frac{5.7.}{1}$$`,
     figure:null,
@@ -3633,24 +3527,7 @@ Trójkąt  ABC  jest  równoboczny,  więc  kąt  BAC  ma  miarę  60(cid`,expla
     number:`6`,source:`2007_matura_matematyka-2007-maj-matura-rozszerzona.pdf`,
     category:13,categoryName:`Prawdopodobieństwo`,points:4,
     image:`img/tasks_cke/cke_2007_6.jpg`,
-    latex:`Niech  A,  B  będą  zdarzeniami  o  prawdopodobieństwach
-
-(
-,  to  prawdopodobieństwo  warunkowe  spełnia  nierówność
-
-P B .  Wykaż,  że  jeżeli
-
-)
-P A   i
-
-$$( ) i ( P A = ( P A B \\geq \\frac{) 0,85}{) 0,8} \\frac{(}{P B =} ) 0, 75 .$$
-
-Wypełnia
-egzaminator!
-
-Uzyskana liczba pkt
-
-$$\\frac{6.1.}{1} \\frac{6.2.}{1} \\frac{6.3.}{1} \\frac{6.4.}{1}$$`,
+    latex:``,
     figure:null,
     statement:`Niech  A,  B  będą  zdarzeniami  o  prawdopodobieństwach
 
@@ -3810,28 +3687,7 @@ i otrzymuję
     number:`7`,source:`2007_matura_matematyka-2007-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:7,
     image:`img/tasks_cke/cke_2007_7.jpg`,
-    latex:`2
-mx
-y
-- =
-x my m
-=
-
-$$⎧ ⎨ ⎩$$
-
-Dany jest układ równań:
-
-+
-Dla  każdej  wartości  parametru  m  wyznacz  parę  liczb  (
-układu równań. Wyznacz najmniejszą wartość sumy  x
-
-$$. \\frac{)}{y+  dla}$$
-
-x, y ,  która  jest  rozwiązaniem  tego
-
-m \\in
-
-$$2, 4 .$$`,
+    latex:``,
     figure:null,
     statement:`2
 mx
@@ -4228,10 +4084,7 @@ $$1$$
 stopnia  drugiego  o  współczynnikach  całkowitych  i  takich,  że  współczynniki  przy  drugich
 potęgach są równe jeden.
 
-Wypełnia
 egzaminator!
-
-Uzyskana liczba pkt
 
 $$\\frac{9.1.}{1} \\frac{9.2.}{1} \\frac{9.3.}{1}$$`,
     figure:null,
@@ -4438,10 +4291,7 @@ $$\\pi 3 8$$
 
 kąta ostrego rombu.
 
-Wypełnia
 egzaminator!
-
-Uzyskana liczba pkt
 
 $$\\frac{10.1.}{1} \\frac{10.2.}{1} \\frac{10.3.}{1} \\frac{10.4.}{1}$$`,
     figure:null,
@@ -4566,7 +4416,7 @@ Sn
 a)  Oblicz  sumę  50  początkowych  wyrazów
 .
 
-$$+ + \\frac{a}{2} \\frac{a}{4} \\frac{a}{6} 100 b)  Oblicz$$
+$$+ + \\frac{a}{2} \\frac{a}{4} \\frac{a}{6} b)  Oblicz$$
 
 $$\\lim_{n}$$
 
@@ -4581,10 +4431,7 @@ $$n 2 .$$
 
 tego  ciągu  o  numerach  parzystych:
 
-Wypełnia
 egzaminator!
-
-Uzyskana liczba pkt
 
 $$\\frac{11.1.}{1} \\frac{11.2.}{1} \\frac{11.3.}{1} \\frac{11.4.}{1}$$`,
     figure:null,
@@ -5012,11 +4859,7 @@ x
 
 $$\\frac{2}{-} + 3 x \\frac{6}{- <} x .$$
 
-Wypełnia
 egzaminator!
-
-Nr zadania
-Uzyskana liczba pkt
 
 $$\\frac{2.1}{1} \\frac{2.2}{1} \\frac{2.3}{1} \\frac{2.4}{1}$$`,
     figure:null,
@@ -5248,11 +5091,7 @@ p q
 
 $$) \\frac{=}{0}$$
 
-Wypełnia
 egzaminator!
-
-Nr zadania
-Uzyskana liczba pkt
 
 $$\\frac{3.1}{1} \\frac{3.2}{1} \\frac{3.3}{1} \\frac{3.4}{1} \\frac{3.5}{1}$$`,
     figure:null,
@@ -5451,13 +5290,9 @@ Dokonuję  podstawienia`,explanation:``}]
     image:`img/tasks_cke/cke_2008_4.jpg`,
     latex:`Rozwiąż równanie
 
-$$4 cos 2 x = 4sin x +  w przedziale  0, 2\\pi . 1$$
+$$4 \\cos 2 x = 4sin x +  w przedziale  0, 2\\pi . 1$$
 
-Wypełnia
 egzaminator!
-
-Nr zadania
-Uzyskana liczba pkt
 
 $$\\frac{4.1}{1} \\frac{4.2}{1} \\frac{4.3}{1} \\frac{4.4}{1}$$`,
     figure:null,
@@ -5616,11 +5451,7 @@ $$p$$
 
 w zależności od parametru p.
 
-Wypełnia
 egzaminator!
-
-Nr zadania
-Uzyskana liczba pkt
 
 $$\\frac{5.1}{1} \\frac{5.2}{1} \\frac{5.3}{1} \\frac{5.4}{1} \\frac{5.5}{1}$$`,
     figure:null,
@@ -5772,11 +5603,7 @@ a b c   jest  jednocześnie  arytmetyczny  i  geometryczny,
 
 $$, , )$$
 
-Wypełnia
 egzaminator!
-
-Nr zadania
-Uzyskana liczba pkt
 
 $$\\frac{6.1}{1} \\frac{6.2}{1} \\frac{6.3}{1}$$`,
     figure:null,
@@ -5919,11 +5746,7 @@ punktu
 
 $$)^{2},0(=F .$$
 
-Wypełnia
 egzaminator!
-
-Nr zadania
-Uzyskana liczba pkt
 
 $$\\frac{7.1}{1} \\frac{7.2}{1} \\frac{7.3}{1} \\frac{7.4}{1}$$`,
     figure:null,
@@ -6371,11 +6194,7 @@ log
 
 $$8 x x )^{2} . ( \\frac{2}{2}$$
 
-Wypełnia
 egzaminator!
-
-Nr zadania
-Uzyskana liczba pkt
 
 $$\\frac{9.1}{1} \\frac{9.2}{1} \\frac{9.3}{1} \\frac{9.4}{1}$$`,
     figure:null,
@@ -6523,11 +6342,7 @@ Obliczam wartość funkcji f dla argumentu 16, kor`,explanation:``}]
 dwuosobową  delegację.  Prawdopodobieństwo  tego,  że  w  delegacji  znajdą  się  tylko  kobiety
 jest równe 0,1. Oblicz, ile kobiet i ilu mężczyzn jest w tej grupie.
 
-Wypełnia
 egzaminator!
-
-Nr zadania
-Uzyskana liczba pkt
 
 $$\\frac{10.1}{1} \\frac{10.2}{1} \\frac{10.3}{1} \\frac{10.4}{1}$$`,
     figure:null,
@@ -6761,46 +6576,7 @@ AB`,explanation:``}]
     number:`1`,source:`2009_matura_matematyka-2009-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:4,
     image:`img/tasks_cke/cke_2009_1.jpg`,
-    latex:`Funkcja liniowa f określona jest wzorem
-
-( )
-f x
-
-$$=$$
-
-ax b
-
-$$+  dla$$
-
-Rx \\in .
-
-$$=a$$
-
-a)  Dla
-b)  Narysuj w układzie współrzędnych zbiór
-
-$$2009 2008 =b i$$
-
-zbadaj, czy do wykresu tej funkcji należy punkt
-
-$$=P ( 2009 , 2009 )^{2} . A =$$
-
-,
-x y
-
-$$) ⎧ ( ⎨ ⎩ : x \\in - 1,3 i y = - \\frac{1}{2}$$
-
-x b
-+
-
-$$i b \\in - 2,1 . ⎫ ⎬ ⎭$$
-
-Wypełnia
-egzaminator!
-
-Uzyskana liczba pkt
-
-$$\\frac{1.1.}{1} \\frac{1.2.}{1} \\frac{1.3.}{1} \\frac{1.4.}{1}$$`,
+    latex:``,
     figure:null,
     statement:`Funkcja liniowa f określona jest wzorem
 
@@ -6968,10 +6744,7 @@ otrzymujemy
 
 iloraz
 
-Wypełnia
 egzaminator!
-
-Uzyskana liczba pkt
 
 $$\\frac{2.1.}{1} \\frac{2.2.}{1} \\frac{2.3.}{1} \\frac{2.4.}{1}$$`,
     figure:null,
@@ -7285,10 +7058,7 @@ ze skarbca król zabierał w południe każdego dnia 50 monet. Oblicz najmniejsz
 której w każdym dniu w skarbcu była co najmniej jedna moneta, a następnie dla tej wartości k
 oblicz, w którym dniu w skarbcu była najmniejsza liczba monet.
 
-Wypełnia
 egzaminator!
-
-Uzyskana liczba pkt
 
 $$\\frac{4.1.}{1} \\frac{4.2.}{1} \\frac{4.3.}{1} \\frac{4.4.}{1} \\frac{4.5.}{1}$$`,
     figure:null,
@@ -7344,21 +7114,18 @@ n
     image:`img/tasks_cke/cke_2009_5.jpg`,
     latex:`Wykaż, że jeżeli
 
-$$=A \\frac{2243}{} +$$
+$$=A +$$
 
 Egzamin maturalny z matematyki
 Poziom rozszerzony
 
-$$7 i =B \\frac{3223}{} +$$
+$$7 i =B +$$
 
 , to
 
 $$\\frac{9B}{=} A .$$
 
-Wypełnia
 egzaminator!
-
-Uzyskana liczba pkt
 
 $$\\frac{5.1.}{1} \\frac{5.2.}{1} \\frac{5.3.}{1}$$`,
     figure:null,
@@ -7508,10 +7275,7 @@ cos
 
 i  zapisz  ją  w  postaci  sumy  przedziałów
 
-Wypełnia
 egzaminator!
-
-Uzyskana liczba pkt
 
 $$\\frac{6.1.}{1} \\frac{6.2.}{1} \\frac{6.3.}{1} \\frac{6.4.}{1} \\frac{6.5.}{1}$$`,
     figure:null,
@@ -7612,10 +7376,7 @@ $$\\frac{S}{S} \\frac{19 <}{20} \\frac{1}{4}$$
 
 nS   oznacza  sumę
 
-Wypełnia
 egzaminator!
-
-Uzyskana liczba pkt
 
 $$\\frac{7.1.}{1} \\frac{7.2.}{1} \\frac{7.3.}{1} \\frac{7.4.}{1} \\frac{7.5.}{1} \\frac{7.6.}{1}$$`,
     figure:null,
@@ -7790,22 +7551,7 @@ Zdający otrzymuje 2 punkty`,explanation:``}]
     number:`9`,source:`2009_matura_matematyka-2009-maj-matura-rozszerzona.pdf`,
     category:4,categoryName:`Styczna do wykresu`,points:5,
     image:`img/tasks_cke/cke_2009_9.jpg`,
-    latex:`W  układzie  współrzędnych  narysuj  okrąg  o  równaniu  (
-  oraz  zaznacz
-punkt
-  jest  jedną  ze  stycznych  do  tego  okręgu
-.  Prosta  o  równaniu
-przechodzących  przez  punkt  A.  Wyznacz  równanie  drugiej  stycznej  do  tego  okręgu,
-przechodzącej przez punkt A.
-
-$$\\frac{)^{1},0 -}{(} 0=x =A \\frac{)}{3} = + + 4 2 y x ) ( 2 2$$
-
-Wypełnia
-egzaminator!
-
-Uzyskana liczba pkt
-
-$$\\frac{9.1.}{1} \\frac{9.2.}{1} \\frac{9.3.}{1} \\frac{9.4.}{1} \\frac{9.5.}{1}$$`,
+    latex:``,
     figure:null,
     statement:`W  układzie  współrzędnych  narysuj  okrąg  o  równaniu  (
   oraz  zaznacz
@@ -7922,10 +7668,7 @@ prawdopodobieństwo otrzymania kul o różnych kolorach jest większe od
 
 $$\\frac{9}{22} .$$
 
-Wypełnia
 egzaminator!
-
-Uzyskana liczba pkt
 
 $$\\frac{10.1.}{1} \\frac{10.2.}{1} \\frac{10.3.}{1} \\frac{10.4.}{1}$$`,
     figure:null,
@@ -8192,11 +7935,9 @@ jest  3
     image:`img/tasks_cke/cke_2010_2.jpg`,
     latex:`Wyznacz  wszystkie  rozwiązania  równania
 
-$$2 2 cos 0, 2\\pi . x 5sin x$$
+$$2 2 \\cos 0, 2\\pi . x 5sin x$$
 
-- =   należące  do  przedziału
-
-$$4 0$$`,
+- =   należące  do  przedziału`,
     figure:null,
     statement:`Wyznacz  wszystkie  rozwiązania  równania
 
@@ -9707,7 +9448,7 @@ b c
     image:`img/tasks_cke/cke_2011_dod_4.jpg`,
     latex:`Rozwiąż równanie
 
-$$6sin 2 x + 7 cos x - = 1 0$$
+$$6sin 2 x + 7 \\cos x - = 1 0$$
 
 dla
 
@@ -9761,10 +9502,7 @@ $$2 2 \\frac{b}{a} 2 2 \\frac{+}{} + \\frac{c}{c} 2 2 \\frac{a}{b} =$$
 tg
 tg
 
-\\beta
-\\alpha
-
-$$. C b a A c B$$`,
+$$\\frac{\\beta}{\\alpha} . C b a A c B$$`,
     figure:null,
     statement:`Dany  jest  trójkąt  ostrokątny  ABC  o  bokach  długości  a,  b,  c  i  kątach  α,  β,  γ  (zobacz
 
@@ -9830,17 +9568,7 @@ B`,
     number:`6`,source:`2011_dodatkowa_matematyka-2011-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2011_dod_6.jpg`,
-    latex:`Wykaż,  że  nie  istnieje  wielomian
-który spełnia warunki:
- i
-
-$$2 =W ( ) 3$$
-
-( )xW   stopnia  trzeciego  o  współczynnikach  całkowitych,
-(
--W
-
-$$\\frac{) 2}{2 =} .$$`,
+    latex:``,
     figure:null,
     statement:`Wykaż,  że  nie  istnieje  wielomian
 który spełnia warunki:
@@ -10239,15 +9967,7 @@ $$+$$
 b
 cb
 
-$$2= .$$
-
-Wypełnia
-egzaminator
-
-Nr zadania
-Uzyskana liczba pkt
-
-$$4 4$$`,
+$$2= . 4 4$$`,
     figure:null,
     statement:`Uzasadnij, że jeżeli
 
@@ -10659,7 +10379,7 @@ m m
     image:`img/tasks_cke/cke_2011_4.jpg`,
     latex:`Rozwiąż równanie
 
-$$sin^{2} 2 x sin^{2} 2 x$$
+$$sin2 2 x sin2 2 x$$
 
 cos
 
@@ -10883,19 +10603,11 @@ x
 2
 Oblicz  1x .
 
-$$145 \\frac{x}{10} . na = 3 nx$$
+$$\\frac{x}{10} . na = 3 nx$$
 
 dla
 
-$$1n \\geq  jest geometryczny o ilorazie q = 27 .$$
-
-Wypełnia
-egzaminator
-
-Nr zadania
-Uzyskana liczba pkt
-
-$$4 4$$`,
+$$1n \\geq  jest geometryczny o ilorazie q = 27 . 4 4$$`,
     figure:null,
     statement:`)nx
 O ciągu (
@@ -11747,29 +11459,7 @@ x
     number:`12`,source:`2011_matura_matematyka-2011-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2011_12.jpg`,
-    latex:`A, B są zdarzeniami losowymi zawartymi w  \\Omega . Wykaż, że jeżeli
-
-$$( P A = 'B oznacza zdarzenie przeciwne do zdarzenia B).$$
-
-to
-
-P A B∩
-
-$$($$
-
-)'
-
-$$\\leq 0,3 ( ) 0,9 i \\frac{(}{P B =} ) 0, 7 ,$$
-
-Odpowiedź: ................................................................................................................................ .
-
-Wypełnia
-egzaminator
-
-Nr zadania
-Uzyskana liczba pkt
-
-$$3$$`,
+    latex:``,
     figure:null,
     statement:`A, B są zdarzeniami losowymi zawartymi w  Ω . Wykaż, że jeżeli
 
@@ -13417,15 +13107,7 @@ Schemat oceniania rozwiązania`,explanation:``}]
     latex:`Oblicz,  ile  jest  liczb  naturalnych  ośmiocyfrowych  takich,  że  iloczyn  cyfr  w  ich  zapisie
 dziesiętnym jest równy 12.
 
-Odpowiedź: ................................................................................................................................ .
-
-Wypełnia
-egzaminator
-
-Nr zadania
-Uzyskana liczba pkt
-
-$$3 4$$`,
+Odpowiedź: ................................................................................................................................ .`,
     figure:null,
     statement:`Oblicz,  ile  jest  liczb  naturalnych  ośmiocyfrowych  takich,  że  iloczyn  cyfr  w  ich  zapisie
 dziesiętnym jest równy 12.
@@ -16184,15 +15866,7 @@ Pozostałe pierwiastki wielomianu równania to pierwiastk`,explanation:``}]
 jednocześnie  trzy  kule.  Oblicz  prawdopodobieństwo  zdarzenia  A  polegającego  na  tym,  że
 numer jednej z wylosowanych kul jest równy sumie numerów dwóch pozostałych kul.
 
-Odpowiedź: ................................................................................................................................. .
-
-Wypełnia
-egzaminator
-
-Nr zadania
-Uzyskana liczba pkt
-
-$$4$$`,
+Odpowiedź: ................................................................................................................................. .`,
     figure:null,
     statement:`Z  urny  zawierającej  10  kul  ponumerowanych  kolejnymi  liczbami  od  1  do  10  losujemy
 jednocześnie  trzy  kule.  Oblicz  prawdopodobieństwo  zdarzenia  A  polegającego  na  tym,  że
@@ -16428,9 +16102,7 @@ C.
 
 $$78 3$$
 
-D.
-
-$$30 3$$`,
+D.`,
     figure:null,
     statement:`)3
 
@@ -16483,17 +16155,7 @@ reprezentacji.`,explanation:``}]
     number:`4`,source:`2015_matura_matematyka-2015-maj-matura-rozszerzona.pdf`,
     category:9,categoryName:`Równania trygonometryczne`,points:1,
     image:`img/tasks_cke/cke_2015_4.jpg`,
-    latex:`Równanie  2sin
-
-$$x + 3cos x =  w przedziale ( 6 \\frac{)}{0, 2\\pi}$$
-
-A. nie ma rozwiązań rzeczywistych.
-
-B. ma dokładnie jedno rozwiązanie rzeczywiste.
-
-C. ma dokładnie dwa rozwiązania rzeczywiste.
-
-D. ma więcej niż dwa rozwiązania rzeczywiste.`,
+    latex:``,
     figure:null,
     statement:`Równanie  2sin
 
@@ -16772,15 +16434,7 @@ oraz z twierdzeń o działaniach na
 
 $$\\frac{f}{f} .$$
 
-Odpowiedź:  ................................................................................................................................  .
-
-Wypełnia
-egzaminator
-
-Nr zadania
-Uzyskana liczba pkt
-
-$$2 2$$`,
+Odpowiedź:  ................................................................................................................................  .`,
     figure:null,
     statement:`Liczby (
 
@@ -17232,15 +16886,7 @@ i dodatkowo  dokładamy  do  urny  drugiej  jeszcze  dwie  kule  tego  samego  k
 wylosowana kula. Następnie losujemy dwie kule z urny drugiej. Oblicz prawdopodobieństwo
 zdarzenia polegającego na tym, że obie kule wylosowane z drugiej urny będą białe.
 
-Odpowiedź:  ................................................................................................................................  .
-
-Wypełnia
-egzaminator
-
-Nr zadania
-Uzyskana liczba pkt
-
-$$4 4$$`,
+Odpowiedź:  ................................................................................................................................  .`,
     figure:null,
     statement:`W pierwszej urnie umieszczono 3 kule białe i 5 kul czarnych, a w drugiej urnie 7 kul białych
 i 2 kule  czarne.  Losujemy  jedną  kulę  z  pierwszej  urny,  przekładamy  ją  do  urny  drugiej
@@ -17806,34 +17452,7 @@ r`,explanation:``}]
     number:`1`,source:`2016_dodatkowa_matematyka-2016-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2016_dod_1.jpg`,
-    latex:`Funkcja  f  określona jest wzorem
-
-( )
-f x
-
-wartości funkcji f  jest
-
-$$= + \\frac{3}{3 5} x$$
-
--  dla każdej liczby rzeczywistej. Zbiorem
-
-$$1$$
-
-A.
-
-$$( \\frac{)}{2, +\\infty}$$
-
-B.
-
-$$1,3$$
-
-C.
-
-$$\\frac{)}{1,- +\\infty}$$
-
-D.
-
-$$( \\frac{)}{0, +\\infty}$$`,
+    latex:``,
     figure:null,
     statement:`Funkcja  f  określona jest wzorem
 
@@ -17890,7 +17509,7 @@ D.
     image:`img/tasks_cke/cke_2016_dod_2.jpg`,
     latex:`Wartość wyrażenia
 
-$$\\frac{2}{sin 75} ° - \\frac{2}{cos 75}$$
+$$\\frac{2}{\\sin 75} ° - \\frac{2}{\\cos 75}$$
 
 °  jest równa
 
@@ -18208,24 +17827,7 @@ wyniku.
     number:`7`,source:`2016_dodatkowa_matematyka-2016-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:2,
     image:`img/tasks_cke/cke_2016_dod_7.jpg`,
-    latex:`Dane są zdarzenia losowe
-
-,A B ⊂ \\Omega takie, że
-
-2
-7
-\\B A  oznacza różnicę zdarzeń  B  i  A . Zakoduj kolejno pierwsze trzy cyfry
-
-$$3 P A B∪ = . Oblicz 5 \\frac{)}{P A =  i}$$
-
-)
-P B A ,
-\\
-
-$$( ( ( )$$
-
-gdzie zdarzenie
-po przecinku rozwinięcia dziesiętnego otrzymanego wyniku.`,
+    latex:``,
     figure:null,
     statement:`Dane są zdarzenia losowe
 
@@ -18281,9 +17883,7 @@ $$+$$
 
 ac
 
-bd
-
-$$.$$`,
+bd`,
     figure:null,
     statement:`a b c d >  prawdziwa jest nierówność  a b
 + ⋅
@@ -18377,9 +17977,7 @@ $$=+ a a n 1 n \\frac{1\\geqn}{4}$$
 , w którym
 
 a =  oraz dla
-. Oblicz pierwszy wyraz ciągu
-
-$$4 4$$`,
+. Oblicz pierwszy wyraz ciągu`,
     figure:null,
     statement:`)
 Dany jest ciąg  (
@@ -18553,18 +18151,7 @@ Odpowiedź:  ...................................................................
     number:`13`,source:`2016_dodatkowa_matematyka-2016-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2016_dod_13.jpg`,
-    latex:`Rozwiąż nierówność (
-
-$$2 sin x$$
-
-)(
-3 2 sin
-
-$$+ \\frac{)}{1} x >  w przedziale 0$$
-
-x \\in
-
-$$(0, 2\\pi) .$$`,
+    latex:``,
     figure:null,
     statement:`Rozwiąż nierówność (
 
@@ -18658,9 +18245,7 @@ ABC, a wysokość opuszczona z wierzchołka A tego trójkąta zawiera się w pro
 
 $$4, 7 B = ( ) ) ( 2 x + 19 y + 52$$
 
-= . Oblicz współrzędne wierzchołka C.
-
-$$0$$`,
+= . Oblicz współrzędne wierzchołka C.`,
     figure:null,
     statement:`−   są  wierzchołkami  podstawy  trójkąta  równoramiennego
 A = − −   i
@@ -19351,13 +18936,9 @@ Mężczyźni
 
 Liczba osób popierających
 budowę przedszkola
-5140
-2260
 
 Liczba osób niepopierających
 budowy przedszkola
-1860
-740
 
 Oblicz  prawdopodobieństwo  zdarzenia  polegającego  na  tym,  że  losowo  wybrana  osoba,
 spośród  ankietowanych,  popiera  budowę  przedszkola,  jeśli  wiadomo,  że  jest  mężczyzną.
@@ -19969,7 +19550,7 @@ a
     image:`img/tasks_cke/cke_2016_11.jpg`,
     latex:`Rozwiąż nierówność
 
-$$2 cos$$
+$$2 \\cos$$
 
 x
 2
@@ -19977,15 +19558,7 @@ cos
 
 $$x 3 <  w przedziale  0, 2\\pi . 0$$
 
-Odpowiedź:  ................................................................................................................................  .
-
-Wypełnia
-egzaminator
-
-Nr zadania
-Uzyskana liczba pkt
-
-$$4 4$$`,
+Odpowiedź:  ................................................................................................................................  .`,
     figure:null,
     statement:`Rozwiąż nierówność
 
@@ -20113,27 +19686,7 @@ W przedziale  0, 2π  rozwiązaniem tej nie`,explanation:``}]
     number:`12`,source:`2016_matura_matematyka-2016-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:6,
     image:`img/tasks_cke/cke_2016_12.jpg`,
-    latex:`jest
-Dany
-
-trójmian  kwadratowy
-
-( )
-f x
-
-$$= \\frac{+}{2 2} x ( m + \\frac{)}{1}$$
-
-+
-x m
-6
-
-$$1 \\frac{+ .  Wyznacz  wszystkie}{2x} 1x ,$$
-
-rzeczywiste wartości parametru m, dla których ten trójmian ma dwa różne pierwiastki
-
-tego samego znaku, spełniające warunek
-
-$$\\frac{x}{1} x- 2 \\frac{< .}{3}$$`,
+    latex:``,
     figure:null,
     statement:`jest
 Dany
@@ -20208,21 +19761,7 @@ wyznaczymy  te  wartości  parametru  m,  dla  których  pierwiastki  trójmianu
     number:`13`,source:`2016_matura_matematyka-2016-maj-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:5,
     image:`img/tasks_cke/cke_2016_13.jpg`,
-    latex:`)
-=A
-30, 32
-Punkty
-
-$$( i =B ($$
-
-2 0
-w okrąg. Prosta o równaniu
-przekątną  AC . Oblicz współrzędne wierzchołków  C  i  D  tego czworokąta.
-
-$$\\frac{)^{0}, 8}{x}$$
-
- są sąsiednimi wierzchołkami czworokąta  ABCD wpisanego
-y- + =  jest jedyną osią symetrii tego czworokąta i zawiera`,
+    latex:``,
     figure:null,
     statement:`)
 =A
@@ -20682,11 +20221,11 @@ D.  trzy rozwiązania rzeczywiste.`,
     number:`2`,source:`2017_dodatkowa_matematyka-2017-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2017_dod_2.jpg`,
-    latex:`$$\\frac{+}{log 25 log 10}$$
+    latex:`$$\\frac{+}{\\log 25 \\log 10}$$
 
 Liczba
 
-$$2 4 log 15 2$$
+$$2 4 \\log 15 2$$
 
 A.
 
@@ -20694,15 +20233,15 @@ jest równa
 
 B.
 
-$$\\frac{log 50}{2}$$
+$$\\frac{\\log 50}{2}$$
 
 C.
 
-$$\\frac{log 210}{2}$$
+$$\\frac{\\log 210}{2}$$
 
 D.
 
-$$\\frac{log 635}{2}$$`,
+$$\\frac{\\log 635}{2}$$`,
     figure:null,
     statement:`+
 log 25 log 10
@@ -21628,11 +21167,7 @@ $$(zobacz rysunek).$$
 Okrąg  o  środku  C  i  promieniu  CD  jest  styczny  do  prostej  AB.  Okrąg  ten  przecina  boki
 AC i BC trójkąta odpowiednio w punktach K i L.
 
-$$M$$
-
-\\alpha
-
-$$C D K A L B$$
+$$M \\alpha C D K A L B$$
 
 Zaznaczony na rysunku kąt \\alpha wpisany w okrąg jest równy
 C.  52,5°
@@ -22054,15 +21589,7 @@ x y
 
 xy
 
-$$+ + 8 2 x 2 2 2$$
-
-Wypełnia
-egzaminator
-
-Nr zadania
-Uzyskana liczba pkt
-
-$$2 3 3$$`,
+$$+ + 8 2 x 2 2 2 2 3 3$$`,
     figure:null,
     statement:`Udowodnij, że dla dowolnych różnych liczb rzeczywistych x, y prawdziwa jest nierówność
 y
@@ -22298,15 +21825,7 @@ objętości dzielonego czworościanu i ostrosłup ścięty. Oblicz odległość 
 kuli od płaszczyzny  \\pi, tj. długość najkrótszego spośród odcinków SP, gdzie  P jest punktem
 płaszczyzny \\pi.
 
-Odpowiedź:  ................................................................................................................................  .
-
-Wypełnia
-egzaminator
-
-Nr zadania
-Uzyskana liczba pkt
-
-$$3 4$$`,
+Odpowiedź:  ................................................................................................................................  .`,
     figure:null,
     statement:`W czworościanie, którego wszystkie krawędzie mają taką samą długość 6, umieszczono kulę
 tak, że ma ona dokładnie jeden punkt wspólny z każdą ścianą czworościanu. Płaszczyzna  π,
@@ -22484,15 +22003,7 @@ piłeczkę  do  urny.  Tę  procedurę  wykonujemy  jeszcze  dwa  razy  i  tym  
 zapisane  trzy  liczby.  Oblicz  prawdopodobieństwo  wylosowania  takich  piłeczek,  że  iloczyn
 trzech zapisanych liczb jest podzielny przez 4. Wynik podaj w postaci ułamka zwykłego.
 
-Odpowiedź:  ................................................................................................................................  .
-
-Wypełnia
-egzaminator
-
-Nr zadania
-Uzyskana liczba pkt
-
-$$4 4$$`,
+Odpowiedź:  ................................................................................................................................  .`,
     figure:null,
     statement:`W pudełku znajduje się 8 piłeczek oznaczonych kolejnymi liczbami naturalnymi od 1 do 8.
 Losujemy  jedną  piłeczkę,  zapisujemy  liczbę  na  niej  występującą,  a  następnie  zwracamy
@@ -22767,15 +22278,7 @@ x x
     number:`13`,source:`2017_matura_matematyka-2017-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:5,
     image:`img/tasks_cke/cke_2017_13.jpg`,
-    latex:`Wyznacz  równanie  okręgu  przechodzącego  przez  punkty
-
-$$\\frac{(}{A =} - )^{5}, 3 i B = ( )^{0}, 6$$
-
-,  którego
-
-środek leży na prostej o równaniu
-
-$$x \\frac{y-}{3} \\frac{+ = .}{1 0}$$`,
+    latex:``,
     figure:null,
     statement:`Wyznacz  równanie  okręgu  przechodzącego  przez  punkty
 
@@ -22828,16 +22331,7 @@ odcinka AB.`,explanation:``}]
     number:`14`,source:`2017_matura_matematyka-2017-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:6,
     image:`img/tasks_cke/cke_2017_14.jpg`,
-    latex:`Liczby  a,  b,  c  są  -  odpowiednio  -  pierwszym,  drugim  i  trzecim  wyrazem  ciągu
-arytmetycznego. Suma tych liczb jest równa 27. Ciąg (
-Wyznacz liczby a, b, c.
-
-$$+  jest geometryczny.$$
-
-b c
-, 2
-
-$$\\frac{)}{1} 2, a$$`,
+    latex:``,
     figure:null,
     statement:`Liczby  a,  b,  c  są  –  odpowiednio  –  pierwszym,  drugim  i  trzecim  wyrazem  ciągu
 arytmetycznego. Suma tych liczb jest równa 27. Ciąg (
@@ -23103,31 +22597,7 @@ D.
     number:`2`,source:`2018_dodatkowa_matematyka-2018-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2018_dod_2.jpg`,
-    latex:`(
-Okrąg  o  równaniu  (
-i promieniu r. Wynika stąd, że
-
-$$+ 3 x ) 2 + y 2 ) 7 = 625$$
-
-jest  styczny  do  okręgu  o  środku
-
-$$S = \\frac{(}{12,5} )$$
-
-A.
-
-$$\\frac{r =}{5}$$
-
-B.
-
-$$r = 15$$
-
-C.
-
-$$r = 10$$
-
-D.
-
-$$r = 20$$`,
+    latex:``,
     figure:null,
     statement:`(
 Okrąg  o  równaniu  (
@@ -23427,36 +22897,7 @@ BC
     number:`7`,source:`2018_dodatkowa_matematyka-2018-czerwiec-matura-rozszerzona.pdf`,
     category:5,categoryName:`Dowód nierówności`,points:3,
     image:`img/tasks_cke/cke_2018_dod_7.jpg`,
-    latex:`Udowodnij, że dla dowolnego kąta
-
-sin
-
-)\\pi
-(
-20,\\alpha\\in
-)
-(
-\\pi
-\\cdot
-cos\\alpha
-12
-
-$$( \\frac{\\pi}{12}$$
-
-)
-\\alpha
-
-$$+ 1 < . 4$$
-
-prawdziwa jest nierówność
-
-Wypełnia
-egzaminator
-
-Nr zadania
-Uzyskana liczba pkt
-
-$$2 3 3$$`,
+    latex:``,
     figure:null,
     statement:`Udowodnij, że dla dowolnego kąta
 
@@ -23500,13 +22941,7 @@ cosα
     number:`8`,source:`2018_dodatkowa_matematyka-2018-czerwiec-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:3,
     image:`img/tasks_cke/cke_2018_dod_8.jpg`,
-    latex:`Wykaż, że równanie
-
-$$8 x + 2 x = 2 ( 4 x \\frac{+ -}{x} \\frac{)}{1}$$
-
-ma tylko jedno rozwiązanie rzeczywiste
-
-$$1x = .$$`,
+    latex:``,
     figure:null,
     statement:`Wykaż, że równanie
 
@@ -23559,15 +22994,7 @@ występują tylko cyfry ze zbioru {
 0, 1, 3, 5, 7, 9 , losujemy jedną. Oblicz prawdopodobieństwo
 zdarzenia polegającego na tym, że suma cyfr wylosowanej liczby jest równa 3.
 
-Odpowiedź:  ...............................................................................................................................  .
-
-Wypełnia
-egzaminator
-
-Nr zadania
-Uzyskana liczba pkt
-
-$$3 4$$`,
+Odpowiedź:  ...............................................................................................................................  .`,
     figure:null,
     statement:`Ze  zbioru  wszystkich  liczb  naturalnych  ośmiocyfrowych,  w  których  zapisie  dziesiętnym
 }
@@ -23634,15 +23061,7 @@ $$\\frac{k \\geq .}{1} ) n 2 2 y x = +$$
 
 $$n \\geq .  Niech  Pk 2 .ko 1 ,$$
 
-Odpowiedź:  ...............................................................................................................................  .
-
-Wypełnia
-egzaminator
-
-Nr zadania
-Uzyskana liczba pkt
-
-$$4 4$$`,
+Odpowiedź:  ...............................................................................................................................  .`,
     figure:null,
     statement:`Dany  jest  nieskończony  ciąg  okręgów  (
 no   o  równaniach
@@ -23711,12 +23130,7 @@ Oblicz pole tego trapezu.`,
     number:`13`,source:`2018_dodatkowa_matematyka-2018-czerwiec-matura-rozszerzona.pdf`,
     category:8,categoryName:`Planimetria`,points:5,
     image:`img/tasks_cke/cke_2018_dod_13.jpg`,
-    latex:`Wierzchołki A i B trójkąta prostokątnego ABC leżą na osi Oy układu współrzędnych. Okrąg
-wpisany  w  ten  trójkąt  jest  styczny  do  boków  AB,  BC  i  CA  w  punktach  -  odpowiednio  -
-P =
-. Oblicz współrzędne wierzchołków A, B i C tego trójkąta.
-
-$$\\frac{)}{0, 10 ,} )^{8}, 6 Q = 9, 13 R = i ( ) ( ($$`,
+    latex:``,
     figure:null,
     statement:`Wierzchołki A i B trójkąta prostokątnego ABC leżą na osi Oy układu współrzędnych. Okrąg
 wpisany  w  ten  trójkąt  jest  styczny  do  boków  AB,  BC  i  CA  w  punktach  –  odpowiednio  –
@@ -24020,7 +23434,7 @@ i tworzenie informacji.`,explanation:``}]
     image:`img/tasks_cke/cke_2018_3.jpg`,
     latex:`Wartość wyrażenia
 
-$$\\frac{2 log 10}{5}$$
+$$\\frac{2 \\log 10}{5}$$
 
 1
 log
@@ -24357,15 +23771,7 @@ ABC (zobacz rysunek).
 
 .  Dwusieczna
 
-Udowodnij, że na czworokącie KNML można opisać okrąg.
-
-Wypełnia
-egzaminator
-
-Nr zadania
-Uzyskana liczba pkt
-
-$$2 3 3$$`,
+Udowodnij, że na czworokącie KNML można opisać okrąg.`,
     figure:null,
     statement:`Trójkąt  ABC  jest  ostrokątny  oraz    AC
 
@@ -24572,15 +23978,7 @@ którego  wyrazy  się  nie  powtarzają.  Oblicz  prawdopodobieństwo  zdarzeni
 tym,  że  żadne  dwie  liczby  parzyste  nie  są  sąsiednimi  wyrazami  utworzonego  ciągu.  Wynik
 przedstaw w postaci ułamka zwykłego nieskracalnego.
 
-Odpowiedź:  .................................................................................................................................
-
-Wypełnia
-egzaminator
-
-Nr zadania
-Uzyskana liczba pkt
-
-$$3 4$$`,
+Odpowiedź:  .................................................................................................................................`,
     figure:null,
     statement:`Z liczb ośmioelementowego zbioru
 
@@ -24749,17 +24147,9 @@ R+
     image:`img/tasks_cke/cke_2018_11.jpg`,
     latex:`Rozwiąż równanie  sin 6
 
-$$+ x cos^{3} x = 2sin 3 x \\frac{+  w przedziale  0, \\pi .}{1}$$
+$$+ x cos3 x = 2sin 3 x \\frac{+  w przedziale  0, \\pi .}{1}$$
 
-Odpowiedź:  .................................................................................................................................
-
-Wypełnia
-egzaminator
-
-Nr zadania
-Uzyskana liczba pkt
-
-$$4 4$$`,
+Odpowiedź:  .................................................................................................................................`,
     figure:null,
     statement:`Rozwiąż równanie  sin 6
 
@@ -24886,26 +24276,7 @@ x`,explanation:``}]
     number:`12`,source:`2018_matura_matematyka-2018-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:6,
     image:`img/tasks_cke/cke_2018_12.jpg`,
-    latex:`Wyznacz wszystkie wartości parametru m, dla których równanie
-
-$$+ ( 2 x$$
-
-dwa rozwiązania rzeczywiste  1x  i
-
-$$\\frac{2x  ( 1}{x} x\\neq 2$$
-
-), spełniające warunek
-
-$$3 x 1 2 + =  ma 1 0 \\frac{m}{} + + \\frac{)}{1} 3 \\frac{x}{2}$$
-
-x m
-> -
-7
-
-x x
-1 2
-
-$$.$$`,
+    latex:``,
     figure:null,
     statement:`Wyznacz wszystkie wartości parametru m, dla których równanie
 
@@ -25582,11 +24953,10 @@ D. 4`,
 
 $$} ,$$
 
-133
 x
  dokładnie jeden pierwiastek wymierny. Jest nim liczba
 
-$$146 383 499 15 x x x x 5 4 + 2 + 3 + 120$$
+$$15 x x x x 5 4 + 2 + 3 +$$
 
 ma  w  zbiorze
 
@@ -26392,7 +25762,7 @@ wzór na zamianę podstawy logarytmu. (R1.2).`,explanation:``}]
     latex:`° -
 Liczba
 
-$$\\frac{2}{cos 105} \\frac{2}{sin 105}$$
+$$\\frac{2}{\\cos 105} \\frac{2}{\\sin 105}$$
 
 °  jest równa
 
@@ -26477,45 +25847,7 @@ i różnicę sinusów i cosinusów kątów (R6.5).`,explanation:``}]
     number:`3`,source:`2019_matura_matematyka-2019-maj-matura-rozszerzona.pdf`,
     category:16,categoryName:`Zadania 6-punktowe`,points:1,
     image:`img/tasks_cke/cke_2019_3.jpg`,
-    latex:`Na  rysunku  przedstawiono  fragment  wykresu  funkcji
-półprostych  AD  i  CE  oraz  dwóch  odcinków  AB  i  BC,  gdzie
-C =
-
-$$\\frac{(}{= -D} )^{3}, 0 , )^{4}, 3 )^{6}, 3$$
-
-)(xf
-
-$$=E y = , . ( ($$
-
-,  który  jest  złożony  z dwóch
-)1, 2
-)1, 0
-(
-,
-
-$$\\frac{(}{A =} - B = , D A 5 4 3 2 1 0 y B E 1 2 3 C 4 5 6 x 7 =$$
-
-A.
-
-$$\\frac{x}{x=}$$
-
-Wzór funkcji  f  to
-( )
-f x
-( )
-f x
-( )
-f x
-( )
-f x
-
-$$+ + - x 1 1 1 2 - + x= 1 2 x= - + 1 2$$
-
-D.
-
-C.
-
-B.`,
+    latex:``,
     figure:null,
     statement:`Na  rysunku  przedstawiono  fragment  wykresu  funkcji
 półprostych  AD  i  CE  oraz  dwóch  odcinków  AB  i  BC,  gdzie
@@ -26984,15 +26316,7 @@ n
     latex:`Rozważamy wszystkie liczby naturalne pięciocyfrowe zapisane przy użyciu cyfr 1,  3,  5,  7 , 9,
 bez powtarzania jakiejkolwiek cyfry. Oblicz sumę wszystkich takich liczb.
 
-Odpowiedź:  ...............................................................................................................................  .
-
-Wypełnia
-egzaminator
-
-Nr zadania
-Uzyskana liczba pkt
-
-$$2 3$$`,
+Odpowiedź:  ...............................................................................................................................  .`,
     figure:null,
     statement:`Rozważamy wszystkie liczby naturalne pięciocyfrowe zapisane przy użyciu cyfr 1,  3,  5,  7 , 9,
 bez powtarzania jakiejkolwiek cyfry. Oblicz sumę wszystkich takich liczb.
@@ -27033,7 +26357,7 @@ ax b
 
 jest styczna do tej paraboli w punkcie P. Oblicz współczynnik b.
 
-$$y = \\frac{22}{x} \\frac{+ +}{x} 2219$$
+$$y = \\frac{22}{x} \\frac{+ +}{x}$$
 
 .  Prosta  o  równaniu
 
@@ -27110,15 +26434,7 @@ x a
 +
 y a
 
-$$y + > x 2 .$$
-
-Wypełnia
-egzaminator
-
-Nr zadania
-Uzyskana liczba pkt
-
-$$2 3$$`,
+$$y + > x 2 . 2 3$$`,
     figure:null,
     statement:`Udowodnij, że dla dowolnych dodatnich liczb rzeczywistych x i y, takich że
 
@@ -27209,9 +26525,7 @@ ST
 
 $$= \\frac{1}{2}$$
 
-AB
-
-$$.$$`,
+AB`,
     figure:null,
     statement:`Dany jest trójkąt równoramienny  ABC , w którym  |
 wybrano punkt M ( M A≠
@@ -27519,27 +26833,7 @@ Zdający może`,explanation:``}]
     number:`13`,source:`2019_matura_matematyka-2019-maj-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:6,
     image:`img/tasks_cke/cke_2019_13.jpg`,
-    latex:`Wielomian  określony  wzorem
-przez  dwumian  (
-i dla wyznaczonej wartości m rozwiąż nierówność
-
-)
-+   jest  podzielny
-=
-x
-11
-2
-1
-x
-)1x +   daje  resztę  6.  Oblicz  m
-  oraz  przy  dzieleniu  przez  dwumian  (
-W x \\leq
-( ) 0.
-
-( )
-W x
-
-$$)^{2}x - \\frac{(}{2 2} m m + + ( ) 2 x 3 3 2$$`,
+    latex:``,
     figure:null,
     statement:`Wielomian  określony  wzorem
 przez  dwumian  (
@@ -28615,7 +27909,7 @@ Pokonanie zasadniczych trudności zadania .............................`,explana
     image:`img/tasks_cke/cke_2020_dod_9.jpg`,
     latex:`Rozwiąż równanie
 
-$$4sin 3 + x sin 2 x = 2 2sin ( \\cdot x 2cos x ) + . 1$$
+$$4sin 3 + x \\sin 2 x = 2 2sin ( \\cdot x 2cos x ) + . 1$$
 
 Odpowiedź:  ...............................................................................................................................  .`,
     figure:null,
@@ -29144,7 +28438,7 @@ x
 (
 W x
 
-$$) = x 2019 3 x 2000 + 2 x \\frac{+}{6}$$
+$$) = x 3 x + 2 x \\frac{+}{6}$$
 
 A. jest podzielny przez (
 
@@ -29631,20 +28925,7 @@ zadania.`,explanation:``}]
     number:`6`,source:`2020_matura_matematyka-2020-czerwiec-matura-rozszerzona.pdf`,
     category:12,categoryName:`Parametr w równaniu`,points:3,
     image:`img/tasks_cke/cke_2020_6.jpg`,
-    latex:`Wyznacz wszystkie wartości parametru  a , dla których równanie
-różne rozwiązania dodatnie.
-
-$$\\frac{- =}{5} x ( a \\frac{)^{2}}{1} -  ma dwa 4$$
-
-Odpowiedź:  ...............................................................................................................................  .
-
-Wypełnia
-egzaminator
-
-Nr zadania
-Uzyskana liczba pkt
-
-$$2 3$$`,
+    latex:``,
     figure:null,
     statement:`Wyznacz wszystkie wartości parametru  a , dla których równanie
 różne rozwiązania dodatnie.
@@ -29889,21 +29170,13 @@ Pokonanie zasadniczych trudności zadania .............................`,explana
     image:`img/tasks_cke/cke_2020_9.jpg`,
     latex:`Rozwiąż równanie
 
-$$3cos 2 x + 10 cos 2 x = 24 sin x \\frac{-  dla}{3}$$
+$$3cos 2 x + 10 \\cos 2 x = 24 \\sin x \\frac{-  dla}{3}$$
 
 x \\in
 
 $$0, 2\\pi .$$
 
-Odpowiedź:  ...............................................................................................................................  .
-
-Wypełnia
-egzaminator
-
-Nr zadania
-Uzyskana liczba pkt
-
-$$3 4$$`,
+Odpowiedź:  ...............................................................................................................................  .`,
     figure:null,
     statement:`Rozwiąż równanie
 
@@ -32010,7 +31283,7 @@ AB  trójkąta.
 
 a)  Wykaż, że pole  P  każdego z tych trójkątów, jako funkcja długości  x, wyraża się wzorem
 
-$$P(x) = (x + 1) \\cdot \\sqrt^{1} - x^{2}.$$
+$$P(x) = (x + 1) \\cdot \\sqrt{1} - x^{2}.$$
 
 b)  Wyznacz dziedzinę funkcji  P.
 
@@ -32185,19 +31458,19 @@ $$\\frac{1}{3}$$
 
 A.
 
-$$\\frac{-2\\sqrt^{2}+\\sqrt^{3}}{6}$$
+$$\\frac{-2\\sqrt{2}+\\sqrt{3}}{6}$$
 
 B.
 
-$$\\frac{2\\sqrt^{6}+1}{6}$$
+$$\\frac{2\\sqrt{6}+1}{6}$$
 
 C.
 
-$$\\frac{2\\sqrt^{2}+\\sqrt^{3}}{6}$$
+$$\\frac{2\\sqrt{2}+\\sqrt{3}}{6}$$
 
 D.
 
-$$\\frac{1-2\\sqrt^{6}}{6}$$`,
+$$\\frac{1-2\\sqrt{6}}{6}$$`,
     figure:null,
     statement:`Jeżeli  cos 𝛽 = −
 
@@ -32319,18 +31592,7 @@ ZADANIE OTWARTE (KODOWANE)`,explanation:``}]
     number:`5`,source:`2022_matura_matematyka-2022-maj-matura-rozszerzona.pdf`,
     category:7,categoryName:`Ciągi liczbowe`,points:2,
     image:`img/tasks_cke/cke_2022_5.jpg`,
-    latex:`Ciąg  (an)  jest określony dla każdej liczby naturalnej  n \\geq 1  wzorem  an =
-
-$$\\frac{(7p-1)n^{3}+5pn-3}{(p+1)n^{3}+n^{2}+p} ,$$
-
-gdzie  p  jest liczbą rzeczywistą dodatnią.
-
-Oblicz wartość  p, dla której granica ciągu  (an)  jest równa
-
-$$\\frac{4}{3} .$$
-
-W poniższe kratki wpisz kolejno - od lewej do prawej - pierwszą, drugą oraz trzecią cyfrę po
-przecinku nieskończonego rozwinięcia dziesiętnego otrzymanego wyniku.`,
+    latex:``,
     figure:null,
     statement:`Ciąg  (𝑎𝑛)  jest określony dla każdej liczby naturalnej  𝑛 ≥ 1  wzorem  𝑎𝑛 =
 
@@ -32378,18 +31640,7 @@ i konsekwentnie do popełnionych błędów rachunkowych rozwiązuje zadanie`,exp
     latex:`Wykaż, że dla każdej liczby rzeczywistej  x  i dla każdej liczby rzeczywistej  y  takich, że
 2x > y, spełniona jest nierówność
 
-$$7x^{3} + 4x^{2}y \\geq y^{3} + 2xy^{2} - x^{3}$$
-
- Wypełnia
-egzaminator
-
-Nr zadania
-
-$$2 3$$
-
-Uzyskana liczba pkt
-
-$$EMAP-R^{0}_100$$`,
+$$7x^{3} + 4x^{2}y \\geq y^{3} + 2xy2 - x^{3} 2 3 EMAP-R^{0}_100$$`,
     figure:null,
     statement:`Wykaż, że dla każdej liczby rzeczywistej  𝑥  i dla każdej liczby rzeczywistej  𝑦  takich, że
 2𝑥 > 𝑦, spełniona jest nierówność
@@ -32449,7 +31700,7 @@ ostrokątnym  CPD  jest o  3  mniejszy od promienia okręgu opisanego na trójk�
 
 Wykaż, że spełniony jest warunek  |DP|2 + |CP|2 - |CD|2 =
 
-$$\\frac{4\\sqrt^{2}}{3} \\cdot |DP| \\cdot |CP|.$$`,
+$$\\frac{4\\sqrt{2}}{3} \\cdot |DP| \\cdot |CP|.$$`,
     figure:null,
     statement:`Punkt  𝑃  jest punktem przecięcia przekątnych trapezu  𝐴𝐵𝐶𝐷. Długość podstawy  𝐶𝐷  jest
 o  2  mniejsza od długości podstawy  𝐴𝐵. Promień okręgu opisanego na trójkącie
@@ -32674,11 +31925,7 @@ $$\\frac{12}{13}$$
 rysunek). Pole trójkąta  AFH  jest równe  26,4.
 Oblicz wysokość  ℎ  tego graniastosłupa.
 
-$$G F H E ℎ D C B$$
-
-\\alpha
-
-$$A$$`,
+$$G F H E ℎ D C B \\alpha A$$`,
     figure:null,
     statement:`Dany jest graniastosłup prosty  𝐴𝐵𝐶𝐷𝐸𝐹𝐺𝐻  o podstawie prostokątnej  𝐴𝐵𝐶𝐷. Przekątne
 
@@ -32757,15 +32004,7 @@ gdy:
     number:`15`,source:`2022_matura_matematyka-2022-maj-matura-rozszerzona.pdf`,
     category:15,categoryName:`Optymalizacja`,points:7,
     image:`img/tasks_cke/cke_2022_15.jpg`,
-    latex:`Rozpatrujemy wszystkie trójkąty równoramienne o obwodzie równym  18.
-
-a)  Wykaż, że pole  P  każdego z tych trójkątów, jako funkcja długości  b  ramienia, wyraża się
-
-$$wzorem  P(b) = \\frac{(18-2b) \\cdot \\sqrt^{18}b-81}{2} .$$
-
-b)  Wyznacz dziedzinę funkcji  P.
-
-c)  Oblicz długości boków tego z rozpatrywanych trójkątów, który ma największe pole.`,
+    latex:``,
     figure:null,
     statement:`Rozpatrujemy wszystkie trójkąty równoramienne o obwodzie równym  18.
 
@@ -32803,7 +32042,7 @@ Zdający otrzymuje  ............................................................
     image:`img/tasks_cke/cke_2023_dod_1.jpg`,
     latex:`Dane są liczby
 
-$$Oblicz  a - b. a = 4log^{2} 45     oraz     b = \\frac{log^{3} 2023}{log^{9} 2023}$$`,
+$$Oblicz  a - b. a = 4log2 45     oraz     b = \\frac{log3 2023}{log9 2023}$$`,
     figure:null,
     statement:`Dane są liczby
 
@@ -33023,7 +32262,7 @@ $$w zbiorze  [- \\frac{𝝅}{2} , \\frac{𝝅}{2}$$
 
 ]. Zapisz obliczenia.
 
-$$sin(5x) + cos x = 0$$`,
+$$\\sin(5x) + \\cos x = 0$$`,
     figure:null,
     statement:`Rozwiąż równanie
 
@@ -33077,7 +32316,7 @@ Oblicz pole trójkąta  𝑨𝑩𝑪. Zapisz obliczenia.`,
     image:`img/tasks_cke/cke_2023_dod_10.jpg`,
     latex:`Wyznacz wszystkie wartości parametru  m, dla których równanie
 
-$$mx^{2} - (m + 1)x - 2m + 3 = 0$$
+$$mx2 - (m + 1)x - 2m + 3 = 0$$
 
 ma dokładnie dwa różne rozwiązania rzeczywiste  x1  oraz  x2 , spełniające warunki:
 
@@ -33502,7 +32741,7 @@ ALBO
 
 Zapisz obliczenia.
 
-$$4sin(4x)cos(6x) = 2sin(10x) + 1$$`,
+$$4sin(4x)\\cos(6x) = 2sin(10x) + 1$$`,
     figure:null,
     statement:`Rozwiąż równanie
 
@@ -33646,7 +32885,7 @@ ALBO
 
 Zapisz obliczenia.
 
-$$\\sqrtx^{2} + 4x + 4 < \\frac{25}{3} - \\sqrtx^{2} - 6x + 9$$
+$$\\sqrtx2 + 4x + 4 < \\frac{25}{3} - \\sqrtx2 - 6x + 9$$
 
 Wskazówka: skorzystaj z tego, że  \\sqrta2 = |a|  dla każdej liczby rzeczywistej  a.`,
     figure:null,
@@ -34247,7 +33486,7 @@ Oblicz długość boku  𝑨𝑪  trójkąta  𝑨𝑩𝑪. Zapisz obliczenia.`,
 
 Zapisz obliczenia.
 
-$$sin(6x) + \\sqrt^{3} \\cdot sin(5x) + sin(4x) = 0$$`,
+$$\\sin(6x) + \\sqrt{3} \\cdot \\sin(5x) + \\sin(4x) = 0$$`,
     figure:null,
     statement:`Rozwiąż równanie
 
@@ -34271,7 +33510,7 @@ Sinus kąta między przekątnymi ścian bocznych wychodzącymi z jednego wierzch
 
 graniastosłupa jest równy
 
-$$\\frac{\\sqrt^{11}}{6} .$$
+$$\\frac{\\sqrt{11}}{6} .$$
 
 Wyznacz pole powierzchni całkowitej tego graniastosłupa. Zapisz obliczenia.`,
     figure:null,
@@ -34312,7 +33551,7 @@ dodatnią. Odległość punktu  C  od prostej zawierającej bok  AB  równoległ
 
 równa
 
-$$\\frac{9\\sqrt^{10}}{5} .$$
+$$\\frac{9\\sqrt{10}}{5} .$$
 
 Oblicz długość boku  BC  tego równoległoboku. Zapisz obliczenia.`,
     figure:null,
@@ -34851,7 +34090,7 @@ ALBO
     image:`img/tasks_cke/cke_2024_10.jpg`,
     latex:`Rozwiąż równanie
 
-$$sin(4x) - sin(2x) = 4cos^{2}x - 3 w zbiorze  [0, 2𝝅]. Zapisz obliczenia.$$`,
+$$\\sin(4x) - \\sin(2x) = 4cos2x - 3 w zbiorze  [0, 2𝝅]. Zapisz obliczenia.$$`,
     figure:null,
     statement:`Rozwiąż równanie
 
@@ -35205,7 +34444,7 @@ Zapisz obliczenia.`,
     image:`img/tasks_cke/cke_2025_dod_6.jpg`,
     latex:`Rozwiąż równanie
 
-$$cos(2x) + 2cos^{2}(3x) + cos(4x) = 0 w przedziale  [0, 𝝅]. Zapisz obliczenia.$$`,
+$$\\cos(2x) + 2cos2(3x) + \\cos(4x) = 0 w przedziale  [0, 𝝅]. Zapisz obliczenia.$$`,
     figure:null,
     statement:`Rozwiąż równanie
 
@@ -35500,7 +34739,7 @@ $$\\frac{1}{2}$$
 
 a, prawdziwa jest nierówność
 
-$$(a + 2b)^{3} > 8a^{2}b + 16ab^{2}$$`,
+$$(a + 2b)^{3} > 8a^{2}b + 16ab2$$`,
     figure:null,
     statement:`Wykaż, że dla każdej dodatniej liczby rzeczywistej  𝒂  i dla każdej dodatniej liczby
 
@@ -35547,7 +34786,7 @@ spełniających warunek  𝑏 ≠
 
 do pola trójkąta  ADC  jest równy
 
-$$\\frac{\\sqrt^{3}-1}{2} .$$
+$$\\frac{\\sqrt{3}-1}{2} .$$
 
 Oblicz miarę kąta  DAC. Zapisz obliczenia.`,
     figure:null,
@@ -35908,7 +35147,7 @@ oraz  𝑀 = (
     image:`img/tasks_cke/cke_2025_9.jpg`,
     latex:`Rozwiąż równanie
 
-$$3cos^{2}x + \\sqrt^{3}sin(2x) - 3sin^{2}x = 0 w przedziale  [-𝝅, 𝝅]. Zapisz obliczenia.$$`,
+$$3cos2x + \\sqrt{3}sin(2x) - 3sin2x = 0 w przedziale  [-𝝅, 𝝅]. Zapisz obliczenia.$$`,
     figure:null,
     statement:`Rozwiąż równanie
 
@@ -36318,7 +35557,7 @@ $$D C a Q P L M A K B$$
 
 Wykaż, że  |PQ| =
 
-$$\\frac{\\sqrt^{5}}{5}$$
+$$\\frac{\\sqrt{5}}{5}$$
 
 a.`,
     figure:null,
@@ -36420,7 +35659,7 @@ Oblicz sumę wszystkich wyrazów ciągu  (𝒂𝒏). Zapisz obliczenia.
 
 Zapisz obliczenia.
 
-$$sin(6x) - 2 sin(2x) = 0$$`,
+$$\\sin(6x) - 2 \\sin(2x) = 0$$`,
     figure:null,
     statement:`Rozwiąż równanie
 
