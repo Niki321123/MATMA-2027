@@ -16,7 +16,6 @@
 
   // === Definicja przedmiotów ===
   const SUBJECTS_DEF = [
-    { id: 'PR',   name: 'Matematyka',  sub: 'Rozszerzona', icon: '📕', color: '#e74c3c', available: true },
     { id: 'PP',   name: 'Matematyka',  sub: 'Podstawowa',  icon: '📗', color: '#26de81', available: true },
     { id: 'FIZ',  name: 'Fizyka',      sub: 'Rozszerzona', icon: '⚛️', color: '#45aaf2', available: true },
     { id: 'POL',  name: 'Polski',      sub: 'Rozszerzona', icon: '📖', color: '#fd9644', available: false },
@@ -43,7 +42,7 @@
   // === Poziom matematyki (PP / PR / FIZ) ===
   let levelModalCallback = null;
 
-  function getMathLevel() { return localStorage.getItem('mathLevel') || 'PR'; }
+  function getMathLevel() { return localStorage.getItem('mathLevel') || 'PP'; }
 
   function setMathLevel(level) {
     localStorage.setItem('mathLevel', level);
@@ -71,7 +70,7 @@
     if (!elCatSelect) return;
     elCatSelect.innerHTML = '<option value="0">🎲 Losowa kategoria</option>';
     const lvl = getMathLevel();
-    const cats = lvl === 'PP' ? G.getAllPP() : lvl === 'FIZ' ? G.getAllFiz() : G.getAll();
+    const cats = lvl === 'FIZ' ? G.getAllFiz() : G.getAllPP();
     cats.forEach(cat => {
       const opt = document.createElement('option');
       opt.value = cat.id;
@@ -110,7 +109,6 @@
 
   function initLevelEvents() {
     $('btn-level-pp')?.addEventListener('click', () => chooseMathLevel('PP'));
-    $('btn-level-pr')?.addEventListener('click', () => chooseMathLevel('PR'));
     $('btn-level-fiz')?.addEventListener('click', () => chooseMathLevel('FIZ'));
     $('btn-um-change-level')?.addEventListener('click', () => {
       $('modal-user')?.classList.add('hidden');
@@ -181,14 +179,14 @@
   function _obUpdateNote() {
     const note = $('ob-auto-note');
     if (!note) return;
-    const hasMatma = _obSelected.has('PR') || _obSelected.has('PP');
+    const hasMatma = _obSelected.has('PP');
     note.style.display = (!hasMatma && _obSelected.size > 0) ? 'block' : 'none';
   }
 
   async function _obConfirm() {
     let subjects = [..._obSelected];
     // Auto-dodaj PP jeśli brak jakiejkolwiek matematyki
-    if (!subjects.includes('PR') && !subjects.includes('PP')) {
+    if (!subjects.includes('PP')) {
       subjects = ['PP', ...subjects];
     }
     // Zapisz
@@ -364,7 +362,7 @@
     // Generatory dla wszystkich poziomów
     try {
       if (catVal === '0') {
-        currentTask = _lvl === 'PP' ? G.generateRandomPP() : _lvl === 'FIZ' ? G.generateRandomFiz() : G.generateRandom();
+        currentTask = _lvl === 'FIZ' ? G.generateRandomFiz() : G.generateRandomPP();
       } else {
         const id = /^\d+$/.test(catVal) ? parseInt(catVal) : catVal;
         currentTask = G.generate(id);
@@ -574,7 +572,7 @@
     if (!elProgressSidebar) return;
     const today = PT.getTodayStats();
     const _lvl  = getMathLevel();
-    const cats  = _lvl === 'PP' ? G.getAllPP() : _lvl === 'FIZ' ? G.getAllFiz() : G.getAll();
+    const cats  = _lvl === 'FIZ' ? G.getAllFiz() : G.getAllPP();
     const accuracyPct = today.attempted > 0 ? Math.round(100 * today.correct / today.attempted) : 0;
 
     let html = `
@@ -821,7 +819,7 @@
 
   function _renderStatsTab() {
     const _lvl  = getMathLevel();
-    const cats  = _lvl === 'PP' ? G.getAllPP() : _lvl === 'FIZ' ? G.getAllFiz() : G.getAll();
+    const cats  = _lvl === 'FIZ' ? G.getAllFiz() : G.getAllPP();
     const stats = PT.getStats();
     let h = `
       <div class="modal-stats-grid">
@@ -872,7 +870,7 @@
     return '<div class="hist-list">' + hist.map(h => {
       const icon  = h.pass ? '✅' : '❌';
       const label = h.pass ? 'Zdany' : 'Niezdany';
-      const lvl   = h.level === 'PP' ? 'Podstawowa' : 'Rozszerzona';
+      const lvl   = h.level === 'FIZ' ? 'Fizyka' : 'Podstawowa';
       return `
         <div class="hist-exam-item">
           <div class="hist-exam-score ${h.pass ? 'pass' : 'fail'}">${h.pts}/${h.maxPts}</div>
@@ -1043,7 +1041,6 @@
   }
 
   // === Symulacja matury ===
-  const EXAM_CATS_PR  = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
   const EXAM_CATS_FIZ = ['fiz01','fiz02','fiz03','fiz04','fiz05','fiz06','fiz07',
                           'fiz08','fiz09','fiz10','fiz11','fiz12','fiz13','fiz14'];
 
@@ -1057,21 +1054,16 @@
 
     const lvl = getMathLevel();
 
-    if (lvl === 'PP') {
-      examTasks = G.generatePPExam();
-      examResults = new Array(examTasks.length).fill(null);
-    } else if (lvl === 'FIZ') {
+    if (lvl === 'FIZ') {
       // Fizyka rozszerzona: 11 zadań (jak prawdziwa matura)
       const cats = [...EXAM_CATS_FIZ].sort(() => Math.random() - 0.5).slice(0, 11);
       cats.forEach(catId => {
         try { examTasks.push(G.generate(catId)); examResults.push(null); } catch (e) { /* skip */ }
       });
     } else {
-      // PR: generuj z generatorów cat01–cat16
-      const cats = [...EXAM_CATS_PR].sort(() => Math.random() - 0.5).slice(0, 12);
-      cats.forEach(catId => {
-        try { examTasks.push(G.generate(catId)); examResults.push(null); } catch (e) { /* skip */ }
-      });
+      // PP: pełny arkusz matury podstawowej
+      examTasks = G.generatePPExam();
+      examResults = new Array(examTasks.length).fill(null);
     }
 
     if (examTasks.length === 0) { showToast('Błąd generowania arkusza.', 'error'); return; }

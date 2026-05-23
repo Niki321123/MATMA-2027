@@ -2,3 +2,4 @@
 pr_response.json
 *.pyc
 __pycache__/
+.claude/
