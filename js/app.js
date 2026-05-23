@@ -405,12 +405,11 @@
     if (closedEl) {
       closedEl.classList.toggle('hidden', !isClosed);
       if (isClosed) {
-        {
-          // Opcje A/B/C/D z generatora
-          ['A', 'B', 'C', 'D'].forEach(opt => {
-            const el = $(`opt-${opt}-text`);
-            if (el) KR.render(task.options[opt] || '', el);
-          });
+        // Opcje A/B/C/D z generatora
+        ['A', 'B', 'C', 'D'].forEach(opt => {
+          const el = $(`opt-${opt}-text`);
+          if (el) KR.render(task.options[opt] || '', el);
+        });
         document.querySelectorAll('.opt-btn').forEach(b => {
           b.classList.remove('selected', 'correct', 'wrong');
           b.disabled = false;
