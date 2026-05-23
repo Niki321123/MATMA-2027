@@ -1206,7 +1206,7 @@
   }
 
   // === Symulacja matury ===
-  const EXAM_CATS_PR  = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  const EXAM_CATS_PR  = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
   const EXAM_CATS_FIZ = ['fiz01','fiz02','fiz03','fiz04','fiz05','fiz06','fiz07',
                           'fiz08','fiz09','fiz10','fiz11','fiz12','fiz13','fiz14'];
 
@@ -1229,26 +1229,8 @@
       cats.forEach(catId => {
         try { examTasks.push(G.generate(catId)); examResults.push(null); } catch (e) { /* skip */ }
       });
-    } else if (CKE) {
-      // PR: losuj z bazy CKE — tylko zadania otwarte (bez ABCD)
-      const openTasks = CKE.getAll().filter(t => !t.options || Object.keys(t.options).length < 2);
-      // Zbierz z różnych kategorii — max 1 z każdej, łącznie ~15 zadań
-      const taskPool = [];
-      const usedCats = new Set();
-      // Przetasuj i wybierz
-      const shuffled = [...openTasks].sort(() => Math.random() - 0.5);
-      for (const t of shuffled) {
-        if (taskPool.length >= 15) break;
-        if (!usedCats.has(t.category) || taskPool.length < 8) {
-          taskPool.push(t);
-          usedCats.add(t.category);
-        }
-      }
-      taskPool.slice(0, 15).forEach(raw => {
-        examTasks.push(CKE.asTask(raw));
-        examResults.push(null);
-      });
     } else {
+      // PR: generuj z generatorów cat01–cat16
       const cats = [...EXAM_CATS_PR].sort(() => Math.random() - 0.5).slice(0, 12);
       cats.forEach(catId => {
         try { examTasks.push(G.generate(catId)); examResults.push(null); } catch (e) { /* skip */ }
