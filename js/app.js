@@ -5,8 +5,6 @@
   const G   = window.Generators;
   const KR  = window.KatexRenderer;
   const PT  = window.ProgressTracker;
-  const MT  = window.MaturaTasks;
-  const CKE = window.MaturaCKE;   // baza zadań CKE (arkusze PDF 2002-2026)
 
   // === Stan ===
   let currentTask    = null;
@@ -281,12 +279,7 @@
   const $ = id => document.getElementById(id);
   const elCatSelect        = $('select-category');
   const elBtnGenerate      = $('btn-generate');
-  const elYearSelect       = $('select-year');
-  const elMaturaTaskSelect = $('select-matura-task');
-  const elBtnLoadMatura    = $('btn-load-matura');
-  const elBtnRandomMatura  = $('btn-random-matura');
   const elPanelGen         = $('control-panel-generator');
-  const elPanelMatura      = $('control-panel-matura');
   const elPanelExam        = $('control-panel-symulacja');
   const elExamNav          = $('exam-nav');
   const elExamNavPills     = $('exam-nav-pills');
@@ -321,33 +314,6 @@
     rebuildCategorySelect();
   }
 
-  function initYearSelect() {
-    const db = CKE || MT;
-    if (!db || !elYearSelect) return;
-    db.getYears().forEach(year => {
-      const count = db.getByYear(year).length;
-      const opt = document.createElement('option');
-      opt.value = year;
-      opt.textContent = `Matura ${year} (${count} zadań)`;
-      elYearSelect.appendChild(opt);
-    });
-    updateMaturaTaskList();
-  }
-
-  function updateMaturaTaskList() {
-    const db = CKE || MT;
-    if (!db || !elMaturaTaskSelect) return;
-    const year = parseInt(elYearSelect.value);
-    const tasks = year ? db.getByYear(year) : db.getAll();
-    elMaturaTaskSelect.innerHTML = `<option value="">— wybierz zadanie (${tasks.length}) —</option>`;
-    tasks.forEach(t => {
-      const opt = document.createElement('option');
-      opt.value = t.id;
-      const sesLabel = t.session === 'dodatkowa' ? ' dod.' : '';
-      opt.textContent = `${t.year}${sesLabel} z.${t.number} (${t.points} pkt) — ${t.categoryName}`;
-      elMaturaTaskSelect.appendChild(opt);
-    });
-  }
 
   // === Limit badge ===
   function updateLimitBadge() {
@@ -377,9 +343,8 @@
     elModeTabs.querySelectorAll('.mode-tab').forEach(b =>
       b.classList.toggle('active', b.dataset.mode === mode)
     );
-    elPanelGen.classList.toggle('hidden',    mode !== 'generator');
-    elPanelMatura?.classList.toggle('hidden', mode !== 'matura');
-    elPanelExam?.classList.toggle('hidden',  mode !== 'symulacja');
+    elPanelGen.classList.toggle('hidden',   mode !== 'generator');
+    elPanelExam?.classList.toggle('hidden', mode !== 'symulacja');
     elExamNav?.classList.toggle('hidden',    mode !== 'symulacja' || examTasks.length === 0);
     $('wzory-panel')?.classList.toggle('hidden',   mode !== 'wzory');
     $('calc-panel')?.classList.toggle('hidden',    mode !== 'kalkulator');
@@ -414,88 +379,6 @@
     displayTask(currentTask, false);
   }
 
-  async function loadMaturaTask(id) {
-    const db = CKE || MT;
-    if (!db) return;
-    const SA = window.SupabaseAuth;
-    if (!SA?.isLoggedIn()) { openAuthModal(); return; }
-    if (!SA.canGenerateTask()) { openPricingModal('task-limit'); return; }
-
-    const raw = id ? db.getById(id) : db.random();
-    if (!raw) { showToast('Wybierz zadanie z listy.', 'warning'); return; }
-    currentTask = db.asTask(raw);
-    SA.trackTaskGenerated();
-    updateLimitBadge();
-    displayTask(currentTask, true);
-  }
-
-  async function loadRandomMatura() {
-    const db = CKE || MT;
-    if (!db) return;
-    const SA = window.SupabaseAuth;
-    if (!SA?.isLoggedIn()) { openAuthModal(); return; }
-    if (!SA.canGenerateTask()) { openPricingModal('task-limit'); return; }
-
-    const year = parseInt(elYearSelect.value);
-    const raw  = year ? db.randomByYear(year) : db.random();
-    if (!raw) return;
-    currentTask = db.asTask(raw);
-    SA.trackTaskGenerated();
-    updateLimitBadge();
-    displayTask(currentTask, true);
-  }
-
-  /**
-   * Renderuje treść zadania CKE z transkrypcji LaTeX.
-   * Obsługuje [RYSUNEK] placeholder + rysunek geometryczny.
-   * Wzory $...$ i $$...$$ renderowane przez KaTeX auto-render.
-   */
-  function renderLatexTask(task, container) {
-    const text   = task.latex || '';
-    const figure = task.figure || null;
-
-    // Bezpieczne escapowanie HTML (zachowuj $ dla KaTeX)
-    function escHtml(s) {
-      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    }
-
-    // Konwertuj tekst z [RYSUNEK] na HTML
-    function textToHtml(s) {
-      // Akapity
-      return s.split('\n\n').map(para => {
-        const lines = para.split('\n').map(escHtml).join('<br>');
-        return `<p class="task-para">${lines}</p>`;
-      }).join('');
-    }
-
-    let html = '';
-    if (figure && text.includes('[RYSUNEK]')) {
-      const parts = text.split('[RYSUNEK]');
-      html += textToHtml(parts[0]);
-      html += `<img src="${figure}" alt="Rysunek do zadania" class="task-figure-img" loading="lazy">`;
-      if (parts[1]) html += textToHtml(parts[1]);
-    } else if (figure) {
-      // Rysunek bez placeholdera — wstaw po tekście
-      html += textToHtml(text);
-      html += `<img src="${figure}" alt="Rysunek do zadania" class="task-figure-img" loading="lazy">`;
-    } else {
-      // Sam tekst
-      html += textToHtml(text.replace('[RYSUNEK]', ''));
-    }
-
-    container.innerHTML = html;
-
-    // Renderuj KaTeX ($$...$$ display, $...$ inline)
-    if (window.renderMathInElement) {
-      renderMathInElement(container, {
-        delimiters: [
-          { left: '$$', right: '$$', display: true  },
-          { left: '$',  right: '$',  display: false }
-        ],
-        throwOnError: false
-      });
-    }
-  }
 
   function displayTask(task, isMatura) {
     hintsUsed      = 0;
@@ -506,29 +389,17 @@
 
     hideLanding();
 
-    // Zadanie CKE zamknięte = ma pole options (A/B/C/D)
-    const isCkeClosed = !!(task.options && Object.keys(task.options).length >= 2);
-    const isClosed    = task.type === 'closed' || isCkeClosed;
+    const isClosed = task.type === 'closed';
     const catId       = task.categoryId ?? task.category;
     const meta        = G.getMeta(catId);
     if (elTaskBadge) elTaskBadge.textContent = meta ? `${meta.icon} ${meta.name}` : (task.categoryName || `Kat. ${catId}`);
     if (elTaskPoints) elTaskPoints.textContent = `${task.points} pkt`;
 
-    // Badge źródła — zawsze ukryty dla CKE
     if (elTaskSource) elTaskSource.classList.add('hidden');
 
     // Wyświetl treść zadania
     if (elTaskStatement) {
-      if (task.latex) {
-        // Transkrypcja LaTeX (preferowana) — tekst + opcjonalny rysunek
-        renderLatexTask(task, elTaskStatement);
-      } else if (task.image) {
-        // Fallback: screenshot (stare zadania bez transkrypcji)
-        elTaskStatement.innerHTML =
-          `<img src="${task.image}" alt="Treść zadania" class="task-img" loading="lazy">`;
-      } else {
-        KR.render(task.statement, elTaskStatement);
-      }
+      KR.render(task.statement, elTaskStatement);
     }
 
     // Zadania zamknięte A/B/C/D
@@ -536,31 +407,12 @@
     if (closedEl) {
       closedEl.classList.toggle('hidden', !isClosed);
       if (isClosed) {
-        if (isCkeClosed) {
-          // Zadanie CKE: opcje z pola task.options
-          ['A', 'B', 'C', 'D'].forEach(opt => {
-            const el = $(`opt-${opt}-text`);
-            if (el) {
-              const txt = task.options[opt] || '';
-              if (task.latex && window.renderMathInElement) {
-                // Transkrybowane zadania — renderuj LaTeX w opcjach
-                el.innerHTML = txt.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-                renderMathInElement(el, {
-                  delimiters: [{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],
-                  throwOnError: false
-                });
-              } else {
-                el.textContent = txt;
-              }
-            }
-          });
-        } else {
-          // Zadanie generatora: opcje z KaTeX
+        {
+          // Opcje A/B/C/D z generatora
           ['A', 'B', 'C', 'D'].forEach(opt => {
             const el = $(`opt-${opt}-text`);
             if (el) KR.render(task.options[opt] || '', el);
           });
-        }
         document.querySelectorAll('.opt-btn').forEach(b => {
           b.classList.remove('selected', 'correct', 'wrong');
           b.disabled = false;
@@ -1471,18 +1323,13 @@
   // === Events ===
   function initEvents() {
     elBtnGenerate?.addEventListener('click', () => {
-      if (currentMode === 'matura') {
-        elMaturaTaskSelect?.value ? loadMaturaTask(elMaturaTaskSelect.value) : loadRandomMatura();
-      } else if (currentMode === 'symulacja') {
+      if (currentMode === 'symulacja') {
         generateExam();
       } else {
         generateTask();
       }
     });
     elBtnStartExam?.addEventListener('click', generateExam);
-    elBtnLoadMatura?.addEventListener('click', () => loadMaturaTask(elMaturaTaskSelect.value));
-    elBtnRandomMatura?.addEventListener('click', loadRandomMatura);
-    elYearSelect?.addEventListener('change', updateMaturaTaskList);
 
     elModeTabs?.addEventListener('click', e => {
       if (e.target.classList.contains('mode-tab')) switchMode(e.target.dataset.mode);
@@ -1493,19 +1340,15 @@
     elBtnSelfCorrect?.addEventListener('click', () => recordResult(true));
     elBtnSelfWrong?.addEventListener('click', () => recordResult(false));
 
-    // Opcje A/B/C/D dla zadań zamkniętych (generatory + CKE)
+    // Opcje A/B/C/D dla zadań zamkniętych
     document.querySelectorAll('.opt-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        const isCkeClosed = !!(currentTask?.options && Object.keys(currentTask.options).length >= 2);
         const isGenClosed = currentTask?.type === 'closed';
-        if (taskAnswered || !currentTask || (!isGenClosed && !isCkeClosed)) return;
+        if (taskAnswered || !currentTask || !isGenClosed) return;
 
-        const selected = btn.dataset.opt;
-        // Poprawna odpowiedź: dla CKE → correctAnswer, dla generatora → correctOption
-        const correctOpt = isCkeClosed
-          ? (currentTask.correctAnswer || null)
-          : (currentTask.correctOption || null);
-        const isCorrect = correctOpt ? selected === correctOpt : false;
+        const selected   = btn.dataset.opt;
+        const correctOpt = currentTask.correctOption || null;
+        const isCorrect  = correctOpt ? selected === correctOpt : false;
         taskAnswered = true;
 
         document.querySelectorAll('.opt-btn').forEach(b => {
@@ -1518,9 +1361,7 @@
         // Pokaż rozwiązanie automatycznie
         elSolutionPanel.classList.remove('hidden');
         if (elAnswerDisplay) {
-          if (isCkeClosed && correctOpt) {
-            elAnswerDisplay.textContent = `Poprawna odpowiedź: ${correctOpt}`;
-          } else if (isGenClosed && correctOpt) {
+          if (isGenClosed && correctOpt) {
             const correctText = currentTask.options[correctOpt] || '';
             KR.render(`**Odpowiedź:** ${correctOpt}: ${correctText}`, elAnswerDisplay);
           } else {
@@ -1560,7 +1401,6 @@
     });
     elBtnNext?.addEventListener('click', () => {
       if (currentMode === 'symulacja') advanceExam();
-      else if (currentMode === 'matura') loadRandomMatura();
       else generateTask();
     });
 
@@ -1592,7 +1432,6 @@
 
       if (e.key === 'Enter' && (!currentTask || taskAnswered)) {
         if (currentMode === 'symulacja') { if (taskAnswered) advanceExam(); else if (!examTasks.length) generateExam(); }
-        else if (currentMode === 'matura') loadRandomMatura();
         else generateTask();
       }
       if ((e.key === 'h' || e.key === 'H') && currentTask && !taskAnswered) showNextHint();
@@ -1772,7 +1611,6 @@
     }
 
     initCategorySelect();
-    initYearSelect();
     initEvents();
     initAuthEvents();
     initUsernameEvents();
