@@ -57,6 +57,7 @@
 <div class="mode-tabs-wrapper">
   <div class="mode-tabs" id="mode-tabs">
     <button class="mode-tab active" data-mode="generator">⚡ Generator zadań</button>
+    <button class="mode-tab" data-mode="matura">📜 Zadania maturalne</button>
     <button class="mode-tab" data-mode="symulacja">🎓 Symulacja matury</button>
     <button class="mode-tab" data-mode="wzory">📐 Karty wzorów</button>
     <button class="mode-tab" data-mode="kalkulator">🔢 Kalkulator</button>
@@ -80,19 +81,12 @@
 <div class="control-panel hidden" id="control-panel-matura">
   <div class="control-panel-inner">
     <div class="control-group">
-      <label class="control-label" for="select-year">Rok matury</label>
-      <select class="select" id="select-year">
-        <option value="0">🎲 Wszystkie lata</option>
+      <label class="control-label" for="select-matura-cat">Kategoria</label>
+      <select class="select" id="select-matura-cat">
+        <option value="0">🎲 Losowa kategoria</option>
       </select>
     </div>
-    <div class="control-group">
-      <label class="control-label" for="select-matura-task">Zadanie</label>
-      <select class="select" id="select-matura-task">
-        <option value="">— wybierz zadanie —</option>
-      </select>
-    </div>
-    <button class="btn btn-primary" id="btn-load-matura">📖 Wczytaj zadanie</button>
-    <button class="btn btn-ghost" id="btn-random-matura">🎲 Losuj</button>
+    <button class="btn btn-primary" id="btn-random-matura">🎲 Losuj zadanie</button>
   </div>
 </div>
 
@@ -495,6 +489,7 @@
 <script src="js/generators/index.js?v=20260521b"></script>
 <script src="js/data/matura_tasks.js?v=20260521b"></script>
 <script src="js/data/matura_tasks_cke.js?v=20260522"></script>
+<script src="js/data/zadania_info_tasks.js?v=20260525" onerror="console.warn('zadania_info_tasks.js not yet generated')"></script>
 <script src="js/core/SupabaseAuth.js?v=20260521b"></script>
 <script src="js/app.js?v=20260521b"></script>
 

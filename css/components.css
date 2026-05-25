@@ -294,6 +294,46 @@
 .task-statement p { margin-bottom: 10px; }
 .task-statement strong { color: var(--text-primary); font-weight: 700; }
 
+/* ===== ZADANIA.INFO INTEGRATION ===== */
+.zi-solution-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, rgba(52,152,219,0.15), rgba(41,128,185,0.1));
+  border: 1px solid rgba(52,152,219,0.35);
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
+  color: #5dade2;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+.zi-solution-link:hover {
+  background: linear-gradient(135deg, rgba(52,152,219,0.25), rgba(41,128,185,0.2));
+  border-color: rgba(52,152,219,0.6);
+  color: #85c1e9;
+}
+.zi-solution-text {
+  white-space: pre-wrap;
+  font-family: var(--font-mono, 'Fira Code', monospace);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  background: rgba(0,0,0,0.15);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-top: 12px;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+}
+.zi-solution-hint {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-style: italic;
+  margin-top: 8px;
+}
+
 /* CKE task image (screenshot fallback) */
 .task-img {
   display: block;

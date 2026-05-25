@@ -7,6 +7,7 @@
   const PT  = window.ProgressTracker;
   const MT  = window.MaturaTasks;
   const CKE = window.MaturaCKE;   // baza zadań CKE (arkusze PDF 2002-2026)
+  const ZI  = window.ZadaniaInfoTasks; // baza zadań maturalnych PR
 
   // === Stan ===
   let currentTask    = null;
@@ -73,6 +74,21 @@
     if (!elCatSelect) return;
     elCatSelect.innerHTML = '<option value="0">🎲 Losowa kategoria</option>';
     const lvl = getMathLevel();
+
+    // PR: pokazuj kategorie zadań maturalnych
+    if (lvl === 'PR' && ZI) {
+      ZI.categories().forEach(cat => {
+        const meta = ZI.catMeta(cat);
+        const count = ZI.getByCategory(cat).length;
+        const opt = document.createElement('option');
+        opt.value = `zi_cat:${cat}`;
+        opt.textContent = `${meta.icon} ${cat} (${count})`;
+        elCatSelect.appendChild(opt);
+      });
+      return;
+    }
+
+    // PP / FIZ → generatory
     const cats = lvl === 'PP' ? G.getAllPP() : lvl === 'FIZ' ? G.getAllFiz() : G.getAll();
     cats.forEach(cat => {
       const opt = document.createElement('option');
@@ -281,9 +297,7 @@
   const $ = id => document.getElementById(id);
   const elCatSelect        = $('select-category');
   const elBtnGenerate      = $('btn-generate');
-  const elYearSelect       = $('select-year');
-  const elMaturaTaskSelect = $('select-matura-task');
-  const elBtnLoadMatura    = $('btn-load-matura');
+  const elMaturaCatSelect  = $('select-matura-cat');
   const elBtnRandomMatura  = $('btn-random-matura');
   const elPanelGen         = $('control-panel-generator');
   const elPanelMatura      = $('control-panel-matura');
@@ -321,31 +335,17 @@
     rebuildCategorySelect();
   }
 
-  function initYearSelect() {
-    const db = CKE || MT;
-    if (!db || !elYearSelect) return;
-    db.getYears().forEach(year => {
-      const count = db.getByYear(year).length;
+  /** Wypełnij select kategorii w panelu matura (ZI categories). */
+  function initMaturaCatSelect() {
+    if (!elMaturaCatSelect || !ZI) return;
+    elMaturaCatSelect.innerHTML = '<option value="0">🎲 Losowa kategoria</option>';
+    ZI.categories().forEach(cat => {
+      const meta = ZI.catMeta(cat);
+      const count = ZI.getByCategory(cat).length;
       const opt = document.createElement('option');
-      opt.value = year;
-      opt.textContent = `Matura ${year} (${count} zadań)`;
-      elYearSelect.appendChild(opt);
-    });
-    updateMaturaTaskList();
-  }
-
-  function updateMaturaTaskList() {
-    const db = CKE || MT;
-    if (!db || !elMaturaTaskSelect) return;
-    const year = parseInt(elYearSelect.value);
-    const tasks = year ? db.getByYear(year) : db.getAll();
-    elMaturaTaskSelect.innerHTML = `<option value="">— wybierz zadanie (${tasks.length}) —</option>`;
-    tasks.forEach(t => {
-      const opt = document.createElement('option');
-      opt.value = t.id;
-      const sesLabel = t.session === 'dodatkowa' ? ' dod.' : '';
-      opt.textContent = `${t.year}${sesLabel} z.${t.number} (${t.points} pkt) — ${t.categoryName}`;
-      elMaturaTaskSelect.appendChild(opt);
+      opt.value = `zi_cat:${cat}`;
+      opt.textContent = `${meta.icon} ${cat} (${count})`;
+      elMaturaCatSelect.appendChild(opt);
     });
   }
 
@@ -396,7 +396,32 @@
     const catVal = elCatSelect.value;
     const _lvl   = getMathLevel();
 
-    // Generatory dla wszystkich poziomów
+    // PR: losuj zadanie maturalne
+    if (_lvl === 'PR' && ZI) {
+      try {
+        let raw;
+        if (catVal === '0') {
+          raw = ZI.random();
+        } else if (catVal.startsWith('zi_cat:')) {
+          const cat = catVal.slice('zi_cat:'.length);
+          raw = ZI.getRandomByCategory(cat);
+        } else {
+          raw = ZI.random();
+        }
+        if (!raw) { showToast('Brak zadań w tej kategorii.', 'warning'); return; }
+        currentTask = ZI.asTask(raw);
+      } catch (e) {
+        console.error('Błąd ZI:', e);
+        showToast('Błąd pobierania zadania.', 'error');
+        return;
+      }
+      SA.trackTaskGenerated();
+      updateLimitBadge();
+      displayTask(currentTask, false);
+      return;
+    }
+
+    // PP / FIZ: generatory proceduralne
     try {
       if (catVal === '0') {
         currentTask = _lvl === 'PP' ? G.generateRandomPP() : _lvl === 'FIZ' ? G.generateRandomFiz() : G.generateRandom();
@@ -414,35 +439,27 @@
     displayTask(currentTask, false);
   }
 
-  async function loadMaturaTask(id) {
-    const db = CKE || MT;
-    if (!db) return;
-    const SA = window.SupabaseAuth;
-    if (!SA?.isLoggedIn()) { openAuthModal(); return; }
-    if (!SA.canGenerateTask()) { openPricingModal('task-limit'); return; }
-
-    const raw = id ? db.getById(id) : db.random();
-    if (!raw) { showToast('Wybierz zadanie z listy.', 'warning'); return; }
-    currentTask = db.asTask(raw);
-    SA.trackTaskGenerated();
-    updateLimitBadge();
-    displayTask(currentTask, true);
-  }
-
   async function loadRandomMatura() {
-    const db = CKE || MT;
-    if (!db) return;
+    if (!ZI) return;
     const SA = window.SupabaseAuth;
     if (!SA?.isLoggedIn()) { openAuthModal(); return; }
     if (!SA.canGenerateTask()) { openPricingModal('task-limit'); return; }
 
-    const year = parseInt(elYearSelect.value);
-    const raw  = year ? db.randomByYear(year) : db.random();
+    const catVal = elMaturaCatSelect?.value || '0';
+    let raw;
+    if (catVal === '0') {
+      raw = ZI.random();
+    } else if (catVal.startsWith('zi_cat:')) {
+      const cat = catVal.slice('zi_cat:'.length);
+      raw = ZI.getRandomByCategory(cat);
+    } else {
+      raw = ZI.random();
+    }
     if (!raw) return;
-    currentTask = db.asTask(raw);
+    currentTask = ZI.asTask(raw);
     SA.trackTaskGenerated();
     updateLimitBadge();
-    displayTask(currentTask, true);
+    displayTask(currentTask, false);
   }
 
   /**
@@ -665,13 +682,28 @@
     hintPenalty = true;
     elSolutionPanel.classList.remove('hidden');
 
-    if (elAnswerDisplay) {
-      const ans  = currentTask.answer;
-      const desc = ans.description || ans.display;
-      KR.render(`**Odpowiedź:** ${desc.includes('$') ? desc : `$${ans.display}$`}`, elAnswerDisplay);
+    // Zadanie ZI — pokaż rozwiązanie jako tekst
+    if (currentTask.solution_raw) {
+      if (elAnswerDisplay) elAnswerDisplay.innerHTML = '';
+      if (elSolutionSteps) {
+        const pre = document.createElement('div');
+        pre.className = 'zi-solution-text';
+        pre.textContent = currentTask.solution_raw;
+        elSolutionSteps.innerHTML = '';
+        elSolutionSteps.appendChild(pre);
+      }
+    } else if (currentTask.solution) {
+      if (elAnswerDisplay) {
+        const ans  = currentTask.answer;
+        const desc = ans?.description || ans?.display || '';
+        if (desc) KR.render(`**Odpowiedź:** ${desc.includes('$') ? desc : `$${ans.display}$`}`, elAnswerDisplay);
+      }
+      if (elSolutionSteps) KR.renderSolution(currentTask.solution, elSolutionSteps);
+    } else {
+      if (elAnswerDisplay) elAnswerDisplay.innerHTML = '';
+      if (elSolutionSteps) elSolutionSteps.innerHTML = '<p style="color:var(--text-muted);font-style:italic">Brak rozwiązania.</p>';
     }
 
-    if (elSolutionSteps) KR.renderSolution(currentTask.solution, elSolutionSteps);
     elBtnShowSolution?.classList.add('hidden');
 
     // Penalty: ukryj "Poprawnie", zostaw tylko "Nie rozwiązałem"
@@ -1471,18 +1503,14 @@
   // === Events ===
   function initEvents() {
     elBtnGenerate?.addEventListener('click', () => {
-      if (currentMode === 'matura') {
-        elMaturaTaskSelect?.value ? loadMaturaTask(elMaturaTaskSelect.value) : loadRandomMatura();
-      } else if (currentMode === 'symulacja') {
+      if (currentMode === 'symulacja') {
         generateExam();
       } else {
         generateTask();
       }
     });
     elBtnStartExam?.addEventListener('click', generateExam);
-    elBtnLoadMatura?.addEventListener('click', () => loadMaturaTask(elMaturaTaskSelect.value));
     elBtnRandomMatura?.addEventListener('click', loadRandomMatura);
-    elYearSelect?.addEventListener('change', updateMaturaTaskList);
 
     elModeTabs?.addEventListener('click', e => {
       if (e.target.classList.contains('mode-tab')) switchMode(e.target.dataset.mode);
@@ -1527,7 +1555,17 @@
             elAnswerDisplay.textContent = '';
           }
         }
-        if (elSolutionSteps) KR.renderSolution(currentTask.solution, elSolutionSteps);
+        if (elSolutionSteps) {
+          if (currentTask.solution_raw) {
+            const pre = document.createElement('div');
+            pre.className = 'zi-solution-text';
+            pre.textContent = currentTask.solution_raw;
+            elSolutionSteps.innerHTML = '';
+            elSolutionSteps.appendChild(pre);
+          } else {
+            KR.renderSolution(currentTask.solution, elSolutionSteps);
+          }
+        }
         elBtnShowSolution?.classList.add('hidden');
 
         const catKey = currentTask.categoryId ?? currentTask.category;
@@ -1772,7 +1810,7 @@
     }
 
     initCategorySelect();
-    initYearSelect();
+    initMaturaCatSelect();
     initEvents();
     initAuthEvents();
     initUsernameEvents();
