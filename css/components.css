@@ -315,17 +315,43 @@
   color: #85c1e9;
 }
 .zi-solution-text {
-  white-space: pre-wrap;
-  font-family: var(--font-mono, 'Fira Code', monospace);
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--text-secondary);
+  white-space: normal;
+  font-family: var(--font-base, 'Inter', sans-serif);
+  font-size: 14px;
+  line-height: 2;
+  color: var(--text-primary);
   background: rgba(0,0,0,0.15);
   border-radius: var(--radius-md);
-  padding: 16px;
+  padding: 16px 20px;
   margin-top: 12px;
   overflow-x: auto;
   border: 1px solid var(--border);
+}
+
+/* Obrazki wzorów matematycznych (GIF-y z zadania.info) */
+.zi-math-img {
+  display: inline-block;
+  vertical-align: middle;
+  max-height: 2.2em;
+  margin: 0 2px;
+  /* Odwróć kolory żeby były czytelne na ciemnym tle */
+  filter: invert(1) brightness(0.9);
+}
+
+/* Jeśli strona jest w jasnym motywie — nie odwracaj */
+@media (prefers-color-scheme: light) {
+  .zi-math-img { filter: none; }
+}
+
+/* Treść zadania z obrazkami */
+#task-statement .zi-math-img {
+  max-height: 2.5em;
+}
+
+/* Rozwiązanie — większe obrazki */
+.zi-solution-text .zi-math-img {
+  max-height: 2em;
+  display: inline-block;
 }
 .zi-solution-hint {
   color: var(--text-muted);

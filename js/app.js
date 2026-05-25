@@ -543,6 +543,9 @@
         // Fallback: screenshot (stare zadania bez transkrypcji)
         elTaskStatement.innerHTML =
           `<img src="${task.image}" alt="Treść zadania" class="task-img" loading="lazy">`;
+      } else if (task.statement_html) {
+        // Zadania maturalne z obrazkami wzorów (HTML z lokalnymi GIF-ami)
+        elTaskStatement.innerHTML = task.statement_html;
       } else {
         KR.render(task.statement, elTaskStatement);
       }
@@ -682,8 +685,13 @@
     hintPenalty = true;
     elSolutionPanel.classList.remove('hidden');
 
-    // Zadanie ZI — pokaż rozwiązanie jako tekst
-    if (currentTask.solution_raw) {
+    // Zadanie ZI — pokaż rozwiązanie z obrazkami
+    if (currentTask.solution_html) {
+      if (elAnswerDisplay) elAnswerDisplay.innerHTML = '';
+      if (elSolutionSteps) {
+        elSolutionSteps.innerHTML = `<div class="zi-solution-text">${currentTask.solution_html}</div>`;
+      }
+    } else if (currentTask.solution_raw) {
       if (elAnswerDisplay) elAnswerDisplay.innerHTML = '';
       if (elSolutionSteps) {
         const pre = document.createElement('div');
@@ -1556,7 +1564,9 @@
           }
         }
         if (elSolutionSteps) {
-          if (currentTask.solution_raw) {
+          if (currentTask.solution_html) {
+            elSolutionSteps.innerHTML = `<div class="zi-solution-text">${currentTask.solution_html}</div>`;
+          } else if (currentTask.solution_raw) {
             const pre = document.createElement('div');
             pre.className = 'zi-solution-text';
             pre.textContent = currentTask.solution_raw;
