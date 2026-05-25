@@ -2,4 +2,6 @@
 pr_response.json
 *.pyc
 __pycache__/
-.claude/
+scraper/cache_tasks.json
+scraper/cache_images.json
+scraper/scrape_log.txt
