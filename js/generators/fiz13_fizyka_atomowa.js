@@ -120,56 +120,136 @@ Oblicz $v_{\\max}$ — maksymalną prędkość fotoelektronów wybitych z metalu
     };
   }
 
-  // Schemat C: Prawo Malusa — polaryzatory (2025 zad.9)
+  // Schemat C: Prawo Malusa — trzy polaryzatory (trudniejsza wersja, 4 pkt)
   function schemeC() {
-    const theta = M.choose([30, 45, 60]); // kąt między polaryzatorami
-    const I0 = M.choose([100, 200, 400]); // natężenie niespolaryzowanego w / m²
+    const theta1 = M.choose([30, 45, 60]); // kąt: polaryzator 1→2
+    const theta2 = M.choose([30, 45, 60]); // kąt: polaryzator 2→3
+    const I0 = M.choose([100, 200, 400]);
 
-    // Po pierwszym polaryzatorze: I1 = I0/2
-    const I1 = I0 / 2;
-    // Po drugim (prawo Malusa): I2 = I1 * cos²(θ)
-    const cos2 = Math.round(Math.pow(Math.cos(theta * Math.PI / 180), 2) * 1000) / 1000;
-    const I2 = Math.round(I1 * cos2 * 100) / 100;
+    const I1   = I0 / 2;
+    const cos2_1 = Math.round(Math.pow(Math.cos(theta1 * Math.PI / 180), 2) * 1000) / 1000;
+    const cos2_2 = Math.round(Math.pow(Math.cos(theta2 * Math.PI / 180), 2) * 1000) / 1000;
+    const I2   = Math.round(I1 * cos2_1 * 1000) / 1000;
+    const I3   = Math.round(I2 * cos2_2 * 1000) / 1000;
 
     return {
       id: M.makeId('fiz13_malus'),
       category: 'fiz13',
       categoryName: 'Fizyka atomowa',
       type: 'fizyka_atomowa_polaryzacja',
-      points: 2,
-      params: { theta, I0, I1, cos2, I2 },
-      statement: `Niespolaryzowane światło o natężeniu $I_0 = ${I0}\\,\\text{W/m}^2$ przechodzi przez dwa polaryzatory liniowe.
-Kąt między osiami polaryzacji wynosi $\\theta = ${theta}°$.
+      points: 4,
+      params: { theta1, theta2, I0, I1, I2, I3, cos2_1, cos2_2 },
+      statement: `Niespolaryzowane światło o natężeniu $I_0 = ${I0}\\,\\text{W/m}^2$
+przechodzi kolejno przez **trzy** polaryzatory liniowe.
+Kąt między osiami polaryzatora 1 i 2 wynosi $\\theta_1 = ${theta1}°$,
+a między osiami polaryzatora 2 i 3 wynosi $\\theta_2 = ${theta2}°$.
 
-Oblicz $I_2$ — natężenie światła po przejściu przez oba polaryzatory.`,
+a) Oblicz natężenie $I_3$ po przejściu przez wszystkie trzy polaryzatory.
+b) Co się stanie z natężeniem światła, jeśli usuniesz środkowy polaryzator (zostają tylko 1 i 3)?`,
       answer: {
-        type: 'numeric',
-        display: `I_2 = \\frac{I_0}{2}\\cos^2${theta}° = ${I2}\\,\\text{W/m}^2`,
-        description: `Po polaryzatorze 1: I₁ = I₀/2 = ${I1} W/m². Po polaryzatorze 2: I₂ = I₁·cos²(${theta}°) = ${I2} W/m².`
+        type: 'multipart',
+        display: `I_3 = ${I3}\\,\\text{W/m}^2`,
+        description: `I₁ = ${I1}, I₂ = ${I2}, I₃ = ${I3} W/m². Bez środkowego: I = I₀/2·cos²(${theta1+theta2}°).`
       },
       hints: [
-        { level: 1, text: 'Po pierwszym polaryzatorze natężenie spada o połowę: $I_1 = I_0/2$ (niespolaryzowane → spolaryzowane).' },
-        { level: 2, text: `Prawo Malusa: $I_2 = I_1\\cos^2\\theta = ${I1}\\cdot\\cos^2${theta}°$.` }
+        { level: 1, text: 'Po pierwszym polaryzatorze: $I_1 = I_0/2$ (zawsze, dla niespolaryzowanego).' },
+        { level: 2, text: `Prawo Malusa kolejno: $I_2 = I_1\\cos^2${theta1}°$, $I_3 = I_2\\cos^2${theta2}°$.` },
+        { level: 3, text: `Bez środkowego: światło po polaryzatorze 1 pada na polaryzator 3 pod kątem $${theta1}°+${theta2}°= ${theta1+theta2}°$.` }
       ],
       solution: [
         {
           step: 1,
-          title: 'Po pierwszym polaryzatorze',
-          content: `I_1 = \\frac{I_0}{2} = \\frac{${I0}}{2} = ${I1}\\,\\text{W/m}^2`,
-          explanation: 'Polaryzator przepuszcza tylko jedną składową, redukując natężenie o połowę.'
+          title: 'Natężenie po kolejnych polaryzatorach',
+          content: `I_1 = \\frac{${I0}}{2} = ${I1}\\,\\text{W/m}^2 \\quad I_2 = ${I1}\\cdot\\cos^2${theta1}° = ${I1}\\cdot${cos2_1} = ${I2}\\,\\text{W/m}^2 \\quad I_3 = ${I2}\\cdot\\cos^2${theta2}° = ${I2}\\cdot${cos2_2} = ${I3}\\,\\text{W/m}^2`,
+          explanation: 'Stosujemy prawo Malusa na każdym etapie.'
         },
         {
           step: 2,
-          title: 'Po drugim polaryzatorze (prawo Malusa)',
-          content: `I_2 = I_1\\cos^2${theta}° = ${I1}\\cdot${cos2} = ${I2}\\,\\text{W/m}^2`,
-          explanation: ''
+          title: 'Efekt usunięcia środkowego polaryzatora',
+          content: `I' = \\frac{I_0}{2}\\cos^2(${theta1}°+${theta2}°) = \\frac{${I0}}{2}\\cos^2(${theta1+theta2}°)`,
+          explanation: `Bez środkowego, światło spolaryzowane po 1. polaryzatorze pada na 3. pod kątem (${theta1}+${theta2})°. Natężenie na ogół będzie inne niż I₃.`
+        }
+      ]
+    };
+  }
+
+  // Schemat D: Efekt fotoelektryczny — napięcie hamowania i częstotliwość graniczna (co roku na maturze!)
+  function schemeD() {
+    const metals = [
+      { name: 'cynk',    W_eV: 4.3 },
+      { name: 'sód',     W_eV: 2.3 },
+      { name: 'potas',   W_eV: 2.2 },
+      { name: 'cez',     W_eV: 2.0 },
+      { name: 'miedź',   W_eV: 4.5 },
+    ];
+    const metal = M.choose(metals);
+    const W_eV  = metal.W_eV;
+    const W_J   = W_eV * eV;
+
+    // Częstotliwość graniczna: W = h·f₀ → f₀ = W/h
+    const f0_Hz = W_J / h;
+    const f0_PHz = Math.round(f0_Hz / 1e15 * 1000) / 1000;  // ×10¹⁵ Hz
+
+    // Padające światło: f > f₀ (np. 1.5× f₀)
+    const factor = M.choose([1.5, 2.0, 2.5]);
+    const f_Hz   = factor * f0_Hz;
+    const f_PHz  = Math.round(f_Hz / 1e15 * 1000) / 1000;
+
+    // Energia kinetyczna fotoelektronów: Ek = hf - W
+    const Ek_eV  = Math.round((h * f_Hz / eV - W_eV) * 100) / 100;
+
+    // Napięcie hamowania: eU = Ek → U = Ek/e [V = eV/e]
+    const U_stop_V = Math.round(Ek_eV * 100) / 100;  // numerycznie Ek[eV] = U[V]
+
+    return {
+      id: M.makeId('fiz13_napiecie_hamowania'),
+      category: 'fiz13',
+      categoryName: 'Fizyka atomowa',
+      type: 'fizyka_atomowa_napiecie_hamowania',
+      points: 5,
+      params: { metal: metal.name, W_eV, f0_PHz, f_PHz, Ek_eV, U_stop_V, factor },
+      statement: `Na powierzchnię ${metal.name} (praca wyjścia $W = ${W_eV}\\,\\text{eV}$) pada światło o częstotliwości $f = ${f_PHz}\\cdot10^{15}\\,\\text{Hz}$.
+Dane: $h = 6{,}626\\cdot10^{-34}\\,\\text{J·s}$, $e = 1{,}6\\cdot10^{-19}\\,\\text{C}$.
+
+a) Oblicz częstotliwość graniczną $f_0$ efektu fotoelektrycznego dla tego metalu.
+b) Oblicz maksymalną energię kinetyczną wybitych fotoelektronów.
+c) Jakie napięcie hamujące $U_h$ należy przyłożyć, aby zatrzymać wszystkie fotoelektrony?`,
+      answer: {
+        type: 'multipart',
+        display: `f_0 = ${f0_PHz}\\cdot10^{15}\\,\\text{Hz},\\quad E_k = ${Ek_eV}\\,\\text{eV},\\quad U_h = ${U_stop_V}\\,\\text{V}`,
+        description: `f₀ = ${f0_PHz}×10¹⁵ Hz. Ek_max = ${Ek_eV} eV. Napięcie hamowania: ${U_stop_V} V.`
+      },
+      hints: [
+        { level: 1, text: `Częstotliwość graniczna: $W = hf_0 \\implies f_0 = W/h$.` },
+        { level: 2, text: `Równanie Einsteina: $E_k = hf - W$. Przelicz W do dżuli: $W = ${W_eV}\\,\\text{eV}\\cdot1{,}6\\cdot10^{-19}\\,\\text{J/eV}$.` },
+        { level: 3, text: `Napięcie hamowania: $eU_h = E_k \\implies U_h = E_k/e$. W praktyce: $U_h[\\text{V}] = E_k[\\text{eV}]$.` }
+      ],
+      solution: [
+        {
+          step: 1,
+          title: 'Częstotliwość graniczna',
+          content: `f_0 = \\frac{W}{h} = \\frac{${W_eV}\\cdot1{,}6\\cdot10^{-19}}{6{,}626\\cdot10^{-34}} \\approx ${f0_PHz}\\cdot10^{15}\\,\\text{Hz}`,
+          explanation: 'Poniżej f₀ foton nie ma wystarczającej energii, by wybić elektron.'
+        },
+        {
+          step: 2,
+          title: 'Maksymalna energia kinetyczna',
+          content: `E_k = hf - W = h\\cdot${f_PHz}\\cdot10^{15} - ${W_eV}\\cdot e \\approx ${Ek_eV}\\,\\text{eV}`,
+          explanation: 'Równanie Einsteina dla efektu fotoelektrycznego.'
+        },
+        {
+          step: 3,
+          title: 'Napięcie hamowania',
+          content: `eU_h = E_k \\implies U_h = \\frac{E_k}{e} = \\frac{${Ek_eV}\\cdot e}{e} = ${U_stop_V}\\,\\text{V}`,
+          explanation: 'Elektron z energią Ek zostanie zatrzymany przez pole elektryczne o napięciu U_h = E_k[eV] woltów.'
         }
       ]
     };
   }
 
   function generate() {
-    return M.choose([schemeA, schemeB, schemeC])();
+    // schemeD (napięcie hamowania) — ważny temat, zwiększona waga
+    return M.choose([schemeA, schemeB, schemeC, schemeD, schemeD])();
   }
 
   return { generate };
