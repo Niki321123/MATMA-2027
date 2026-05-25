@@ -7,7 +7,16 @@
   const PT  = window.ProgressTracker;
   const MT  = window.MaturaTasks;
   const CKE = window.MaturaCKE;   // baza zadań CKE (arkusze PDF 2002-2026)
-  const ZI  = window.ZadaniaInfoTasks; // baza zadań maturalnych PR
+  const ZI   = window.ZadaniaInfoTasks;   // baza zadań maturalnych PR (rozszerzona)
+  const ZIPP = window.ZadaniaInfoTasksPP; // baza zadań maturalnych PP (podstawowa)
+
+  // Zwraca aktywną bazę ZI dla bieżącego poziomu
+  function getZI() {
+    const lvl = getMathLevel();
+    if (lvl === 'PP' && ZIPP) return ZIPP;
+    if (lvl === 'PR' && ZI)   return ZI;
+    return null;
+  }
 
   // === Stan ===
   let currentTask    = null;
@@ -51,6 +60,7 @@
   function setMathLevel(level) {
     localStorage.setItem('mathLevel', level);
     rebuildCategorySelect();
+    initMaturaCatSelect();
     updateLogoSubtitle();
     updateLevelRow();
   }
@@ -75,11 +85,12 @@
     elCatSelect.innerHTML = '<option value="0">🎲 Losowa kategoria</option>';
     const lvl = getMathLevel();
 
-    // PR: pokazuj kategorie zadań maturalnych
-    if (lvl === 'PR' && ZI) {
-      ZI.categories().forEach(cat => {
-        const meta = ZI.catMeta(cat);
-        const count = ZI.getByCategory(cat).length;
+    // PR/PP: pokazuj kategorie zadań maturalnych
+    const zi = getZI();
+    if (zi) {
+      zi.categories().forEach(cat => {
+        const meta = zi.catMeta(cat);
+        const count = zi.getByCategory(cat).length;
         const opt = document.createElement('option');
         opt.value = `zi_cat:${cat}`;
         opt.textContent = `${meta.icon} ${cat} (${count})`;
@@ -337,11 +348,12 @@
 
   /** Wypełnij select kategorii w panelu matura (ZI categories). */
   function initMaturaCatSelect() {
-    if (!elMaturaCatSelect || !ZI) return;
+    const zi = getZI();
+    if (!elMaturaCatSelect || !zi) return;
     elMaturaCatSelect.innerHTML = '<option value="0">🎲 Losowa kategoria</option>';
-    ZI.categories().forEach(cat => {
-      const meta = ZI.catMeta(cat);
-      const count = ZI.getByCategory(cat).length;
+    zi.categories().forEach(cat => {
+      const meta = zi.catMeta(cat);
+      const count = zi.getByCategory(cat).length;
       const opt = document.createElement('option');
       opt.value = `zi_cat:${cat}`;
       opt.textContent = `${meta.icon} ${cat} (${count})`;
@@ -396,20 +408,21 @@
     const catVal = elCatSelect.value;
     const _lvl   = getMathLevel();
 
-    // PR: losuj zadanie maturalne
-    if (_lvl === 'PR' && ZI) {
+    // PR/PP: losuj zadanie maturalne z bazy ZI
+    const zi = getZI();
+    if (zi) {
       try {
         let raw;
         if (catVal === '0') {
-          raw = ZI.random();
+          raw = zi.random();
         } else if (catVal.startsWith('zi_cat:')) {
           const cat = catVal.slice('zi_cat:'.length);
-          raw = ZI.getRandomByCategory(cat);
+          raw = zi.getRandomByCategory(cat);
         } else {
-          raw = ZI.random();
+          raw = zi.random();
         }
         if (!raw) { showToast('Brak zadań w tej kategorii.', 'warning'); return; }
-        currentTask = ZI.asTask(raw);
+        currentTask = zi.asTask(raw);
       } catch (e) {
         console.error('Błąd ZI:', e);
         showToast('Błąd pobierania zadania.', 'error');
@@ -421,7 +434,7 @@
       return;
     }
 
-    // PP / FIZ: generatory proceduralne
+    // FIZ: generatory proceduralne
     try {
       if (catVal === '0') {
         currentTask = _lvl === 'PP' ? G.generateRandomPP() : _lvl === 'FIZ' ? G.generateRandomFiz() : G.generateRandom();
@@ -440,7 +453,8 @@
   }
 
   async function loadRandomMatura() {
-    if (!ZI) return;
+    const zi = getZI();
+    if (!zi) return;
     const SA = window.SupabaseAuth;
     if (!SA?.isLoggedIn()) { openAuthModal(); return; }
     if (!SA.canGenerateTask()) { openPricingModal('task-limit'); return; }
@@ -448,15 +462,15 @@
     const catVal = elMaturaCatSelect?.value || '0';
     let raw;
     if (catVal === '0') {
-      raw = ZI.random();
+      raw = zi.random();
     } else if (catVal.startsWith('zi_cat:')) {
       const cat = catVal.slice('zi_cat:'.length);
-      raw = ZI.getRandomByCategory(cat);
+      raw = zi.getRandomByCategory(cat);
     } else {
-      raw = ZI.random();
+      raw = zi.random();
     }
     if (!raw) return;
-    currentTask = ZI.asTask(raw);
+    currentTask = zi.asTask(raw);
     SA.trackTaskGenerated();
     updateLimitBadge();
     displayTask(currentTask, false);

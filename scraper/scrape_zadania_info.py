@@ -1,10 +1,13 @@
 """
-Scraper zadania.info — matura rozszerzona, poziom średni i trudny (wszystkie zadania)
-URL: https://zadania.info/d1/1/5_3_1_0_0/{strona}
+Scraper zadania.info — matura rozszerzona i podstawowa, poziom średni i trudny.
 
-Pobiera zadania i rozwiązania:
-- Obrazki wzorów i rysunków pobierane lokalnie do js/data/zi_images/
-- Filtrowanie według podstawy programowej matury PR
+Użycie:
+  python scrape_zadania_info.py              # PR (rozszerzona), 197 stron
+  python scrape_zadania_info.py --level pp   # PP (podstawowa), 190 stron
+  python scrape_zadania_info.py --test       # 1 strona, 3 zadania (szybki test)
+
+Obrazki wzorów pobierane lokalnie do js/data/zi_images/.
+Filtrowanie wg podstawy programowej z Informatora CKE 2024.
 """
 import sys
 import time
@@ -14,17 +17,14 @@ import hashlib
 import requests
 from bs4 import BeautifulSoup
 from pathlib import Path
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urlparse
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-BASE_URL    = "https://zadania.info"
-LIST_URL    = BASE_URL + "/d1/1/5_3/{page}"          # rozszerzony, średni+trudny, wszystkie → 197 stron
-TASK_URL    = BASE_URL + "/d1/{task_id}"
-OUTPUT_FILE = Path(__file__).parent.parent / "js" / "data" / "zadania_info_tasks.js"
-CACHE_FILE  = Path(__file__).parent / "cache_tasks.json"
-IMG_DIR     = Path(__file__).parent.parent / "js" / "data" / "zi_images"
-IMG_CACHE   = Path(__file__).parent / "cache_images.json"   # url → lokalny plik
+BASE_URL  = "https://zadania.info"
+TASK_URL  = BASE_URL + "/d1/{task_id}"
+IMG_DIR   = Path(__file__).parent.parent / "js" / "data" / "zi_images"
+IMG_CACHE = Path(__file__).parent / "cache_images.json"
 
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0',
@@ -33,44 +33,97 @@ HEADERS = {
     'Referer': BASE_URL,
 }
 
-DELAY_LIST  = 1.5   # sekund między stronami listy
-DELAY_TASK  = 0.8   # sekund między zadaniami
-DELAY_IMG   = 0.1   # sekund między obrazkami
-TOTAL_PAGES = 197
+DELAY_LIST  = 1.5
+DELAY_TASK  = 0.8
+DELAY_IMG   = 0.1
 
+# ── Konfiguracja poziomów ─────────────────────────────────────────────────────
+LEVEL_CONFIG = {
+    'pr': {
+        'list_url':    BASE_URL + "/d1/1/5_3/{page}",   # rozszerzony, średni+trudny → 197 stron
+        'total_pages': 197,
+        'output_file': Path(__file__).parent.parent / "js" / "data" / "zadania_info_tasks.js",
+        'cache_file':  Path(__file__).parent / "cache_tasks.json",
+        'js_var':      'ZadaniaInfoTasks',
+        'label':       'rozszerzona',
+        'points':      4,
+    },
+    'pp': {
+        'list_url':    BASE_URL + "/d1/1/5_2/{page}",   # podstawowy, średni+trudny → 190 stron
+        'total_pages': 190,
+        'output_file': Path(__file__).parent.parent / "js" / "data" / "zadania_info_tasks_pp.js",
+        'cache_file':  Path(__file__).parent / "cache_tasks.json",  # wspólny cache zadań
+        'js_var':      'ZadaniaInfoTasksPP',
+        'label':       'podstawowa',
+        'points':      2,
+    },
+}
 
-# ── Podstawa programowa matury PR (wymagania z Informatora CKE 2024) ──────────
-# Tematy na maturze rozszerzonej:
-#   I/II/III/IV  : Liczby rzeczywiste, wyrażenia algebraiczne, równania i nierówności
-#   V/VI/VII/XIII: Funkcje, ciągi, trygonometria, optymalizacja i rachunek różniczkowy
-#   VIII/IX/X    : Planimetria, geometria analityczna, stereometria
-#   XI/XII       : Kombinatoryka, rachunek prawdopodobieństwa i statystyka
-MATURA_CATEGORIES = {
-    # Kategoria zadania.info → czy jest w programie matury PR
-    'Całki':                  True,   # rachunek całkowy
-    'Ciągi':                  True,   # ciągi (arytm., geom., granica)
-    'Dowody':                 True,   # dowody indukcyjne, uzasadnienia
-    'Funkcje':                True,   # ogólna teoria funkcji + szczegółowe
-    'Geometria':              True,   # planimetria + analityczna + stereometria
+# ── Podstawa programowa matury PR (Informator CKE 2024) ──────────────────────
+# Tematy: Liczby/Wyrażenia/Równania, Funkcje/Ciągi/Tryg/Optymalizacja/Pochodne,
+#         Planimetria/Geometria analityczna/Stereometria, Kombinatoryka/Prawdop./Statystyka
+MATURA_CAT_PR = {
+    'Całki':                  True,
+    'Ciągi':                  True,
+    'Dowody':                 True,
+    'Funkcje':                True,
+    'Geometria':              True,
     'Geometria analityczna':  True,
     'Planimetria':            True,
     'Stereometria':           True,
-    'Kombinatoryka':          True,   # permutacje, kombinacje, symbol Newtona
-    'Liczby':                 True,   # liczby rzeczywiste, całkowite, NWD, NWW
-    'Logarytmy':              True,   # funkcja logarytmiczna
-    'Optymalizacja':          True,   # zadania optymalizacyjne (pochodna)
-    'Pochodne':               True,   # rachunek różniczkowy
-    'Potęgi i pierwiastki':   True,   # wyrażenia algebraiczne
-    'Prawdopodobieństwo':     True,   # rachunek prawdopodobieństwa
-    'Równania i nierówności': True,   # wszystkie typy równań z programu PR
-    'Statystyka':             True,   # statystyka opisowa
-    'Trygonometria':          True,   # funkcje trygonometryczne
-    'Wielomiany':             True,   # wielomiany, twierdzenie Bezout
-    # Granice i ciągłość — zostawiamy, granice ciągów są w programie
+    'Kombinatoryka':          True,
+    'Liczby':                 True,
+    'Logarytmy':              True,
+    'Optymalizacja':          True,
+    'Pochodne':               True,
+    'Potęgi i pierwiastki':   True,
+    'Prawdopodobieństwo':     True,
+    'Równania i nierówności': True,
+    'Statystyka':             True,
+    'Trygonometria':          True,
+    'Wielomiany':             True,
     'Granice i ciągłość':     True,
-    # Inne — próbujemy odfiltrować po słowach kluczowych
-    'Inne':                   None,   # None = sprawdź słowa kluczowe
+    'Inne':                   None,
 }
+
+# ── Podstawa programowa matury PP (Informator CKE 2024) ──────────────────────
+# Tematy: Liczby/Wyrażenia/Równania, Funkcje/Ciągi/Optymalizacja (BEZ POCHODNYCH!),
+#         Trygonometria(podstawy)/Planimetria/Geometria analityczna/Stereometria,
+#         Kombinatoryka/Prawdopodobieństwo/Statystyka
+MATURA_CAT_PP = {
+    'Całki':                  False,  # NIE ma w PP
+    'Ciągi':                  True,   # arytmetyczny i geometryczny (podstawy)
+    'Dowody':                 True,   # proste uzasadnienia
+    'Funkcje':                True,   # liniowa, kwadratowa, wykładnicza (podstawy)
+    'Geometria':              True,
+    'Geometria analityczna':  True,   # prosta na płaszczyźnie
+    'Planimetria':            True,
+    'Stereometria':           True,
+    'Kombinatoryka':          True,   # symbol Newtona, wariacje
+    'Liczby':                 True,
+    'Logarytmy':              True,   # podstawy logarytmów
+    'Optymalizacja':          True,   # bez pochodnych (algebraiczne/geometryczne)
+    'Pochodne':               False,  # NIE ma w PP
+    'Potęgi i pierwiastki':   True,
+    'Prawdopodobieństwo':     True,
+    'Równania i nierówności': True,
+    'Statystyka':             True,
+    'Trygonometria':          True,   # sin/cos/tg w trójkącie + jedostkowy okrąg
+    'Wielomiany':             True,   # tylko stopień ≤ 2 (praktycznie)
+    'Granice i ciągłość':     False,  # NIE ma w PP
+    'Inne':                   None,
+}
+
+# Aktywna konfiguracja (ustawiana przez argparse)
+_LEVEL = 'pr'
+MATURA_CATEGORIES = MATURA_CAT_PR
+LIST_URL    = LEVEL_CONFIG['pr']['list_url']
+OUTPUT_FILE = LEVEL_CONFIG['pr']['output_file']
+CACHE_FILE  = LEVEL_CONFIG['pr']['cache_file']
+TOTAL_PAGES = LEVEL_CONFIG['pr']['total_pages']
+JS_VAR      = LEVEL_CONFIG['pr']['js_var']
+JS_LABEL    = LEVEL_CONFIG['pr']['label']
+JS_POINTS   = LEVEL_CONFIG['pr']['points']
 
 # Słowa kluczowe POZA podstawą — jeśli wystąpią w treści, odrzuć zadanie
 EXCLUDE_KEYWORDS = [
@@ -400,6 +453,7 @@ def fetch(url: str, retries=3):
 def run(pages_to_scrape=None, fetch_solutions=True, max_tasks=None, download_imgs=True):
     load_img_cache()
     pages = pages_to_scrape or list(range(1, TOTAL_PAGES + 1))
+    print(f"Poziom: {JS_LABEL.upper()} | URL: {LIST_URL.format(page='N')} | Stron: {TOTAL_PAGES}")
 
     cache = {}
     if CACHE_FILE.exists():
@@ -517,10 +571,10 @@ def write_js_file(tasks: list[dict]):
     js_tasks = to_js_format(tasks)
     tasks_json = json.dumps(js_tasks, ensure_ascii=False, indent=2)
 
-    js_content = f"""// Zadania maturalne — poziom rozszerzony, trudność średnia i trudna
+    js_content = f"""// Zadania maturalne — poziom {JS_LABEL}, trudność średnia i trudna
 // Wygenerowano automatycznie. Zadań po filtrowaniu: {len(js_tasks)}
 
-window.ZadaniaInfoTasks = (() => {{
+window.{JS_VAR} = (() => {{
   const TASKS = {tasks_json};
 
   const CAT_META = {{
@@ -570,6 +624,7 @@ window.ZadaniaInfoTasks = (() => {{
       answer:         raw.answer,
       hints:          raw.hints,
       type:           'open',
+      level:          '{JS_LABEL}',
     }};
   }}
 
@@ -589,22 +644,38 @@ window.ZadaniaInfoTasks = (() => {{
   }};
 }})();
 """
-    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
-    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+    out = OUTPUT_FILE
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with open(out, 'w', encoding='utf-8') as f:
         f.write(js_content)
-    print(f"\n✅ Zapisano {len(js_tasks)} zadań → {OUTPUT_FILE}")
+    print(f"\n✅ Zapisano {len(js_tasks)} zadań → {out}")
 
 
 # ── Uruchomienie ───────────────────────────────────────────────────────────────
 if __name__ == '__main__':
     import argparse
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description='Scraper zadania.info — PR i PP')
+    parser.add_argument('--level',        choices=['pr', 'pp'], default='pr',
+                        help='Poziom matury: pr=rozszerzona (domyślnie), pp=podstawowa')
     parser.add_argument('--pages',        type=int, nargs='+')
     parser.add_argument('--no-solutions', action='store_true')
     parser.add_argument('--no-images',    action='store_true')
     parser.add_argument('--max-tasks',    type=int)
     parser.add_argument('--test',         action='store_true', help='1 strona, 3 zadania')
     args = parser.parse_args()
+
+    # Ustaw konfigurację poziomu — nadpisz zmienne modułowe przez sys.modules
+    import sys as _sys
+    _mod = _sys.modules[__name__]
+    cfg = LEVEL_CONFIG[args.level]
+    _mod.MATURA_CATEGORIES = MATURA_CAT_PR if args.level == 'pr' else MATURA_CAT_PP
+    _mod.LIST_URL    = cfg['list_url']
+    _mod.OUTPUT_FILE = cfg['output_file']
+    _mod.CACHE_FILE  = cfg['cache_file']
+    _mod.TOTAL_PAGES = cfg['total_pages']
+    _mod.JS_VAR      = cfg['js_var']
+    _mod.JS_LABEL    = cfg['label']
+    _mod.JS_POINTS   = cfg['points']
 
     if args.test:
         pages, max_tasks = [1], 3
