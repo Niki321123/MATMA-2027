@@ -299,6 +299,11 @@ def extract_text_with_math(element) -> str:
             alt = child.get('alt', '').strip()
             if alt:
                 parts.append(f' [{alt}] ')
+            # zadania.info używa niestandardowego </img>, przez co BeautifulSoup
+            # traktuje następne elementy jako dzieci tagu <img>.
+            # Rekurencyjnie przetwarzamy zawartość img, żeby nie stracić tekstu i wzorów.
+            if list(child.children):
+                parts.append(extract_text_with_math(child))
         elif hasattr(child, 'children'):
             parts.append(extract_text_with_math(child))
         else:
@@ -338,13 +343,24 @@ def extract_html_with_math(element, download_imgs=True) -> str:
                     src = local  # np. "zi_images/abc123.gif"
 
             alt_esc = htmllib.escape(alt)
-            return f'<img src="{src}" alt="{alt_esc}" class="zi-math-img">'
+            img_html = f'<img src="{src}" alt="{alt_esc}" class="zi-math-img">'
+            # zadania.info używa niestandardowego </img>, przez co BeautifulSoup
+            # traktuje kolejne elementy (tekst "i", drugi wzór) jako DZIECI <img>.
+            # Musimy je przetworzyć i dołączyć po tagu <img>.
+            children_html = ''.join(process_node(c) for c in node.children)
+            return img_html + children_html
 
         if tag in ('script', 'style', 'head', 'nav', 'footer', 'header'):
             return ''
 
         inner = ''.join(process_node(c) for c in node.children)
-        if tag in ('p', 'div', 'li', 'tr', 'h1', 'h2', 'h3', 'h4', 'h5'):
+        if tag == 'div':
+            classes = node.get('class', [])
+            s = inner.strip()
+            if 'latex__math-display' in classes:
+                return f'<div class="zi-display-math">{s}</div>' if s else ''
+            return (s + '<br>') if s else ''
+        if tag in ('p', 'li', 'tr', 'h1', 'h2', 'h3', 'h4', 'h5'):
             s = inner.strip()
             return (s + '<br>') if s else ''
         if tag == 'br':

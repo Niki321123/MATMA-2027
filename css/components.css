@@ -348,6 +348,21 @@
   max-height: 2.5em;
 }
 
+/* Blokowe równania (latex__math-display) — wyśrodkowane, pełna wysokość */
+.zi-display-math {
+  display: block;
+  text-align: center;
+  margin: 8px 2px;
+  overflow-x: auto;
+}
+.zi-display-math .zi-math-img {
+  max-height: none;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  margin: 4px auto;
+}
+
 /* Rozwiązanie — większe obrazki */
 .zi-solution-text .zi-math-img {
   max-height: 2em;
